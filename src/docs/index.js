@@ -9,7 +9,7 @@ import Store from './store';
 import App from './app';
 
 //
-import './assert/docs.scss';
+import './asset/docs.scss';
 
 // 路由配置
 const RouterConfig = {

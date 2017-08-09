@@ -11,7 +11,7 @@ import Store from './store';
 import App from './app';
 
 //
-import './assert/demo.scss';
+import './asset/demo.scss';
 
 // 路由配置
 const RouterConfig = {
