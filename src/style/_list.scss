@@ -1,0 +1,21 @@
+@import "base";
+
+.zv-list
+{
+
+
+    .zv-item
+    {
+        //padding: 10px;
+
+
+        &.item-right
+        {
+            @extend .text-right;
+        }
+
+
+    }
+
+
+}

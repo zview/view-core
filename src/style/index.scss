@@ -1,7 +1,15 @@
 @import "./fa/font-awesome.css";
 @import "./ionic/ionic.css";
 
+//
 @import "variables";
 @import "mixins";
+//@import "color";
 @import "font";
 @import "animation";
+
+//
+@import "page";
+@import "base";
+@import "list";
+@import "input";

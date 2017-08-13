@@ -1,0 +1,52 @@
+@import "base";
+
+
+.zv-input
+{
+    &.light
+    {
+        color: $_light;
+    }
+    &.stable
+    {
+        color: $_stable;
+    }
+    &.positive
+    {
+        color: $_positive;
+    }
+    &.calm
+    {
+        color: $_calm;
+    }
+    &.balanced
+    {
+        color: $_balanced;
+    }
+    &.energized
+    {
+        color: $_energized;
+    }
+    &.assertive
+    {
+        color: $_assertive;
+    }
+    &.royal
+    {
+        color: $_royal;
+    }
+    &.dark
+    {
+        color: $_dark;
+    }
+
+
+
+}
+
+.input-error
+{
+
+    @include error();
+    @include border-radius(10px);
+}

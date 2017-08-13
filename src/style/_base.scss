@@ -1,0 +1,33 @@
+@import "variables";
+@import "mixins";
+
+
+//---------------------------基础变量---------------------------//
+
+$base-common-color: $_positive;
+$base-cell-height: $list-item-height;
+$base-border-style: dotted;
+
+//---------------------------全局样式---------------------------//
+
+h3
+{
+    color: lighten($base-common-color, 10%);
+    background: $base-common-color;
+    border: 1px solid darken($base-common-color, 5%);
+    //@include text3d($_energized);
+}
+
+//---------------------------基础样式---------------------------//
+
+.text-center
+{
+    text-align: center;
+}
+
+.text-right
+{
+    text-align: right;
+}
+
+//---------------------------Comment---------------------------//

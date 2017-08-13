@@ -1,0 +1,525 @@
+//---------------------------216安全颜色---------------------------//
+/*
+网页安全色是当红、绿、蓝颜色数字信号值（DAC Count）为0、51、102、153、204、255时构成的颜色组合，
+它一共有 6 * 6 * 6 = 216 种颜色
+*/
+
+$color_s0000: #000000;
+$color_s0001: #000033;
+$color_s0002: #000066;
+$color_s0003: #000099;
+$color_s0004: #0000cc;
+$color_s0005: #0000ff;
+
+$color_s0010: #003300;
+$color_s0011: #003333;
+$color_s0012: #003366;
+$color_s0013: #003399;
+$color_s0014: #0033cc;
+$color_s0015: #0033ff;
+
+
+
+$color_s0340: #ffcc00;
+$color_s0341: #ffcc33;
+$color_s0342: #ffcc66;
+$color_s0343: #ffcc99;
+$color_s0344: #ffcccc;
+$color_s0345: #ffccff;
+
+$color_s0350: #ffff00;
+$color_s0351: #ffff33;
+$color_s0352: #ffff66;
+$color_s0353: #ffff99;
+$color_s0354: #ffffcc;
+$color_s0355: #ffffff;
+
+//---------------------------色彩体系1---------------------------//
+
+
+$color_lightpink	    	        :#ffb6c1 !default; //255,182,193                                浅粉红
+$color_pink	        	            :#ffc0cb !default; //255,192,203                          		粉红
+$color_crimson	                    :#dc143c !default; //220,20,60                                  深红(猩红)
+$color_lavenderblush		        :#fff0f5 !default; //255,240,245                                淡紫红
+$color_palevioletred		    	:#db7093 !default; //219,112,147                                弱紫罗兰红
+$color_hotpink	            	    :#ff69b4 !default; //255,105,180                                热情的粉红
+$color_deeppink	    	      	    :#ff1493 !default; //255,20,147                                 深粉红
+$color_mediumvioletred	    	    :#c71585 !default; //199,21,133                                 中紫罗兰红
+$color_orchid	            		:#da70d6 !default; //218,112,214                                暗紫色(兰花紫)
+$color_thistle	                    :#d8bfd8 !default; //216,191,216                                蓟色
+$color_plum	        	      	    :#dda0dd !default; //221,160,221                                洋李色(李子紫)
+$color_violet	              	    :#ee82ee !default; //238,130,238                                紫罗兰
+$color_magenta	                    :#ff00ff !default; //255,0,255                                  洋红(玫瑰红)
+$color_fuchsia	                    :#ff00ff !default; //255,0,255                                  紫红(灯笼海棠)
+$color_darkmagenta	                :#8b008b !default; //139,0,139                                  深洋红
+$color_purple	                    :#800080 !default; //128,0,128                                  紫色
+$color_mediumorchid		            :#ba55d3 !default; //186,85,211                                 中兰花紫
+$color_darkviolet	                :#9400d3 !default; //148,0,211                                  暗紫罗兰
+$color_darkorchid	                :#9932cc !default; //153,50,204                                 暗兰花紫
+$color_indigo	                    :#4b0082 !default; //75,0,130                                   靛青/紫兰色
+$color_blueviolet	                :#8a2be2 !default; //138,43,226                                 蓝紫罗兰
+$color_mediumpurple		      	    :#9370db !default; //147,112,219                                中紫色
+$color_mediumslateblue	    	    :#7b68ee !default; //123,104,238                                中暗蓝色(中板岩蓝)
+$color_slateblue	    	        :#6a5acd !default; //106,90,205                                 石蓝色(板岩蓝)
+$color_darkslateblue		        :#483d8b !default; //72,61,139                                  暗灰蓝色(暗板岩蓝)
+$color_lavender	    	            :#e6e6fa !default; //230,230,250                                淡紫色(熏衣草淡紫)
+$color_ghostwhite	          	    :#f8f8ff !default; //248,248,255                                幽灵白
+$color_blue	        	            :#0000ff !default; //0,0,255                                    纯蓝
+$color_mediumblue	          	    :#0000cd !default; //0,0,205                                    中蓝色
+$color_midnightblue		      	    :#191970 !default; //25,25,112                                  午夜蓝
+$color_darkblue	    	      	    :#00008b !default; //0,0,139                                    暗蓝色
+$color_navy	        	      	    :#000080 !default; //0,0,128                                    海军蓝
+$color_royalblue	    	        :#4169e1 !default; //65,105,225                                 皇家蓝/宝蓝
+$color_cornflowerblue	            :#6495ed !default; //100,149,237                                矢车菊蓝
+$color_lightsteelblue	      	    :#b0c4de !default; //176,196,222                                亮钢蓝
+$color_lightslategray	      	    :#778899 !default; //119,136,153                                亮蓝灰(亮石板灰)
+$color_slategray	    	        :#708090 !default; //112,128,144                                灰石色(石板灰)
+$color_dodgerblue	          	    :#1e90ff !default; //30,144,255                                 闪兰色(道奇蓝)
+$color_aliceblue	    	        :#f0f8ff !default; //240,248,255                                爱丽丝蓝
+$color_steelblue	    	        :#4682b4 !default; //70,130,180                                 钢蓝/铁青
+$color_lightskyblue		            :#87cefa !default; //135,206,250                                亮天蓝色
+$color_skyblue	                    :#87ceeb !default; //135,206,235                                天蓝色
+$color_deepskyblue	                :#00bfff !default; //0,191,255                                  深天蓝
+$color_lightblue	    	        :#add8e6 !default; //173,216,230                                亮蓝
+$color_powderblue	          	    :#b0e0e6 !default; //176,224,230                                粉蓝色(火药青)
+$color_cadetblue	    	        :#5f9ea0 !default; //95,158,160                                 军兰色(军服蓝)
+$color_azure	        	        :#f0ffff !default; //240,255,255                                蔚蓝色
+$color_lightcyan	    	        :#e0ffff !default; //224,255,255                                淡青色
+$color_paleturquoise		        :#afeeee !default; //175,238,238                                弱绿宝石
+$color_cyan	        	            :#00ffff !default; //0,255,255                                  青色
+$color_aqua	        	      	    :#00ffff !default; //0,255,255                                  浅绿色(水色)
+$color_darkturquoise		        :#00ced1 !default; //0,206,209                                  暗绿宝石
+$color_darkslategray		        :#2f4f4f !default; //47,79,79                                   暗瓦灰色(暗石板灰)
+$color_darkcyan	    	      	    :#008b8b !default; //0,139,139                                  暗青色
+$color_teal	        	      	    :#008080 !default; //0,128,128                                  水鸭色
+$color_mediumturquoise	            :#48d1cc !default; //72,209,204                                 中绿宝石
+$color_lightseagreen		        :#20b2aa !default; //32,178,170                                 浅海洋绿
+$color_turquoise	    	        :#40e0d0 !default; //64,224,208                                 绿宝石
+$color_aquamarine	                :#7fffd4 !default; //127,255,212                                宝石碧绿
+$color_mediumaquamarine	            :#66cdaa !default; //102,205,170                                中宝石碧绿
+$color_mediumspringgreen	        :#00fa9a !default; //0,250,154                                  中春绿色
+$color_mintcream	    	        :#f5fffa !default; //245,255,250                                薄荷奶油
+$color_springgreen	                :#00ff7f !default; //0,255,127                                  春绿色
+$color_mediumseagreen	            :#3cb371 !default; //60,179,113                                 中海洋绿
+$color_seagreen	    	      	    :#2e8b57 !default; //46,139,87                                  海洋绿
+$color_honeydew	    	            :#f0fff0 !default; //240,255,240                                蜜色(蜜瓜色)
+$color_lightgreen	          	    :#90ee90 !default; //144,238,144                                淡绿色
+$color_palegreen	    	        :#98fb98 !default; //152,251,152                                弱绿色
+$color_darkseagreen		            :#8fbc8f !default; //143,188,143                                暗海洋绿
+$color_limegreen	    	        :#32cd32 !default; //50,205,50                                  闪光深绿
+$color_lime	        	      	    :#00ff00 !default; //0,255,0                                    闪光绿
+$color_forestgreen	                :#228b22 !default; //34,139,34                                  森林绿
+$color_green	        	        :#008000 !default; //0,128,0                                    纯绿
+$color_darkgreen	    	        :#006400 !default; //0,100,0                                    暗绿色
+$color_chartreuse	          	    :#7fff00 !default; //127,255,0                                  黄绿色(查特酒绿)
+$color_lawngreen	    	        :#7cfc00 !default; //124,252,0                                  草绿色(草坪绿_
+$color_greenyellow	                :#adff2f !default; //173,255,47                                 绿黄色
+$color_darkolivegreen	            :#556b2f !default; //85,107,47                                  暗橄榄绿
+$color_yellowgreen	                :#9acd32 !default; //154,205,50                                 黄绿色
+$color_olivedrab	    	        :#6b8e23 !default; //107,142,35                                 橄榄褐色
+$color_beige	        	        :#f5f5dc !default; //245,245,220                                米色/灰棕色
+$color_lightgoldenrodyellow		    :#fafad2 !default; //250,250,210                                亮菊黄
+$color_ivory	        	        :#fffff0 !default; //255,255,240                                象牙色
+$color_lightyellow	                :#ffffe0 !default; //255,255,224                                浅黄色
+$color_yellow	                    :#ffff00 !default; //255,255,0                                  纯黄
+$color_olive	        	        :#808000 !default; //128,128,0                                  橄榄
+$color_darkkhaki	    	  	    :#bdb76b !default; //189,183,107                                暗黄褐色(深卡叽布)
+$color_lemonchiffon		            :#fffacd !default; //255,250,205                                柠檬绸
+$color_palegoldenrod		        :#eee8aa !default; //238,232,170                                灰菊黄(苍麒麟色)
+$color_khaki	        	        :#f0e68c !default; //240,230,140                                黄褐色(卡叽布)
+$color_gold	        	            :#ffd700 !default; //255,215,0                                  金色
+$color_cornsilk	    	            :#fff8dc !default; //255,248,220                                玉米丝色
+$color_goldenrod	    	        :#daa520 !default; //218,165,32                                 金菊黄
+$color_darkgoldenrod		        :#b8860b !default; //184,134,11                                 暗金菊黄
+$color_floralwhite	                :#fffaf0 !default; //255,250,240                                花的白色
+$color_oldlace	                    :#fdf5e6 !default; //253,245,230                                老花色(旧蕾丝)
+$color_wheat	        	        :#f5deb3 !default; //245,222,179                                浅黄色(小麦色)
+$color_moccasin	    	            :#ffe4b5 !default; //255,228,181                                鹿皮色(鹿皮靴)
+$color_orange	                    :#ffa500 !default; //255,165,0                                  橙色
+$color_papayawhip	                :#ffefd5 !default; //255,239,213                                番木色(番木瓜)
+$color_blanchedalmond	            :#ffebcd !default; //255,235,205                                白杏色
+$color_navajowhite	                :#ffdead !default; //255,222,173                                纳瓦白(土著白)
+$color_antiquewhite		            :#faebd7 !default; //250,235,215                                古董白
+$color_tan	                        :#d2b48c !default; //210,180,140                                茶色
+$color_burlywood	    	        :#deb887 !default; //222,184,135                                硬木色
+$color_bisque	                    :#ffe4c4 !default; //255,228,196                                陶坯黄
+$color_darkorange	                :#ff8c00 !default; //255,140,0                                  深橙色
+$color_linen	        	        :#faf0e6 !default; //250,240,230                                亚麻布
+$color_peru	        	            :#cd853f !default; //205,133,63                                 秘鲁色
+$color_peachpuff	    	        :#ffdab9 !default; //255,218,185                                桃肉色
+$color_sandybrown	                :#f4a460 !default; //244,164,96                                 沙棕色
+$color_chocolate	    	        :#d2691e !default; //210,105,30                                 巧克力色
+$color_saddlebrown	                :#8b4513 !default; //139,69,19                                  重褐色(马鞍棕色)
+$color_seashell	    	      	    :#fff5ee !default; //255,245,238                                海贝壳
+$color_sienna	                    :#a0522d !default; //160,82,45                                  黄土赭色
+$color_lightsalmon	                :#ffa07a !default; //255,160,122                                浅鲑鱼肉色
+$color_coral	        	        :#ff7f50 !default; //255,127,80                                 珊瑚
+$color_orangered	    	        :#ff4500 !default; //255,69,0                                   橙红色
+$color_darksalmon	                :#e9967a !default; //233,150,122                                深鲜肉/鲑鱼色
+$color_tomato	              	    :#ff6347 !default; //255,99,71                                  番茄红
+$color_mistyrose	    	    	:#ffe4e1 !default; //255,228,225                                浅玫瑰色(薄雾玫瑰)
+$color_salmon	                    :#fa8072 !default; //250,128,114                                鲜肉/鲑鱼色
+$color_snow	        	      	    :#fffafa !default; //255,250,250                                雪白色
+$color_lightcoral	                :#f08080 !default; //240,128,128                                淡珊瑚色
+$color_rosybrown	    	        :#bc8f8f !default; //188,143,143                                玫瑰棕色
+$color_indianred	    	        :#cd5c5c !default; //205,92,92                                  印度红
+$color_red	                        :#ff0000 !default; //255,0,0                                    纯红
+$color_brown	        	        :#a52a2a !default; //165,42,42                                  棕色
+$color_firebrick	    	        :#b22222 !default; //178,34,34                                  火砖色(耐火砖)
+$color_darkred	                    :#8b0000 !default; //139,0,0                                    深红色
+$color_maroon	                    :#800000 !default; //128,0,0                                    栗色
+$color_white	        	        :#ffffff !default; //255,255,255                                纯白
+$color_whitesmoke	                :#f5f5f5 !default; //245,245,245                                白烟
+$color_gainsboro	    	        :#dcdcdc !default; //220,220,220                                淡灰色(庚斯博罗灰)
+$color_lightgrey	    	        :#d3d3d3 !default; //211,211,211                                浅灰色
+$color_silver	                    :#c0c0c0 !default; //192,192,192                                银灰色
+$color_darkgray	    	            :#a9a9a9 !default; //169,169,169                                深灰色
+$color_gray	        	            :#808080 !default; //128,128,128                                灰色
+$color_dimgray	                    :#696969 !default; //105,105,105                                暗淡的灰色
+$color_black	        	        :#000000 !default; //0,0,0                                      纯黑
+
+
+//---------------------------色彩体系2---------------------------//
+
+//
+$color_1000:               #000000 !default;
+$color_1001:               #272727 !default;
+$color_1002:               #3c3c3c !default;
+$color_1003:               #4f4f4f !default;
+$color_1004:               #5b5b5b !default;
+$color_1005:               #6c6c6c !default;
+$color_1006:               #7b7b7b !default;
+$color_1007:               #8e8e8e !default;
+$color_1008:               #9d9d9d !default;
+$color_1009:               #adadad !default;
+$color_100a:               #bebebe !default;
+$color_100b:               #d0d0d0 !default;
+$color_100c:               #e0e0e0 !default;
+$color_100d:               #f0f0f0 !default;
+$color_100e:               #fcfcfc !default;
+$color_100f:               #ffffff !default;
+
+$color_1100:               #000079 !default;
+$color_1101:               #000093 !default;
+$color_1102:               #0000c6 !default;
+$color_1103:               #0000c6 !default;
+$color_1104:               #0000e3 !default;
+$color_1105:               #2828ff !default;
+$color_1106:               #4a4aff !default;
+$color_1107:               #6a6aff !default;
+$color_1108:               #7d7dff !default;
+$color_1109:               #9393ff !default;
+$color_110a:               #aaaaff !default;
+$color_110b:               #b9b9ff !default;
+$color_110c:               #ceceff !default;
+$color_110d:               #ddddff !default;
+$color_110e:               #ececff !default;
+$color_110f:               #fbfbff !default;
+
+$color_1200:               #467500 !default;
+$color_1201:               #548c00 !default;
+$color_1202:               #64a600 !default;
+$color_1203:               #73bf00 !default;
+$color_1204:               #82d900 !default;
+$color_1205:               #8cea00 !default;
+$color_1206:               #9aff02 !default;
+$color_1207:               #a8ff24 !default;
+$color_1208:               #b7ff4a !default;
+$color_1209:               #c2ff68 !default;
+$color_120a:               #ccff80 !default;
+$color_120b:               #d3ff93 !default;
+$color_120c:               #deffac !default;
+$color_120d:               #e8ffc4 !default;
+$color_120e:               #efffd7 !default;
+$color_120f:               #f5ffe8 !default;
+
+$color_1300:               #613030 !default;
+$color_1300:               #743a3a !default;
+$color_1300:               #804040 !default;
+$color_1300:               #984b4b !default;
+$color_1300:               #ad5a5a !default;
+$color_1300:               #b87070 !default;
+$color_1300:               #c48888 !default;
+$color_1300:               #cf9e9e !default;
+$color_1300:               #d9b3b3 !default;
+$color_1300:               #e1c4c4 !default;
+$color_1300:               #ebd6d6 !default;
+$color_1300:               #f2e6e6 !default;
+
+//
+
+$color_1400:               #2f0000 !default;
+$color_1400:               #4d0000 !default;
+$color_1400:               #600000 !default;
+$color_1400:               #750000 !default;
+$color_1400:               #930000 !default;
+$color_1400:               #ae0000 !default;
+$color_1400:               #ce0000 !default;
+$color_1400:               #ea0000 !default;
+$color_1400:               #ff0000 !default;
+$color_1400:               #ff2d2d !default;
+$color_1400:               #ff5151 !default;
+$color_1400:               #ff7575 !default;
+$color_1400:               #ff9797 !default;
+$color_1400:               #ffb5b5 !default;
+$color_1400:               #ffd2d2 !default;
+$color_1400:               #ffecec !default;
+
+$color_1500:               #000079 !default;
+$color_1500:               #003d79 !default;
+$color_1500:               #004b97 !default;
+$color_1500:               #005ab5 !default;
+$color_1500:               #0066cc !default;
+$color_1500:               #0072e3 !default;
+$color_1500:               #0080ff !default;
+$color_1500:               #2894ff !default;
+$color_1500:               #46a3ff !default;
+$color_1500:               #66b3ff !default;
+$color_1500:               #84c1ff !default;
+$color_1500:               #97cbff !default;
+$color_1500:               #acd6ff !default;
+$color_1500:               #c4e1ff !default;
+$color_1500:               #d2e9ff !default;
+$color_1500:               #ecf5ff !default;
+
+$color_1600:               #424200 !default;
+$color_1600:               #5b5b00 !default;
+$color_1600:               #737300 !default;
+$color_1600:               #8c8c00 !default;
+$color_1600:               #a6a600 !default;
+$color_1600:               #c4c400 !default;
+$color_1600:               #e1e100 !default;
+$color_1600:               #f9f900 !default;
+$color_1600:               #ffff37 !default;
+$color_1600:               #ffff6f !default;
+$color_1600:               #ffff93 !default;
+$color_1600:               #ffffaa !default;
+$color_1600:               #ffffb9 !default;
+$color_1600:               #ffffce !default;
+$color_1600:               #ffffdf !default;
+$color_1600:               #fffff4 !default;
+
+$color_1700:               #616130 !default;
+$color_1700:               #707038 !default;
+$color_1700:               #808040 !default;
+$color_1700:               #949449 !default;
+$color_1700:               #a5a552 !default;
+$color_1700:               #afaf61 !default;
+$color_1700:               #b9b973 !default;
+$color_1700:               #c2c287 !default;
+$color_1700:               #cdcd9a !default;
+$color_1700:               #d6d6ad !default;
+$color_1700:               #dedebe !default;
+$color_1700:               #e8e8d0 !default;
+
+//
+$color_1800:               #600030 !default;
+$color_1800:               #820041 !default;
+$color_1800:               #9f0050 !default;
+$color_1800:               #bf0060 !default;
+$color_1800:               #d9006c !default;
+$color_1800:               #f00078 !default;
+$color_1800:               #ff0080 !default;
+$color_1800:               #ff359a !default;
+$color_1800:               #ff60af !default;
+$color_1800:               #ff79bc !default;
+$color_1800:               #ff95ca !default;
+$color_1800:               #ffaad5 !default;
+$color_1800:               #ffc1e0 !default;
+$color_1800:               #ffd9ec !default;
+$color_1800:               #ffecf5 !default;
+$color_1800:               #fff7fb !default;
+
+$color_1900:               #003e3e !default;
+$color_1900:               #005757 !default;
+$color_1900:               #007979 !default;
+$color_1900:               #009393 !default;
+$color_1900:               #00aeae !default;
+$color_1900:               #00caca !default;
+$color_1900:               #00e3e3 !default;
+$color_1900:               #00ffff !default;
+$color_1900:               #4dffff !default;
+$color_1900:               #80ffff !default;
+$color_1900:               #a6ffff !default;
+$color_1900:               #bbffff !default;
+$color_1900:               #caffff !default;
+$color_1900:               #d9ffff !default;
+$color_1900:               #ecffff !default;
+$color_1900:               #fdffff !default;
+
+$color_2000:               #5b4b00 !default;
+$color_2000:               #796400 !default;
+$color_2000:               #977c00 !default;
+$color_2000:               #ae8f00 !default;
+$color_2000:               #c6a300 !default;
+$color_2000:               #d9b300 !default;
+$color_2000:               #eac100 !default;
+$color_2000:               #ffd306 !default;
+$color_2000:               #ffdc35 !default;
+$color_2000:               #ffe153 !default;
+$color_2000:               #ffe66f !default;
+$color_2000:               #ffed97 !default;
+$color_2000:               #fff0ac !default;
+$color_2000:               #fff4c1 !default;
+$color_2000:               #fff8d7 !default;
+$color_2000:               #fffcec !default;
+
+$color_2100:               #336666 !default;
+$color_2100:               #3d7878 !default;
+$color_2100:               #408080 !default;
+$color_2100:               #4f9d9d !default;
+$color_2100:               #5cadad !default;
+$color_2100:               #6fb7b7 !default;
+$color_2100:               #81c0c0 !default;
+$color_2100:               #95caca !default;
+$color_2100:               #a3d1d1 !default;
+$color_2100:               #b3d9d9 !default;
+$color_2100:               #c4e1e1 !default;
+$color_2100:               #d1e9e9 !default;
+
+//
+$color_2200:               #460046 !default;
+$color_2200:               #5e005e !default;
+$color_2200:               #750075 !default;
+$color_2200:               #930093 !default;
+$color_2200:               #ae00ae !default;
+$color_2200:               #d200d2 !default;
+$color_2200:               #e800e8 !default;
+$color_2200:               #ff00ff !default;
+$color_2200:               #ff44ff !default;
+$color_2200:               #ff77ff !default;
+$color_2200:               #ff8eff !default;
+$color_2200:               #ffa6ff !default;
+$color_2200:               #ffbfff !default;
+$color_2200:               #ffd0ff !default;
+$color_2200:               #ffe6ff !default;
+$color_2200:               #fff7ff !default;
+
+$color_2300:               #006030 !default;
+$color_2300:               #01814a !default;
+$color_2300:               #019858 !default;
+$color_2300:               #01b468 !default;
+$color_2300:               #02c874 !default;
+$color_2300:               #02df82 !default;
+$color_2300:               #02f78e !default;
+$color_2300:               #1afd9c !default;
+$color_2300:               #4efeb3 !default;
+$color_2300:               #7afec6 !default;
+$color_2300:               #96fed1 !default;
+$color_2300:               #adfedc !default;
+$color_2300:               #c1ffe4 !default;
+$color_2300:               #d7ffee !default;
+$color_2300:               #e8fff5 !default;
+$color_2300:               #fbfffd !default;
+
+$color_2400:               #844200 !default;
+$color_2400:               #9f5000 !default;
+$color_2400:               #bb5e00 !default;
+$color_2400:               #d26900 !default;
+$color_2400:               #ea7500 !default;
+$color_2400:               #ff8000 !default;
+$color_2400:               #ff9224 !default;
+$color_2400:               #ffa042 !default;
+$color_2400:               #ffaf60 !default;
+$color_2400:               #ffbb77 !default;
+$color_2400:               #ffc78e !default;
+$color_2400:               #ffd1a4 !default;
+$color_2400:               #ffdcb9 !default;
+$color_2400:               #ffe4ca !default;
+$color_2400:               #ffeedd !default;
+$color_2400:               #fffaf4 !default;
+
+$color_2500:               #484891 !default;
+$color_2500:               #5151a2 !default;
+$color_2500:               #5a5aad !default;
+$color_2500:               #7373b9 !default;
+$color_2500:               #8080c0 !default;
+$color_2500:               #9999cc !default;
+$color_2500:               #a6a6d2 !default;
+$color_2500:               #b8b8dc !default;
+$color_2500:               #c7c7e2 !default;
+$color_2500:               #d8d8eb !default;
+$color_2500:               #e6e6f2 !default;
+$color_2500:               #f3f3fa !default;
+
+//
+$color_2600:               #28004d !default;
+$color_2600:               #3a006f !default;
+$color_2600:               #4b0091 !default;
+$color_2600:               #5b00ae !default;
+$color_2600:               #6f00d2 !default;
+$color_2600:               #8600ff !default;
+$color_2600:               #921aff !default;
+$color_2600:               #9f35ff !default;
+$color_2600:               #b15bff !default;
+$color_2600:               #be77ff !default;
+$color_2600:               #ca8eff !default;
+$color_2600:               #d3a4ff !default;
+$color_2600:               #dcb5ff !default;
+$color_2600:               #e6caff !default;
+$color_2600:               #f1e1ff !default;
+$color_2600:               #faf4ff !default;
+
+$color_2700:               #006000 !default;
+$color_2700:               #007500 !default;
+$color_2700:               #009100 !default;
+$color_2700:               #00a600 !default;
+$color_2700:               #00bb00 !default;
+$color_2700:               #00db00 !default;
+$color_2700:               #00ec00 !default;
+$color_2700:               #28ff28 !default;
+$color_2700:               #53ff53 !default;
+$color_2700:               #79ff79 !default;
+$color_2700:               #93ff93 !default;
+$color_2700:               #a6ffa6 !default;
+$color_2700:               #bbffbb !default;
+$color_2700:               #ceffce !default;
+$color_2700:               #dfffdf !default;
+$color_2700:               #f0fff0 !default;
+
+$color_2800:               #642100 !default;
+$color_2800:               #842b00 !default;
+$color_2800:               #a23400 !default;
+$color_2800:               #bb3d00 !default;
+$color_2800:               #d94600 !default;
+$color_2800:               #f75000 !default;
+$color_2800:               #ff5809 !default;
+$color_2800:               #ff8040 !default;
+$color_2800:               #ff8f59 !default;
+$color_2800:               #ff9d6f !default;
+$color_2800:               #ffad86 !default;
+$color_2800:               #ffbd9d !default;
+$color_2800:               #ffcbb3 !default;
+$color_2800:               #ffdac8 !default;
+$color_2800:               #ffe6d9 !default;
+$color_2800:               #fff3ee !default;
+
+$color_2900:               #6c3365 !default;
+$color_2901:               #7e3d76 !default;
+$color_2902:               #8f4586 !default;
+$color_2903:               #9f4d95 !default;
+$color_2904:               #ae57a4 !default;
+$color_2905:               #b766ad !default;
+$color_2906:               #c07ab8 !default;
+$color_2907:               #ca8ec2 !default;
+$color_2908:               #d2a2cc !default;
+$color_2909:               #dab1d5 !default;
+$color_290a:               #e2c2de !default;
+$color_290b:               #ebd3e8 !default;
+
+
+//---------------------------色彩函数---------------------------//
+
+/*
+lighten($color, 10%); // returns a color 10% lighter than $color
+darken($color, 10%);  // returns a color 10% darker than $color
+
+saturate($color, 10%);   // returns a color 10% more saturated than $color
+desaturate($color, 10%); // returns a color 10% less saturated than $color
+
+grayscale($color);  // returns grayscale of $color
+complement($color); // returns complement color of $color
+invert($color);     // returns inverted color of $color
+
+mix($color1, $color2, 50%); // mix $color1 with $color2 with a weight of 50%
+*/

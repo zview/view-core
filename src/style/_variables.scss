@@ -1,0 +1,86 @@
+
+
+//---------------------------项目定义---------------------------//
+
+//颜色 light, stable, positive, calm, balanced, energized, assertive, royal, dark
+//字体颜色 .{color}
+//背景颜色 .{color}-bg
+//边框颜色 .{color}-border
+
+
+//---------------------------色彩体系---------------------------//
+
+// Black系
+$_black:                           #000000 !default;
+$_dimgray:                         #696969 !default;
+$_gray:                            #808080 !default;
+$_darkgray:                        #a9a9a9 !default;
+$_silver:                          #c0c0c0 !default;
+$_lightgrey:                       #d3d3d3 !default;
+$_gainsboro:                       #dcdcdc !default;
+$_whitesmoke:                      #f5f5f5 !default;
+$_white:                           #ffffff !default;
+
+
+// Ionic系
+$_light:                           #ffffff !default;
+$_stable:                          #f5f5f5 !default; //#f8f8f8 !default;
+$_positive:                        #4a90e2 !default; //#387ef5 !default;
+$_calm:                            #11c1f3 !default; //#11c1f3 !default;
+$_balanced:                        #44cc00 !default; //#33cd5f !default;
+$_energized:                       #ffbd17 !default; //#ffc900 !default;
+$_assertive:                       #ea5a49 !default; //#ef473a !default;
+$_royal:                           #b5b5b5 !default; //#886aea !default;
+$_dark:                            #484746 !default; //#444444 !default;
+
+
+//---------------------------尺寸体系---------------------------//
+
+
+//运算符
+
+/*
+margin: (14px/2);
+top: 50px + 100px;
+right: 100px - 50px;
+left: 10px * 10;
+*/
+
+
+//
+$header-height:                   44px;
+$footer-height:                   44px;
+
+//
+$navbar-height:                   44px;
+$tabbar-height:                   44px;
+
+//
+$list-item-height:                24px;
+
+//
+$default-padding:                 10px;
+
+//
+$default-page-bgcolor:            #f5f5f5;
+
+//
+$default-border-color:            #dddddd;
+
+
+//---------------------------动画定义---------------------------//
+
+//
+$ios-transition-duration:              500ms !default;
+$ios-transition-timing-function:       cubic-bezier(.36, .66, .04, 1) !default;
+
+$android-transition-duration:          200ms !default;
+$android-transition-timing-function:   cubic-bezier(0.4, 0.6, 0.2, 1) !default;
+
+//---------------------------字体定义---------------------------//
+
+//
+$font-stack: "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+
+
+//---------------------------Comment---------------------------//
