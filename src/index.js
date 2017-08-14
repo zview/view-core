@@ -28,8 +28,8 @@ import { Row, Col } from './component/grid';
 import { Navbar } from './component/navbar';
 import { Tabbar } from './component/tabbar';
 import { Page, Content, Header, Footer, SubHeader, SubFooter } from './component/container';
+import { Tabs, TabsStriped } from './component/tabs';
 import ButtonBar from './component/buttonbar';
-import Tabs from './component/tabs';
 
 //Other
 import Editor from './component/editor';
@@ -87,6 +87,7 @@ export default {
     Vue.component('SubFooter', SubFooter);
     Vue.component('ButtonBar', ButtonBar);
     Vue.component('Tabs', Tabs);
+    Vue.component('TabsStriped', TabsStriped);
 
 
     //Other

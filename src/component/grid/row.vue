@@ -15,19 +15,19 @@
     export default {
         name: 'Row',
         props: {
-            type: {
+            color: {
                 validator (value) {
-                    return oneOf(value, ['flex'], true);
+                    return insideIonic(value);
+                }
+            },
+            bgColor: {
+                validator (value) {
+                    return insideIonic(value);
                 }
             },
             align: {
                 validator (value) {
-                    return oneOf(value, ['top', 'middle', 'bottom'], true);
-                }
-            },
-            justify: {
-                validator (value) {
-                    return oneOf(value, ['start', 'end', 'center', 'space-around', 'space-between'], true);
+                    return oneOf(value, ['top', 'center', 'bottom'], true);
                 }
             },
             gutter: {
@@ -40,10 +40,10 @@
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: !this.type,
-                        [`${prefixCls}-${this.type}`]: !!this.type,
-                        [`${prefixCls}-${this.type}-${this.align}`]: !!this.align,
-                        [`${prefixCls}-${this.type}-${this.justify}`]: !!this.justify,
+                        [`${prefixCls}`]: true,
+                        [`row-${this.align}`]: !!this.align,
+                        [`${this.color}`]: !!this.color,
+                        [`${this.bgColor}-bg`]: !!this.bgColor,
                         [`${this.className}`]: !!this.className
                     }
                 ];

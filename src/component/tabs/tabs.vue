@@ -1,6 +1,6 @@
 <template>
 
-    <div :class="classes">
+    <div class="tabs" :class="classes">
         <a class="tab-item" v-for="(option, index) in options" :key="index"
            :class="{'has-badge': option.badge && option.badge!='', 'active': value==option.id}">
             <i class="badge badge-assertive" v-if="option.badge && option.badge!=''">{{option.badge}}</i>
@@ -32,10 +32,6 @@
                     return insideIonic(value);
                 }
             },
-            isStriped: {
-                type: [Boolean, String],
-                defalut: false,
-            },
             isTop: {
                 type: [Boolean, String],
                 defalut: false,
@@ -59,8 +55,6 @@
                 return [
                     {
                         [`${prefixCls}`]: true,
-                        [`tabs`]: !this.isStriped,
-                        [`tabs-striped`]: !!this.isStriped,
                         [`tabs-top`]: !!this.isTop,
                         [`tabs-icon-only`]: !!this.isIconOnly,
                         [`tabs-icon-top`]: !!this.iconAlign && this.iconAlign=='top',

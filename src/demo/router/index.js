@@ -79,9 +79,9 @@ const routers = [
         component: (resolve) => require(['../page/page_tabs.vue'], resolve),
       },
       {
-        path: 'tabs2',
-        meta: { title: '标签页2' },
-        component: (resolve) => require(['../page/page_tabs2.vue'], resolve),
+        path: 'tabsstriped',
+        meta: { title: '标签页(下划线)' },
+        component: (resolve) => require(['../page/page_tabsstriped.vue'], resolve),
       },
 
       //Form

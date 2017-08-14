@@ -8,16 +8,29 @@
 
 <script>
 
+    import { oneOf, insideIonic } from '../../util/check';
+
     const prefixCls = 'zv-col';
 
     export default {
         name: 'Col',
         props: {
-            span: [Number, String],
-            order: [Number, String],
+            color: {
+                validator (value) {
+                    return insideIonic(value);
+                }
+            },
+            bgColor: {
+                validator (value) {
+                    return insideIonic(value);
+                }
+            },
+            align: {
+                validator (value) {
+                    return oneOf(value, ['top', 'center', 'bottom'], true);
+                }
+            },
             offset: [Number, String],
-            push: [Number, String],
-            pull: [Number, String],
             className: String,
             xs: [Number, Object],
             sm: [Number, Object],
@@ -34,11 +47,10 @@
                 let classList = [
                     `${prefixCls}`,
                     {
-                        [`${prefixCls}-span-${this.span}`]: this.span,
-                        [`${prefixCls}-order-${this.order}`]: this.order,
-                        [`${prefixCls}-offset-${this.offset}`]: this.offset,
-                        [`${prefixCls}-push-${this.push}`]: this.push,
-                        [`${prefixCls}-pull-${this.pull}`]: this.pull,
+                        [`col-offset-${this.offset}`]: this.offset,
+                        [`col-${this.align}`]: !!this.align,
+                        [`${this.color}`]: !!this.color,
+                        [`${this.bgColor}-bg`]: !!this.bgColor,
                         [`${this.className}`]: !!this.className
                     }
                 ];
@@ -64,8 +76,8 @@
                 let style = {};
                 if (this.gutter !== 0) {
                     style = {
-                        paddingLeft: this.gutter / 2 + 'px',
-                        paddingRight: this.gutter / 2 + 'px'
+                        marginLeft: this.gutter / 2 + 'px',
+                        marginRight: this.gutter / 2 + 'px'
                     };
                 }
 

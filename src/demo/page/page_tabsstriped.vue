@@ -1,8 +1,7 @@
 <template>
     <div class="page-tabs">
 
-        <!-- :is-striped="true"-->
-        <Tabs color="balanced" :is-icon-only="true" :is-top="true" :options="options"></Tabs>
+        <TabsStriped color="light" :options="options" :value="1"></TabsStriped>
 
         <Tabs :is-icon-only="true" :options="options2" :value="2"></Tabs>
 

@@ -29,7 +29,7 @@
             <Item @click.native="_on_goto_page('/demo/breadcrumb')" note="BreadCrumb">面包屑</Item>
             <Item @click.native="_on_goto_page('/demo/steps')" note="Steps">步骤条</Item>
             <Item @click.native="_on_goto_page('/demo/tabs')" note="Tabs">标签页</Item>
-            <Item @click.native="_on_goto_page('/demo/tabs2')" note="Tabs">标签页2</Item>
+            <Item @click.native="_on_goto_page('/demo/tabsstriped')" note="TabsStriped">标签页(下划线)</Item>
             <Item @click.native="_on_goto_page('/demo/loadingbar')" note="LoadingBar">加载进度条</Item>
             <Item @click.native="_on_goto_page('/demo/buttonbar')" note="ButtonBar">按钮栏</Item>
             <Item @click.native="_on_goto_page('/demo/toolbar')" note="ToolBar">工具栏</Item>
