@@ -67,6 +67,12 @@ const routers = [
         meta: { title: '列表' },
         component: (resolve) => require(['../page/page_list.vue'], resolve),
       },
+      //Navigator
+      {
+        path: 'buttonbar',
+        meta: { title: '按钮栏' },
+        component: (resolve) => require(['../page/page_buttonbar.vue'], resolve),
+      },
 
       //Form
       {
@@ -85,17 +91,45 @@ const routers = [
         component: (resolve) => require(['../page/page_check.vue'], resolve),
       },
       {
+        path: 'search',
+        meta: { title: '搜索框' },
+        component: (resolve) => require(['../page/page_search.vue'], resolve),
+      },
+      {
+        path: 'select',
+        meta: { title: '下拉框' },
+        component: (resolve) => require(['../page/page_select.vue'], resolve),
+      },
+      {
+        path: 'toggle',
+        meta: { title: '开关' },
+        component: (resolve) => require(['../page/page_toggle.vue'], resolve),
+      },
+      {
+        path: 'slider',
+        meta: { title: '滑块' },
+        component: (resolve) => require(['../page/page_slider.vue'], resolve),
+      },
+      {
         path: 'form',
         meta: { title: '表单' },
         component: (resolve) => require(['../page/page_form.vue'], resolve),
       },
 
-      //
+      //Other
+      {
+        path: 'editor',
+        meta: { title: '编辑器' },
+        component: (resolve) => require(['../page/page_editor.vue'], resolve),
+      },
+
+      //Directive
       {
         path: 'directive',
         meta: { title: '指令' },
         component: (resolve) => require(['../page/page_directive.vue'], resolve),
       },
+      //Filter
       {
         path: 'filter',
         meta: { title: '过滤器' },

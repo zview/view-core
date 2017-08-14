@@ -1,6 +1,6 @@
-export function oneOf (value, validList) {
-  for (let i = 0; i < validList.length; i++) {
-    if (value === validList[i]) {
+export function oneOf (value, list, ignore) {
+  for (let i = 0; i < list.length; i++) {
+    if ( (value === list[i]) || ((ignore === true) && (value === '')) ) {
       return true;
     }
   }
@@ -10,5 +10,5 @@ export function oneOf (value, validList) {
 export function insideIonic (value) {
   let list = ['light', 'stable',
     'positive', 'calm', 'balanced', 'energized', 'assertive', 'royal', 'dark'];
-  return oneOf(value, list);
+  return oneOf(value, list, true);
 }

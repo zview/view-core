@@ -1,6 +1,7 @@
 <template>
 
     <a class="button" :class="classes">
+        <!--<Icon :icon="icon" v-if="icon"></Icon>-->
         <slot></slot>
     </a>
 
@@ -11,7 +12,9 @@
     import { oneOf, insideIonic } from '../../util/check';
 
     const prefixCls = 'zv-button';
-    const ionCls = 'icon';
+    const faCls = 'fa';
+    const iconCls = 'icon';
+    const iconRightCls = 'icon-right';
 
     export default {
         name: 'Button',
@@ -23,13 +26,19 @@
             },
             type: {
                 validator (value) {
-                    return oneOf(value, ['clear', 'block', 'full', 'outline']);
+                    return oneOf(value, ['clear', 'block', 'full', 'outline'], true);
                 }
             },
             size: {
                 validator (value) {
-                    return oneOf(value, ['small', 'large']);
+                    return oneOf(value, ['small', 'large'], true);
                 }
+            },
+            iconAlign: {
+                validator (value) {
+                    return oneOf(value, ['left', 'right'], true);
+                },
+                default: 'left',
             },
             icon: [String, Number],
             className: String
@@ -42,7 +51,9 @@
                         [`button-${this.color}`]: !!this.color,
                         [`button-${this.type}`]: !!this.type,
                         [`button-${this.size}`]: !!this.size,
-                        [`${ionCls}`]: this.icon && this.icon.indexOf('ion-')==0,
+                        [`${faCls}`]: this.icon && this.icon.indexOf('fa-')==0,
+                        [`${iconCls}`]: !!this.icon,
+                        [`${iconRightCls}`]: this.iconAlign && this.iconAlign=='right',
                         [`${this.icon}`]: !!this.icon,
                         [`${this.className}`]: !!this.className
                     }

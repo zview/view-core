@@ -15,13 +15,24 @@ import Badge from './component/badge';
 import Input from './component/input';
 import Radio from './component/radio';
 import Check from './component/check';
+import Toggle from './component/toggle';
+import Select from './component/select';
+import Slider from './component/slider';
+import Search from './component/search';
 
 //Layout
 import { List, Item } from './component/list';
 import { Row, Col } from './component/grid';
+
+//Navigation
 import { Navbar } from './component/navbar';
 import { Tabbar } from './component/tabbar';
 import { Page, Content, Header, Footer, SubHeader, SubFooter } from './component/container';
+import ButtonBar from './component/buttonbar';
+
+//Other
+import Editor from './component/editor';
+
 
 //Directive
 import dragable from './directive/dragable';
@@ -58,6 +69,10 @@ export default {
     Vue.component('Input', Input);
     Vue.component('Radio', Radio);
     Vue.component('Check', Check);
+    Vue.component('Toggle', Toggle);
+    Vue.component('Select', Select);
+    Vue.component('Slider', Slider);
+    Vue.component('Search', Search);
 
 
     //Navigation
@@ -69,6 +84,10 @@ export default {
     Vue.component('Footer', Footer);
     Vue.component('SubHeader', SubHeader);
     Vue.component('SubFooter', SubFooter);
+    Vue.component('ButtonBar', ButtonBar);
+
+    //Other
+    Vue.component('Editor', Editor);
 
 
     //Directive

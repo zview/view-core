@@ -1,12 +1,10 @@
 <template>
 
-    <div class="list" :class="classes">
-        <div class="item item-divider" v-if="title">{{title}}</div>
-        <div class="item item-checkbox" v-for="(option, index) in options" :key="index">
-            <label class="checkbox" :for="index">
-                <input type="checkbox" :id="index" :value="option.value" v-model="val">
-            </label>
-            {{option.name}}
+    <div class="list">
+        <div class="item range" :class="item_classes">
+            <slot name="left"></slot>
+            <input type="range" :class="classes" :min="min" :max="max" v-model="val">
+            <slot name="right"></slot>
         </div>
     </div>
 
@@ -16,17 +14,14 @@
 
     import { oneOf, insideIonic } from '../../util/check';
 
-    const prefixCls = 'zv-check';
+    const prefixCls = 'zv-slider';
+    const prefixItemCls = 'zv-slider-item';
 
     export default {
-        name: 'Check',
+        name: 'Slider',
         props: {
-            options: {
-                type: Array,
-                required: true
-            },
             value: {
-                type: Array,
+                type: [Number, String],
                 required: true
             },
             color: {
@@ -34,12 +29,7 @@
                     return insideIonic(value);
                 }
             },
-            bgColor: {
-                validator (value) {
-                    return insideIonic(value);
-                }
-            },
-            title: String,
+            itemClassName: String,
             className: String
         },
         mounted: function() {
@@ -50,9 +40,16 @@
                 return [
                     {
                         [`${prefixCls}`]: true,
-                        [`${this.color}`]: !!this.color,
-                        [`${this.bgColor}-bg`]: !!this.bgColor,
                         [`${this.className}`]: !!this.className
+                    }
+                ];
+            },
+            item_classes () {
+                return [
+                    {
+                        [`${prefixItemCls}`]: true,
+                        [`range-${this.color}`]: !!this.color,
+                        [`${this.itemClassName}`]: !!this.itemClassName
                     }
                 ];
             },

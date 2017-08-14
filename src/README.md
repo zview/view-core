@@ -12,3 +12,10 @@ prop默认规则
 
 调用地方如  class-name='cls'
 组件实现为  className
+
+v-model
+
+相当于
+
+<input v-model="sth" />
+<input v-bind:value="sth" v-on:input="sth = $event.target.value" />

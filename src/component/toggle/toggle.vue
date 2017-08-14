@@ -1,12 +1,14 @@
 <template>
 
-    <div class="list" :class="classes">
-        <div class="item item-divider" v-if="title">{{title}}</div>
-        <div class="item item-checkbox" v-for="(option, index) in options" :key="index">
-            <label class="checkbox" :for="index">
-                <input type="checkbox" :id="index" :value="option.value" v-model="val">
+    <div class="list">
+        <div class="item item-toggle" :class="item_classes">
+            {{label}}
+            <label class="toggle" :class="classes">
+                <input type="checkbox" v-model="val">
+                <div class="track">
+                    <div class="handle"></div>
+                </div>
             </label>
-            {{option.name}}
         </div>
     </div>
 
@@ -16,17 +18,14 @@
 
     import { oneOf, insideIonic } from '../../util/check';
 
-    const prefixCls = 'zv-check';
+    const prefixCls = 'zv-toggle';
+    const prefixItemCls = 'zv-toggle-item';
 
     export default {
-        name: 'Check',
+        name: 'Toggle',
         props: {
-            options: {
-                type: Array,
-                required: true
-            },
             value: {
-                type: Array,
+                type: [Boolean, String],
                 required: true
             },
             color: {
@@ -34,12 +33,8 @@
                     return insideIonic(value);
                 }
             },
-            bgColor: {
-                validator (value) {
-                    return insideIonic(value);
-                }
-            },
-            title: String,
+            label: String,
+            itemClassName: String,
             className: String
         },
         mounted: function() {
@@ -50,9 +45,16 @@
                 return [
                     {
                         [`${prefixCls}`]: true,
-                        [`${this.color}`]: !!this.color,
-                        [`${this.bgColor}-bg`]: !!this.bgColor,
+                        [`toggle-${this.color}`]: !!this.color,
                         [`${this.className}`]: !!this.className
+                    }
+                ];
+            },
+            item_classes () {
+                return [
+                    {
+                        [`${prefixItemCls}`]: true,
+                        [`${this.itemClassName}`]: !!this.itemClassName
                     }
                 ];
             },

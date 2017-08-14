@@ -48,7 +48,13 @@
         <List type="list-inset">
             <Item :divider="true" color="positive">带图标</Item>
             <Item>
-                <Button icon="ion-android-share">默认按钮</Button>
+                <Button icon="ion-home">默认按钮</Button>
+            </Item>
+            <Item>
+                <Button icon="ion-heart" icon-align="right">默认按钮</Button>
+            </Item>
+            <Item>
+                <Button icon="fa-snowflake-o">默认按钮</Button>
             </Item>
         </List>
 

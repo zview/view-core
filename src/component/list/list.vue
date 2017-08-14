@@ -17,7 +17,7 @@
         props: {
             type: {
                 validator (value) {
-                    return oneOf(value, ['list-borderless', 'list-inset', 'card']);
+                    return oneOf(value, ['list-borderless', 'list-inset', 'card'], true);
                 }
             },
             className: String

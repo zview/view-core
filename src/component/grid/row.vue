@@ -17,17 +17,17 @@
         props: {
             type: {
                 validator (value) {
-                    return oneOf(value, ['flex']);
+                    return oneOf(value, ['flex'], true);
                 }
             },
             align: {
                 validator (value) {
-                    return oneOf(value, ['top', 'middle', 'bottom']);
+                    return oneOf(value, ['top', 'middle', 'bottom'], true);
                 }
             },
             justify: {
                 validator (value) {
-                    return oneOf(value, ['start', 'end', 'center', 'space-around', 'space-between']);
+                    return oneOf(value, ['start', 'end', 'center', 'space-around', 'space-between'], true);
                 }
             },
             gutter: {

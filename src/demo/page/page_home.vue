@@ -31,6 +31,7 @@
             <Item @click.native="_on_goto_page('/demo/tabs')" note="Tabs">标签页</Item>
             <Item @click.native="_on_goto_page('/demo/loadingbar')" note="LoadingBar">加载进度条</Item>
             <Item @click.native="_on_goto_page('/demo/buttonbar')" note="ButtonBar">按钮栏</Item>
+            <Item @click.native="_on_goto_page('/demo/toolbar')" note="ToolBar">工具栏</Item>
             <Item @click.native="_on_goto_page('/demo/tabbar')" note="Tabbar">底部栏</Item>
             <Item @click.native="_on_goto_page('/demo/navbar')" note="Navbar">导航栏</Item>
             <Item @click.native="_on_goto_page('/demo/sidebar')" note="Sidebar">侧边栏</Item>
@@ -39,13 +40,14 @@
             <Item @click.native="_on_goto_page('/demo/input')" note="Input">输入框</Item>
             <Item @click.native="_on_goto_page('/demo/radio')" note="Radio">单选框</Item>
             <Item @click.native="_on_goto_page('/demo/check')" note="Check">复选框</Item>
-            <Item @click.native="_on_goto_page('/demo/switch')" note="Switch">开关</Item>
+            <Item @click.native="_on_goto_page('/demo/toggle')" note="Toggle">开关</Item>
             <Item @click.native="_on_goto_page('/demo/select')" note="Select">选择器</Item>
             <Item @click.native="_on_goto_page('/demo/search')" note="Search">搜索框</Item>
             <Item @click.native="_on_goto_page('/demo/slider')" note="Slider">滑块</Item>
             <Item @click.native="_on_goto_page('/demo/datepicker')" note="DatePicker">日期选择</Item>
             <Item @click.native="_on_goto_page('/demo/timepicker')" note="TimerPicker">时间选择</Item>
             <Item @click.native="_on_goto_page('/demo/regionpicker')" note="RegionPicker">地区选择</Item>
+            <Item @click.native="_on_goto_page('/demo/colorpicker')" note="ColorPicker">颜色选择</Item>
             <Item @click.native="_on_goto_page('/demo/cascader')" note="Cascader">级联选择</Item>
             <Item @click.native="_on_goto_page('/demo/tranfer')" note="Transfer">穿梭框</Item>
             <Item @click.native="_on_goto_page('/demo/number')" note="Number">数字输入</Item>

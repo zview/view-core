@@ -10,7 +10,7 @@
         <List type="list-inset">
             <Item :divider="true" color="positive">Ionic</Item>
             <Item color="calm"><Icon icon="ion-android-share"></Icon>雪拥蓝关马不前</Item>
-            <Item color="calm">条目</Item>
+            <Item color="calm"><Icon icon="ion-android-share"></Icon>条目</Item>
         </List>
 
     </div>

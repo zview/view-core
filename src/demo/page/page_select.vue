@@ -1,10 +1,12 @@
 <template>
-    <div class="page-check">
+    <div class="page-select">
 
-        <Check color="balanced" bg-color="dark" :options="options" v-model="val"></Check>
+        <Select label="请选择" color="balanced" :options="options" v-model="val"></Select>
         {{val}}
 
-        <Check title="请选择" :options="options2"></Check>
+
+        <Select label="请选择" color="balanced" :multiple="true" :options="options2" v-model="val2"></Select>
+        {{val2}}
 
     </div>
 </template>
@@ -13,13 +15,14 @@
     export default {
         data () {
             return {
-                message: '复选框',
-                val: [5],
+                message: '下拉框',
+                val: 5,
                 options : [
                     {'name': '一', 'value': 1},
                     {'name': '三', 'value': 3},
                     {'name': '五', 'value': 5},
                 ],
+                val2: [5,3],
                 options2 : [
                     {'name': '一', 'value': 1},
                     {'name': '三', 'value': 3},
