@@ -1,6 +1,6 @@
 <template>
 
-    <div class="tabs" :class="classes">
+    <div :class="classes">
         <a class="tab-item" v-for="(option, index) in options" :key="index"
            :class="{'has-badge': option.badge && option.badge!='', 'active': value==option.id}">
             <i class="badge badge-assertive" v-if="option.badge && option.badge!=''">{{option.badge}}</i>
@@ -15,10 +15,10 @@
 
     import { oneOf, insideIonic } from '../../util/check';
 
-    const prefixCls = 'zv-tabbar';
+    const prefixCls = 'zv-tabs';
 
     export default {
-        name: 'Tabbar',
+        name: 'Tabs',
         props: {
             options: {
                 type: Array,
@@ -31,6 +31,14 @@
                 validator (value) {
                     return insideIonic(value);
                 }
+            },
+            isStriped: {
+                type: [Boolean, String],
+                defalut: false,
+            },
+            isTop: {
+                type: [Boolean, String],
+                defalut: false,
             },
             isIconOnly: {
                 type: [Boolean, String],
@@ -51,6 +59,9 @@
                 return [
                     {
                         [`${prefixCls}`]: true,
+                        [`tabs`]: !this.isStriped,
+                        [`tabs-striped`]: !!this.isStriped,
+                        [`tabs-top`]: !!this.isTop,
                         [`tabs-icon-only`]: !!this.isIconOnly,
                         [`tabs-icon-top`]: !!this.iconAlign && this.iconAlign=='top',
                         [`tabs-icon-left`]: !!this.iconAlign && this.iconAlign=='left',

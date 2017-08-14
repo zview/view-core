@@ -73,6 +73,16 @@ const routers = [
         meta: { title: '按钮栏' },
         component: (resolve) => require(['../page/page_buttonbar.vue'], resolve),
       },
+      {
+        path: 'tabs',
+        meta: { title: '标签页' },
+        component: (resolve) => require(['../page/page_tabs.vue'], resolve),
+      },
+      {
+        path: 'tabs2',
+        meta: { title: '标签页2' },
+        component: (resolve) => require(['../page/page_tabs2.vue'], resolve),
+      },
 
       //Form
       {
