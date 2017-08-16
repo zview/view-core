@@ -1,14 +1,16 @@
 <template>
 
-    <i class="badge" :class="classes">{{text}}</i>
+    <span class="view-badge">
+        <slot></slot>
+        <i class="badge" :class="classes" v-html="text"></i>
+    </span>
+
 
 </template>
 
 <script>
 
     import { oneOf, insideIonic } from '../../util/check';
-
-    const prefixCls = 'zv-badge';
 
     export default {
         name: 'Badge',
@@ -30,7 +32,6 @@
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`${this.color}`]: !!this.color,
                         [`${this.bgColor}-bg`]: !!this.bgColor,
                         [`${this.className}`]: !!this.className

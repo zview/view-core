@@ -1,8 +1,25 @@
 @import "base";
 
 
-.zv-select-multipile
+.view-select-item
 {
-    height: 100%;
+
+    .view-select-label
+    {
+
+    }
+
+    .view-select
+    {
+
+        &.view-select-multipile
+        {
+            height: 100%;
+            min-height: 50px;
+            min-width: 120px;
+        }
+
+
+    }
 
 }

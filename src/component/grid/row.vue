@@ -1,6 +1,6 @@
 <template>
 
-    <div class="row" :class="classes" :style="styles">
+    <div class="view-row row" :class="classes" :style="styles">
         <slot></slot>
     </div>
 
@@ -9,8 +9,6 @@
 <script>
 
     import { oneOf, insideIonic } from '../../util/check';
-
-    const prefixCls = 'zv-row';
 
     export default {
         name: 'Row',
@@ -40,7 +38,6 @@
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`row-${this.align}`]: !!this.align,
                         [`${this.color}`]: !!this.color,
                         [`${this.bgColor}-bg`]: !!this.bgColor,

@@ -1,8 +1,9 @@
 <template>
     <div class="page-toggle">
 
-        <Toggle color="positive" v-model="val" label="禁用"></Toggle>
-        {{val}}
+        <List :title="val">
+            <Toggle color="positive" v-model="val" :label="'禁用' + val"></Toggle>
+        </List>
 
     </div>
 </template>
@@ -11,7 +12,7 @@
     export default {
         data () {
             return {
-                message: '开关',
+                message: '切换器',
                 val: false,
             }
         },

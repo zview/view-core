@@ -1,9 +1,21 @@
 <template>
 
-    <div class="bar bar-header" :class="classes">
-        <div class="button icon ion-ios-arrow-left"></div>
-        <h1 class="title">{{title}}</h1>
-        <div class="button icon ion-gear-b"></div>
+    <div class="view-navbar bar bar-header bar-transparent" :class="classes">
+        <div class="buttons" v-if="showBack">
+            <button class="button button-icon" @click="onBackClick()">
+                <span v-html="backText"></span>
+            </button>
+        </div>
+
+        <h1 class="title">
+            <span v-text="title"></span>
+        </h1>
+
+        <div class="buttons" v-if="showMenu">
+            <button class="button button-icon" @click="onMenuClick()">
+                <span v-html="menuText"></span>
+            </button>
+        </div>
     </div>
 
 </template>
@@ -12,7 +24,8 @@
 
     import { oneOf, insideIonic } from '../../util/check';
 
-    const prefixCls = 'zv-navbar';
+    const DEFAULT_BACK_TEXT = '<i class="icon ion-ios-arrow-back"></i>';
+    const DEFAULT_MENU_TEXT = '<i class="icon ion-navicon"></i>';
 
     export default {
         name: 'Navbar',
@@ -23,17 +36,49 @@
                 }
             },
             title: String,
+            showBack: {
+                type: [Boolean, String],
+                default: false
+            },
+            backText: {
+                type: String,
+                default: DEFAULT_BACK_TEXT
+            },
+            onBack: Function,
+            showMenu: {
+                type: [Boolean, String],
+                default: false
+            },
+            menuText: {
+                type: String,
+                default: DEFAULT_MENU_TEXT
+            },
+            onMenu: Function,
             className: String
         },
         computed: {
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`bar-${this.color}`]: !!this.color,
                         [`${this.className}`]: !!this.className
                     }
                 ];
+            },
+        },
+        methods: {
+            onBackClick() {
+                if (this.onBack) {
+                    this.onBack()
+                    return
+                }
+                history.go(-1);
+            },
+
+            onMenuClick() {
+                if (this.onMenu) {
+                    this.onMenu()
+                }
             },
         }
     }

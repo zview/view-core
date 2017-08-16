@@ -1,7 +1,7 @@
 <template>
 
-    <div class="page" :class="classes">
-        <div class="page-content" :class="content_classes">
+    <div class="view-page page" :class="classes">
+        <div class="view-page-content page-content" :class="content_classes">
             <slot></slot>
         </div>
     </div>
@@ -11,8 +11,6 @@
 <script>
 
     import { oneOf, insideIonic } from '../../util/check';
-
-    const prefixCls = 'zv-page';
 
     export default {
         name: 'Page',
@@ -26,7 +24,6 @@
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`has-navbar`]: !!this.hasNavbar,
                         [`has-tabbar`]: !!this.hasTabbar,
                         [`${this.className}`]: !!this.className

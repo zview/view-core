@@ -1,12 +1,10 @@
 <template>
     <div class="page-select">
 
-        <Select label="请选择" color="balanced" :options="options" v-model="val"></Select>
-        {{val}}
-
-
-        <Select label="请选择" color="balanced" :multiple="true" :options="options2" v-model="val2"></Select>
-        {{val2}}
+        <List>
+            <Select :label="'请选择' + val" color="balanced" :options="options" v-model="val"></Select>
+            <Select :label="'请选择' + val2" color="balanced" :multiple="true" :options="options2" v-model="val2"></Select>
+        </List>
 
     </div>
 </template>

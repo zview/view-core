@@ -1,0 +1,25 @@
+@import "base";
+
+.view-badge
+{
+    display: inline-block;
+    width: 100%;
+    min-height: 30px;
+
+    i.badge
+    {
+        color: #FFF;
+        background-color: $_assertive;
+        position: relative;
+        top: 0;
+        right: 0;
+        padding: 0 2px;
+        text-align: center;
+        border-radius: 18px;
+        height: 18px;
+        line-height: 18px;
+        font-size: 12px;
+        z-index: 12;
+    }
+
+}

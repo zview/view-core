@@ -1,10 +1,10 @@
 <template>
     <div class="page-check">
 
-        <Check color="balanced" bg-color="dark" :options="options" v-model="val"></Check>
-        {{val}}
-
-        <Check title="请选择" :options="options2"></Check>
+        <List>
+            <Check color="balanced" :options="options" v-model="val"></Check>
+            <Check :title="'请选择' + val2" :options="options2" v-model="val2"></Check>
+        </List>
 
     </div>
 </template>
@@ -15,6 +15,7 @@
             return {
                 message: '复选框',
                 val: [5],
+                val2: [3],
                 options : [
                     {'name': '一', 'value': 1},
                     {'name': '三', 'value': 3},

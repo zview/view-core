@@ -1,6 +1,6 @@
 <template>
 
-    <div class="tabs-striped tabs-top tabs-icon-only" :class="classes">
+    <div class="view-tabs-striped tabs-striped tabs-top tabs-icon-only" :class="classes">
         <div class="tabs">
             <a class="tab-item" v-for="(option, index) in options" :key="index"
                :class="{'active': value==option.id}">
@@ -14,8 +14,6 @@
 <script>
 
     import { oneOf, insideIonic } from '../../util/check';
-
-    const prefixCls = 'zv-tabs-striped';
 
     export default {
         name: 'TabsStriped',
@@ -41,7 +39,6 @@
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`tabs-${this.color}`]: !!this.color,
                         [`${this.className}`]: !!this.className
                     }

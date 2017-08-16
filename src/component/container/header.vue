@@ -1,6 +1,6 @@
 <template>
 
-    <div class="bar bar-header" :class="classes">
+    <div class="view-header bar bar-header" :class="classes">
         <h1 class="title" v-if="title">{{title}}</h1>
         <slot></slot>
     </div>
@@ -10,8 +10,6 @@
 <script>
 
     import { oneOf, insideIonic } from '../../util/check';
-
-    const prefixCls = 'zv-header';
 
     export default {
         name: 'Header',
@@ -28,7 +26,6 @@
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`bar-${this.color}`]: !!this.color,
                         [`${this.className}`]: !!this.className
                     }

@@ -1,6 +1,6 @@
 <template>
 
-    <div class="list" :class="classes">
+    <div class="view-list list" :class="classes" :title="title">
         <slot></slot>
     </div>
 
@@ -10,8 +10,6 @@
 
     import { oneOf, insideIonic } from '../../util/check';
 
-    const prefixCls = 'zv-list';
-
     export default {
         name: 'List',
         props: {
@@ -20,13 +18,13 @@
                     return oneOf(value, ['list-borderless', 'list-inset', 'card'], true);
                 }
             },
+            title: [String, Number],
             className: String
         },
         computed: {
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`${this.type}`]: !!this.type,
                         [`${this.className}`]: !!this.className
                     }

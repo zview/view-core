@@ -1,6 +1,6 @@
 <template>
 
-    <div class="item" :class="classes">
+    <div class="view-item item" :class="classes">
         <Icon :icon="iconLeft" v-if="iconLeft"></Icon>
         <Button v-if="buttonLeft">{{buttonLeft}}</Button>
         <slot></slot>
@@ -14,8 +14,6 @@
 <script>
 
     import { oneOf, insideIonic } from '../../util/check';
-
-    const prefixCls = 'zv-item';
 
     export default {
         name: 'Item',
@@ -42,7 +40,6 @@
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`item-${this.color}`]: !!this.color,
                         [`item-divider`]: !!this.divider,
                         [`item-icon-left`]: !!this.iconLeft,

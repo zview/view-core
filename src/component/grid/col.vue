@@ -1,6 +1,6 @@
 <template>
 
-    <div class="col" :class="classes" :style="styles">
+    <div class="view-col col" :class="classes" :style="styles">
         <slot></slot>
     </div>
 
@@ -9,8 +9,6 @@
 <script>
 
     import { oneOf, insideIonic } from '../../util/check';
-
-    const prefixCls = 'zv-col';
 
     export default {
         name: 'Col',
@@ -44,8 +42,7 @@
         },
         computed: {
             classes () {
-                let classList = [
-                    `${prefixCls}`,
+                return [
                     {
                         [`col-offset-${this.offset}`]: this.offset,
                         [`col-${this.align}`]: !!this.align,
@@ -54,23 +51,6 @@
                         [`${this.className}`]: !!this.className
                     }
                 ];
-
-                ['xs', 'sm', 'md', 'lg'].forEach(size => {
-                    if (typeof this[size] === 'number') {
-                        classList.push(`${prefixCls}-span-${size}-${this[size]}`);
-                    } else if (typeof this[size] === 'object') {
-                        let props = this[size];
-                        Object.keys(props).forEach(prop => {
-                            classList.push(
-                                prop !== 'span'
-                                    ? `${prefixCls}-${size}-${prop}-${props[prop]}`
-                                    : `${prefixCls}-span-${size}-${props[prop]}`
-                            );
-                        });
-                    }
-                });
-
-                return classList;
             },
             styles () {
                 let style = {};

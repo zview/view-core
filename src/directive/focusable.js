@@ -1,3 +1,5 @@
+//自动焦点
+
 let focusable = {
 
   bind: function(el, binding, vnode) {

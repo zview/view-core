@@ -1,16 +1,15 @@
 <template>
 
-    <div class="list">
-        <div class="item item-input item-select" :class="item_classes">
-            <label class="input-label">
-                {{label}}
-            </label>
-            <select v-model="val" :class="classes" :multiple="multiple">
-                <option disabled value="">请选择</option>
-                <option v-for="(option, index) in options" :key="index"
-                        :value="option.value">{{option.name}}</option>
-            </select>
-        </div>
+    <div class="view-select-item item item-input item-select" :class="item_classes">
+        <label class="view-select-label input-label">
+            {{label}}
+        </label>
+        <select class="view-select" v-model="val" :class="classes"
+                :multiple="multiple" :readonly="readonly" :disabled="disabled">
+            <option disabled value="">请选择</option>
+            <option v-for="(option, index) in options" :key="index"
+                    :value="option.value">{{option.name}}</option>
+        </select>
     </div>
 
 </template>
@@ -19,9 +18,7 @@
 
     import { oneOf, insideIonic } from '../../util/check';
 
-    const prefixCls = 'zv-select';
-    const prefixItemCls = 'zv-select-item';
-    const multipileCls = 'zv-select-multipile';
+    const multipileCls = 'view-select-multipile';
 
     export default {
         name: 'Select',
@@ -34,6 +31,8 @@
                 type: [Number, Array, String],
                 required: true
             },
+            disabled: [Boolean, String],
+            readonly: [Boolean, String],
             color: {
                 validator (value) {
                     return insideIonic(value);
@@ -54,7 +53,6 @@
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`${multipileCls}`]: !!this.multiple && this.multiple==true,
                         [`${this.color}`]: !!this.color,
                         [`${this.className}`]: !!this.className
@@ -64,7 +62,6 @@
             item_classes () {
                 return [
                     {
-                        [`${prefixItemCls}`]: true,
                         [`${this.itemClassName}`]: !!this.itemClassName
                     }
                 ];
@@ -80,9 +77,7 @@
         },
         methods: {
             _on_cell_click: function (index, value) {
-//                console.log('_on_cell_click', index, value);
                 let vm = this;
-
                 vm.val = value;
             }
         },

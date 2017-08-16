@@ -1,6 +1,6 @@
 <template>
 
-    <div class="tabs" :class="classes">
+    <div class="view-tabs tabs" :class="classes">
         <a class="tab-item" v-for="(option, index) in options" :key="index"
            :class="{'has-badge': option.badge && option.badge!='', 'active': value==option.id}">
             <i class="badge badge-assertive" v-if="option.badge && option.badge!=''">{{option.badge}}</i>
@@ -14,8 +14,6 @@
 <script>
 
     import { oneOf, insideIonic } from '../../util/check';
-
-    const prefixCls = 'zv-tabs';
 
     export default {
         name: 'Tabs',
@@ -54,7 +52,6 @@
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`tabs-top`]: !!this.isTop,
                         [`tabs-icon-only`]: !!this.isIconOnly,
                         [`tabs-icon-top`]: !!this.iconAlign && this.iconAlign=='top',

@@ -1,7 +1,6 @@
 <template>
 
-    <a class="button" :class="classes">
-        <!--<Icon :icon="icon" v-if="icon"></Icon>-->
+    <a class="view-button button" :class="classes">
         <slot></slot>
     </a>
 
@@ -11,7 +10,6 @@
 
     import { oneOf, insideIonic } from '../../util/check';
 
-    const prefixCls = 'zv-button';
     const faCls = 'fa';
     const iconCls = 'icon';
     const iconRightCls = 'icon-right';
@@ -47,14 +45,13 @@
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`button-${this.color}`]: !!this.color,
                         [`button-${this.type}`]: !!this.type,
                         [`button-${this.size}`]: !!this.size,
                         [`${faCls}`]: this.icon && this.icon.indexOf('fa-')==0,
-                        [`${iconCls}`]: !!this.icon,
-                        [`${iconRightCls}`]: this.iconAlign && this.iconAlign=='right',
+                        [`${iconCls}`]: this.icon && this.icon.indexOf('ion-')==0,
                         [`${this.icon}`]: !!this.icon,
+                        [`${iconRightCls}`]: this.iconAlign && this.iconAlign=='right',
                         [`${this.className}`]: !!this.className
                     }
                 ];

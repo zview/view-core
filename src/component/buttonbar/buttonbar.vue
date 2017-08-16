@@ -1,6 +1,6 @@
 <template>
 
-    <div class="button-bar" :class="classes">
+    <div class="view-buttonbar button-bar" :class="classes">
         <Button v-for="(option,index) in options" @click.native="_on_cell_click(index, option.id)"
                 :color="color" :type="get_type(index)" :key="index" :icon="option.icon">
             {{option.name}}
@@ -12,8 +12,6 @@
 <script>
 
     import { oneOf, insideIonic } from '../../util/check';
-
-    const prefixCls = 'zv-buttonbar';
 
     export default {
         name: 'ButtonBar',
@@ -41,7 +39,6 @@
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`${this.className}`]: !!this.className
                     }
                 ];

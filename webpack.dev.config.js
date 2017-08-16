@@ -33,7 +33,7 @@ module.exports = merge(webpackBaseConfig, {
   devServer: {
     // host: '0.0.0.0',
     // host: '127.0.0.1',
-    port: 8010,
+    port: 8011,
     contentBase: "./",//本地服务器所加载的页面所在的目录
     // publicPath: './',
 

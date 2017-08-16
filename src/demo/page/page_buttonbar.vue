@@ -1,7 +1,11 @@
 <template>
     <div class="page-buttonbar">
 
-        <ButtonBar color="balanced" :options="options" @on-cell-click="_on_cell_click"></ButtonBar>
+        <Row>
+            <Col color="stable" :gutter="8">
+                <ButtonBar color="balanced" :options="options" @on-cell-click="_on_cell_click"></ButtonBar>
+            </Col>
+        </Row>
 
     </div>
 </template>

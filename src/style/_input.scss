@@ -1,55 +1,87 @@
 @import "base";
 
 
-.zv-input
+.view-input-item
 {
-    &.light
+
+    .view-input-label
     {
-        color: $_light;
+        width: 25%;
     }
-    &.stable
+
+    .view-input
     {
-        color: $_stable;
-    }
-    &.positive
-    {
-        color: $_positive;
-    }
-    &.calm
-    {
-        color: $_calm;
-    }
-    &.balanced
-    {
-        color: $_balanced;
-    }
-    &.energized
-    {
-        color: $_energized;
-    }
-    &.assertive
-    {
-        color: $_assertive;
-    }
-    &.royal
-    {
-        color: $_royal;
-    }
-    &.dark
-    {
-        color: $_dark;
+
+        &.light
+        {
+            color: $_light;
+        }
+        &.stable
+        {
+            color: $_stable;
+        }
+        &.positive
+        {
+            color: $_positive;
+        }
+        &.calm
+        {
+            color: $_calm;
+        }
+        &.balanced
+        {
+            color: $_balanced;
+        }
+        &.energized
+        {
+            color: $_energized;
+        }
+        &.assertive
+        {
+            color: $_assertive;
+        }
+        &.royal
+        {
+            color: $_royal;
+        }
+        &.dark
+        {
+            color: $_dark;
+        }
+
+
+
     }
 
 
+    input[type='text'], input[type='password']
+    {
+
+    }
+    input[type='button'], input[type='reset'], input[type='submit']
+    {
+
+    }
+    textarea
+    {
+        min-height: 80px;
+        //margin-right: 16px;
+    }
+
+    input[type='tel'], input[type='url'], input[type='email'],
+    input[type='number']
+    {
+
+    }
+
+    input[type='date'], input[type='time'], input[type='color']
+    {
+
+    }
 
 }
 
-.zv-input-label
-{
-    width: 25%;
-}
-
-.input-error
+.view-input-error
 {
 
     @include error();

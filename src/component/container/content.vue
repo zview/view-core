@@ -1,6 +1,6 @@
 <template>
 
-    <div :class="classes">
+    <div class="view-content" :class="classes">
         <slot></slot>
     </div>
 
@@ -10,8 +10,6 @@
 
     import { oneOf } from '../../util/check';
 
-    const prefixCls = 'zv-content';
-
     export default {
         name: 'Content',
         props: {
@@ -19,6 +17,8 @@
             hasSubHeader: Boolean,
             hasFooter: Boolean,
             hasSubFooter: Boolean,
+            hasTabs: Boolean,
+            hasTabsTop: Boolean,
             scroll: Boolean,
             className: String
         },
@@ -26,13 +26,14 @@
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`content`]: !this.scroll,
                         [`scroll-content`]: !!this.scroll,
                         [`has-header`]: !!this.hasHeader,
                         [`has-subheader`]: !!this.hasSubHeader,
                         [`has-footer`]: !!this.hasFooter,
                         [`has-subfooter`]: !!this.hasSubFooter,
+                        [`has-tabs`]: !!this.hasTabs,
+                        [`has-tabs-top`]: !!this.hasTabsTop,
                         [`${this.className}`]: !!this.className
                     }
                 ];

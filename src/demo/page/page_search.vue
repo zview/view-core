@@ -1,15 +1,18 @@
 <template>
     <div class="page-search">
 
-        <Search color="balanced" bg-color="dark" v-model="val"></Search>{{val}}
+        <List :title="val">
+            <Search color="balanced" bg-color="dark" v-model="val"></Search>
 
-
-        <Search color="balanced" bg-color="dark">
-            <div slot="left">
-                <Button icon="ion-android-arrow-dropdown" icon-align="right" size="small">北京</Button>
-            </div>
-            <div slot="right">right</div>
-        </Search>
+            <Search color="balanced" bg-color="dark">
+                <div slot="left">
+                    <Button icon="ion-android-arrow-dropdown" icon-align="right" size="small">北京</Button>
+                </div>
+                <div slot="right">
+                    <Button size="small">搜索</Button>
+                </div>
+            </Search>
+        </List>
 
     </div>
 </template>

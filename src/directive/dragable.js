@@ -1,3 +1,5 @@
+//可拖动
+
 import { on, off } from '../util/listener';
 
 let dragable = {

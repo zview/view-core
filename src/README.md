@@ -22,4 +22,5 @@ v-model
 
 
 TODO
-1. Tabs的is-striped无效
+1. Range的range-color无效
+2. Input的item-floating-label无效

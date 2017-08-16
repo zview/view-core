@@ -1,6 +1,6 @@
 <template>
 
-    <i :class="classes" aria-hidden="true"></i>
+    <i class="view-icon" :class="classes" aria-hidden="true"></i>
 
 </template>
 
@@ -8,7 +8,6 @@
 
     import { oneOf, insideIonic } from '../../util/check';
 
-    const prefixCls = 'zv-icon';
     const faCls = 'fa';
     const iconCls = 'icon';
 
@@ -22,7 +21,6 @@
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`${faCls}`]: this.icon.indexOf('fa-')==0,
                         [`${iconCls}`]: this.icon.indexOf('ion-')==0,
                         [`${this.icon}`]: !!this.icon,

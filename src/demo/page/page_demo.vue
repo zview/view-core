@@ -1,11 +1,12 @@
 <template>
     <div class="container">
 
-        <Header color="dark" title="Header"></Header>
-        <Page :has-navbar="true" :has-tabbar="true" :is-padding="true">
+        <Navbar title="示例" color="balanced"
+                :show-back="true" :show-menu="true"></Navbar>
+
+        <Page :has-navbar="true">
             <router-view></router-view>
         </Page>
-        <Footer color="dark" title="Footer"></Footer>
 
     </div>
 </template>

@@ -67,6 +67,7 @@ const routers = [
         meta: { title: '列表' },
         component: (resolve) => require(['../page/page_list.vue'], resolve),
       },
+
       //Navigator
       {
         path: 'buttonbar',
@@ -83,6 +84,7 @@ const routers = [
         meta: { title: '标签页(下划线)' },
         component: (resolve) => require(['../page/page_tabsstriped.vue'], resolve),
       },
+
 
       //Form
       {
@@ -112,18 +114,25 @@ const routers = [
       },
       {
         path: 'toggle',
-        meta: { title: '开关' },
+        meta: { title: '切换器' },
         component: (resolve) => require(['../page/page_toggle.vue'], resolve),
       },
       {
         path: 'slider',
-        meta: { title: '滑块' },
+        meta: { title: '滑动条' },
         component: (resolve) => require(['../page/page_slider.vue'], resolve),
       },
       {
         path: 'form',
         meta: { title: '表单' },
         component: (resolve) => require(['../page/page_form.vue'], resolve),
+      },
+
+      //View
+      {
+        path: 'badge',
+        meta: { title: '徽标' },
+        component: (resolve) => require(['../page/page_badge.vue'], resolve),
       },
 
       //Other
@@ -133,26 +142,35 @@ const routers = [
         component: (resolve) => require(['../page/page_editor.vue'], resolve),
       },
 
-      //Directive
-      {
-        path: 'directive',
-        meta: { title: '指令' },
-        component: (resolve) => require(['../page/page_directive.vue'], resolve),
-      },
-      //Filter
-      {
-        path: 'filter',
-        meta: { title: '过滤器' },
-        component: (resolve) => require(['../page/page_filter.vue'], resolve),
-      },
-
 
     ]
+  },
+  {
+    path: '/tabbar',
+    meta: { title: '底部栏' },
+    component: (resolve) => require(['../page/page_tabbar.vue'], resolve),
+  },
+  {
+    path: '/navbar',
+    meta: { title: '导航栏' },
+    component: (resolve) => require(['../page/page_navbar.vue'], resolve),
   },
   {
     path: '/container',
     meta: { title: '布局' },
     component: (resolve) => require(['../page/page_container.vue'], resolve),
+  },
+  //Directive
+  {
+    path: '/directive',
+    meta: { title: '指令' },
+    component: (resolve) => require(['../page/page_directive.vue'], resolve),
+  },
+  //Filter
+  {
+    path: '/filter',
+    meta: { title: '过滤器' },
+    component: (resolve) => require(['../page/page_filter.vue'], resolve),
   },
   {
     path: '/user/:id',

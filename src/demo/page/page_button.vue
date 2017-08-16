@@ -56,6 +56,9 @@
             <Item>
                 <Button icon="fa-snowflake-o">默认按钮</Button>
             </Item>
+            <Item>
+                <Button icon="fa-snowflake-o" icon-align="right">默认按钮</Button>
+            </Item>
         </List>
 
     </div>

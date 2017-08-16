@@ -19,6 +19,7 @@ import Toggle from './component/toggle';
 import Select from './component/select';
 import Slider from './component/slider';
 import Search from './component/search';
+import Form from './component/form';
 
 //Layout
 import { List, Item } from './component/list';
@@ -74,6 +75,7 @@ export default {
     Vue.component('Select', Select);
     Vue.component('Slider', Slider);
     Vue.component('Search', Search);
+    Vue.component('Form', Form);
 
 
     //Navigation

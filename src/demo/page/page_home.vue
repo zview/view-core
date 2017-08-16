@@ -33,18 +33,19 @@
             <Item @click.native="_on_goto_page('/demo/loadingbar')" note="LoadingBar">加载进度条</Item>
             <Item @click.native="_on_goto_page('/demo/buttonbar')" note="ButtonBar">按钮栏</Item>
             <Item @click.native="_on_goto_page('/demo/toolbar')" note="ToolBar">工具栏</Item>
-            <Item @click.native="_on_goto_page('/demo/tabbar')" note="Tabbar">底部栏</Item>
-            <Item @click.native="_on_goto_page('/demo/navbar')" note="Navbar">导航栏</Item>
-            <Item @click.native="_on_goto_page('/demo/sidebar')" note="Sidebar">侧边栏</Item>
+            <Item @click.native="_on_goto_page('/tabbar')" note="Tabbar">底部栏</Item>
+            <Item @click.native="_on_goto_page('/navbar')" note="Navbar">导航栏</Item>
+            <Item @click.native="_on_goto_page('/sidebar')" note="Sidebar">侧边栏</Item>
 
             <Item :divider="true" color="positive" note="Form">表单</Item>
             <Item @click.native="_on_goto_page('/demo/input')" note="Input">输入框</Item>
             <Item @click.native="_on_goto_page('/demo/radio')" note="Radio">单选框</Item>
             <Item @click.native="_on_goto_page('/demo/check')" note="Check">复选框</Item>
-            <Item @click.native="_on_goto_page('/demo/toggle')" note="Toggle">开关</Item>
-            <Item @click.native="_on_goto_page('/demo/select')" note="Select">选择器</Item>
+            <Item @click.native="_on_goto_page('/demo/toggle')" note="Toggle">切换器</Item>
+            <Item @click.native="_on_goto_page('/demo/select')" note="Select">下拉框</Item>
             <Item @click.native="_on_goto_page('/demo/search')" note="Search">搜索框</Item>
-            <Item @click.native="_on_goto_page('/demo/slider')" note="Slider">滑块</Item>
+            <Item @click.native="_on_goto_page('/demo/slider')" note="Slider">滑动条</Item>
+            <Item @click.native="_on_goto_page('/demo/picker')" note="Picker">选择器</Item>
             <Item @click.native="_on_goto_page('/demo/datepicker')" note="DatePicker">日期选择</Item>
             <Item @click.native="_on_goto_page('/demo/timepicker')" note="TimerPicker">时间选择</Item>
             <Item @click.native="_on_goto_page('/demo/regionpicker')" note="RegionPicker">地区选择</Item>
@@ -79,8 +80,8 @@
             <Item @click.native="_on_goto_page('/demo/spin')" note="Spin">进度条</Item>
 
             <Item :divider="true" color="positive" note="Other">高级</Item>
-            <Item @click.native="_on_goto_page('/demo/directive')" note="Directive">指令</Item>
-            <Item @click.native="_on_goto_page('/demo/filter')" note="Filter">Filter</Item>
+            <Item @click.native="_on_goto_page('/directive')" note="Directive">指令</Item>
+            <Item @click.native="_on_goto_page('/filter')" note="Filter">Filter</Item>
 
         </List>
 

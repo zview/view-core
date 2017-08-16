@@ -1,15 +1,13 @@
 <template>
 
-    <div class="list">
-        <div class="item item-toggle" :class="item_classes">
-            {{label}}
-            <label class="toggle" :class="classes">
-                <input type="checkbox" v-model="val">
-                <div class="track">
-                    <div class="handle"></div>
-                </div>
-            </label>
-        </div>
+    <div class="view-toggle-item item item-toggle view-item-toggle" :class="item_classes">
+        <span class="view-toggle-label">{{label}}</span>
+        <label class="toggle" :class="classes">
+            <input type="checkbox" v-model="val">
+            <div class="view-toggle track">
+                <div class="handle"></div>
+            </div>
+        </label>
     </div>
 
 </template>
@@ -17,9 +15,6 @@
 <script>
 
     import { oneOf, insideIonic } from '../../util/check';
-
-    const prefixCls = 'zv-toggle';
-    const prefixItemCls = 'zv-toggle-item';
 
     export default {
         name: 'Toggle',
@@ -44,7 +39,6 @@
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`toggle-${this.color}`]: !!this.color,
                         [`${this.className}`]: !!this.className
                     }
@@ -53,7 +47,6 @@
             item_classes () {
                 return [
                     {
-                        [`${prefixItemCls}`]: true,
                         [`${this.itemClassName}`]: !!this.itemClassName
                     }
                 ];

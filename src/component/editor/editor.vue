@@ -1,10 +1,10 @@
 <template>
 
-    <div :class="classes">
-        <div class="zv-editor-toolbar">
+    <div class="view-editor" :class="classes">
+        <div class="view-editor-toolbar">
             <ButtonBar color="balanced" :options="options" @on-cell-click="_on_cell_click"></ButtonBar>
         </div>
-        <div class="zv-editor-content" contenteditable="true" v-html="value" ref="ec">
+        <div class="view-editor-content" contenteditable="true" v-html="value" ref="ec">
         </div>
     </div>
 
@@ -13,8 +13,6 @@
 <script>
 
     import { oneOf, insideIonic } from '../../util/check';
-
-    const prefixCls = 'zv-editor';
 
     export default {
         name: 'Editor',
@@ -50,7 +48,6 @@
             classes () {
                 return [
                     {
-                        [`${prefixCls}`]: true,
                         [`${this.color}`]: !!this.color,
                         [`${this.bgColor}-bg`]: !!this.bgColor,
                         [`${this.className}`]: !!this.className

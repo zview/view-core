@@ -1,13 +1,15 @@
 <template>
 
-    <div class="list" :class="classes">
-        <div class="item item-divider" v-if="title">{{title}}</div>
-        <div class="item item-radio" v-for="(option, index) in options" :key="index"
+    <div class="view-radio-list">
+        <div class="view-radio-title item item-divider" v-if="title">{{title}}</div>
+        <div class="view-radio-item item item-radio" v-for="(option, index) in options" :key="index"
              @click="_on_cell_click(index, option.value)" :class="item_classes">
-            <input type="radio" :name="radio_id" :id="index" :value="option.value" v-model="val"/>
+            <input class="view-radio" type="radio" :name="radio_id"
+                   :value="option.value" v-model="val"
+                   :readonly="readonly" :disabled="disabled"/>
             <div class="radio-content">
-                <div class="item-content">{{option.name}}</div>
-                <i class="radio-icon ion-checkmark" :class="indicator_classes"></i>
+                <div class="view-radio-label item-content">{{option.name}}</div>
+                <i class="view-radio-indicator radio-icon ion-checkmark" :class="indicator_classes"></i>
             </div>
         </div>
     </div>
@@ -18,9 +20,6 @@
 
     import { oneOf, insideIonic } from '../../util/check';
 
-    const prefixCls = 'zv-radio';
-    const prefixItemCls = 'zv-radio-item';
-    const prefixIndicatorCls = 'zv-radio-indicator';
     const indicatorLeftCls = 'item-icon-left';
 
     export default {
@@ -34,12 +33,9 @@
                 type: [Number, String],
                 required: true
             },
+            disabled: [Boolean, String],
+            readonly: [Boolean, String],
             color: {
-                validator (value) {
-                    return insideIonic(value);
-                }
-            },
-            bgColor: {
                 validator (value) {
                     return insideIonic(value);
                 }
@@ -55,7 +51,7 @@
                 },
                 default: 'right',
             },
-            title: String,
+            title: [String, Number],
             itemClassName: String,
             indicatorClassName: String,
             className: String
@@ -65,26 +61,15 @@
         },
         data() {
             return {
-                radio_id: prefixCls + '-' + Math.random().toString(36).substring(3, 6),
+                radio_id: 'view-radio-' + Math.random().toString(36).substring(3, 6),
             }
         },
         computed: {
-            classes () {
-                return [
-                    {
-                        [`${prefixCls}`]: true,
-                        [`${this.color}`]: !!this.color,
-                        [`${this.bgColor}-bg`]: !!this.bgColor,
-                        [`${this.className}`]: !!this.className
-                    }
-                ];
-            },
             item_classes () {
                 return [
                     {
-                        [`${prefixItemCls}`]: true,
                         [`${indicatorLeftCls}`]: this.indicatorAlign && this.indicatorAlign=='left',
-                        [`${this.indicatorColor}`]: !!this.indicatorColor,
+                        [`${this.color}`]: !!this.color,
                         [`${this.itemClassName}`]: !!this.itemClassName
                     }
                 ];
@@ -92,7 +77,6 @@
             indicator_classes () {
                 return [
                     {
-                        [`${prefixIndicatorCls}`]: true,
                         [`${this.indicatorColor}`]: !!this.indicatorColor,
                         [`${this.indicatorClassName}`]: !!this.indicatorClassName
                     }
