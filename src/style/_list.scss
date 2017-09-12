@@ -1,21 +1,152 @@
 @import "base";
 
-.view-list
+//--------------------------------------
+// reset item style
+.item
 {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 14px;
+    line-height: 14px;
+    color: #444444;
+    min-height: 50px;
+    background-color: $light-color;
 
-
-    .view-item
+    &.item-divider
     {
-        //padding: 10px;
+        background-color: $page-background;
+        padding: 18px 16px;
+        border: none;
+    }
 
-
-        &.item-right
+    &.item-icon-left,
+    &.item-icon-right
+    {
+        .icon
         {
-            @extend .text-right;
+            font-size: 24px;
+        }
+    }
+
+    &.item-icon-right
+    {
+        .item-note
+        {
+            margin-right: -16px;
         }
 
+        .icon
+        {
+            color: #dddddd;
+
+            .ion-ios-arrow-right
+            {
+
+                right: 5px;
+            }
+        }
 
     }
 
+    &.item-thumbnail-left > img:first-child,
+    &.item-thumbnail-right > img:first-child
+    {
+        height: 52px;
+    }
 
+    &.item-image img:first-child
+    {
+        padding: 0 16px 16px 16px;
+    }
+}
+//--------------------------------------
+
+
+.view-list
+{
+
+    background-color: $page-background;
+    @include view-m-theme-bg-color();
+
+    &.list-outer
+    {
+        padding-left: 16px;
+
+        .view-item-divider
+        {
+            padding-left: 0;
+        }
+
+        .view-item
+        {
+            @include view-m-zindex(item);
+            position: relative;
+            display: block;
+            padding-left: 0;
+            border-left: 0;
+
+            &.item-outer
+            {
+                margin-left: 0;
+
+                &.item-icon-left
+                {
+                    padding-left: 54px - 11px;
+
+                    .icon
+                    {
+                        left: 0;
+                    }
+                }
+            }
+
+            &:first-of-type
+            {
+                border-top: 0;
+            }
+
+            &:last-of-type
+            {
+                border-bottom: 0;
+            }
+        }
+    }
+
+}
+
+.view-item
+{
+
+    @include view-m-theme-fg-color();
+    @include view-m-theme-bg-color();
+
+    .view-item-note
+    {
+        color: #dddddd;
+    }
+
+    &.item-outer
+    {
+        margin-left: 16px;
+        padding-left: 0;
+        border-left: 0;
+
+        &.item-icon-left
+        {
+            padding-left: 54px - 11px;
+
+            .icon
+            {
+                left: 0;
+            }
+        }
+    }
+
+
+}
+
+.view-item-divider
+{
+    @include view-m-theme-fg-color();
+    @include view-m-theme-bg-color();
 }

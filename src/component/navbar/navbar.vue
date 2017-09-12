@@ -72,7 +72,10 @@
                     this.onBack()
                     return
                 }
-                history.go(-1);
+
+                let root = document.querySelector('[view-app]')
+                if (root) root.setAttribute('transition-direction', 'back');
+                history.go(-1)
             },
 
             onMenuClick() {

@@ -11,6 +11,7 @@
 
 <script>
 
+//    import Button from '../button';
     import { oneOf, insideIonic } from '../../util/check';
 
     export default {
@@ -27,6 +28,11 @@
             },
             className: String
         },
+        /*
+        components: {
+            Button
+        },
+        */
         data () {
             return {
                 active_index: 0,

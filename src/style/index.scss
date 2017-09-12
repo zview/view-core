@@ -1,10 +1,10 @@
-@import "./fa/font-awesome.css";
-@import "./ionic/ionic.css";
+@import "framework/fa/font-awesome.css";
+@import "framework/ionic/ionic.css";
 
 //
 @import "variables";
 @import "mixins";
-//@import "color";
+@import "color";
 @import "font";
 @import "animation";
 
@@ -12,10 +12,14 @@
 @import "base";
 
 //
+@import "view";
 @import "page";
+
+//
 @import "list";
 @import "grid";
 @import "tabs";
+@import "button";
 @import "buttonbar";
 
 //
@@ -24,6 +28,7 @@
 
 //
 @import "badge";
+@import "progress";
 
 //Form
 @import "input";
@@ -37,3 +42,7 @@
 
 //
 @import "editor";
+
+
+//
+@import "sample";

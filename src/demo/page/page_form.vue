@@ -86,13 +86,6 @@
                 ],
             }
         },
-        mounted: function() {
-            console.log('mounted');
-            var vm = this;
-
-            let ver = vm.$version;
-            vm.$alert( ver + 'mounted' );
-        },
         methods: {
 
         },

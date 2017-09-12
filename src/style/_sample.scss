@@ -1,0 +1,142 @@
+@import "base";
+
+
+
+
+
+
+
+//圆角
+@mixin border-radius($radius: 10px)
+{
+    border-radius           : $radius;
+    -webkit-border-radius   : $radius;
+    -moz-border-radius      : $radius;
+}
+
+//圆角
+//top,bottom,left,right
+@mixin rounded($vert, $horz, $radius: 10px)
+{
+    border-#{$vert}-#{$horz}-radius         : $radius;
+    -moz-border-radius-#{$vert}#{$horz}     : $radius;
+    -webkit-border-#{$vert}-#{$horz}-radius : $radius;
+}
+
+//3D文本
+@mixin text3d($color)
+{
+    color: $color;
+    text-shadow: 1px 1px 0px darken($color, 5%),
+    2px 2px 0px darken($color, 10%),
+    3px 3px 0px darken($color, 15%),
+    4px 4px 0px darken($color, 20%),
+    4px 4px 2px #000;
+}
+
+//错误提示
+@mixin error($border-width: 2px)
+{
+    border: $border-width solid $danger-color;
+    color: $danger-color;
+}
+
+//禁止长按选择文本
+@mixin disable_text_select()
+{
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+@mixin box-shadow($shadow...)
+{
+    -webkit-box-shadow:$shadow;
+    -moz-box-shadow:$shadow;
+    box-shadow:$shadow;
+}
+
+
+$properties: (margin, padding);
+@mixin set-value($side, $value)
+{
+    @each $prop in $properties
+    {
+        #{$prop}-#{$side}: $value;
+    }
+}
+.login-box
+{
+    @include set-value(top, 14px);
+}
+
+
+$input-disabled-color: #333;
+
+$input: (
+    disabled-background: lighten($input-disabled-color, 75%),
+    disabled-border: lighten($input-disabled-color, 50%),
+    disabled-text: lighten($input-disabled-color, 50%)
+);
+
+input[disabled]
+{
+    background-color: map-get($input, disabled-background);
+    border-color: map-get($input, disabled-border);
+    color: map-get($input, disabled-text);
+}
+
+
+
+
+.view-input-error
+{
+
+    @include error();
+    @include border-radius(10px);
+}
+
+
+//@include screen(780px,1000px) { body{ font-size:14px; } }
+@mixin screen($res-min, $res-max)
+{
+    @media screen and ( min-width: $res-min ) and ( max-width: $res-max )
+    {
+        @content;
+    }
+}
+
+// triangle
+@mixin triangle($direction, $size, $borderColor )
+{
+    content:"";
+    height: 0;
+    width: 0;
+    @if $direction == top
+    {
+        border-bottom:$size solid $borderColor;
+        border-left:$size dashed transparent;
+        border-right:$size dashed transparent;
+    }
+    @else if $direction == right
+    {
+        border-left:$size solid $borderColor;
+        border-top:$size dashed transparent;
+        border-bottom:$size dashed transparent;
+    }
+    @else if $direction == bottom
+    {
+        border-top:$size solid $borderColor;
+        border-left:$size dashed transparent;
+        border-right:$size dashed transparent;
+    }
+    @else if $direction == left
+    {
+        border-right:$size solid $borderColor;
+        border-top:$size dashed transparent;
+        border-bottom:$size dashed transparent;
+    }
+}

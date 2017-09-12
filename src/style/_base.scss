@@ -2,31 +2,134 @@
 @import "mixins";
 
 
-//---------------------------基础变量---------------------------//
-
-$base-common-color: $_positive;
-$base-cell-height: $list-item-height;
-$base-border-style: dotted;
-
 //---------------------------全局样式---------------------------//
+
+html, body
+{
+    height: 100%;
+    background-color: $page-background;
+}
+
+// fix fastclick bug: https://github.com/ftlabs/fastclick/issues/60
+label > *
+{
+    pointer-events: none;
+}
 
 h3
 {
-    color: lighten($base-common-color, 10%);
-    background: $base-common-color;
-    border: 1px solid darken($base-common-color, 5%);
-    //@include text3d($_energized);
+    color: lighten($text-color, 10%);
+    border: 1px solid darken($text-color, 5%);
+}
+
+ul, ol
+{
+    list-style: none;
+}
+
+input::-ms-clear, input::-ms-reveal
+{
+    display: none;
+}
+
+a
+{
+    color: $link-color;
+    background: transparent;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    transition: color $transition-time ease;
+
+    &:hover
+    {
+        color: $link-hover-color;
+    }
+
+    &:active
+    {
+        color: $link-active-color;
+    }
+
+    &:active, &:hover
+    {
+        outline: 0;
+        text-decoration: none;
+    }
+
+    &[disabled]
+    {
+        color: #ccc;
+        cursor: $cursor-disabled;
+        pointer-events: none;
+    }
+
+}
+
+code, kbd, pre, samp
+{
+    font-family: $code-family;
 }
 
 //---------------------------基础样式---------------------------//
 
-.text-center
+@include view-m-text-align();
+@include view-m-object-float();
+
+@include view-m-base-fg-color();
+@include view-m-base-bg-color();
+
+@include view-m-padding();
+@include view-m-margin();
+
+//---------------------------Other---------------------------//
+
+// backdrop
+.backdrop
 {
-    text-align: center;
+    background-color: rgba(0,0,0,0.3);
+    transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+    pointer-events: auto;
 }
-.text-right
+
+
+// Safari input placeholder margin issue
+// grade-a ios,grade-b android
+.grade-a input::-webkit-input-placeholder
 {
-    text-align: right;
+    line-height: 20px;
 }
+
+
+// button
+.button
+{
+    min-height: 44px;
+    &.button-small
+    {
+        min-height: 30px;
+    }
+}
+
+
+// liner
+.liner-top:before
+{
+    @include view-m-liner(top);
+}
+.liner-bottom:after
+{
+    @include view-m-liner(bottom);
+}
+.liner-left:before
+{
+    @include view-m-liner(left);
+}
+.liner-right:after
+{
+    @include view-m-liner(right);
+}
+
 
 //---------------------------Comment---------------------------//

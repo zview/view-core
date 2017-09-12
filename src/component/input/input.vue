@@ -85,7 +85,7 @@ step	    规定输入字段的合法数字间隔。
 
 <script>
 
-    import { oneOf, insideIonic } from '../../util/check';
+    import { oneOf, insideIonic,insideColor } from '../../util/check';
 
     const prefixCls = 'view-input';
 
@@ -101,12 +101,12 @@ step	    规定输入字段的合法数字间隔。
             readonly: [Boolean, String],
             color: {
                 validator (value) {
-                    return insideIonic(value);
+                    return insideColor(value);
                 }
             },
             bgColor: {
                 validator (value) {
-                    return insideIonic(value);
+                    return insideColor(value);
                 }
             },
             labelColor: {

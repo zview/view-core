@@ -3,13 +3,13 @@
 .view-badge
 {
     display: inline-block;
-    width: 100%;
-    min-height: 30px;
+    min-width: 18px;
+    min-height: 18px;
 
     i.badge
     {
-        color: #FFF;
-        background-color: $_assertive;
+        color: $light-color;
+        background-color: $assertive-color;
         position: relative;
         top: 0;
         right: 0;

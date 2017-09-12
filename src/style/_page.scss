@@ -1,6 +1,4 @@
-@import "variables";
-
-$padding-space: 10px;
+@import "base";
 
 .page
 {
@@ -11,7 +9,7 @@ $padding-space: 10px;
     right: 0;
     width: 100%;
     height: 100%;
-    background-color: $default-page-bgcolor;
+    background-color: $page-background;
     overflow: hidden;
 
     &.has-navbar
@@ -23,7 +21,7 @@ $padding-space: 10px;
 
         &.padding-top
         {
-            padding-top: $navbar-height + $padding-space;
+            padding-top: $navbar-height + $padding-base;
         }
     }
 
@@ -36,7 +34,7 @@ $padding-space: 10px;
 
         &.padding-bottom
         {
-            padding-bottom: $padding-space;
+            padding-bottom: $padding-base;
         }
     }
 }
@@ -53,7 +51,7 @@ $padding-space: 10px;
     overflow-y: auto;
     width: auto;
     height: auto;
-    background-color: $default-page-bgcolor;
+    background-color: $page-background;
     -webkit-overflow-scrolling: touch;
 
     &.no-scrolling
@@ -63,12 +61,12 @@ $padding-space: 10px;
 
     &.padding-top
     {
-        padding-top: $navbar-height + $padding-space;
+        padding-top: $navbar-height + $padding-base;
     }
 
     &.padding-bottom
     {
-        padding-bottom: $padding-space;
+        padding-bottom: $padding-base;
     }
 
 }

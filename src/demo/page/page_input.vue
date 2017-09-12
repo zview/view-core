@@ -2,7 +2,7 @@
     <div class="page-input">
 
         <List :title="textval">
-            <Input type="text"  placeholder="图标文字"
+            <Input type="text" placeholder="图标文字"
                    color="balanced" bg-color="dark"
                    label-color="positive"
                    label-icon="ion-android-person"

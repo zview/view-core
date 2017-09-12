@@ -29,6 +29,15 @@
                 ],
             }
         },
+        mounted: function() {
+            console.log('mounted');
+            var vm = this;
+
+            let ver = vm.$version;
+//            vm.$alert( ver + 'mounted' );
+
+            vm.$service.alert(ver + ' mounted');
+        },
         methods: {
             _on_goto_page: function (page) {
                 console.log('_on_goto_page', page);

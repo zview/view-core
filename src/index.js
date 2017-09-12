@@ -9,7 +9,9 @@ import Icon from './component/icon';
 import Button from './component/button';
 
 //View
+import Alert from './component/alert';
 import Badge from './component/badge';
+import Progress from './component/progress';
 
 //Form
 import Input from './component/input';
@@ -19,6 +21,7 @@ import Toggle from './component/toggle';
 import Select from './component/select';
 import Slider from './component/slider';
 import Search from './component/search';
+import Upload from './component/upload';
 import Form from './component/form';
 
 //Layout
@@ -35,6 +38,8 @@ import ButtonBar from './component/buttonbar';
 //Other
 import Editor from './component/editor';
 
+//Service
+import Service from './service';
 
 //Directive
 import dragable from './directive/dragable';
@@ -57,7 +62,9 @@ export default {
 
 
     //View
+    Vue.component('Alert', Alert);
     Vue.component('Badge', Badge);
+    Vue.component('Progress', Progress);
 
 
     //Layout
@@ -75,6 +82,7 @@ export default {
     Vue.component('Select', Select);
     Vue.component('Slider', Slider);
     Vue.component('Search', Search);
+    Vue.component('Upload', Upload);
     Vue.component('Form', Form);
 
 
@@ -112,6 +120,8 @@ export default {
     Vue.prototype.$alert    = function (message) {
       console.log('----' + message);
     };
+
+    Vue.prototype.$service  = Service;
 
 
   }

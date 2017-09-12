@@ -8,7 +8,7 @@
 
 <script>
 
-    import { oneOf, insideIonic } from '../../util/check';
+    import { oneOf, insideColor } from '../../util/check';
 
     const faCls = 'fa';
     const iconCls = 'icon';
@@ -19,8 +19,14 @@
         props: {
             color: {
                 validator (value) {
-                    return insideIonic(value);
-                }
+                    return insideColor(value);
+                },
+            },
+            bgColor: {
+                validator (value) {
+                    return insideColor(value);
+                },
+                default: 'positive',
             },
             type: {
                 validator (value) {
@@ -45,7 +51,9 @@
             classes () {
                 return [
                     {
-                        [`button-${this.color}`]: !!this.color,
+//                        [`button-${this.color}`]: !!this.color,
+                        [`${this.color}-fg`]: !!this.color,
+                        [`${this.bgColor}-bg`]: !!this.bgColor,
                         [`button-${this.type}`]: !!this.type,
                         [`button-${this.size}`]: !!this.size,
                         [`${faCls}`]: this.icon && this.icon.indexOf('fa-')==0,

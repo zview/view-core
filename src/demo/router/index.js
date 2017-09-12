@@ -123,6 +123,11 @@ const routers = [
         component: (resolve) => require(['../page/page_slider.vue'], resolve),
       },
       {
+        path: 'upload',
+        meta: { title: '文件上传' },
+        component: (resolve) => require(['../page/page_upload.vue'], resolve),
+      },
+      {
         path: 'form',
         meta: { title: '表单' },
         component: (resolve) => require(['../page/page_form.vue'], resolve),
@@ -130,9 +135,19 @@ const routers = [
 
       //View
       {
+        path: 'alert',
+        meta: { title: '告警提示' },
+        component: (resolve) => require(['../page/page_alert.vue'], resolve),
+      },
+      {
         path: 'badge',
         meta: { title: '徽标' },
         component: (resolve) => require(['../page/page_badge.vue'], resolve),
+      },
+      {
+        path: 'progress',
+        meta: { title: '进度条' },
+        component: (resolve) => require(['../page/page_progress.vue'], resolve),
       },
 
       //Other
@@ -159,6 +174,12 @@ const routers = [
     path: '/container',
     meta: { title: '布局' },
     component: (resolve) => require(['../page/page_container.vue'], resolve),
+  },
+  //Sample
+  {
+    path: '/sample_css',
+    meta: { title: '样式表' },
+    component: (resolve) => require(['../page/page_css.vue'], resolve),
   },
   //Directive
   {

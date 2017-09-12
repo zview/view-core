@@ -1,30 +1,718 @@
 @import "variables";
 
-//圆角
-@mixin border-radius($values)
+//----------------------------------------------------------------------------------------------------------------
+// 是否支持某个浏览器的前缀
+//----------------------------------------------------------------------------------------------------------------
+$_view-prefixs: (webkit, moz, ms, o);
+
+// 前缀
+@mixin view-m-prefixer ($property, $value)
 {
-    -webkit-border-radius: $values;
-    -moz-border-radius: $values;
-    border-radius: $values;
+    @each $prefix in $_view-prefixs
+    {
+        @if $prefix == webkit
+        {
+            -webkit-#{$property}: $value;
+        }
+        @else if $prefix == moz
+        {
+            -moz-#{$property}: $value;
+        }
+        @else if $prefix == ms
+        {
+            -ms-#{$property}: $value;
+        }
+        @else if $prefix == o
+        {
+            -o-#{$property}: $value;
+        }
+        @else
+        {
+            @warn "Unrecognized prefix: #{$prefix}";
+        }
+    }
+    #{$property}: $value;
 }
 
-//3D文本
-@mixin text3d($color)
+//----------------------------------------------------------------------------------------------------------------
+// 主题颜色
+//----------------------------------------------------------------------------------------------------------------
+$_view-colors: (
+    primary     : $primary-color,
+    success     : $success-color,
+    info        : $info-color,
+    warning     : $warning-color,
+    danger      : $danger-color,
+    light       : $light-color,
+    stable      : $stable-color,
+    positive    : $positive-color,
+    calm        : $calm-color,
+    balanced    : $balanced-color,
+    energized   : $energized-color,
+    assertive   : $assertive-color,
+    royal       : $royal-color,
+    dark        : $dark-color,
+    black       : $black-color,
+    dimgray     : $dimgray-color,
+    gray        : $gray-color,
+    darkgray    : $darkgray-color,
+    silver      : $silver-color,
+    lightgrey   : $lightgrey-color,
+    gainsboro   : $gainsboro-color,
+    whitesmoke  : $whitesmoke-color,
+    white       : $white-color
+);
+
+// 主题-前景颜色
+// @include view-m-theme-fg-color();
+@mixin view-m-theme-fg-color()
+{
+    @each $key, $value in $_view-colors
+    {
+        &.#{$key}-fg
+        {
+            color: $value;
+        }
+    }
+}
+// 主题-背景颜色
+// @include view-m-theme-bg-color();
+@mixin view-m-theme-bg-color()
+{
+    @each $key, $value in $_view-colors
+    {
+        &.#{$key}-bg
+        {
+            background-color: $value;
+        }
+    }
+}
+
+// 主题-前景及背景颜色
+@mixin view-m-theme($bcolor, $fcolor)
+{
+    background-color: $bcolor;
+    color: $fcolor;
+}
+
+
+
+// 前景颜色
+@mixin view-m-base-fg-color()
+{
+    @each $key, $value in $_view-colors
+    {
+        .#{$key}-fg
+        {
+            color: $value;
+        }
+    }
+}
+// 背景颜色
+@mixin view-m-base-bg-color()
+{
+    @each $key, $value in $_view-colors
+    {
+        .#{$key}-bg
+        {
+            background-color: $value;
+        }
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------
+//
+//----------------------------------------------------------------------------------------------------------------
+$_text-aligns: (
+    text-center   : center,
+    text-left     : left,
+    text-right    : right,
+);
+@mixin view-m-text-align()
+{
+    @each $key, $value in $_text-aligns
+    {
+        .#{$key}
+        {
+            text-align: $value;
+        }
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------
+//
+//----------------------------------------------------------------------------------------------------------------
+
+$_object-floats: (
+    float-left     : left,
+    float-right    : right,
+);
+@mixin view-m-object-float()
+{
+    @each $key, $value in $_object-floats
+    {
+        .#{$key}
+        {
+            float: $value;
+        }
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------
+//
+//----------------------------------------------------------------------------------------------------------------
+
+@mixin view-m-padding()
+{
+    @for $i from 0 through 9
+    {
+        .padding-#{$i * 5}
+        {
+            padding: #{$i * 5}px;
+        }
+    }
+}
+
+@mixin view-m-margin()
+{
+    @for $i from 0 through 9
+    {
+        .margin-#{$i * 5}
+        {
+            margin: #{$i * 5}px;
+        }
+    }
+}
+
+
+//----------------------------------------------------------------------------------------------------------------
+// 空间索引
+//----------------------------------------------------------------------------------------------------------------
+$_view-zindexs: (
+    item        : $zindex-item,
+    spin        : $zindex-spin,
+    affix       : $zindex-affix,
+    backtop     : $zindex-back-top,
+    select      : $zindex-select,
+    modal       : $zindex-modal,
+    message     : $zindex-message,
+    notification: $zindex-notification,
+    tooltip     : $zindex-tooltip,
+    loadingbar  : $zindex-loading-bar
+);
+@function view-f-zindex($key)
+{
+    @return map-get($_view-zindexs, $key);
+}
+
+// 取得Z坐标
+// @include view-m-zindex(modal);
+@mixin view-m-zindex($key)
+{
+    z-index: view-f-zindex($key);
+}
+
+
+//----------------------------------------------------------------------------------------------------------------
+// 盒子阴影
+//----------------------------------------------------------------------------------------------------------------
+
+// @include view-m-box-shadow(0 0 5px rgba(0,0,0,.3));
+// @include view-m-box-shadow(0 0 5px rgba(0,0,0,.3),inset 0 0 3px rgba(255,255,255,.5));
+@mixin view-m-box-shadow($shadow...)
+{
+    @if length($shadow) < 1 {
+        $shadows: 0 0 2px rgba(#000,.25);
+    }
+
+    @include view-m-prefixer(box-shadow, $shadow);
+}
+
+
+//----------------------------------------------------------------------------------------------------------------
+// 媒体查询
+//----------------------------------------------------------------------------------------------------------------
+
+// @include view-m-screen(780px,1000px) { body{ font-size:14px; } }
+@mixin view-m-screen($res-min, $res-max)
+{
+    @media screen and ( min-width: $res-min ) and ( max-width: $res-max )
+    {
+        @content;
+    }
+}
+
+
+//----------------------------------------------------------------------------------------------------------------
+// 动画
+//----------------------------------------------------------------------------------------------------------------
+
+
+// 过渡 Transition
+@mixin view-m-transition($property...)
+{
+    @include view-m-prefixer(transition, $property);
+}
+@mixin view-m-transition-delay($property)
+{
+    @include view-m-prefixer(transition-delay, $property);
+}
+@mixin view-m-transition-duration($property)
+{
+    @include view-m-prefixer(transition-duration, $property);
+}
+@mixin view-m-transition-property($property)
+{
+    @include view-m-prefixer(transition-property, $property);
+}
+// linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>)
+@mixin view-m-transition-timing-function($property)
+{
+    @include view-m-prefixer(transition-timing-function, $property);
+}
+
+
+// 变换 Transform
+@mixin view-m-transform($property...)
+{
+    @include view-m-prefixer(transform, $property);
+}
+// x 横坐标: <percentage> | <length> | left | center | right
+// y 纵坐标: <percentage> | <length> | top | center | bottom
+// 默认值：50% 50%，效果等同于center center
+@mixin view-m-transform-origin($property)
+{
+    @include view-m-prefixer(transform-origin, $property);
+}
+// 2D旋转
+@mixin view-m-transform-rotate($degrees)
+{
+    @include view-m-transform( rotate($degrees) );
+}
+// 2D缩放
+@mixin view-m-transform-scale($ratio)
+{
+    @include view-m-transform( scale($ratio) );
+}
+// 2D平移
+@mixin view-m-transform-translate($x, $y)
+{
+    @include view-m-transform( translate($x, $y) );
+}
+// 斜切扭曲
+@mixin view-m-transform-skew($x, $y)
+{
+    @include view-m-transform( skew($x, $y) );
+    -webkit-backface-visibility: hidden;
+}
+// 3D平移
+@mixin view-m-transform-translate3d($x, $y, $z)
+{
+    @include view-m-transform( translate3d($x, $y, $z) );
+}
+// Z轴平移
+@mixin view-m-transform-translateZ($z)
+{
+    @include view-m-transform( translateZ($z) );
+}
+
+
+// 动画 Animation
+// 名称由@keyframes定义
+@mixin view-m-animation-name($property...)
+{
+    animation-name : $property;
+}
+// 持续时间
+@mixin view-m-animation-duration($property)
+{
+    animation-duration : $property;
+}
+// 延迟时间
+@mixin view-m-animation-delay($property)
+{
+    animation-delay : $property;
+}
+// 循环次数
+@mixin view-m-animation-iteration-count($property)
+{
+    animation-iteration-count : $property;
+}
+// 是否反向运动
+@mixin view-m-animation-direction($property)
+{
+    animation-direction : $property;
+}
+// 动画状态
+@mixin view-m-animation-play-state($property)
+{
+    animation-play-state : $property;
+}
+// 动画时间之外的状态
+@mixin view-m-animation-fill-mode($property)
+{
+    animation-fill-mode : $property;
+}
+// 过渡类型
+@mixin view-m-animation-timing-function($property)
+{
+    animation-timing-function : $property;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------
+// Border
+//----------------------------------------------------------------------------------------------------------------
+
+//圆角
+@mixin view-m-border-radius($radius: 10px)
+{
+    @include view-m-prefixer(border-radius, $radius);
+}
+
+//圆角
+//top,bottom,left,right
+@mixin view-m-border-rounded($vert, $horz, $radius: 10px)
+{
+    @include view-m-prefixer(border-#{$vert}-#{$horz}-radius, $radius);
+}
+
+
+//----------------------------------------------------------------------------------------------------------------
+// 文本阴影
+//----------------------------------------------------------------------------------------------------------------
+
+//
+@mixin view-m-text-shadow($color)
 {
     color: $color;
     text-shadow: 1px 1px 0px darken($color, 5%),
-        2px 2px 0px darken($color, 10%),
-        3px 3px 0px darken($color, 15%),
-        4px 4px 0px darken($color, 20%),
-        4px 4px 2px #000;
+    2px 2px 0px darken($color, 10%),
+    3px 3px 0px darken($color, 15%),
+    4px 4px 0px darken($color, 20%),
+    4px 4px 2px #000;
 }
 
-//错误提示
-@mixin error($border-width: 2px)
+
+
+//----------------------------------------------------------------------------------------------------------------
+//
+//----------------------------------------------------------------------------------------------------------------
+
+@function view-f-px2em($px, $base: 16)
 {
-    border: $border-width solid $_assertive;
-    color: $_assertive;
+    @return ($px / $base) * 1em;
 }
 
 
+//----------------------------------------------------------------------------------------------------------------
+//
+//----------------------------------------------------------------------------------------------------------------
 
+
+
+//----------------------------------------------------------------------------------------------------------------
+//
+//----------------------------------------------------------------------------------------------------------------
+
+@mixin view-m-liner($position: bottom)
+{
+    content: '';
+    position: absolute;
+    background-color: $gray-color;//#dddddd;
+    display: block;
+    @if $position == left
+    {
+        left: 0;
+        top: 0;
+        bottom: auto;
+        right: auto;
+        height: 100%;
+        width: 1px;
+        transform-origin: 0 50%;
+        -webkit-transform-origin: 0 50%;
+        transform: scaleX(0.5);
+        -webkit-transform: scaleX(0.5);
+    }
+    @else if $position == right
+    {
+        left: auto;
+        top: 0;
+        bottom: auto;
+        right: 0;
+        height: 100%;
+        width: 1px;
+        transform-origin: 100% 50%;
+        -webkit-transform-origin: 100% 50%;
+        transform: scaleX(0.5);
+        -webkit-transform: scaleX(0.5);
+    }
+    @else if $position == top
+    {
+        left: 0;
+        top: 0;
+        bottom: auto;
+        right: auto;
+        height: 1px;
+        width: 100%;
+        transform-origin: 0 0;
+        -webkit-transform-origin: 0 0;
+        transform: scaleY(0.5);
+        -webkit-transform: scaleY(0.5);
+    }
+    @else // $position == bottom
+    {
+        left: 0;
+        top: auto;
+        bottom: 0;
+        right: auto;
+        height: 1px;
+        width: 100%;
+        transform-origin: 0 100%;
+        -webkit-transform-origin: 0 100%;
+        transform: scaleY(0.5);
+        -webkit-transform: scaleY(0.5);
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------
+// Thin-Border
+//----------------------------------------------------------------------------------------------------------------
+
+@mixin view-m-thin-border-before($color, $radius)
+{
+    position: relative;
+    &:before
+    {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-top: 1px solid $color;
+        border-left: 1px solid $color;
+        border-radius: $radius;
+        transform-origin: 0 0;
+        z-index: 0;
+        box-sizing: border-box;
+        @media only screen and (-webkit-min-device-pixel-ratio: 2)
+        {
+            height: 200%;
+            width: 200%;
+            transform: scale(0.5);
+            border-radius: ($radius * 2);
+        }
+    }
+
+    &:after
+    {
+        border-top: none;
+        border-left: none;
+    }
+}
+
+@mixin view-m-thin-border-after($color, $radius)
+{
+    position: relative;
+    &:before
+    {
+        border-bottom: none;
+        border-right: none;
+    }
+
+    &:after
+    {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-bottom: 1px solid $color;
+        border-right: 1px solid $color;
+        border-radius: $radius;
+        transform-origin: 0 0;
+        z-index: 0;
+        box-sizing: border-box;
+        @media only screen and (-webkit-min-device-pixel-ratio: 2)
+        {
+            height: 200%;
+            width: 200%;
+            transform: scale(0.5);
+            border-radius: ($radius * 2);
+        }
+    }
+}
+
+
+//----------------------------------------------------------------------------------------------------------------
+// Flexbox Mixins
+//
+// http://philipwalton.github.io/solved-by-flexbox
+// https://github.com/philipwalton/solved-by-flexbox
+//
+// 容器属性  flex-direction flex-wrap flex-flow justify-content align-items align-content
+// 项目属性  order flex align-self flex-grow flex-shrink flex-basis
+//----------------------------------------------------------------------------------------------------------------
+
+//容器元素
+@mixin view-m-display-flex
+{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+//行内元素
+@mixin view-m-display-inline-flex
+{
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+//--------------------------------------------------
+
+// row | row-reverse | column | column-reverse
+@mixin view-m-flexcon-flex-direction($value: row)
+{
+    @if $value == row-reverse
+    {
+        -webkit-box-direction: reverse;
+        -webkit-box-orient: horizontal;
+    }
+    @else if $value == column
+    {
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+    }
+    @else if $value == column-reverse
+    {
+        -webkit-box-direction: reverse;
+        -webkit-box-orient: vertical;
+    }
+    @else
+    {
+        -webkit-box-direction: normal;
+        -webkit-box-orient: horizontal;
+    }
+
+    @include view-m-prefixer(flex-direction, $value);
+}
+
+// nowrap | wrap | wrap-reverse
+@mixin view-m-flexcon-flex-wrap($value: nowrap)
+{
+    // No Webkit Box fallback.
+    @include view-m-prefixer(flex-wrap, $value);
+}
+
+// <flex-direction> || <flex-wrap>
+@mixin view-m-flexcon-flex-flow($values: (row nowrap))
+{
+    // No Webkit Box fallback.
+    @include view-m-prefixer(flex-flow, $value);
+}
+
+// flex-start | flex-end | center | space-between | space-around
+@mixin view-m-flexcon-justify-content($value: stretch)
+{
+    @if $value == flex-start
+    {
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+    }
+    @else if $value == flex-end
+    {
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+    }
+    @else if $value == space-between
+    {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+    }
+    @else
+    {
+        -webkit-box-pack: $value;
+        -ms-flex-pack: $value;
+    }
+    @include view-m-prefixer(justify-content, $value);
+}
+
+// flex-start | flex-end | center | baseline | stretch
+@mixin view-m-flexcon-align-items($value: stretch)
+{
+    @if $value == flex-start
+    {
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+    }
+    @else if $value == flex-end
+    {
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+    }
+    @else
+    {
+        -webkit-box-align: $value;
+        -ms-flex-align: $value;
+    }
+
+    @include view-m-prefixer(align-items, $value);
+}
+
+// flex-start | flex-end | center | space-between | space-around | stretch
+@mixin view-m-flexcon-align-content($value: stretch)
+{
+    @include view-m-prefixer(align-content, $value);
+}
+
+
+// auto | flex-start | flex-end | center | baseline | stretch
+@mixin view-m-flexitem-align-self($value: auto)
+{
+    @if $value == flex-start
+    {
+        -ms-flex-item-align: start;
+    }
+    @else if $value == flex-end
+    {
+        -ms-flex-item-align: end;
+    }
+    @else
+    {
+        -ms-flex-item-align: $value;
+    }
+    @include view-m-prefixer(align-self, $value);
+}
+
+// flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+// 默认值为0 1 auto。后两个属性可选
+// 两个快捷值：auto (1 1 auto) 和 none (0 0 auto)
+@mixin view-m-flexitem-flex($fg: 1, $fs: null, $fb: null)
+{
+    -webkit-box-flex: $fg;
+    -webkit-flex: $fg $fs $fb;
+    -moz-box-flex: $fg;
+    -moz-flex: $fg $fs $fb;
+    -ms-flex: $fg $fs $fb;
+    flex: $fg $fs $fb;
+}
+
+//
+@mixin view-m-flexitem-flex-order($n)
+{
+    -webkit-order: $n;
+    -ms-flex-order: $n;
+    order: $n;
+    -webkit-box-ordinal-group: $n;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------
+//
+//----------------------------------------------------------------------------------------------------------------

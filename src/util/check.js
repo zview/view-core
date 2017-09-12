@@ -8,7 +8,15 @@ export function oneOf (value, list, ignore) {
 }
 
 export function insideIonic (value) {
-  let list = ['light', 'stable',
-    'positive', 'calm', 'balanced', 'energized', 'assertive', 'royal', 'dark'];
+  let list = ['light', 'stable', 'positive', 'calm', 'balanced', 'energized', 'assertive', 'royal', 'dark'];
   return oneOf(value, list, true);
+}
+
+export function insideBootstrap (value) {
+  let list = ['primary', 'success', 'info', 'warning', 'danger'];
+  return oneOf(value, list, true);
+}
+
+export function insideColor (value) {
+  return insideIonic(value) || insideBootstrap(value);
 }

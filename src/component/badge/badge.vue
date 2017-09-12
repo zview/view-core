@@ -10,19 +10,19 @@
 
 <script>
 
-    import { oneOf, insideIonic } from '../../util/check';
+    import { oneOf, insideColor } from '../../util/check';
 
     export default {
         name: 'Badge',
         props: {
             color: {
                 validator (value) {
-                    return insideIonic(value);
+                    return insideColor(value);
                 }
             },
             bgColor: {
                 validator (value) {
-                    return insideIonic(value);
+                    return insideColor(value);
                 }
             },
             text: String,
@@ -32,7 +32,7 @@
             classes () {
                 return [
                     {
-                        [`${this.color}`]: !!this.color,
+                        [`${this.color}-fg`]: !!this.color,
                         [`${this.bgColor}-bg`]: !!this.bgColor,
                         [`${this.className}`]: !!this.className
                     }

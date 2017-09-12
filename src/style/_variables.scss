@@ -1,92 +1,255 @@
-
-
 //---------------------------项目定义---------------------------//
 
 //Ionic体系
 
-//颜色 light, stable, positive, calm, balanced, energized, assertive, royal, dark
+//基础颜色 {color} light, stable, positive, calm, balanced, energized, assertive, royal, dark
 //字体颜色 .{color}
 //背景颜色 .{color}-bg
 //边框颜色 .{color}-border
-
-//
 //内边距 全部为10px  padding, padding-top, padding-right, padding-bottom, padding-left
 //
 
+//----------------------------------------------------------//
 
-//---------------------------色彩体系---------------------------//
+// Prefix
+$css-prefix             : view;
+$css-prefix-iconfont    : view-icon;
 
-// Black系
-$_black:                           #000000 !default;
-$_dimgray:                         #696969 !default;
-$_gray:                            #808080 !default;
-$_darkgray:                        #a9a9a9 !default;
-$_silver:                          #c0c0c0 !default;
-$_lightgrey:                       #d3d3d3 !default;
-$_gainsboro:                       #dcdcdc !default;
-$_whitesmoke:                      #f5f5f5 !default;
-$_white:                           #ffffff !default;
+//----------------------------------------------------------//
 
+// Color
+
+// BootStrap系
+$primary-color          : #2d8cf0 !default;
+$success-color          : #19be6b !default;
+$info-color             : #2db7f5 !default;
+$warning-color          : #ff9900 !default;
+$danger-color           : #ed3f14 !default;
 
 // Ionic系
-$_light:                           #ffffff !default;
-$_stable:                          #f5f5f5 !default; //#f8f8f8 !default;
-$_positive:                        #4a90e2 !default; //#387ef5 !default;
-$_calm:                            #11c1f3 !default; //#11c1f3 !default;
-$_balanced:                        #44cc00 !default; //#33cd5f !default;
-$_energized:                       #ffbd17 !default; //#ffc900 !default;
-$_assertive:                       #ea5a49 !default; //#ef473a !default;
-$_royal:                           #b5b5b5 !default; //#886aea !default;
-$_dark:                            #484746 !default; //#444444 !default;
+$light-color            : #ffffff !default;
+$stable-color           : #f5f5f5 !default; //#f8f8f8 !default;
+$positive-color         : #4a90e2 !default; //#387ef5 !default;
+$calm-color             : #11c1f3 !default; //#11c1f3 !default;
+$balanced-color         : #44cc00 !default; //#33cd5f !default;
+$energized-color        : #ffbd17 !default; //#ffc900 !default;
+$assertive-color        : #ea5a49 !default; //#ef473a !default;
+$royal-color            : #b5b5b5 !default; //#886aea !default;
+$dark-color             : #484746 !default; //#444444 !default;
 
+// Black系
+$black-color            : #000000 !default;
+$dimgray-color          : #696969 !default;
+$gray-color             : #808080 !default;
+$darkgray-color         : #a9a9a9 !default;
+$silver-color           : #c0c0c0 !default;
+$lightgrey-color        : #d3d3d3 !default;
+$gainsboro-color        : #dcdcdc !default;
+$whitesmoke-color       : #f5f5f5 !default;
+$white-color            : #ffffff !default;
 
-//---------------------------尺寸体系---------------------------//
+//----------------------------------------------------------//
 
-
-//运算符
-
-/*
-margin: (14px/2);
-top: 50px + 100px;
-right: 100px - 50px;
-left: 10px * 10;
-*/
-
-
-//
-$header-height:                   44px;
-$footer-height:                   44px;
-
-//
-$navbar-height:                   44px;
-$tabbar-height:                   44px;
-
-//
-$list-item-height:                24px;
-
-//
-$default-padding:                 10px;
-
-//
-$default-page-bgcolor:            #f5f5f5;
+// Base
+$body-background        : #ffffff;
+$page-background        : $stable-color;
+$font-family            : "Helvetica Neue","Helvetica","PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑","Arial","sans-serif";
+$font-stack             : "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", "sans-serif";
+$code-family            : "Consolas","Menlo","Courier","monospace";
+$title-color            : #1c2438;
+$text-color             : #495060;
+$font-size-base         : 14px !default;
+$font-size-small        : 12px;
+$line-height-base       : 1.5;
+$line-height-computed   : floor(($font-size-base * $line-height-base));
+$border-radius-base     : 6px;
+$border-radius-small    : 4px;
+$cursor-disabled        : not-allowed;
 
 //
-$default-border-color:            #dddddd;
-
-
-//---------------------------动画定义---------------------------//
+$padding-base           : 10px;
 
 //
-$ios-transition-duration:              500ms !default;
-$ios-transition-timing-function:       cubic-bezier(.36, .66, .04, 1) !default;
+$link-color             : #2d8cf0;
+$link-hover-color       : lighten($link-color, 20%);
+$link-active-color      : darken($link-color, 5%);
+$selected-color         : fade($primary-color, 90%);
+$tooltip-color          : #fff;
+$subsidiary-color       : #80848f;
+$rate-star-color        : #f5a623;
 
-$android-transition-duration:          200ms !default;
-$android-transition-timing-function:   cubic-bezier(0.4, 0.6, 0.2, 1) !default;
+//----------------------------------------------------------//
 
-//---------------------------字体定义---------------------------//
+// Layout
+$header-height          : 44px;
+$footer-height          : 44px;
+$navbar-height          : 44px;
+$tabbar-height          : 44px;
 
-//
-$font-stack: "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+//----------------------------------------------------------//
+
+// Border color
+$border-color-base      : #dddee1;  // outside
+$border-color-split     : #e9eaec;  // inside
+
+//----------------------------------------------------------//
+
+// Background color
+$background-color-base        : #f7f7f7;  // base
+$background-color-select-hover: #f3f3f3;
+$tooltip-bg                   : rgba(70, 76, 91, .9);
+$head-bg                      : #f9fafc;
+$table-thead-bg               : #f8f8f9;
+$table-td-stripe-bg           : #f8f8f9;
+$table-td-hover-bg            : #ebf7ff;
+$table-td-highlight-bg        : #ebf7ff;
+$menu-dark-title              : #495060;
+$menu-dark-active-bg          : #363e4f;
+$menu-dark-subsidiary-color   : rgba(255,255,255,.7);
+$menu-dark-group-title-color  : rgba(255,255,255,.36);
+$date-picker-cell-hover-bg    : #e1f0fe;
 
 
-//---------------------------Comment---------------------------//
+//----------------------------------------------------------//
+
+// Shadow
+$shadow-color           : rgba(0, 0, 0, .2);
+$shadow-base            : 0 1px 6px $shadow-color;
+$shadow-card            : 0 1px 1px 0 rgba(0,0,0,.1);
+$shadow-up              : 0 -1px 6px $shadow-color;
+$shadow-down            : $shadow-base;
+$shadow-left            : -1px 0 6px $shadow-color;
+$shadow-right           : 1px 0 6px $shadow-color;
+
+//----------------------------------------------------------//
+
+// Button
+$btn-font-weight        : normal;
+$btn-padding-base       : 6px 15px;
+$btn-padding-large      : 6px 15px 7px 15px;
+$btn-padding-small      : 2px 7px;
+$btn-font-size          : 12px;
+$btn-font-size-large    : 14px;
+$btn-border-radius      : 4px;
+$btn-border-radius-small: 3px;
+$btn-group-border       : darken($primary-color, 5%);
+
+$btn-disable-color      : #bbbec4;
+$btn-disable-bg         : $background-color-base;
+$btn-disable-border     : $border-color-base;
+
+$btn-default-color      : $text-color;
+$btn-default-bg         : $background-color-base;
+$btn-default-border     : $border-color-base;
+
+$btn-primary-color      : #fff;
+$btn-primary-bg         : $primary-color;
+
+$btn-ghost-color        : $text-color;
+$btn-ghost-bg           : transparent;
+$btn-ghost-border       : $border-color-base;
+
+$btn-circle-size        : 32px;
+$btn-circle-size-large  : 36px;
+$btn-circle-size-small  : 24px;
+
+//----------------------------------------------------------//
+
+// List
+$list-item-height       : 24px;
+
+// Grid
+$grid-columns           : 24;
+$grid-gutter-width      : 0;
+
+//----------------------------------------------------------//
+
+// Legend
+$legend-color           : #999;
+
+//----------------------------------------------------------//
+
+// Input
+$input-height-base           : 32px;
+$input-height-large          : 36px;
+$input-height-small          : 24px;
+
+$input-padding-horizontal    : 7px;
+$input-padding-vertical-base : 4px;
+$input-padding-vertical-small: 1px;
+$input-padding-vertical-large: 6px;
+
+$input-placeholder-color     : $btn-disable-color;
+$input-color                 : $text-color;
+$input-border-color          : $border-color-base;
+$input-bg                    : #fff;
+
+$input-hover-border-color    : $primary-color;
+$input-focus-border-color    : $primary-color;
+$input-disabled-bg           : #f3f3f3;
+
+//----------------------------------------------------------//
+
+// Tag
+$tag-font-size          : 12px;
+
+//----------------------------------------------------------//
+
+// Media queries breakpoints
+// Extra small screen / phone
+$screen-xs              : 480px;
+$screen-xs-min          : $screen-xs;
+$screen-xs-max          : ($screen-xs-min - 1);
+
+// Small screen / tablet
+$screen-sm              : 768px;
+$screen-sm-min          : $screen-sm;
+$screen-sm-max          : ($screen-sm-min - 1);
+
+// Medium screen / desktop
+$screen-md              : 992px;
+$screen-md-min          : $screen-md;
+$screen-md-max          : ($screen-md-min - 1);
+
+// Large screen / wide desktop
+$screen-lg              : 1200px;
+$screen-lg-min          : $screen-lg;
+$screen-lg-max          : ($screen-lg-min - 1);
+
+//----------------------------------------------------------//
+
+// Z-index
+$zindex-item            : 2;
+$zindex-spin            : 8;
+$zindex-affix           : 10;
+$zindex-back-top        : 10;
+$zindex-select          : 900;
+$zindex-modal           : 1000;
+$zindex-message         : 1010;
+$zindex-notification    : 1010;
+$zindex-tooltip         : 1060;
+$zindex-loading-bar     : 2000;
+
+//----------------------------------------------------------//
+
+// Animation
+$animation-time                     : .3s;
+$transition-time                    : .2s;
+$ease-in-out                        : ease-in-out;
+
+$ios-transition-duration            : 500ms !default;
+$ios-transition-timing-function     : cubic-bezier(.36, .66, .04, 1) !default;
+$android-transition-duration        : 200ms !default;
+$android-transition-timing-function : cubic-bezier(0.4, 0.6, 0.2, 1) !default;
+
+//----------------------------------------------------------//
+
+// Slider
+$slider-color              : lighten($primary-color, 20%);
+$slider-height             : 4px;
+$slider-margin             : 16px 0;
+$slider-button-wrap-size   : 18px;
+$slider-button-wrap-offset : -4px;
+$slider-disabled-color     : #ccc;
+
+//----------------------------------------------------------//
