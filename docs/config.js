@@ -2,7 +2,8 @@ docute.init({
   home: './zh/README.md',
 
   nav: [
-    {title: '中文指南', path: '/'},
+    {title: '起步', path: '/'},
+    {title: '指南', path: '/zh/manual'},
     {title: 'API', path: '/zh/api'},
 
     /*{title: 'Languages', type: 'dropdown', items: [

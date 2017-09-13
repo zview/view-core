@@ -1,55 +1,95 @@
 <template>
     <div class="page-button">
 
-        <List type="list-inset" dividerContent="按钮颜色" dividerBgColor="positive" dividerColor="light">
-            <Item bgColor="dimgray">
-                <Button type="block" bgColor="light">light</Button>
-                <Button type="block" bgColor="stable">stable</Button>
-                <Button type="block" bgColor="positive">positive</Button>
-                <Button type="block" bgColor="calm">calm</Button>
-                <Button type="block" bgColor="balanced">balanced</Button>
-                <Button type="block" bgColor="energized">energized</Button>
-                <Button type="block" bgColor="assertive">assertive</Button>
-                <Button type="block" bgColor="royal">royal</Button>
-                <Button type="block" bgColor="dark">dark</Button>
+        <List type="list-inset" divider-content="按钮颜色" divider-bg-color="positive" divider-color="light">
+            <Item bg-color="dimgray">
+                <Button type="block" bg-color="light" @click="_on_button_click('light')">light</Button>
+                <Button type="block" bg-color="stable" @click="_on_button_click('stable')">stable</Button>
+                <Button type="block" bg-color="positive" @click="_on_button_click('positive')">positive</Button>
+                <Button type="block" bg-color="calm" @click="_on_button_click('calm')">calm</Button>
+                <Button type="block" bg-color="balanced" @click="_on_button_click('balanced')">balanced</Button>
+                <Button type="block" bg-color="energized" @click="_on_button_click('energized')">energized</Button>
+                <Button type="block" bg-color="assertive" @click="_on_button_click('assertive')">assertive</Button>
+                <Button type="block" bg-color="royal" @click="_on_button_click('royal')">royal</Button>
+                <Button type="block" bg-color="dark" @click="_on_button_click('dark')">dark</Button>
             </Item>
         </List>
 
-        <List type="list-inset" dividerContent="按钮样式" dividerBgColor="positive" dividerColor="light">
+        <List type="list-inset" divider-content="按钮样式" divider-bg-color="positive" divider-color="light">
             <Item>
-                <Button type="clear" bgColor="dark">Clear按钮</Button>
+                <Button type="clear" bg-color="positive">Clear按钮</Button>
+                <Button type="clear" bg-color="calm">Clear按钮</Button>
             </Item>
             <Item>
-                <Button type="block" bgColor="dark">Block按钮</Button>
+                <Button type="outline" bg-color="balanced">Outline按钮</Button>
+                <Button type="outline" bg-color="calm">Outline按钮</Button>
             </Item>
             <Item>
-                <Button type="full" bgColor="dark">Full按钮</Button>
-            </Item>
-            <Item>
-                <Button type="outline" bgColor="dark">Outline按钮</Button>
-            </Item>
-        </List>
-
-        <List type="list-inset" dividerContent="按钮大小" dividerBgColor="positive" dividerColor="light">
-            <Item>
-                <Button size="small">小按钮</Button>
-                <Button>默认按钮</Button>
-                <Button size="large">大按钮</Button>
+                <Button size="small" type="block" bg-color="stable">Block按钮</Button>
+                <Button size="small" type="block" bg-color="dark" color="calm">Block按钮</Button>
+                <Button size="small" type="full" bg-color="stable">Full按钮</Button>
+                <Button size="small" type="full" bg-color="dark" color="calm">Full按钮</Button>
+                <Button size="small" type="block" outline="true" bg-color="dark">Block-Outline按钮</Button>
+                <Button size="small" type="full" outline="true" bg-color="calm">Full-Outline按钮</Button>
             </Item>
         </List>
 
-        <List type="list-inset" dividerContent="带图标" dividerBgColor="positive" dividerColor="light">
+        <List type="list-inset" divider-content="按钮大小" divider-bg-color="positive" divider-color="light">
             <Item>
-                <Button icon="ion-home">默认按钮</Button>
+                <Button bg-color="dark" size="small">小按钮</Button>
+                <Button bg-color="dark">默认按钮</Button>
+                <Button bg-color="dark" size="large">大按钮</Button>
+            </Item>
+        </List>
+
+        <List type="list-inset" divider-content="带图标" divider-bg-color="positive" divider-color="light">
+            <Item>
+                <Button bg-color="calm" size="small" icon="ion-home">默认按钮</Button>
+                <Button bg-color="stable" size="small" icon="ion-heart" icon-align="right">默认按钮</Button>
             </Item>
             <Item>
-                <Button icon="ion-heart" icon-align="right">默认按钮</Button>
+                <Button bg-color="calm" size="small" icon="fa-snowflake-o" color="dark">默认按钮</Button>
+                <Button bg-color="stable" size="small" icon="fa-snowflake-o" icon-align="right">默认按钮</Button>
+            </Item>
+        </List>
+
+        <List type="list-inset" divider-content="FAB按钮" divider-bg-color="positive" divider-color="light">
+            <Item>
+                <Button type="fab" bg-color="calm" icon="ion-home"></Button>
+                <Button type="fab" bg-color="calm">Top</Button>
             </Item>
             <Item>
-                <Button icon="fa-snowflake-o">默认按钮</Button>
+                <Button type="fab" bg-color="balanced" icon="ion-checkmark"></Button>
+                <Button type="fab" bg-color="assertive" icon="ion-close"></Button>
+
+                <Button type="fab" bg-color="energized" icon="ion-home"></Button>
+                <Button type="fab" bg-color="calm" icon="ion-android-share"></Button>
             </Item>
             <Item>
-                <Button icon="fa-snowflake-o" icon-align="right">默认按钮</Button>
+                <Button type="fab" bg-color="light" icon="ion-android-arrow-up"></Button>
+                <Button type="fab" bg-color="light" icon="ion-android-arrow-down"></Button>
+
+                <Button type="fab" bg-color="positive" icon="ion-android-arrow-forward"></Button>
+                <Button type="fab" bg-color="positive" icon="ion-android-arrow-back"></Button>
+            </Item>
+        </List>
+
+        <List type="list-inset" divider-content="MD按钮" divider-bg-color="positive" divider-color="light">
+            <Item>
+                <Button material="true" @click="_on_button_click('material')">按钮</Button>
+                <Button material="true" bg-color="calm">按钮</Button>
+            </Item>
+            <Item>
+                <Button type="block" material="true" @click="_on_button_click('material-block')">按钮</Button>
+                <Button type="block" material="true" bg-color="calm">按钮</Button>
+            </Item>
+            <Item>
+                <Button type="full" material="true" @click="_on_button_click('material-full')">按钮</Button>
+                <Button type="full" material="true" bg-color="calm">按钮</Button>
+            </Item>
+            <Item>
+                <Button size="small" type="block" material="true" bg-color="calm">按钮</Button>
+                <Button size="large" type="block" material="true" bg-color="calm">按钮</Button>
             </Item>
         </List>
 
@@ -64,6 +104,9 @@
             }
         },
         methods: {
+            _on_button_click: function (message) {
+                console.log('_on_button_click', message);
+            },
 
         },
     }

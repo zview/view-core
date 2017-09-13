@@ -2,11 +2,11 @@
 
     <div class="view-item item" :class="classes">
         <Icon :icon="iconLeft" v-if="iconLeft"></Icon>
-        <Button v-if="buttonLeft">{{buttonLeft}}</Button>
+        <Button bg-color="stable" size="small" v-if="buttonLeft">{{buttonLeft}}</Button>
         <slot></slot>
         <span class="item-note" v-if="note">{{note}}</span>
         <Icon :icon="iconRight" :class-name="icon_right_classes" v-if="iconRight"></Icon>
-        <Button v-if="buttonRight">{{buttonRight}}</Button>
+        <Button bg-color="stable" size="small" v-if="buttonRight">{{buttonRight}}</Button>
     </div>
 
 </template>

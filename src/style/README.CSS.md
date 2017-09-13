@@ -316,6 +316,17 @@ p:not(.abc) { color:#f00; }
 }
 ```
 
+```
+.view-button
+{
+	&.button-block:not(.white-bg):not(.whitesmoke-bg)
+	{
+        color: $white-color;
+   }
+}
+```
+
+
 ### 1.4 伪对象选择器
 
 CSS3将伪对象选择符前面的单个冒号(:)修改为双冒号(::)用以区别伪类选择符，但以前的写法仍然有效。

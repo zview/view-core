@@ -17,6 +17,11 @@ export function insideBootstrap (value) {
   return oneOf(value, list, true);
 }
 
+export function insideBlacks (value) {
+  let list = ['black', 'dimgray', 'gray', 'darkgray', 'silver', 'lightgrey', 'gainsboro', 'whitesmoke', 'white'];
+  return oneOf(value, list, true);
+}
+
 export function insideColor (value) {
-  return insideIonic(value) || insideBootstrap(value);
+  return insideIonic(value) || insideBootstrap(value) || insideBlacks(value);
 }
