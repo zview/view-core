@@ -1,9 +1,23 @@
+
+//--------------------------------------------------------------------------
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import View from '../index.js';
-
 Vue.use(VueRouter);
-Vue.use(View);
+
+//--------------------------------------------------------------------------
+
+import View from '../index.js';
+const view_config = {
+    locale: 'zh_CN',
+};
+Vue.use(View, view_config);
+
+//--------------------------------------------------------------------------
+
+//FontAwesome
+import 'font-awesome/css/font-awesome.min.css';
+
+//--------------------------------------------------------------------------
 
 //
 import Router from './router';
@@ -13,6 +27,7 @@ import App from './app';
 //
 import './asset/demo.scss';
 
+//--------------------------------------------------------------------------
 
 //
 const nextDirection = (direction) => {
@@ -24,6 +39,8 @@ const setTitle = (title) => {
   let el = document.querySelector('[view-navbar="active"] > .title > span');
   if (el) el.textContent = title;
 };
+
+//--------------------------------------------------------------------------
 
 // 路由配置
 const RouterConfig = {
@@ -46,10 +63,14 @@ router.back = (target) => {
   setTimeout(() => { router['_' + pushMethod](target) });
 };
 
+//--------------------------------------------------------------------------
+
 // 实例定义
 new Vue({
   el: '#app',
-  Store,
+  store: Store,
   router: router,
   render: h => h(App)
 });
+
+//--------------------------------------------------------------------------

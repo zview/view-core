@@ -5,7 +5,8 @@
 
             <Item>
                 <Upload action="http://ysbd-dev.xbdedu.cn/api/file/?filetype=4"
-                        @terminate="_on_upload_terminate" @prepare="_on_upload_prepare"
+                        @terminate="_on_upload_terminate"
+                        @prepare="_on_upload_prepare"
                         :on-success="_on_upload_success">
 
                     <Button type="outline" color="positive" icon="fa-cloud">单文件</Button>
@@ -14,18 +15,22 @@
             </Item>
 
             <Item>
-                <Upload action="http://ysbd-dev.xbdedu.cn/api/file/?filetype=4" :data="{'filetype': 4}"
-                        accept="image/*" :format="['jpg','jpeg','png']"
-                        :per-size="10 * 1024 * 1024" :max-size="10 * 1024 * 1024 * 4" :max-num="4" multiple
-                        @terminate="_on_upload_terminate"
-                        @prepare="_on_upload_prepare"
+                <Upload action="http://ysbd-dev.xbdedu.cn/api/file/?filetype=4"
+                        accept="image/*"
+                        :data="{'filetype': 4}"
+                        :format="['jpg','jpeg','png']"
+                        :per-size="10 * 1024 * 1024"
+                        :max-size="10 * 1024 * 1024 * 4"
+                        :max-num="4"
                         :on-progress="_on_upload_progress"
                         :on-success="_on_upload_success"
                         :on-error="_on_upload_error"
                         :on-preview="_on_file_preview"
                         :on-remove="_on_file_remove"
                         :on-format-error="_on_file_format_error"
-                        :on-exceeded-size="_on_file_exceeded_size">
+                        :on-exceeded-size="_on_file_exceeded_size"
+                        @terminate="_on_upload_terminate"
+                        @prepare="_on_upload_prepare" multiple>
 
                     <Button type="outline" color="positive" icon="fa-cloud">多文件</Button>
 

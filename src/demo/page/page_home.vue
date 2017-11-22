@@ -5,10 +5,11 @@
             <Item color="light" bg-color="positive" note="Basic">基础</Item>
             <Item @click.native="_on_goto_page('/demo/color')" note="Color">颜色</Item>
             <Item @click.native="_on_goto_page('/demo/font')" note="Font">字体</Item>
-            <Item @click.native="_on_goto_page('/demo/icon')" note="Icon">图标</Item>
-            <Item @click.native="_on_goto_page('/demo/button')" note="Button">按钮</Item>
             <Item @click.native="_on_goto_page('/demo/theme')" note="Theme">主题</Item>
             <Item @click.native="_on_goto_page('/demo/locale')" note="Locale">国际化</Item>
+            <Item @click.native="_on_goto_page('/demo/icon')" note="Icon">图标</Item>
+            <Item @click.native="_on_goto_page('/demo/button')" note="Button">按钮</Item>
+
 
             <Item color="light" bg-color="positive" note="Layout">布局</Item>
             <Item @click.native="_on_goto_page('/demo/grid')" note="Grid">栅格</Item>
@@ -20,7 +21,7 @@
             <Item @click.native="_on_goto_page('/demo/tree')" note="Tree">树形控件</Item>
             <Item @click.native="_on_goto_page('/demo/timeline')" note="Timeline">时间轴</Item>
             <Item @click.native="_on_goto_page('/demo/carousel')" note="Carousel">走马灯</Item>
-            <Item @click.native="_on_goto_page('/container')" note="Container">布局</Item>
+            <Item @click.native="_on_goto_page('/container')" note="Container">容器</Item>
 
             <Item color="light" bg-color="positive" note="Navigation">导航</Item>
             <Item @click.native="_on_goto_page('/demo/menu')" note="Menu">导航菜单</Item>
@@ -68,7 +69,7 @@
             <Item @click.native="_on_goto_page('/demo/badge')" note="Badge">徽标</Item>
             <Item @click.native="_on_goto_page('/demo/tag')" note="Tag">标签</Item>
             <Item @click.native="_on_goto_page('/demo/tooltip')" note="Tooltip">文字提示</Item>
-            <Item @click.native="_on_goto_page('/demo/poptip')" note="Cascader">气泡提示</Item>
+            <Item @click.native="_on_goto_page('/demo/poptip')" note="Poptip">气泡提示</Item>
             <Item @click.native="_on_goto_page('/demo/loading')" note="Loading">加载提示</Item>
 
             <Item color="light" bg-color="positive" note="Chart">图表</Item>
