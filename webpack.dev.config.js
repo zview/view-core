@@ -78,10 +78,10 @@ module.exports = merge(webpackBaseConfig, {
         // 热部署
         new webpack.HotModuleReplacementPlugin(),
         // 提取第三方库
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendors',
-            filename: 'vendors.js'
-        }),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: 'vendors',
+        //     filename: 'vendors.js'
+        // }),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"development"'
