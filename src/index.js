@@ -6,7 +6,7 @@ import './style/index.scss';
 //--------------------------------------------------------------------------
 
 //
-import Vue from 'vue';
+import VueI18n from 'vue-i18n';
 
 //--------------------------------------------------------------------------
 
@@ -62,6 +62,11 @@ var pkg = require('../package.json');
 //
 const _VERSION = pkg.version;
 
+//
+const is_ios = () => {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent)
+};
+
 //--------------------------------------------------------------------------
 
 //
@@ -113,7 +118,21 @@ const View = {
     install(Vue, options) {
 
         //
-        console.log('view (' + _VERSION + ') install : ' + JSON.stringify(options));
+        console.log('View (' + _VERSION + ') install : ' + JSON.stringify(options));
+
+        // i18n
+        let i18n_config = {
+            locale: options.locale,    // 语言标识
+            messages: {
+                'zh_CN': require('./lang/cn'),   // 中文语言包
+                'en_US': require('./lang/en')    // 英文语言包
+            },
+        };
+        console.log('VueI18n', i18n_config);
+
+        Vue.use(VueI18n);
+        // Vue.locale(i18n_config.locale, i18n_config.messages[i18n_config.locale]);
+
 
         //Basic
         Vue.component('Icon', Icon);
@@ -182,9 +201,31 @@ const View = {
         };
         Vue.prototype.$service  = Service;
 
-        //
+        //Begin: 一些兼容性代码
+
         //iOS系统中激活:active状态
         document.body.addEventListener('touchstart', function () {});
+
+        // for iOS 10, users can now pinch-to-zoom even when a website sets user-scalable=no in the viewport.
+        document.documentElement.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, false);
+
+        // iOS Safari - Disable double click to zoom
+        if (is_ios()) {
+            let lastTouchEnd = 0;
+            document.documentElement.addEventListener('touchend', (e) => {
+                let now = (new Date()).getTime();
+                if (now - lastTouchEnd < 300) {
+                    e.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+        }
+
+        //End: 一些兼容性代码
     }
 };
 
