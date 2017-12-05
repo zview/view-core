@@ -12,7 +12,7 @@
     export default {
         data () {
             return {
-                message: '标签页',
+                message: '标签页(下划线)',
                 options : [
                     {'id': 1, 'icon': 'ion-ios-telephone'},
                     {'id': 2, 'icon': 'ion-ios-clock'},

@@ -1,7 +1,14 @@
 <template>
-    <div class="page-theme">
+    <div class="page-alert">
 
-        主题
+        <Row>
+            <Col>
+
+            </Col>
+            <Col>
+
+            </Col>
+        </Row>
 
     </div>
 </template>
@@ -10,7 +17,7 @@
     export default {
         data () {
             return {
-                message: '主题',
+                message: '告警提示',
             }
         },
         methods: {

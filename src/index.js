@@ -7,6 +7,9 @@ import './style/index.scss';
 
 //
 import VueI18n from 'vue-i18n';
+import zhCNLocale from './lang/zh_CN';
+import zhTWLocale from './lang/zh_TW';
+import enUSLocale from './lang/en_US';
 
 //--------------------------------------------------------------------------
 
@@ -54,6 +57,8 @@ import focusable from './directive/focusable';
 //Filter
 import formatdate from './filter/formatdate';
 import formattime from './filter/formattime';
+import capitalize from './filter/capitalize';
+import viewsubstr from './filter/viewsubstr';
 
 //--------------------------------------------------------------------------
 
@@ -102,14 +107,15 @@ const View = {
     Navbar,
     Tabbar,
     Page,
+    ButtonBar,
+    Tabs,
+    TabsStriped,
+
     Content,
     Header,
     Footer,
     SubHeader,
     SubFooter,
-    ButtonBar,
-    Tabs,
-    TabsStriped,
 
     //Other
     Editor,
@@ -117,21 +123,25 @@ const View = {
 
     install(Vue, options) {
 
-        //
-        console.log('View (' + _VERSION + ') install : ' + JSON.stringify(options));
+        //Options
+        let cfg_debug   = options.debug;
+        let cfg_lang    = options.lang;
+        let cfg_locales = options.locales;
+        if(cfg_debug) {
+            console.log('View (' + _VERSION + ') install : ' + JSON.stringify(options));
+        }
 
-        // i18n
-        let i18n_config = {
-            locale: options.locale,    // 语言标识
-            messages: {
-                'zh_CN': require('./lang/cn'),   // 中文语言包
-                'en_US': require('./lang/en')    // 英文语言包
-            },
-        };
-        console.log('VueI18n', i18n_config);
-
+        //Lang
         Vue.use(VueI18n);
-        // Vue.locale(i18n_config.locale, i18n_config.messages[i18n_config.locale]);
+        Vue.config.lang = cfg_lang?cfg_lang:'zh-CN';
+
+        //Locale
+        const zhCNMergeLocale = cfg_locales['zh-CN']?Object.assign(zhCNLocale, cfg_locales['zh-CN']):zhCNLocale;
+        const zhTWMergeLocale = cfg_locales['zh-TW']?Object.assign(zhTWLocale, cfg_locales['zh-TW']):zhTWLocale;
+        const enUSMergeLocale = cfg_locales['en-US']?Object.assign(enUSLocale, cfg_locales['en-US']):enUSLocale;
+        Vue.locale('zh-CN', zhCNMergeLocale, null);
+        Vue.locale('zh-TW', zhTWMergeLocale, null);
+        Vue.locale('en-US', enUSMergeLocale, null);
 
 
         //Basic
@@ -167,15 +177,17 @@ const View = {
         //Navigation
         Vue.component('Navbar', Navbar);
         Vue.component('Tabbar', Tabbar);
-        Vue.component('Page', Page);
+        Vue.component('Page', Page); //配合Navbar,Tabbar使用
+        Vue.component('ButtonBar', ButtonBar);
+        Vue.component('Tabs', Tabs);
+        Vue.component('TabsStriped', TabsStriped);
+
+        //
         Vue.component('Content', Content);
         Vue.component('Header', Header);
         Vue.component('Footer', Footer);
         Vue.component('SubHeader', SubHeader);
         Vue.component('SubFooter', SubFooter);
-        Vue.component('ButtonBar', ButtonBar);
-        Vue.component('Tabs', Tabs);
-        Vue.component('TabsStriped', TabsStriped);
 
 
         //Other
@@ -191,6 +203,8 @@ const View = {
         //Filter
         Vue.filter('formatdate', formatdate);
         Vue.filter('formattime', formattime);
+        Vue.filter('capitalize', capitalize);
+        Vue.filter('viewsubstr', viewsubstr);
 
 
         //Service
@@ -282,14 +296,14 @@ export { Form };
 export { Navbar };
 export { Tabbar };
 export { Page };
+export { ButtonBar };
+export { Tabs };
+export { TabsStriped };
 export { Content };
 export { Header };
 export { Footer };
 export { SubHeader };
 export { SubFooter };
-export { ButtonBar };
-export { Tabs };
-export { TabsStriped };
 
 //Other
 export { Editor };

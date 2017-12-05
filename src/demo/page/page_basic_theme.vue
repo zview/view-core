@@ -1,14 +1,7 @@
 <template>
-    <div class="page-alert">
+    <div class="page-theme">
 
-        <Row>
-            <Col>
-
-            </Col>
-            <Col>
-
-            </Col>
-        </Row>
+        多主题
 
     </div>
 </template>
@@ -17,7 +10,7 @@
     export default {
         data () {
             return {
-                message: '告警',
+                message: '多主题',
             }
         },
         methods: {

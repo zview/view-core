@@ -6,9 +6,35 @@ Vue.use(VueRouter);
 
 //--------------------------------------------------------------------------
 
+const locales = {
+    'zh-CN':
+    {
+        'demo' :
+        {
+            'vendor': '小竹',
+        }
+    },
+    'zh-TW':
+    {
+        'demo' :
+        {
+            'vendor': '小築',
+        }
+    },
+    'en-US':
+    {
+        'demo' :
+        {
+            'vendor': 'zuv',
+        }
+    },
+};
+
 import View from '../index.js';
 const view_config = {
-    locale: 'zh_CN',
+    debug: true,
+    lang: 'zh-CN',
+    locales: locales,
 };
 Vue.use(View, view_config);
 

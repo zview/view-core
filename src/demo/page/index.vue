@@ -35,8 +35,13 @@
 
             let ver = vm.$version;
 //            vm.$alert( ver + 'mounted' );
-
             vm.$service.alert(ver + ' mounted');
+
+            let hello = vm.$t('message.hello');
+            console.log('hello', hello);
+
+            let vendor = vm.$t('demo.vendor');
+            console.log('vendor', vendor);
         },
         methods: {
             _on_goto_page: function (page) {

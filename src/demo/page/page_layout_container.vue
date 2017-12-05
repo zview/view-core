@@ -30,7 +30,7 @@
     export default {
         data () {
             return {
-                message: '首页',
+                message: '容器',
             }
         },
         methods: {

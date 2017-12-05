@@ -5,15 +5,14 @@
             <Item color="light" bg-color="positive" note="Basic">基础</Item>
             <Item @click.native="_on_goto_page('/demo/color')" note="Color">颜色</Item>
             <Item @click.native="_on_goto_page('/demo/font')" note="Font">字体</Item>
-            <Item @click.native="_on_goto_page('/demo/theme')" note="Theme">主题</Item>
+            <Item @click.native="_on_goto_page('/demo/theme')" note="Theme">多主题</Item>
             <Item @click.native="_on_goto_page('/demo/locale')" note="Locale">国际化</Item>
             <Item @click.native="_on_goto_page('/demo/icon')" note="Icon">图标</Item>
             <Item @click.native="_on_goto_page('/demo/button')" note="Button">按钮</Item>
 
-
             <Item color="light" bg-color="positive" note="Layout">布局</Item>
-            <Item @click.native="_on_goto_page('/demo/grid')" note="Grid">栅格</Item>
-            <Item @click.native="_on_goto_page('/demo/list')" note="List">列表</Item>
+            <Item @click.native="_on_goto_page('/demo/grid')" note="Row/Col">栅格</Item>
+            <Item @click.native="_on_goto_page('/demo/list')" note="List/Item">列表</Item>
             <Item @click.native="_on_goto_page('/demo/table')" note="Table">表格</Item>
             <Item @click.native="_on_goto_page('/demo/card')" note="Card">卡片</Item>
             <Item @click.native="_on_goto_page('/demo/panel')" note="Panel">面板</Item>
@@ -21,7 +20,7 @@
             <Item @click.native="_on_goto_page('/demo/tree')" note="Tree">树形控件</Item>
             <Item @click.native="_on_goto_page('/demo/timeline')" note="Timeline">时间轴</Item>
             <Item @click.native="_on_goto_page('/demo/carousel')" note="Carousel">走马灯</Item>
-            <Item @click.native="_on_goto_page('/container')" note="Container">容器</Item>
+            <Item @click.native="_on_goto_page('/container')" note="Content/Header/Footer/SubHeader/SubFooter">容器</Item>
 
             <Item color="light" bg-color="positive" note="Navigation">导航</Item>
             <Item @click.native="_on_goto_page('/demo/menu')" note="Menu">导航菜单</Item>
@@ -34,8 +33,8 @@
             <Item @click.native="_on_goto_page('/demo/loadingbar')" note="LoadingBar">加载进度条</Item>
             <Item @click.native="_on_goto_page('/demo/buttonbar')" note="ButtonBar">按钮栏</Item>
             <Item @click.native="_on_goto_page('/demo/toolbar')" note="ToolBar">工具栏</Item>
-            <Item @click.native="_on_goto_page('/tabbar')" note="Tabbar">底部栏</Item>
-            <Item @click.native="_on_goto_page('/navbar')" note="Navbar">导航栏</Item>
+            <Item @click.native="_on_goto_page('/tabbar')" note="Tabbar/Page">底部栏</Item>
+            <Item @click.native="_on_goto_page('/navbar')" note="Navbar/Page">导航栏</Item>
             <Item @click.native="_on_goto_page('/sidebar')" note="Sidebar">侧边栏</Item>
 
             <Item color="light" bg-color="positive" note="Form">表单</Item>
@@ -54,8 +53,8 @@
             <Item @click.native="_on_goto_page('/demo/cascader')" note="Cascader">级联选择</Item>
             <Item @click.native="_on_goto_page('/demo/tranfer')" note="Transfer">穿梭框</Item>
             <Item @click.native="_on_goto_page('/demo/number')" note="Number">数字输入</Item>
-            <Item @click.native="_on_goto_page('/demo/rate')" note="Rate">评分</Item>
-            <Item @click.native="_on_goto_page('/demo/upload')" note="Upload">上传</Item>
+            <Item @click.native="_on_goto_page('/demo/rate')" note="Rate">星级评分</Item>
+            <Item @click.native="_on_goto_page('/demo/upload')" note="Upload">文件上传</Item>
             <Item @click.native="_on_goto_page('/demo/form')" note="Form">表单</Item>
 
             <Item color="light" bg-color="positive" note="View">视图</Item>
@@ -70,19 +69,19 @@
             <Item @click.native="_on_goto_page('/demo/tag')" note="Tag">标签</Item>
             <Item @click.native="_on_goto_page('/demo/tooltip')" note="Tooltip">文字提示</Item>
             <Item @click.native="_on_goto_page('/demo/poptip')" note="Poptip">气泡提示</Item>
-            <Item @click.native="_on_goto_page('/demo/loading')" note="Loading">加载提示</Item>
+            <Item @click.native="_on_goto_page('/demo/loading')" note="Loading/Spin">加载提示</Item>
+            <Item @click.native="_on_goto_page('/demo/backtop')" note="BackTop">回到顶部</Item>
 
             <Item color="light" bg-color="positive" note="Chart">图表</Item>
             <Item @click.native="_on_goto_page('/demo/circle')" note="Circle">进度环</Item>
             <Item @click.native="_on_goto_page('/demo/chinamap')" note="ChinaMap">中国省市图</Item>
 
             <Item color="light" bg-color="positive" note="Other">其他</Item>
-            <Item @click.native="_on_goto_page('/demo/backtop')" note="BackTop">回到顶部</Item>
-            <Item @click.native="_on_goto_page('/demo/spin')" note="Spin">进度条</Item>
+            <Item @click.native="_on_goto_page('/demo/editor')" note="Editor">编辑器</Item>
 
-            <Item color="light" bg-color="positive" note="Other">高级</Item>
+            <Item color="light" bg-color="positive" note="Advanced">高级</Item>
             <Item @click.native="_on_goto_page('/directive')" note="Directive">指令</Item>
-            <Item @click.native="_on_goto_page('/filter')" note="Filter">Filter</Item>
+            <Item @click.native="_on_goto_page('/filter')" note="Filter">过滤器</Item>
 
             <Item color="light" bg-color="positive" note="Sample">示例</Item>
             <Item @click.native="_on_goto_page('/sample_css')" note="CSS/SCSS">样式表</Item>

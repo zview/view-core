@@ -1,34 +1,41 @@
-.markdown-body > h2 {
+.markdown-body > h2
+{
   border-bottom: none;
 }
 
-.code-name {
+.code-name
+{
   font-family: "Monoton", sans-serif;
   font-size: 60px;
   font-weight: normal;
   color: #47B584;
 }
 
-.code-desc {
+.code-desc
+{
   font-family: "Josefin Sans", sans-serif;
   color: #999;
 }
 
-.code-name, .code-desc {
+.code-name,
+.code-desc
+{
   text-align: center;
 }
 
-hr {
+hr
+{
   height: 1px !important;
 }
 
 /* 基础规范 */
 
-.color {
+.color
+{
   width: 200px;
   font-size: 14px;
   line-height: 20px;
-  border-radius: 2px; 
+  border-radius: 2px;
   padding: 10px;
   margin: 10px 10px 10px 0;
 }
@@ -65,19 +72,19 @@ hr {
   float: right;
 }
 
-.device-ios { 
-  width: 467px; 
-  height: 800px; 
-  background: url(devices-sprite.jpg) center top no-repeat; 
-  background-size: 467px; 
-  margin: 0 auto; 
-  text-align: center; 
+.device-ios {
+  width: 467px;
+  height: 800px;
+  background: url(devices-sprite.jpg) center top no-repeat;
+  background-size: 467px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.demo-ios { 
-  margin-top: 85px; 
-  width: 320px; 
-  height: 568px; 
+.demo-ios {
+  margin-top: 85px;
+  width: 320px;
+  height: 568px;
 }
 
 body.mobile .device-ios {

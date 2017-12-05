@@ -1,22 +1,55 @@
 docute.init({
-  home: './zh/README.md',
 
-  nav: [
-    {title: '起步', path: '/'},
-    {title: '指南', path: '/zh/manual'},
-    {title: 'API', path: '/zh/api'},
+    // landing: 'loadding.md',  //true loading.html
 
-    /*{title: 'Languages', type: 'dropdown', items: [
-      {title: '中文', path: '/zh/chinese'},
-      {title: 'English', path: '/en/japanese'}
-    ]}*/
-  ],
+    home: './site/zh/home.md',
 
-  repo: 'zview/view',
+    nav: {
+        default: [
+            {title: '首页', path: '/'},
+            {title: '起步', path: '/start', source: '/site/zh/start.md'},
+            {title: '指南', path: '/manual', source: '/site/zh/manual.md'},
 
-  marked: {
-    smartypants: true
-  },
+            {
+                title: '语言',
+                type: 'dropdown',
+                items: [
+                    {title: '中文', path: '/'},
+                    {title: 'English', path: '/english', source: '/site/en/home.md'}
+                ]
+            },
+            /*{
+                title: '关于',
+                type: 'dropdown',
+                items: [
+                    {type: 'label', title: 'Help'},
+                    {type: 'sep'}, // separator
+                    {type: 'label', title: 'About'},
+                    {type: 'label', title: 'Blog'},
+                ]
+            }*/
+        ],
+        english: [
+            {title: 'Home', path: '/english', source: '/site/en/home.md'},
+            {title: 'Getting start', path: '/english/start', source: '/site/en/start.md'},
+            {title: 'Manual', path: '/english/manual', source: '/site/en/manual.md'},
 
-  tocVisibleDepth: 4
+            {
+                title: 'Languages',
+                type: 'dropdown',
+                items: [
+                    {title: '中文', path: '/'},
+                    {title: 'English', path: '/english', source: '/site/en/home.md'}
+                ]
+            }
+        ]
+    },
+
+    repo: 'zview/view',
+
+    marked: {
+        smartypants: true
+    },
+
+    tocVisibleDepth: 4
 });

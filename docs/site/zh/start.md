@@ -1,26 +1,27 @@
 ---
-title: 指南
+title: 起步
 ---
 
-## <div class="code-name">VIEW</div>
+## 起步
 
-<div class="code-desc">
-  Mobile UI Components, based on Vue.js and ionic CSS.
-</div>
-
-### 介绍
-
-什么是 **view** ？
-
-一个基于 **vue.js** 和 **ionic** 样式的 UI 框架，用于快速构建移动端单页应用。
-
-<p class="tip">
-  和 ionic 的关系：没有关系，只是在样式方面以 ionic 的 css 文件为基础（做了一些调整）
-</p>
-
-<hr/>
 
 ### 基础规范
+
+#### 颜色
+
+包含以下颜色
+
+* Ionic系列
+
+'light', 'stable', 'positive', 'calm', 'balanced', 'energized', 'assertive', 'royal', 'dark'
+
+* BootStrap系列
+
+'primary', 'success', 'info', 'warning', 'danger'
+
+* Black系列
+
+'black', 'dimgray', 'gray', 'darkgray', 'silver', 'lightgrey', 'gainsboro', 'whitesmoke', 'white'
 
 #### 字体
 
