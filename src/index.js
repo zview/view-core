@@ -110,7 +110,7 @@ const View = {
     ButtonBar,
     Tabs,
     TabsStriped,
-
+    //
     Content,
     Header,
     Footer,
