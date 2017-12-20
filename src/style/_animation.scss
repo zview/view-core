@@ -1,3 +1,130 @@
 @import "variables";
+@import "mixins";
+
+//----------------------------------------------------------------------------------------------------------------
+// 动画
+//----------------------------------------------------------------------------------------------------------------
 
 
+// Animation
+$ios-transition-duration            : 500ms !default;
+$ios-transition-timing-function     : cubic-bezier(.36, .66, .04, 1) !default;
+$android-transition-duration        : 200ms !default;
+$android-transition-timing-function : cubic-bezier(0.4, 0.6, 0.2, 1) !default;
+
+
+//----------------------------------------------------------//
+
+
+// 过渡 Transition
+@mixin view-m-transition($property...)
+{
+    @include view-m-prefixer(transition, $property);
+}
+@mixin view-m-transition-delay($property)
+{
+    @include view-m-prefixer(transition-delay, $property);
+}
+@mixin view-m-transition-duration($property)
+{
+    @include view-m-prefixer(transition-duration, $property);
+}
+@mixin view-m-transition-property($property)
+{
+    @include view-m-prefixer(transition-property, $property);
+}
+// linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>)
+@mixin view-m-transition-timing-function($property)
+{
+    @include view-m-prefixer(transition-timing-function, $property);
+}
+
+
+// 变换 Transform
+@mixin view-m-transform($property...)
+{
+    @include view-m-prefixer(transform, $property);
+}
+// x 横坐标: <percentage> | <length> | left | center | right
+// y 纵坐标: <percentage> | <length> | top | center | bottom
+// 默认值：50% 50%，效果等同于center center
+@mixin view-m-transform-origin($property)
+{
+    @include view-m-prefixer(transform-origin, $property);
+}
+// 2D旋转
+@mixin view-m-transform-rotate($degrees)
+{
+    @include view-m-transform( rotate($degrees) );
+}
+// 2D缩放
+@mixin view-m-transform-scale($ratio)
+{
+    @include view-m-transform( scale($ratio) );
+}
+// 2D平移
+@mixin view-m-transform-translate($x, $y)
+{
+    @include view-m-transform( translate($x, $y) );
+}
+// 斜切扭曲
+@mixin view-m-transform-skew($x, $y)
+{
+    @include view-m-transform( skew($x, $y) );
+    -webkit-backface-visibility: hidden;
+}
+// 3D平移
+@mixin view-m-transform-translate3d($x, $y, $z)
+{
+    @include view-m-transform( translate3d($x, $y, $z) );
+}
+// Z轴平移
+@mixin view-m-transform-translateZ($z)
+{
+    @include view-m-transform( translateZ($z) );
+}
+
+
+// 动画 Animation
+// 名称由@keyframes定义
+@mixin view-m-animation-name($property...)
+{
+    animation-name : $property;
+}
+// 持续时间
+@mixin view-m-animation-duration($property)
+{
+    animation-duration : $property;
+}
+// 延迟时间
+@mixin view-m-animation-delay($property)
+{
+    animation-delay : $property;
+}
+// 循环次数
+@mixin view-m-animation-iteration-count($property)
+{
+    animation-iteration-count : $property;
+}
+// 是否反向运动
+@mixin view-m-animation-direction($property)
+{
+    animation-direction : $property;
+}
+// 动画状态
+@mixin view-m-animation-play-state($property)
+{
+    animation-play-state : $property;
+}
+// 动画时间之外的状态
+@mixin view-m-animation-fill-mode($property)
+{
+    animation-fill-mode : $property;
+}
+// 过渡类型
+@mixin view-m-animation-timing-function($property)
+{
+    animation-timing-function : $property;
+}
+
+//----------------------------------------------------------//

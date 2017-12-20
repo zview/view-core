@@ -20,7 +20,8 @@
             <Item @click.native="_on_goto_page('/demo/tree')" note="Tree">树形控件</Item>
             <Item @click.native="_on_goto_page('/demo/timeline')" note="Timeline">时间轴</Item>
             <Item @click.native="_on_goto_page('/demo/carousel')" note="Carousel">走马灯</Item>
-            <Item @click.native="_on_goto_page('/container')" note="Content/Header/Footer/SubHeader/SubFooter">容器</Item>
+            <Item @click.native="_on_goto_page('/container1')" note="Page/Navbar/Tabbar">容器1</Item>
+            <Item @click.native="_on_goto_page('/container2')" note="Content/Header/Footer">容器2</Item>
 
             <Item color="light" bg-color="positive" note="Navigation">导航</Item>
             <Item @click.native="_on_goto_page('/demo/menu')" note="Menu">导航菜单</Item>
@@ -112,7 +113,6 @@
             _on_goto_page: function (page) {
                 console.log('_on_goto_page', page);
                 let vm = this;
-
                 vm.$router.push(page);
             }
         },

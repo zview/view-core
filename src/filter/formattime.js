@@ -1,4 +1,4 @@
-import format from '../util/date';
+import format from '../util/common-date';
 
 export default function (val) {
     if (!val) return '';

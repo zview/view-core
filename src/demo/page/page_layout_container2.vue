@@ -1,8 +1,8 @@
 <template>
-    <div class="page-container">
+    <div class="page-container2">
 
         <Header color="dark">
-            <h1 class="title">Header</h1>
+            <h1 class="title">容器2</h1>
             <a class="button button-clear icon ion-ios-plus-empty"></a>
         </Header>
 
@@ -30,7 +30,7 @@
     export default {
         data () {
             return {
-                message: '容器',
+                message: '容器2',
             }
         },
         methods: {

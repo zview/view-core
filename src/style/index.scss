@@ -1,17 +1,17 @@
 //
 @import "framework/ionic/ionic.css";
 
-//
+//变量、函数、颜色、字体、动画
 @import "variables";
 @import "mixins";
 @import "color";
 @import "font";
 @import "animation";
 
-//
+//基础样式
 @import "base";
 
-//
+//容器及页面
 @import "view";
 @import "page";
 

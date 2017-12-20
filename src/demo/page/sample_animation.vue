@@ -1,15 +1,10 @@
 <template>
-    <div class="page-css">
+    <div class="page-animation">
 
         {{message}}
 
         <hr/>
 
-        <input placeholder="请输入" disabled/>
-
-        <Input type="text" bg-color="primary"/>
-
-        <hr/>
 
     </div>
 </template>
@@ -18,7 +13,7 @@
     export default {
         data () {
             return {
-                message: '样式表',
+                message: '动画',
             }
         },
         methods: {

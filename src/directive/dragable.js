@@ -1,6 +1,6 @@
 //可拖动
 
-import { on, off } from '../util/listener';
+import { on, off } from '../util/common-listener';
 
 let dragable = {
 

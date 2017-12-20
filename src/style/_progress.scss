@@ -64,7 +64,7 @@ $progress-prefix-cls : #{$css-prefix}-progress;
             bottom: 0;
             background: #fff;
             border-radius: 10px;
-            animation: ivu-progress-active 2s $ease-in-out infinite;
+            animation: ivu-progress-active 2s $timing-function infinite;
         }
     }
 

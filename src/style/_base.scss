@@ -73,13 +73,21 @@ code, kbd, pre, samp
 
 //---------------------------基础样式---------------------------//
 
+//文本对齐 .text-center, .text-left, .text-right
 @include view-m-text-align();
+//浮动位置 .float-left, .float-right
 @include view-m-object-float();
-
+//前景颜色 .#{$key}-fg
 @include view-m-base-fg-color();
+//背景颜色 .#{$key}-bg
 @include view-m-base-bg-color();
-
+//主题-前景颜色 &.#{$key}-fg
+//@include view-m-theme-fg-color();
+//主题-背景颜色  &.#{$key}-bg
+//@include view-m-theme-bg-color();
+//内边距 .padding-#{$i * 5}
 @include view-m-padding();
+//外边距 .margin-#{$i * 5}
 @include view-m-margin();
 
 //---------------------------Other---------------------------//
@@ -87,6 +95,7 @@ code, kbd, pre, samp
 // backdrop
 .backdrop
 {
+    @include view-m-zindex(backdrop);
     background-color: rgba(0,0,0,0.3);
     transition-duration: 0.2s;
     -webkit-transition-duration: 0.2s;
@@ -102,7 +111,7 @@ code, kbd, pre, samp
 }
 
 
-// button
+// 按钮 button
 .button
 {
     min-height: 44px;
@@ -113,7 +122,7 @@ code, kbd, pre, samp
 }
 
 
-// liner
+// 分割线 liner
 .liner-top:before
 {
     @include view-m-liner(top);

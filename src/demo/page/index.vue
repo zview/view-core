@@ -11,8 +11,6 @@
             </List>
         </Page>
 
-        <Tabbar color="balanced" icon-align="top" :options="options" :value="2"></Tabbar>
-
     </div>
 </template>
 
@@ -21,36 +19,19 @@
         data () {
             return {
                 message: '首页',
-                options : [
-                    {'id': 1, 'text': '新闻', 'icon': 'ion-ios-paper-outline'},
-                    {'id': 2, 'text': '订阅', 'icon': 'ion-ios-book-outline'},
-                    {'id': 3, 'text': '图片', 'icon': 'ion-images', 'badge': '2'},
-                    {'id': 4, 'text': '视频', 'icon': 'ion-ios-videocam-outline'},
-                ],
             }
         },
         mounted: function() {
             console.log('mounted');
-            var vm = this;
-
-            let ver = vm.$version;
-//            vm.$alert( ver + 'mounted' );
-            vm.$service.alert(ver + ' mounted');
-
-            let hello = vm.$t('message.hello');
-            console.log('hello', hello);
-
-            let vendor = vm.$t('demo.vendor');
-            console.log('vendor', vendor);
+            let vm = this;
+            vm.$info('mounted');
         },
         methods: {
             _on_goto_page: function (page) {
                 console.log('_on_goto_page', page);
                 let vm = this;
-
                 vm.$router.push(page);
             }
-
         },
     }
 </script>

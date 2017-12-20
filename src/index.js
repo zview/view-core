@@ -63,7 +63,7 @@ import viewsubstr from './filter/viewsubstr';
 //--------------------------------------------------------------------------
 
 //
-var pkg = require('../package.json');
+let pkg = require('../package.json');
 //
 const _VERSION = pkg.version;
 
@@ -127,7 +127,10 @@ const View = {
         let cfg_debug   = options.debug;
         let cfg_lang    = options.lang;
         let cfg_locales = options.locales;
-        if(cfg_debug) {
+
+        //Debug
+        Vue.config.debug = cfg_debug===true;
+        if(Vue.config.debug) {
             console.log('View (' + _VERSION + ') install : ' + JSON.stringify(options));
         }
 
@@ -207,13 +210,40 @@ const View = {
         Vue.filter('viewsubstr', viewsubstr);
 
 
-        //Service
+        //Global
         Vue.prototype.$version  = _VERSION;
-        Vue.prototype.$debug    = false;
-        Vue.prototype.$alert    = function (message) {
-            console.log('----' + message);
+        Vue.prototype.$set_locale = function (locale) {
+            Vue.config.lang = locale;
         };
+        Vue.prototype.$set_debug = function (debug) {
+            Vue.config.debug = debug;
+        };
+        Vue.prototype.$info    = function (...message) {
+            if(!message) return;
+            let len = message.length;
+            if(Vue.config.debug) {
+                if(len==1)
+                    console.log('View(' + _VERSION + '): ', message[0]);
+                else
+                    console.log('View(' + _VERSION + '): ', message);
+            }
+        };
+        Vue.prototype.$error    = function (...message) {
+            if(!message) return;
+            let len = message.length;
+            if(Vue.config.debug) {
+                if(len==1)
+                    console.error('View(' + _VERSION + '): ', message[0]);
+                else
+                    console.error('View(' + _VERSION + '): ', message);
+            }
+        };
+
+
+        //Service
         Vue.prototype.$service  = Service;
+
+
 
         //Begin: 一些兼容性代码
 

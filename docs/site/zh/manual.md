@@ -6,19 +6,260 @@ title: Manual
 
 语法指南
 
+- 通用
+- 组件
+- 服务
+- 指令
+- 过滤器
+- 混合
+- 完整例子
+
 
 
 ----------
 
-### 1.清单
+### 1.通用
 
-----------
-
-#### 基础(Basic)
 - [ ] 颜色 Color
 - [ ] 字体 Font
 - [ ] 多主题 Theme
 - [ ] 国际化 Locale
+- [ ] 动画 Animation
+- [ ] 过渡 Transition
+
+----------
+
+#### 概述
+
+**view** 加载完成后，一部分组件已通过`Vue.component`方法注册为**全局组件**，以 Vue 标准组件方式进行使用；
+另一部分组件则注册为**全局组件服务**，调用其方法即可使用，如：`$toast`、`$dialog` 等。
+
+下面以 MdButton、$toast 为例进行说明：
+
+```html
+<template>
+  <div class="page has-navbar" v-nav="{'title': 'Component and Service'}">
+    <div class="page-content padding padding-top">
+      <md-button class="button button-assertive button-block">
+        just a button
+      </md-button>
+
+      <md-button class="button button-balanced button-block" @click.native="onClick()">
+        show toast
+      </md-button>
+    </div>
+  </div>
+</template>
+<script>
+  export default {
+    methods: {
+      onClick() {
+        $toast.show("button clicked.")
+      }
+    }
+  }
+</script>
+```
+
+<div class="device-ios">
+  <iframe class="demo-ios" src="./demo/component_and_service.html" frameborder="0"></iframe>
+</div>
+
+
+#### 应用(App)
+
+**view** 通过 `.view-app` 来定义应用容器
+
+```html
+<template>
+  <div view-app>
+    <router-view></router-view>
+  </div>
+</template>
+```
+
+#### 颜色(Color)
+
+包含以下颜色
+
+* Ionic系列
+
+<div class="color light">Light <span>#FFFFFF</span></div>
+<div class="color stable">Stable <span>#F5F5F5</span></div>
+<div class="color positive">Positive <span>#4A90E2</span></div>
+<div class="color calm">Calm <span>#11C1F3</span></div>
+<div class="color balanced">Balanced <span>#44CC00</span></div>
+<div class="color energized">Energized <span>#FFBD17</span></div>
+<div class="color assertive">Assertive <span>#EA5A49</span></div>
+<div class="color royal">Royal <span>#B5B5B5</span></div>
+<div class="color dark">Dark <span>#484746</span></div>
+
+* BootStrap系列
+
+<div class="color primary">Primary <span>#2d8cf0</span></div>
+<div class="color success">Success <span>#19be6b</span></div>
+<div class="color info">Info <span>#2db7f5</span></div>
+<div class="color warning">Warning <span>#ff9900</span></div>
+<div class="color danger">Danger <span>#ed3f14</span></div>
+
+* Black系列
+
+<div class="color black">Black <span>#000000</span></div>
+<div class="color dimgray">Dimgray <span>#696969</span></div>
+<div class="color gray">Gray <span>#808080</span></div>
+<div class="color darkgray">Darkgray <span>#a9a9a9</span></div>
+<div class="color silver">Silver <span>#c0c0c0</span></div>
+<div class="color lightgrey">Lightgrey <span>#d3d3d3</span></div>
+<div class="color gainsboro">Gainsboro <span>#dcdcdc</span></div>
+<div class="color whitesmoke">Whitesmoke <span>#f5f5f5</span></div>
+<div class="color white">White <span>#ffffff</span></div>
+
+<p class="tip">
+这些场景色将作为主题元素可以直接应用到很多组件中。
+</p>
+
+----------
+
+#### 字体(Font)
+
+沿用了 **ionic** 跟随苹果系统的字体栈
+
+```css
+font-family: '-apple-system', "Helvetica Neue", "Roboto", "Segoe UI", 'sans-serif';
+```
+
+----------
+
+#### 多主题(Theme)
+
+```css
+
+```
+
+----------
+
+#### 国际化(Locale)
+
+* 准备语言包
+
+```js
+
+export default {
+    'zh-CN':
+    {
+        'demo' :
+        {
+            'vendor': '小竹',
+        }
+    },
+    'zh-TW':
+    {
+        'demo' :
+        {
+            'vendor': '小築',
+        }
+    },
+    'en-US':
+    {
+        'demo' :
+        {
+            'vendor': 'zuv',
+        }
+    },
+}
+
+```
+
+* 导入依赖时指定语言
+
+```js
+
+import View from 'zuv-view';
+import 'zuv-view/dist/view.min.css';
+import locales from './lang/locales';
+
+const view_config = {
+    debug: true,
+    lang: 'zh-CN',
+    locales: locales,
+};
+Vue.use(View, view_config);
+
+```
+
+* 组件语言已经切换为指定语言, 同时可使用自定义语言包
+
+```js
+
+let vendor = vm.$t('demo.vendor');
+console.log('vendor', vendor);
+
+```
+
+#### 动画(Animation)
+
+```
+
+```
+
+
+#### 过渡(Transition)
+
+https://vuefe.cn/v2/guide/transitions.html
+https://vuefe.cn/v2/guide/transitioning-state.html
+
+https://cn.vuejs.org/v2/guide/transitions.html
+https://cn.vuejs.org/v2/guide/transitioning-state.html
+
+```
+
+```
+
+----------
+
+### 2. 服务清单
+
+| 服务名称 | 描述 |
+|-----|-----|
+| `$toast` | 文字提示 | 
+| `$loading` | 加载提示 | 
+| `$dialog` | 对话框 | 
+| `$popup` | 弹层 | 
+| `$actionSheet` | 操作列表 | 
+| `$tabbar` | 选项栏 | 
+| `$sidebar` | 侧边栏 | 
+| `$modal` | 模态窗 | 
+| `$storage` | 本地存储 |
+
+
+- [x] 告警提示 Alert
+- [ ] 确认提示 Confirm
+- [x] 一般提示 Toast
+- [ ] 全局提示 Message
+- [ ] 通知提醒 Notice
+- [ ] 模态框 Modal
+- [ ] 加载提示 Loading/Spin
+
+
+### 3. 服务语法
+
+----------
+
+
+
+
+
+
+
+
+
+----------
+
+### 4.组件清单
+
+----------
+
+#### 基础(Basic)
 - [x] 图标 Icon
 - [x] 按钮 Button
 
@@ -92,9 +333,14 @@ title: Manual
 - [x] 编辑器 Editor
 
 
+#### TODO
+
+1. Range的range-color无效
+2. Input的item-floating-label无效
+
 ----------
 
-### 2.组件
+### 5.组件语法
 
 ----------
 
@@ -126,6 +372,9 @@ title: Manual
 ---
 
 #### 图标(Icon)
+
+既然 **view** 是以 ionic 样式为基础的，那它当然也包含 [ionicons](http://ionicons.com/) 图标集。
+
 
 ##### 用法
 
@@ -202,7 +451,18 @@ title: Manual
 
 ----------
 
-### 3.指令(Directive)
+### 6.指令(Directive)
+
+----------
+
+| 指令 | 描述 |
+|-----|-----|
+| `v-drag`  | 拖动指令 | 
+| `v-focus` | 焦点指令 | 
+| `v-badge` | 角标指令 |
+| `v-gesture` | 手势指令 |
+| `v-infinite-scroll` | 动态加载指令 |
+| `v-pull-refresh` | 下拉刷新指令 |
 
 ----------
 
@@ -309,7 +569,16 @@ title: Manual
 
 ----------
 
-### 4.过滤器(Filter)
+### 7.过滤器(Filter)
+
+----------
+
+| 过滤器 | 描述 |
+|-----|-----|
+| `formatdate` | 格式化日期 | 
+| `formattime` | 格式化时间 | 
+| `capitalize` | 首字母大写 |
+| `viewsubstr` | 字符串截取 |
 
 ----------
 
@@ -391,7 +660,22 @@ title: Manual
 
 ----------
 
-### 5.混合(Mixin)
+### 8.混合(Mixin)
+
+----------
+
+| 混合 | 描述 |
+|-----|-----|
+| `code` | 描述 | 
+
+----------
+
+```
+```
+
+----------
+
+### 9.完整例子(Sample)
 
 ----------
 
@@ -399,16 +683,4 @@ title: Manual
 ```
 
 
-----------
-
-### 6.动画与过渡(Animation & Transition)
-
-----------
-
-```
-```
-
-https://vuefe.cn/v2/guide/transitions.html
-
-
-https://vuefe.cn/v2/guide/transitioning-state.html
+<div style="height: 300px;"></div>

@@ -111,8 +111,9 @@ $date-picker-cell-hover-bg    : #e1f0fe;
 
 
 //----------------------------------------------------------//
-
+// 阴影
 // Shadow
+
 $shadow-color           : rgba(0, 0, 0, .2);
 $shadow-base            : 0 1px 6px $shadow-color;
 $shadow-card            : 0 1px 1px 0 rgba(0,0,0,.1);
@@ -122,8 +123,9 @@ $shadow-left            : -1px 0 6px $shadow-color;
 $shadow-right           : 1px 0 6px $shadow-color;
 
 //----------------------------------------------------------//
-
+// 按钮
 // Button
+
 $btn-font-weight        : normal;
 $btn-padding-base       : 6px 15px;
 $btn-padding-large      : 6px 15px 7px 15px;
@@ -163,13 +165,15 @@ $grid-columns           : 24;
 $grid-gutter-width      : 0;
 
 //----------------------------------------------------------//
-
+//
 // Legend
+
 $legend-color           : #999;
 
 //----------------------------------------------------------//
-
+// 输入框
 // Input
+
 $input-height-base           : 32px;
 $input-height-large          : 36px;
 $input-height-small          : 24px;
@@ -189,13 +193,35 @@ $input-focus-border-color    : $primary-color;
 $input-disabled-bg           : #f3f3f3;
 
 //----------------------------------------------------------//
-
+// 标签
 // Tag
+
 $tag-font-size          : 12px;
 
 //----------------------------------------------------------//
+// 滑动
+// Slider
 
+$slider-color              : lighten($primary-color, 20%);
+$slider-height             : 4px;
+$slider-margin             : 16px 0;
+$slider-button-wrap-size   : 18px;
+$slider-button-wrap-offset : -4px;
+$slider-disabled-color     : #ccc;
+
+
+//----------------------------------------------------------//
+// 动画
+// Animation
+
+$animation-time                     : .3s;
+$transition-time                    : .2s;
+$timing-function                    : ease-in-out;
+
+//----------------------------------------------------------//
+// 媒体查询
 // Media queries breakpoints
+
 // Extra small screen / phone
 $screen-xs              : 480px;
 $screen-xs-min          : $screen-xs;
@@ -217,8 +243,9 @@ $screen-lg-min          : $screen-lg;
 $screen-lg-max          : ($screen-lg-min - 1);
 
 //----------------------------------------------------------//
-
+// Z坐标
 // Z-index
+
 $zindex-item            : 2;
 $zindex-spin            : 8;
 $zindex-affix           : 10;
@@ -228,28 +255,7 @@ $zindex-modal           : 1000;
 $zindex-message         : 1010;
 $zindex-notification    : 1010;
 $zindex-tooltip         : 1060;
+$zindex-backdrop        : 1070;
 $zindex-loading-bar     : 2000;
-
-//----------------------------------------------------------//
-
-// Animation
-$animation-time                     : .3s;
-$transition-time                    : .2s;
-$ease-in-out                        : ease-in-out;
-
-$ios-transition-duration            : 500ms !default;
-$ios-transition-timing-function     : cubic-bezier(.36, .66, .04, 1) !default;
-$android-transition-duration        : 200ms !default;
-$android-transition-timing-function : cubic-bezier(0.4, 0.6, 0.2, 1) !default;
-
-//----------------------------------------------------------//
-
-// Slider
-$slider-color              : lighten($primary-color, 20%);
-$slider-height             : 4px;
-$slider-margin             : 16px 0;
-$slider-button-wrap-size   : 18px;
-$slider-button-wrap-offset : -4px;
-$slider-disabled-color     : #ccc;
 
 //----------------------------------------------------------//

@@ -177,15 +177,30 @@ const routers = [
     },
     //Layout
     {
-        path: '/container',
-        meta: {title: '容器'},
-        component: (resolve) => require(['../page/page_layout_container.vue'], resolve),
+        path: '/container1',
+        meta: {title: '容器1'},
+        component: (resolve) => require(['../page/page_layout_container1.vue'], resolve),
+    },
+    {
+        path: '/container2',
+        meta: {title: '容器2'},
+        component: (resolve) => require(['../page/page_layout_container2.vue'], resolve),
     },
     //Sample
     {
         path: '/sample_css',
         meta: {title: '样式表'},
         component: (resolve) => require(['../page/sample_css.vue'], resolve),
+    },
+    {
+        path: '/sample_animation',
+        meta: {title: '动画'},
+        component: (resolve) => require(['../page/sample_animation.vue'], resolve),
+    },
+    {
+        path: '/sample_transition',
+        meta: {title: '过渡'},
+        component: (resolve) => require(['../page/sample_transition.vue'], resolve),
     },
     //Directive
     {

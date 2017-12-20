@@ -1,41 +1,47 @@
 <template>
     <div view-app>
-        <transition name="page" v-on:before-enter="beforePageEnter">
+        <transition name="page" @before-enter="beforePageEnter">
             <router-view></router-view>
         </transition>
     </div>
 </template>
 
 <script>
+
+    const GRADE_A = 'grade-a'; //ios
+    const GRADE_B = 'grade-b'; //android or other
+
     export default {
         data() {
             return {
-                gradeClass: 'grade-a'
+                transitionName: 'slide-left', //'slide-right'
             }
         },
 
         created() {
-            let vm = this;
-
-            // grade-a: ios, grade-b: android or other
-            if (/iPad|iPhone|iPod/.test(navigator.userAgent))
-            {
-                vm.gradeClass = 'grade-a';
-            }
-            else
-            {
-                vm.gradeClass = 'grade-b';
-            }
-
-            //
-            document.querySelector('body').className = vm.gradeClass;
+            let isios = (/iPad|iPhone|iPod/.test(navigator.userAgent));
+            let gradeClass = isios?GRADE_A:GRADE_B;
+            document.querySelector('body').className = gradeClass;
         },
 
         methods: {
             beforePageEnter(el) {
-                 console.log('beforePageEnter time:', +new Date())
+                let vm = this;
+                vm.$info('beforePageEnter time:', +new Date());
             }
-        }
+        },
+
+        watch: {
+            '$route' (to, from) {
+                let vm = this;
+                vm.$info('app', 'from', from.path, 'to', to.path);
+
+//            <transition :name="transitionName"><router-view></router-view></transition>
+//                const toDepth = to.path.split('/').length
+//                const fromDepth = from.path.split('/').length
+//                this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+            }
+        },
     }
 </script>
 
