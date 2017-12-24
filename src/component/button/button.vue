@@ -8,7 +8,7 @@
 
 <script>
 
-    import { oneOf, insideIonic, insideColor } from '../../util/check';
+    import { oneOf, insideIonic, insideColor } from '../check';
 
     const faCls = 'fa';
     const iconCls = 'icon';

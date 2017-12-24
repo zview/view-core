@@ -13,7 +13,7 @@
 
 <script>
 
-    import { oneOf, insideColor } from '../../util/check';
+    import { oneOf, insideColor } from '../check';
 
     export default {
         name: 'Item',

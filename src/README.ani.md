@@ -34,41 +34,41 @@ transition-duration 		    | 3 | 对象过渡的持续时间
 transition-timing-function	| 3 | 对象中过渡的类型
 transition-delay 			      | 3 | 对象延迟过渡的时间
 
-
 ```
 transition: [ t-property ] || [ t-duration ] || [ t-timing-function ] || [ t-delay ]
-```
 
-```
--transition-delay: 
-<time>[ ,<time> ]*
--transition-duration: 
-<time>[ ,<time> ]*
--transition-property: 
-all | none | <property>[ ,<property> ]*
-参与过渡的具体属性, 如color,background-color,opacity等
+-transition-delay: <time>[ ,<time> ]*
+-
+-transition-duration: <time>[ ,<time> ]*
+-
+-transition-property: all | none | <property>[ ,<property> ]*
+-
+  参与过渡的具体属性, 如color,background-color,opacity等
 -transition-timing-function: 
 linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>)
 [ ,linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>) ]*
-默认值：ease
-
+-
+  默认值：ease
 ```
 
-例子
+* 例子
 
-合着写
-
-
-
-分开写
 ```
-当个属性
+//
+transition: 1s height;
+transition: 1s 1s height ease;
+
+transition: 1s height ease, 1s width ease-in-out;
+transition: 1s 1s height, 1s 1s width;
+transition: 1s height, 1s 1s width;
+transition: width 1000ms ease, height 2s ease-in;
+
+//
 transition-property: height;
 transition-duration: 1s;
-transition-delay: 1000ms;
 transition-timing-function: ease;
+transition-delay: 1000ms;
 
-多个属性
 transition-property: width,height;
 transition-duration: 1s,2s;
 ```
@@ -94,35 +94,51 @@ animation-fill-mode			  | 3	| 对象动画时间之外的状态
 ```
 animation: [[ a-name ] || [ a-duration ] || [ a-timing-function ] || [ a-delay ] || [ a-iteration-count ] || [ a-direction ]] 
           [ , [ a-name ] || [ a-duration ] || [ a-timing-function ] || [ a-delay ] || [ a-iteration-count ] || [ a-direction ]]*
-默认值：看每个独立属性
 适用于：所有元素，包含伪对象:after和:before
-```
 
-```
--animation-name: 
-none | <identifier> [ , none | <identifier> ]* 
-名称由@keyframes定义, 可以为多个
--animation-duration: 
-<time> [ , <time> ]*
+-animation-name: none | <identifier> [ , none | <identifier> ]* 
+-
+  名称由@keyframes定义, 可以为多个
+-animation-duration: <time> [ , <time> ]*
+-
 -animation-timing-function: 
 linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>) 
 [ , linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>) ]*
--animation-delay: 
-<time> [ , <time> ]*
--animation-iteration-count: 
-infinite | <number> [ , infinite | <number> ]*
--animation-direction: 
-normal | alternate [ , normal | alternate ]*
--animation-play-state:
-running | paused
-running: 默认值, 规定动画正在播放
-paused: 规定动画已暂停
--animation-fill-mode:
-none | forwards | backwards | both
-none: 默认值, 回到动画没开始时的状态。
-forwards: 让动画停留在结束状态
-backwards: 让动画回到第一帧的状态
-both: 向前和向后填充模式都被应用
+-
+-animation-delay: <time> [ , <time> ]*
+-
+-animation-iteration-count: infinite | <number> [ , infinite | <number> ]*
+-
+-animation-direction: normal | alternate [ , normal | alternate ]*
+-
+-animation-play-state: running | paused [ , running | paused ]*
+-
+  running: 默认值, 规定动画正在播放
+  paused: 规定动画已暂停
+-animation-fill-mode: none | forwards | backwards | both [ , none | forwards | backwards | both ]*
+-
+  none: 默认值, 回到动画没开始时的状态。
+  forwards: 让动画停留在结束状态
+  backwards: 让动画回到第一帧的状态
+  both: 向前和向后填充模式都被应用
+```
+
+* 例子
+
+```
+animation: 1s rainbow infinite;
+animation: 1s rainbow 3;
+animation: 1s rainbow forwards;
+animation: 1s 1s rainbow linear 3 forwards normal;
+
+//
+animation-name: rainbow;
+animation-duration: 1s;
+animation-timing-function: linear;
+animation-delay: 1s;
+animation-fill-mode: forwards;
+animation-direction: normal;
+animation-iteration-count: 3;
 ```
 
 ```
@@ -136,6 +152,8 @@ both: 向前和向后填充模式都被应用
 指定动画名称和动画效果。
 @keyframes定义的动画名称用来被animation-name所使用。
 ```
+
+* 例子
 
 简单的动画可以直接使用关键字from和to，即从一种状态过渡到另一种状态：
 
@@ -281,11 +299,11 @@ new Vue({
 
 
 有 6 种 class 类名会在进入/离开(enter/leave)过渡中处理
-v-enter：进入式过渡(entering transition)的开始状态。在插入元素之前添加，在插入元素之后一帧移除。
-v-enter-active：进入式过渡的激活状态。应用于整个进入式过渡时期。在插入元素之前添加，过渡/动画(transition/animation)完成之后移除。此 class 可用于定义进入式过渡的 duration, delay 和 easing 曲线。
+v-enter：进入式过渡的开始状态。在插入元素之前添加，在插入元素之后一帧移除。
+v-enter-active：进入式过渡的激活状态。应用于整个进入式过渡时期。在插入元素之前添加，过渡/动画完成之后移除。此 class 可用于定义进入式过渡的 duration, delay 和 easing 曲线。
 v-enter-to：进入式过渡的结束状态。在插入元素之后一帧添加（同时，移除 v-enter），在过渡/动画完成之后移除。
-v-leave：离开式过渡(leaving transition)的开始状态。在触发离开式过渡时立即添加，在一帧之后移除。
-v-leave-active：离开式过渡的激活状态。应用于整个离开式过渡时期。在触发离开式过渡时立即添加，在过渡/动画(transition/animation)完成之后移除。此 class 可用于定义离开式过渡的 duration, delay 和 easing 曲线。
+v-leave：离开式过渡的开始状态。在触发离开式过渡时立即添加，在一帧之后移除。
+v-leave-active：离开式过渡的激活状态。应用于整个离开式过渡时期。在触发离开式过渡时立即添加，在过渡/动画完成之后移除。此 class 可用于定义离开式过渡的 duration, delay 和 easing 曲线。
 v-leave-to：离开式过渡的结束状态。在触发离开式过渡之后一帧添加（同时，移除 v-leave），在过渡/动画完成之后移除。
 
 

@@ -1,45 +1,104 @@
 @import "base";
 
-
-.view-input-item
+.view-input-wrapper
 {
+    position: relative;
 
-    .view-input-label
+    &.has-floating-label
     {
-        width: 25%;
+        .input-clear
+        {
+            top: 14px + 28px;
+        }
     }
 
-    .view-input
+
+
+    .input-clear
     {
-        @include view-m-theme-fg-color();
-        @include view-m-theme-bg-color();
+        position: absolute;
+        top: 14px;
+        right: 9px;
+        z-index: 3;
+
+        width: 24px;
+        height: 24px;
+        background-image: url(../assets/clear@3x.png);
+        background-size: 12px 12px;
+        background-repeat: no-repeat;
+        background-position: 5px 5px;
+
+        visibility: hidden;
+        &.active
+        {
+            visibility: visible;
+        }
     }
 
-
-    input[type='text'], input[type='password']
+    .view-input-item
     {
 
-    }
-    input[type='button'], input[type='reset'], input[type='submit']
-    {
+        &.item
+        {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .view-input-label
+        {
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .view-input
+        {
+            @include view-m-theme-fg-color();
+            @include view-m-theme-bg-color();
+
+            height: 50px;
+            padding: 13px 15px;
+            position: relative;
+        }
+
+
+
+        input
+        {
+            font-size: 14px;
+        }
+
+        input[type='text'],
+        input[type='password']
+        {
+
+        }
+        input[type='button'],
+        input[type='reset'],
+        input[type='submit']
+        {
+
+        }
+        textarea
+        {
+            min-height: 80px;
+        }
+
+        input[type='tel'],
+        input[type='url'],
+        input[type='email'],
+        input[type='number']
+        {
+
+        }
+
+        input[type='date'],
+        input[type='time'],
+        input[type='color']
+        {
+
+        }
 
     }
-    textarea
-    {
-        min-height: 80px;
-        //margin-right: 16px;
-    }
-
-    input[type='tel'], input[type='url'], input[type='email'],
-    input[type='number']
-    {
-
-    }
-
-    input[type='date'], input[type='time'], input[type='color']
-    {
-
-    }
-
 }
+
 

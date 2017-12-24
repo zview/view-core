@@ -46,6 +46,11 @@ const routers = [
                 component: (resolve) => require(['../page/page_basic_locale.vue'], resolve),
             },
             {
+                path: 'transition',
+                meta: {title: '动画/过渡'},
+                component: (resolve) => require(['../page/page_basic_transition.vue'], resolve),
+            },
+            {
                 path: 'icon',
                 meta: {title: '图标'},
                 component: (resolve) => require(['../page/page_basic_icon.vue'], resolve),
@@ -66,6 +71,21 @@ const routers = [
                 path: 'list',
                 meta: {title: '列表'},
                 component: (resolve) => require(['../page/page_layout_list.vue'], resolve),
+            },
+            {
+                path: 'cells',
+                meta: {title: '宫格'},
+                component: (resolve) => require(['../page/page_layout_cells.vue'], resolve),
+            },
+            {
+                path: 'panel',
+                meta: {title: '面板'},
+                component: (resolve) => require(['../page/page_layout_panel.vue'], resolve),
+            },
+            {
+                path: 'accordion',
+                meta: {title: '折叠面板'},
+                component: (resolve) => require(['../page/page_layout_accordion.vue'], resolve),
             },
 
             //Navigator
@@ -122,6 +142,11 @@ const routers = [
                 component: (resolve) => require(['../page/page_form_slider.vue'], resolve),
             },
             {
+                path: 'cascade',
+                meta: {title: '级联选择'},
+                component: (resolve) => require(['../page/page_form_cascade.vue'], resolve),
+            },
+            {
                 path: 'upload',
                 meta: {title: '文件上传'},
                 component: (resolve) => require(['../page/page_form_upload.vue'], resolve),
@@ -133,16 +158,6 @@ const routers = [
             },
 
             //View
-            {
-                path: 'alert',
-                meta: {title: '告警提示'},
-                component: (resolve) => require(['../page/page_view_alert.vue'], resolve),
-            },
-            {
-                path: 'toast',
-                meta: {title: '一般提示'},
-                component: (resolve) => require(['../page/page_view_toast.vue'], resolve),
-            },
             {
                 path: 'badge',
                 meta: {title: '徽标'},
@@ -160,6 +175,24 @@ const routers = [
                 meta: {title: '编辑器'},
                 component: (resolve) => require(['../page/page_editor.vue'], resolve),
             },
+
+            //
+            {
+                path: 'actionsheet',
+                meta: {title: '操作列表'},
+                component: (resolve) => require(['../page/page_service_actionsheet.vue'], resolve),
+            },
+            {
+                path: 'dialog',
+                meta: {title: '对话框'},
+                component: (resolve) => require(['../page/page_service_dialog.vue'], resolve),
+            },
+            {
+                path: 'popup',
+                meta: {title: '自定义弹层'},
+                component: (resolve) => require(['../page/page_service_popup.vue'], resolve),
+            },
+
 
         ]
     },

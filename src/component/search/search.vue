@@ -1,21 +1,28 @@
 <template>
 
-    <div class="view-search-item item item-input-inset" :class="item_classes">
+    <div class="view-search-item bar bar-header item-input-inset" :class="item_classes">
         <slot name="left"></slot>
         <label class="view-search-label item-input-wrapper" :class="label_classes">
             <Icon icon="ion-ios-search" class-name="placeholder-icon"></Icon>
-            <input type="search" v-model="val"
-                   :placeholder="placeholder" class="view-search" :class="classes"
-                   :readonly="readonly" :disabled="disabled"/>
+            <form :id="formId" >
+                <input type="search" ref="input" :value="value"
+                       @change="updateValue($event.target.value)"
+                       :placeholder="placeholder" class="view-search" :class="classes"
+                       :readonly="readonly" :disabled="disabled"/>
+            </form>
         </label>
-        <slot name="right"></slot>
+        <slot name="right">
+            <Button size="small" type="clear" bg-color="positive" @click='cancel()' v-if="!!onCancel">
+                {{cancelText}}
+            </Button>
+        </slot>
     </div>
 
 </template>
 
 <script>
 
-    import { oneOf, insideIonic } from '../../util/check';
+    import { oneOf, insideIonic } from '../check';
 
     export default {
         name: 'Search',
@@ -24,6 +31,12 @@
                 type: [Number, String],
                 required: true
             },
+            cancelText: {
+                type: String,
+                default: 'Cancel'
+            },
+            onSearch: Function,
+            onCancel: Function,
             disabled: [Boolean, String],
             readonly: [Boolean, String],
             color: {
@@ -41,8 +54,14 @@
             labelClassName: String,
             className: String
         },
+        data() {
+            return {
+                formId: 'view-search-' + Math.random().toString(36).substring(3, 8)
+            }
+        },
         mounted: function() {
-            console.log('mounted');
+            //
+            document.getElementById(this.formId).onsubmit = this.search
         },
         computed: {
             classes () {
@@ -68,14 +87,32 @@
                     }
                 ];
             },
-            val: {
+            /*val: {
                 get:function() {
                     return this.value;
                 },
                 set:function(val) {
                     this.$emit('input', val);
                 }
+            },*/
+        },
+        methods: {
+            search(e) {
+                e.preventDefault();
+                let search = document.querySelector('#' + this.formId + ' > [type=search]');
+                search.blur();
+                if (this.onSearch) this.onSearch(search.value);
             },
-        }
+
+            cancel() {
+                if (this.onCancel) this.onCancel();
+            },
+
+            updateValue(value) {
+                this.$refs.input.value = value;
+                this.$emit('input', value);
+            }
+        },
+
     }
 </script>

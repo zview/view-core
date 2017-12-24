@@ -3,7 +3,8 @@
     <div class="view-check-list">
         <div class="view-check-title item item-divider" v-if="title">{{title}}</div>
         <div class="view-check-item item item-checkbox"
-             v-for="(option, index) in options" :key="index" :class="item_classes">
+             v-for="(option, index) in options" :key="index"
+             @click="_on_cell_click(index, option.value)" :class="item_classes">
             <label class="view-check-label checkbox" :for="index">
                 <input class="view-check" :class="classes" type="checkbox"
                        :name="check_id" :value="option.value" v-model="val"
@@ -17,7 +18,7 @@
 
 <script>
 
-    import { oneOf, insideIonic } from '../../util/check';
+    import { oneOf, insideIonic } from '../check';
 
     export default {
         name: 'Check',
@@ -78,6 +79,20 @@
                     this.$emit('input', val);
                 }
             },
-        }
+        },
+        methods: {
+            _on_cell_click: function (index, value) {
+//                console.log('_on_cell_click', index, value);
+                let vm = this;
+
+                let i = vm.val.indexOf(value)
+                if (i == -1) {
+                    vm.val.push(value)
+                } else {
+                    vm.val.splice(i, 1)
+                }
+//                vm.val.sort()
+            }
+        },
     }
 </script>

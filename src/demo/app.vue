@@ -1,6 +1,8 @@
 <template>
     <div view-app>
-        <transition name="page" @before-enter="beforePageEnter">
+        <transition name="page"
+            @before-enter="beforePageEnter" @after-enter="afterPageEnter"
+            @before-leave="beforePageLeave" @after-leave="afterPageLeave">
             <router-view></router-view>
         </transition>
     </div>
@@ -25,10 +27,28 @@
         },
 
         methods: {
+            // --------
+            // 进入时
+            // --------
             beforePageEnter(el) {
                 let vm = this;
                 vm.$info('beforePageEnter time:', +new Date());
-            }
+            },
+            afterPageEnter: function (el) {
+                let vm = this;
+                vm.$info('afterPageEnter time:', +new Date());
+            },
+            // --------
+            // 离开时
+            // --------
+            beforePageLeave: function (el) {
+                let vm = this;
+                vm.$info('beforePageLeave time:', +new Date());
+            },
+            afterPageLeave: function (el) {
+                let vm = this;
+                vm.$info('afterPageLeave time:', +new Date());
+            },
         },
 
         watch: {

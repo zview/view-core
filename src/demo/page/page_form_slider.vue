@@ -6,6 +6,11 @@
                 <Icon slot="left" icon="ion-ios-sunny-outline"></Icon>
                 <Icon slot="right" icon="ion-ios-sunny"></Icon>
             </Slider>
+            <Item>{{val}}</Item>
+            <Slider color="positive" :min="0" :max="100">
+                <span slot="left">0</span>
+                <span slot="right">100</span>
+            </Slider>
             <Slider color="calm" :min="0" :max="100">
                 <Icon slot="left" icon="ion-ios-lightbulb-outline"></Icon>
                 <Icon slot="right" icon="ion-ios-lightbulb"></Icon>
@@ -26,6 +31,7 @@
                 <Icon slot="left" icon="ion-ios-rainy-outline"></Icon>
                 <Icon slot="right" icon="ion-ios-rainy"></Icon>
             </Slider>
+
         </List>
 
     </div>

@@ -3,6 +3,8 @@
 
 .view-select-item
 {
+    padding-top: 0;
+    padding-bottom: 0;
 
     .view-select-label
     {
@@ -14,11 +16,8 @@
 
         &.view-select-multipile
         {
-            height: 100%;
-            min-height: 50px;
-            min-width: 120px;
-        }
 
+        }
 
     }
 

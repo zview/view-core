@@ -19,14 +19,17 @@
 // grade-a ios, grade-b android
 //
 .page-enter-active,
-.page-leave-active,
+.page-leave-active
+{
+    -webkit-transition-property: opacity, -webkit-transform;
+    transition-property: opacity, transform;
+}
+
 .grade-a .page-enter-active,
 .grade-a .page-leave-active
 {
     @include view-m-transition-duration($ios-transition-duration);
     @include view-m-transition-timing-function($ios-transition-timing-function);
-    -webkit-transition-property: opacity, -webkit-transform;
-    transition-property: opacity, transform;
 }
 
 .grade-b .page-enter-active,

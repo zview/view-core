@@ -1,6 +1,7 @@
 <template>
     <div class="page-grid">
 
+        <Panel>
         <span>平分:</span>
 
         <Row>
@@ -25,7 +26,9 @@
             33%
             </Col>
         </Row>
+        </Panel>
 
+        <Panel>
         <span>偏移:</span>
 
         <Row color="stable">
@@ -55,8 +58,10 @@
             1:1:1
             </Col>
         </Row>
+        </Panel>
 
 
+        <Panel>
         <span>间距:</span>
 
         <Row color="stable" :gutter="4">
@@ -78,8 +83,10 @@
             33%
             </Col>
         </Row>
+        </Panel>
 
 
+        <Panel>
         <span>对齐:</span>
 
         <Row color="stable">
@@ -116,8 +123,9 @@
             1<br/>2<br/>3<br/>4<br/>
             </Col>
         </Row>
+        </Panel>
 
-
+        <Panel>
         <span>响应式布局:.responsive-sm/md/lg</span>
 
         <div class="row responsive-sm">
@@ -126,6 +134,7 @@
             <div class="col balanced-bg">.col</div>
             <div class="col energized-bg">.col</div>
         </div>
+        </Panel>
 
     </div>
 </template>

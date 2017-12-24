@@ -253,6 +253,7 @@ $_view-zindexs: (
 //----------------------------------------------------------------------------------------------------------------
 
 //圆角
+// @include view-m-border-radius(8px)
 @mixin view-m-border-radius($radius: 10px)
 {
     @include view-m-prefixer(border-radius, $radius);

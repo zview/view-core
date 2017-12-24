@@ -81,15 +81,15 @@
             </Item>
             <Item>
                 <Button type="block" material="true" @click="_on_button_click('material-block')">按钮</Button>
-                <Button type="block" material="true" bg-color="calm">按钮</Button>
+                <Button type="block" material="true" bg-color="assertive">按钮</Button>
             </Item>
             <Item>
                 <Button type="full" material="true" @click="_on_button_click('material-full')">按钮</Button>
-                <Button type="full" material="true" bg-color="calm">按钮</Button>
+                <Button type="full" material="true" bg-color="energized">按钮</Button>
             </Item>
             <Item>
                 <Button size="small" type="block" material="true" bg-color="calm">按钮</Button>
-                <Button size="large" type="block" material="true" bg-color="calm">按钮</Button>
+                <Button size="large" type="block" material="true" bg-color="positive">按钮</Button>
             </Item>
         </List>
 

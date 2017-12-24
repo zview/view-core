@@ -38,10 +38,14 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "axios": "^0.15.3",
+    "es6-promise": "^4.0.5",
     "js-cookie": "^2.1.4",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "object-assign": "^4.1.1",
+    "vswipe": "1.0.1",
+    "vue-scroller": "2.2.0",
     "storage-js-iso": "^0.2.0"
   },
   "peerDependencies": {
@@ -49,8 +53,6 @@
     "vue-i18n": "^5.0.3"
   },
   "devDependencies": {
-    "axios": "^0.15.3",
-    "es6-promise": "^4.0.5",
     "fastclick": "^1.0.6",
     "font-awesome": "^4.7.0",
     "vue": "^2.5.2",

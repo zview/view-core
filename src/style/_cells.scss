@@ -1,0 +1,27 @@
+@import "base";
+
+.view-cells
+{
+    margin: 10px 0;
+    position: relative;
+    background-color: #FFF;
+
+    .row
+    {
+        position: relative;
+        margin: 0;
+        padding: 0;
+
+        .col
+        {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            text-align: center;
+
+            /*height: 100%;
+            align-items: center;*/
+        }
+    }
+
+}

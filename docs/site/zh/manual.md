@@ -23,9 +23,9 @@ title: Manual
 - [ ] 颜色 Color
 - [ ] 字体 Font
 - [ ] 多主题 Theme
-- [ ] 国际化 Locale
-- [ ] 动画 Animation
-- [ ] 过渡 Transition
+- [x] 国际化 Locale
+- [x] 动画 Animation
+- [x] 过渡 Transition
 
 ----------
 
@@ -196,24 +196,84 @@ console.log('vendor', vendor);
 
 ```
 
-#### 动画(Animation)
-
-```
-
-```
-
 
 #### 过渡(Transition)
 
-https://vuefe.cn/v2/guide/transitions.html
-https://vuefe.cn/v2/guide/transitioning-state.html
+##### 默认
 
-https://cn.vuejs.org/v2/guide/transitions.html
-https://cn.vuejs.org/v2/guide/transitioning-state.html
-
+比如, 使用 *fadeInLeft* and *fadeOutLeft*, 可以这么写
+```html
+<transition-group name="fadeLeft" tag="ul">
+    <li v-for="item in items" v-bind:key="item">
+        {{ item }}
+    </li>
+</transition-group>
 ```
 
+##### 自定义
+
+  Add *-enter/-leave* to the classes:
+
+```html
+<transition
+  name="custom-classes-transition"
+  enter-active-class="bounceLeft-enter"
+  leave-active-class="bounceRight-leave"
+>
+  <p v-if="show">hello</p>
+</transition>
 ```
+  Or use the regular *In/Out* syntax:
+  
+```html
+<transition
+  name="bounce"
+  enter-active-class="bounceInLeft"
+  leave-active-class="bounceOutRight"
+>
+  <p v-if="show">hello</p>
+</transition>
+```
+
+##### 支持列表
+
+###### Bounce
+  * `bounce`
+  * `bounceDown`
+  * `bounceLeft`
+  * `bounceRight`
+  * `bounceUp`
+
+###### Fade
+  * `fade`
+  * `fadeDown`
+  * `fadeDownBig`
+  * `fadeLeft`
+  * `fadeLeftBig`
+  * `fadeRight`
+  * `fadeRightBig`
+  * `fadeUp`
+  * `fadeUpBig`
+
+###### Rotate
+  * `rotate`
+  * `rotateDownLeft`
+  * `rotateDownRight`
+  * `rotateUpLeft`
+  * `rotateUpRight`
+
+###### Slide
+  * `slideDown`
+  * `slideLeft`
+  * `slideRight`
+  * `slideUp`
+
+###### Zoom
+  * `zoom`
+  * `zoomDown`
+  * `zoomLeft`
+  * `zoomRight`
+  * `zoomUp`
 
 ----------
 
@@ -266,10 +326,10 @@ https://cn.vuejs.org/v2/guide/transitioning-state.html
 #### 布局(Layout)
 - [x] 栅格 Row/Col
 - [x] 列表 List/Item
+- [x] 宫格 Cells
 - [ ] 表格 Table
-- [ ] 卡片 Card
-- [ ] 面板 Panel
-- [ ] 折叠面板 Collapse
+- [x] 面板 Panel/Card
+- [x] 折叠面板 Accordion/Collapse
 - [ ] 树形控件 Tree
 - [ ] 时间轴 Timeline
 - [ ] 走马灯 Carousel
@@ -288,7 +348,7 @@ https://cn.vuejs.org/v2/guide/transitioning-state.html
 - [ ] 工具栏 ToolBar
 - [x] 底部栏 Tabbar/Page
 - [x] 导航栏 Navbar/Page
-- [ ] 侧边栏 Sidebar
+- [x] 侧边栏 Sidebar
 
 #### 表单(Form)
 - [x] 输入框 Input
@@ -298,12 +358,12 @@ https://cn.vuejs.org/v2/guide/transitioning-state.html
 - [x] 下拉框 Select
 - [x] 搜索框 Search
 - [x] 滑动条 Slider
+- [x] 级联选择 Cascade
 - [ ] 选择器 Picker
 - [ ] 日期选择 DatePicker
 - [ ] 时间选择 TimerPicker
 - [ ] 地区选择 RegionPicker
 - [ ] 颜色选择 ColorPicker
-- [ ] 级联选择 Cascader
 - [ ] 穿梭框 Transfer
 - [ ] 数字输入 Number
 - [ ] 星级评分 Rate
@@ -311,9 +371,6 @@ https://cn.vuejs.org/v2/guide/transitioning-state.html
 - [x] 表单 Form
 
 #### 视图(View)
-- [x] 告警提示 Alert
-- [ ] 确认提示 Confirm
-- [x] 一般提示 Toast
 - [ ] 全局提示 Message
 - [ ] 通知提醒 Notice
 - [ ] 模态框 Modal
@@ -322,7 +379,6 @@ https://cn.vuejs.org/v2/guide/transitioning-state.html
 - [ ] 标签 Tag
 - [ ] 文字提示 Tooltip
 - [ ] 气泡提示 Poptip
-- [ ] 加载提示 Loading/Spin
 - [ ] 回到顶部 BackTop
 
 #### 图表(Chart)
@@ -332,11 +388,20 @@ https://cn.vuejs.org/v2/guide/transitioning-state.html
 #### 其他(Other)
 - [x] 编辑器 Editor
 
+#### 服务(Service)
+- [x] 全屏遮罩 Backdrop
+- [x] 一般提示 Toast
+- [x] 加载提示 Loading/Spin
+- [x] 操作列表 ActionSheet
+- [x] 对话框 Alert/Confirm
+- [x] 自定义弹层 Popup
+- [x] 侧边栏 Sidebar
+
 
 #### TODO
 
 1. Range的range-color无效
-2. Input的item-floating-label无效
+2. Radio选中背景颜色变化只有一部分, 选中图标只能右边,不能左边
 
 ----------
 

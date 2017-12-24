@@ -8,8 +8,8 @@
                    :value="option.value" v-model="val"
                    :readonly="readonly" :disabled="disabled"/>
             <div class="radio-content">
-                <div class="view-radio-label item-content">{{option.name}}</div>
-                <i class="view-radio-indicator radio-icon ion-checkmark" :class="indicator_classes"></i>
+                <span class="view-radio-label item-content">{{option.name}}</span>
+                <i class="view-radio-indicator radio-icon ion-ios-checkmark" :class="indicator_classes"></i>
             </div>
         </div>
     </div>
@@ -18,7 +18,7 @@
 
 <script>
 
-    import { oneOf, insideIonic } from '../../util/check';
+    import { oneOf, insideIonic } from '../check';
 
     const indicatorLeftCls = 'item-icon-left';
 
@@ -95,7 +95,6 @@
             _on_cell_click: function (index, value) {
 //                console.log('_on_cell_click', index, value);
                 let vm = this;
-
                 vm.val = value;
             }
         },

@@ -7,9 +7,9 @@
 
 
 // Animation
-$ios-transition-duration            : 500ms !default;
+$ios-transition-duration            : 800ms !default;
 $ios-transition-timing-function     : cubic-bezier(.36, .66, .04, 1) !default;
-$android-transition-duration        : 200ms !default;
+$android-transition-duration        : 600ms !default;
 $android-transition-timing-function : cubic-bezier(0.4, 0.6, 0.2, 1) !default;
 
 
@@ -126,5 +126,72 @@ $android-transition-timing-function : cubic-bezier(0.4, 0.6, 0.2, 1) !default;
 {
     animation-timing-function : $property;
 }
+
+//----------------------------------------------------------//
+
+//
+@mixin view-m-animation-makebase($base, $props)
+{
+    //
+    .#{$base}-enter-active, .#{$base}In,
+    .#{$base}-leave-active, .#{$base}Out
+    {
+        animation-duration: $ios-transition-duration;
+        animation-fill-mode: both;
+    }
+
+    // Entrance/Exit for the base class
+    .#{$base}-enter-active, .#{$base}In
+    {
+        animation-name: #{$base}In;
+    }
+    .#{$base}-leave-active, .#{$base}Out
+    {
+        animation-name: #{$base}Out;
+    }
+
+    //
+    @each $prop in $props
+    {
+        .#{$base}#{$prop}-enter-active, .#{$base}In#{$prop},
+        .#{$base}#{$prop}-leave-active, .#{$base}Out#{$prop}
+        {
+            animation-duration: $ios-transition-duration;
+            animation-fill-mode: both;
+        }
+
+        .#{$base}#{$prop}-enter-active, .#{$base}In#{$prop}
+        {
+            animation-name: #{$base}In#{$prop};
+        }
+        .#{$base}#{$prop}-leave-active, .#{$base}Out#{$prop}
+        {
+            animation-name: #{$base}Out#{$prop};
+        }
+    }
+}
+
+//----------------------------------------------------------//
+
+//
+@import "animations/bouncing/all";
+$bounces: (Down, Left, Right, Up);
+@include view-m-animation-makebase(bounce, $bounces);
+
+@import "animations/fading/all";
+$fades: (Down, DownBig, Left, LeftBig, Right, RightBig, Up, UpBig);
+@include view-m-animation-makebase(fade, $fades);
+
+@import "animations/rotating/all";
+$rotates: (DownLeft, DownRight, UpLeft, UpRight);
+@include view-m-animation-makebase(rotate, $rotates);
+
+@import "animations/sliding/all";
+$slides: (Down, Left, Right, Up);
+@include view-m-animation-makebase(slide, $slides);
+
+@import "animations/zooming/all";
+$zooms: (Down, Left, Right, Up);
+@include view-m-animation-makebase(zoom, $zooms);
 
 //----------------------------------------------------------//

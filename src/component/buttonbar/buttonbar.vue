@@ -1,8 +1,9 @@
 <template>
 
     <div class="view-buttonbar button-bar" :class="classes">
-        <Button v-for="(option,index) in options" @click.native="_on_cell_click(index, option.id)"
-                :color="color" :type="get_type(index)" :key="index" :icon="option.icon">
+        <Button v-for="(option,index) in options" @click.native="_on_tab_click(index, option.id)"
+                size="small" :theme="theme" :class="button_class(index)"
+                :key="index" :icon="option.icon">
             {{option.name}}
         </Button>
     </div>
@@ -11,8 +12,7 @@
 
 <script>
 
-//    import Button from '../button';
-    import { oneOf, insideIonic } from '../../util/check';
+    import { oneOf, insideIonic } from '../check';
 
     export default {
         name: 'ButtonBar',
@@ -21,21 +21,26 @@
                 type: Array,
                 required: true
             },
-            color: {
+            theme: {
                 validator (value) {
                     return insideIonic(value);
                 },
+                default: 'positive'
             },
+            tabIndex: {
+                type: Number,
+                required: false,
+                default: 0,
+                validator(value) {
+                    return value >= 0
+                }
+            },
+            onTabSelected: Function,
             className: String
         },
-        /*
-        components: {
-            Button
-        },
-        */
         data () {
             return {
-                active_index: 0,
+                active_index: this.tabIndex,
             }
         },
         mounted: function() {
@@ -51,18 +56,20 @@
             },
         },
         methods: {
-            get_type: function (index) {
-//                console.log('get_type', index);
+            button_class(index) {
                 let vm = this;
-
-                return (vm.active_index == index)?'':'clear';
+                let buttonClass = {};
+                buttonClass['button button-small button-' + this.theme + ' button-outline'] = index !== this.active_index;
+                buttonClass['button button-small button-' + this.theme] = index == this.active_index;
+                return buttonClass;
             },
-            _on_cell_click: function (index, id) {
-//                console.log('_on_cell_click', index, id);
+            _on_tab_click: function (index, id) {
                 let vm = this;
 
                 vm.active_index = index;
-                vm.$emit('on-cell-click', index, id);
+                vm.$emit('on-tab-click', index, id);
+
+                if (vm.onTabSelected) vm.onTabSelected(index)
             }
         },
     }

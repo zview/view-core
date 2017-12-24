@@ -5,11 +5,15 @@ import './style/index.scss';
 
 //--------------------------------------------------------------------------
 
-//
+// VueI18n
 import VueI18n from 'vue-i18n';
 import zhCNLocale from './lang/zh_CN';
 import zhTWLocale from './lang/zh_TW';
 import enUSLocale from './lang/en_US';
+
+// VueScroller & VSwipe
+import VueScroller from 'vue-scroller';
+import VSwipe from 'vswipe';
 
 //--------------------------------------------------------------------------
 
@@ -29,6 +33,7 @@ import Check from './component/check';
 import Toggle from './component/toggle';
 import Select from './component/select';
 import Slider from './component/slider';
+import Cascade from './component/cascade';
 import Search from './component/search';
 import Upload from './component/upload';
 import Form from './component/form';
@@ -36,6 +41,9 @@ import Form from './component/form';
 //Layout
 import { List, Item } from './component/list';
 import { Row, Col } from './component/grid';
+import Cells from './component/cells';
+import Panel from './component/panel';
+import { AccordionList, AccordionItem } from './component/accordion';
 
 //Navigation
 import { Navbar } from './component/navbar';
@@ -49,6 +57,15 @@ import Editor from './component/editor';
 
 //Service
 import Service from './service';
+import LocalStorage from './util/common-locs';
+import SessionStorage from './util/common-sess';
+import $backdrop from './service/backdrop';
+import { $loading, $toast } from './service/loading';
+import $actionsheet from './service/actionsheet';
+import $cascadepanel from './service/cascadepanel';
+import $sidebar from './service/sidebar';
+import $dialog from './service/dialog';
+import $popup from './service/popup';
 
 //Directive
 import dragable from './directive/dragable';
@@ -91,6 +108,10 @@ const View = {
     Item,
     Row,
     Col,
+    Cells,
+    Panel,
+    AccordionList,
+    AccordionItem,
 
     //Form
     Input,
@@ -100,6 +121,7 @@ const View = {
     Select,
     Slider,
     Search,
+    Cascade,
     Upload,
     Form,
 
@@ -146,6 +168,9 @@ const View = {
         Vue.locale('zh-TW', zhTWMergeLocale, null);
         Vue.locale('en-US', enUSMergeLocale, null);
 
+        //
+        Vue.use(VueScroller);
+        Vue.use(VSwipe);
 
         //Basic
         Vue.component('Icon', Icon);
@@ -163,6 +188,10 @@ const View = {
         Vue.component('Item', Item);
         Vue.component('Row', Row);
         Vue.component('Col', Col);
+        Vue.component('Cells', Cells);
+        Vue.component('Panel', Panel);
+        Vue.component('Accordion', AccordionList);
+        Vue.component('AccordionItem', AccordionItem);
 
 
         //Form
@@ -173,6 +202,7 @@ const View = {
         Vue.component('Select', Select);
         Vue.component('Slider', Slider);
         Vue.component('Search', Search);
+        Vue.component('Cascade', Cascade);
         Vue.component('Upload', Upload);
         Vue.component('Form', Form);
 
@@ -218,6 +248,8 @@ const View = {
         Vue.prototype.$set_debug = function (debug) {
             Vue.config.debug = debug;
         };
+
+        //
         Vue.prototype.$info    = function (...message) {
             if(!message) return;
             let len = message.length;
@@ -241,8 +273,17 @@ const View = {
 
 
         //Service
-        Vue.prototype.$service  = Service;
-
+        Vue.prototype.$service      = Service;
+        Vue.prototype.$storagel     = LocalStorage;
+        Vue.prototype.$storages     = SessionStorage;
+        Vue.prototype.$backdrop     = $backdrop;
+        Vue.prototype.$loading      = $loading;
+        Vue.prototype.$toast        = $toast;
+        Vue.prototype.$cascadepanel = $cascadepanel;
+        Vue.prototype.$actionsheet  = $actionsheet;
+        Vue.prototype.$sidebar      = $sidebar;
+        Vue.prototype.$dialog       = $dialog;
+        Vue.prototype.$popup        = $popup;
 
 
         //Begin: 一些兼容性代码

@@ -1,55 +1,96 @@
 <template>
 
-    <div class="view-input-item item item-input" :class="item_classes">
-        <span class="view-input-label input-label" :class="label_classes" v-if="label || labelIcon">
-            <Icon :icon="labelIcon" v-if="labelIcon"></Icon> {{label}}
-        </span>
+    <div class="view-input-wrapper" :class="wrapper_classes">
 
-        <input v-if="type=='text'" type="text" :class="classes"
-               :placeholder="placeholder" v-model.trim="val"
-               :readonly="readonly" :disabled="disabled"/>
-        <input v-if="type=='password'" type="password" :class="classes"
-               :placeholder="placeholder" v-model="val"
-               :readonly="readonly" :disabled="disabled"/>
+        <div class="view-input-item item item-input" :class="item_classes">
 
-        <textarea v-if="type=='textarea'" :class="classes"
-                  :placeholder="placeholder" v-model="val"
-                  :readonly="readonly" :disabled="disabled"></textarea>
+            <span class="view-input-label input-label" :class="label_classes" v-if="label || labelIcon">
+                <Icon :icon="labelIcon" v-if="labelIcon"></Icon>
+                {{label}}
+            </span>
 
-        <input v-if="type=='button'" type="button"
-               class="button button-small" :class="classes" :value="buttonLabel"
-               :readonly="readonly" :disabled="disabled"/>
-        <input v-if="type=='reset'" type="reset"
-               class="button button-small" :class="classes" :value="buttonLabel"
-               :readonly="readonly" :disabled="disabled"/>
-        <input v-if="type=='submit'" type="submit"
-               class="button button-small" :class="classes" :value="buttonLabel"
-               :readonly="readonly" :disabled="disabled"/>
+            <input v-if="type=='text'" type="text" :class="classes"
+                   ref="input" :value="value"
+                   @compositionstart="compositionStart($event)"
+                   @compositionend="compositionEnd($event)"
+                   @input="input($event)"
+                   @focus="focus($event)"
+                   @blur="blur($event)"
+                   :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+            <input v-if="type=='password'" type="password" :class="classes"
+                   ref="input" :value="value"
+                   @input="updateValue($event.target.value)"
+                   @focus="focus($event)"
+                   @blur="blur($event)"
+                   :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
 
-        <input v-if="type=='tel'" type="tel" :class="classes"
-               :placeholder="placeholder" v-model.number="val"
-               :readonly="readonly" :disabled="disabled"/>
-        <input v-if="type=='url'" type="url" :class="classes"
-               :placeholder="placeholder" v-model.number="val"
-               :readonly="readonly" :disabled="disabled"/>
-        <input v-if="type=='email'" type="email" :class="classes"
-               :placeholder="placeholder" v-model.number="val"
-               :readonly="readonly" :disabled="disabled"/>
-        <input v-if="type=='number'" type="number" :class="classes"
-               :placeholder="placeholder" v-model.number="val"
-               :readonly="readonly" :disabled="disabled"/>
+            <textarea v-if="type=='textarea'" :class="classes"
+                      ref="input" :value="value"
+                      @input="updateValue($event.target.value)"
+                      @focus="focus($event)"
+                      @blur="blur($event)"
+                      :placeholder="placeholder" :readonly="readonly" :disabled="disabled"></textarea>
 
-        <input v-if="type=='date'" type="date" :class="classes"
-               :placeholder="placeholder" v-model.number="val"
-               :readonly="readonly" :disabled="disabled"/>
-        <input v-if="type=='time'" type="time" :class="classes"
-               :placeholder="placeholder" v-model.number="val"
-               :readonly="readonly" :disabled="disabled"/>
-        <input v-if="type=='color'" type="color" :class="classes"
-               :placeholder="placeholder" v-model.number="val"
-               :readonly="readonly" :disabled="disabled"/>
+            <input v-if="type=='button'" type="button"
+                   class="button button-small" :class="classes" :value="buttonLabel"
+                   :readonly="readonly" :disabled="disabled"/>
+            <input v-if="type=='reset'" type="reset"
+                   class="button button-small" :class="classes" :value="buttonLabel"
+                   :readonly="readonly" :disabled="disabled"/>
+            <input v-if="type=='submit'" type="submit"
+                   class="button button-small" :class="classes" :value="buttonLabel"
+                   :readonly="readonly" :disabled="disabled"/>
 
-        <Button type="clear" :icon="buttonIcon" :color="buttonColor" v-if="buttonIcon"></Button>
+            <input v-if="type=='tel'" type="tel" :class="classes"
+                   ref="input" :value="value"
+                   @input="updateValue($event.target.value)"
+                   @focus="focus($event)"
+                   @blur="blur($event)"
+                   :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+            <input v-if="type=='url'" type="url" :class="classes"
+                   ref="input" :value="value"
+                   @input="updateValue($event.target.value)"
+                   @focus="focus($event)"
+                   @blur="blur($event)"
+                   :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+            <input v-if="type=='email'" type="email" :class="classes"
+                   ref="input" :value="value"
+                   @input="updateValue($event.target.value)"
+                   @focus="focus($event)"
+                   @blur="blur($event)"
+                   :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+            <input v-if="type=='number'" type="number" :class="classes"
+                   ref="input" :value="value"
+                   @input="updateValue($event.target.value)"
+                   @focus="focus($event)"
+                   @blur="blur($event)"
+                   :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+
+            <input v-if="type=='date'" type="date" :class="classes"
+                   ref="input" :value="value"
+                   @input="updateValue($event.target.value)"
+                   @focus="focus($event)"
+                   @blur="blur($event)"
+                   :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+            <input v-if="type=='time'" type="time" :class="classes"
+                   ref="input" :value="value"
+                   @input="updateValue($event.target.value)"
+                   @focus="focus($event)"
+                   @blur="blur($event)"
+                   :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+            <input v-if="type=='color'" type="color" :class="classes"
+                   ref="input" :value="value"
+                   @input="updateValue($event.target.value)"
+                   @focus="focus($event)"
+                   @blur="blur($event)"
+                   :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+
+            <Button type="clear" :icon="buttonIcon" :color="buttonColor" v-if="buttonIcon"></Button>
+
+        </div>
+
+        <span class="input-clear" :class="clear_classes" @click="clear(value)"></span>
+
     </div>
 
 </template>
@@ -85,9 +126,13 @@ step	    规定输入字段的合法数字间隔。
 
 <script>
 
-    import { oneOf, insideIonic,insideColor } from '../../util/check';
+    import { oneOf, insideIonic,insideColor } from '../check';
 
     const prefixCls = 'view-input';
+
+    let lock = false;
+
+    const is_ios = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
     export default {
         name: 'Input',
@@ -142,8 +187,10 @@ step	    规定输入字段的合法数字间隔。
             labelClassName: String,
             className: String
         },
-        mounted: function() {
-            console.log('mounted');
+        data() {
+            return {
+                showClearButton: false,
+            }
         },
         computed: {
             classes () {
@@ -153,6 +200,13 @@ step	    规定输入字段的合法数字间隔。
                         [`${this.color}`]: !!this.color,
                         [`${this.bgColor}-bg`]: !!this.bgColor,
                         [`${this.className}`]: !!this.className
+                    }
+                ];
+            },
+            wrapper_classes () {
+                return [
+                    {
+                        [`has-floating-label`]: this.displayStyle=='floating-label',
                     }
                 ];
             },
@@ -169,20 +223,77 @@ step	    规定输入字段的合法数字间隔。
             label_classes () {
                 return [
                     {
-                        [`has-input`]: this.displayStyle=='floating-label',
+                        [`has-input`]: this.displayStyle=='floating-label' && !!this.value,
                         [`${this.labelColor}`]: !!this.labelColor,
                         [`${this.labelClassName}`]: !!this.labelClassName
                     }
                 ];
             },
-            val: {
+            clear_classes () {
+                return [
+                    {
+                        [`active`]: !!this.showClearButton,
+                    }
+                ];
+            },
+            /*val: {
                 get:function() {
                     return this.value;
                 },
                 set:function(val) {
                     this.$emit('input', val);
                 }
+            },*/
+        },
+
+
+        methods: {
+            clear(value) {
+                this.$refs.input.blur();
+                this.$refs.input.value = '';
+                this.$emit('input', '');
+                this.showClearButton = false;
+                this.$refs.input.focus();
             },
-        }
+
+            updateValue(value) {
+                this.$refs.input.value = value;
+                this.$emit('input', value);
+            },
+
+            input($event) {
+                if (lock) {
+                    $event.preventDefault();
+                    return;
+                }
+
+                let value = $event.target.value;
+                this.$refs.input.value = value;
+                this.$emit('input', value);
+            },
+
+            compositionStart($event) {
+                lock = true;
+            },
+
+            compositionEnd($event) {
+                lock = false;
+                this.$emit('input', this.$refs.input.value);
+            },
+
+            focus($event) {
+//                if (is_ios) this.showClearButton = !!this.$refs.input.value;
+            },
+
+            blur($event) {
+//                if (is_ios) this.showClearButton = false;
+            }
+        },
+
+        watch: {
+            value: function (newValue) {
+                this.showClearButton = !!newValue
+            }
+        },
     }
 </script>

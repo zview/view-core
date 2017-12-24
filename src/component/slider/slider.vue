@@ -12,22 +12,25 @@
 
 <script>
 
-    import { oneOf, insideIonic } from '../../util/check';
+    import { oneOf, insideIonic } from '../check';
 
     export default {
         name: 'Slider',
         props: {
             value: {
                 type: [Number, String],
-                required: true
+                required: false,
+                default: 0,
             },
             min: {
                 type: [Number, String],
-                required: true
+                required: false,
+                default: 0,
             },
             max: {
                 type: [Number, String],
-                required: true
+                required: false,
+                default: 100,
             },
             disabled: [Boolean, String],
             readonly: [Boolean, String],

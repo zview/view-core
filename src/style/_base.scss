@@ -1,5 +1,6 @@
 @import "variables";
 @import "mixins";
+@import "animation";
 
 
 //---------------------------全局样式---------------------------//
@@ -92,16 +93,6 @@ code, kbd, pre, samp
 
 //---------------------------Other---------------------------//
 
-// backdrop
-.backdrop
-{
-    @include view-m-zindex(backdrop);
-    background-color: rgba(0,0,0,0.3);
-    transition-duration: 0.2s;
-    -webkit-transition-duration: 0.2s;
-    pointer-events: auto;
-}
-
 
 // Safari input placeholder margin issue
 // grade-a ios,grade-b android
@@ -138,6 +129,35 @@ code, kbd, pre, samp
 .liner-right:after
 {
     @include view-m-liner(right);
+}
+
+
+//
+/*宽高相等*/
+.m-render-image-1-1:before
+{
+    content: " ";
+    display: inline-block;
+    padding-bottom: 100%;
+    vertical-align: middle;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    float: left;
+}
+
+/*宽高1:1*/
+.render-image-1-1
+{
+    width:100%;
+    height:0;
+    line-height: 0;
+    padding-bottom: 100%;
+    overflow:hidden;
+    background: no-repeat center center;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    background-size:cover;
 }
 
 

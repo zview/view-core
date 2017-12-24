@@ -125,6 +125,20 @@ const afterEach = (toRoute, fromRoute) => {
     isrouting = false;
 };
 
+// 状态条
+const beforeEachProgress = (toRoute, fromRoute, next) => {
+    console.log('beforeEachProgress');
+
+    next();
+};
+
+const afterEachProgress = (toRoute, fromRoute) => {
+    console.log('afterEachProgress');
+
+};
+
+//--------------------------------------------------------------------------
+
 // 路由配置
 const RouterConfig = {
     // mode: 'history',
@@ -132,10 +146,17 @@ const RouterConfig = {
 };
 const router = new VueRouter(RouterConfig);
 
+//--------------------------------------------------------------------------
+
 // register global guards
 router.beforeEach(beforeEach);
 router.afterEach(afterEach);
 
+// register progress bar
+router.beforeEach(beforeEachProgress);
+router.afterEach(afterEachProgress);
+
+//--------------------------------------------------------------------------
 
 // let pushMethod = state.__push_method__ = options.pushMethod || defaultConfig.pushMethod
 let pushMethod = 'push';

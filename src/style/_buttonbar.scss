@@ -1,7 +1,27 @@
 @import "base";
 
+$border-radius: 5px;
+
 .view-buttonbar
 {
+    margin: 10px 0;
 
+    .button-small
+    {
+        font-size: 12px;
+        line-height: 28px;
+    }
+
+    >.button:first-child
+    {
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+    }
+
+    >.button:last-child
+    {
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+    }
 
 }

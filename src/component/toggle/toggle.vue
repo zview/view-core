@@ -14,14 +14,15 @@
 
 <script>
 
-    import { oneOf, insideIonic } from '../../util/check';
+    import { oneOf, insideIonic } from '../check';
 
     export default {
         name: 'Toggle',
         props: {
             value: {
                 type: [Boolean, String],
-                required: true
+                required: false,
+                default: false,
             },
             color: {
                 validator (value) {

@@ -1,10 +1,13 @@
 <template>
 
-    <div class="view-tabs-striped tabs-striped tabs-top tabs-icon-only" :class="classes">
+    <div class="view-tabs-striped">
         <div class="tabs">
-            <a class="tab-item" v-for="(option, index) in options" :key="index"
-               :class="{'active': value==option.id}">
-                <Icon :icon="option.icon" v-if="option.icon"></Icon>
+            <a v-for="(tabItem, index) in tabItems" :key="index"
+               class="tab-item"
+               :class="{'active': activeIndex == index}"
+               @click="tabClicked(index)">
+                {{tabItem.text}}
+                <!--<Icon :icon="tabItem.icon" v-if="tabItem.icon"></Icon>-->
             </a>
         </div>
     </div>
@@ -13,37 +16,64 @@
 
 <script>
 
-    import { oneOf, insideIonic } from '../../util/check';
+    import { oneOf, insideIonic } from '../check';
 
     export default {
         name: 'TabsStriped',
         props: {
-            options: {
-                type: Array,
-                required: true
+            position: {
+                type: String,
+                validator (value) {
+                    return oneOf(value, ['bottom', 'top'], true);
+                },
+                default: 'top'
             },
-            value: {
-                type: [Number, String],
-            },
-            color: {
+            bgColor: {
+                type: String,
+                default: 'light',
                 validator (value) {
                     return insideIonic(value);
                 }
+            },
+            tabColor: {
+                type: String,
+                default: 'positive',
+                validator (value) {
+                    return insideIonic(value);
+                }
+            },
+            tabItems: {
+                type: Array,
+                required: true
+            },
+            tabIndex: {
+                type: Number,
+                required: true,
+                validator(value) {
+                    return value >= 0
+                }
+            },
+            onTabClick: {
+                type: Function
             },
             className: String
         },
         mounted: function() {
             console.log('mounted');
+
+            let className = `tabs-striped tabs-${ this.position } tabs-background-${ this.bgColor } tabs-color-${ this.tabColor }`
+            this.$el.className = className;
         },
         computed: {
-            classes () {
-                return [
-                    {
-                        [`tabs-${this.color}`]: !!this.color,
-                        [`${this.className}`]: !!this.className
-                    }
-                ];
+            activeIndex: function () {
+                return this.tabIndex;
             },
-        }
+        },
+        methods: {
+            tabClicked(index) {
+                if (this.onTabClick) this.onTabClick(index);
+            }
+        },
     }
 </script>
+
