@@ -1,0 +1,8 @@
+@import "base";
+
+.view-scalable-wrapper {
+    position: relative;
+    .view-scalable {
+        position: absolute;
+    }
+}

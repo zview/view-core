@@ -39,11 +39,12 @@ import Upload from './component/upload';
 import Form from './component/form';
 
 //Layout
-import { List, Item } from './component/list';
+import { List, Item, LinerTop, LinerBottom } from './component/list';
 import { Row, Col } from './component/grid';
 import Cells from './component/cells';
 import Panel from './component/panel';
 import { AccordionList, AccordionItem } from './component/accordion';
+import Scalable from './component/scalable';
 
 //Navigation
 import { Navbar } from './component/navbar';
@@ -106,12 +107,15 @@ const View = {
     //Layout
     List,
     Item,
+    LinerTop,
+    LinerBottom,
     Row,
     Col,
     Cells,
     Panel,
     AccordionList,
     AccordionItem,
+    Scalable,
 
     //Form
     Input,
@@ -186,12 +190,15 @@ const View = {
         //Layout
         Vue.component('List', List);
         Vue.component('Item', Item);
+        Vue.component('LinerTop', LinerTop);
+        Vue.component('LinerBottom', LinerBottom);
         Vue.component('Row', Row);
         Vue.component('Col', Col);
         Vue.component('Cells', Cells);
         Vue.component('Panel', Panel);
         Vue.component('Accordion', AccordionList);
         Vue.component('AccordionItem', AccordionItem);
+        Vue.component('Scalable', Scalable);
 
 
         //Form

@@ -18,6 +18,7 @@
             <Item @click.native="_on_goto_page('/demo/table')" note="Table">表格</Item>
             <Item @click.native="_on_goto_page('/demo/panel')" note="Panel/Card">面板/卡片</Item>
             <Item @click.native="_on_goto_page('/demo/accordion')" note="Accordion/Collapse">折叠面板</Item>
+            <Item @click.native="_on_goto_page('/demo/scalable')" note="Scalable">缩放</Item>
             <Item @click.native="_on_goto_page('/demo/tree')" note="Tree">树形控件</Item>
             <Item @click.native="_on_goto_page('/demo/timeline')" note="Timeline">时间轴</Item>
             <Item @click.native="_on_goto_page('/demo/carousel')" note="Carousel">走马灯</Item>

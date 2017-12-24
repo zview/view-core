@@ -87,6 +87,11 @@ const routers = [
                 meta: {title: '折叠面板'},
                 component: (resolve) => require(['../page/page_layout_accordion.vue'], resolve),
             },
+            {
+                path: 'scalable',
+                meta: {title: '缩放'},
+                component: (resolve) => require(['../page/page_layout_scalable.vue'], resolve),
+            },
 
             //Navigator
             {
