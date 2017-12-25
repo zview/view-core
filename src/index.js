@@ -28,7 +28,7 @@ import Progress from './component/progress';
 //Form
 import Input from './component/input';
 import Radio from './component/radio';
-import Check from './component/check';
+import Check from './component/check/index.js';
 import Toggle from './component/toggle';
 import Select from './component/select';
 import Slider from './component/slider';
