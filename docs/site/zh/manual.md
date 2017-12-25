@@ -342,13 +342,11 @@ console.log('vendor', vendor);
 - [ ] 面包屑 BreadCrumb
 - [ ] 步骤条 Steps
 - [x] 标签页 Tabs
-- [x] 标签页(下划线) TabsStriped
 - [ ] 加载进度条(顶部) LoadingBar
-- [x] 按钮栏 ButtonBar
 - [ ] 工具栏 ToolBar
+- [x] 按钮栏 ButtonBar
 - [x] 底部栏 Tabbar/Page
 - [x] 导航栏 Navbar/Page
-- [x] 侧边栏 Sidebar
 
 #### 表单(Form)
 - [x] 输入框 Input

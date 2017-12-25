@@ -7,7 +7,8 @@
             内容
         </Page>
 
-        <Tabbar color="balanced" icon-align="top" :options="options" :value="2"></Tabbar>
+        <Tabbar :tab-items="options" :tab-index="index" :on-tab-click="onTabClick"
+                icon-align="top" bg-color="dark"></Tabbar>
 
     </div>
 </template>
@@ -17,6 +18,8 @@
         data () {
             return {
                 message: '容器1',
+
+                index: 0,
                 options : [
                     {'id': 1, 'text': '新闻', 'icon': 'ion-ios-paper-outline'},
                     {'id': 2, 'text': '订阅', 'icon': 'ion-ios-book-outline'},
@@ -29,7 +32,10 @@
 
         },
         methods: {
-
+            onTabClick(index) {
+                console.log('onTabClick', index);
+                this.index2 = index;
+            },
         },
     }
 </script>

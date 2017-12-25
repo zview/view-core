@@ -1,9 +1,12 @@
 <template>
     <div class="page-tabbar">
 
-        <Tabbar icon-align="top" :options="options" :value="2"></Tabbar>
+        <Tabbar :tab-items="options1" :tab-index="index1" :is-top="true" :on-tab-click="onTab1Click"></Tabbar>
 
-        <Page :has-tabbar="true">
+        <Tabbar :tab-items="options2" :tab-index="index2" :on-tab-click="onTab2Click"
+              icon-align="top" bg-color="dark"></Tabbar>
+
+        <Page :has-tabbar="true" style="margin-top: 48px;">
             内容
         </Page>
 
@@ -15,7 +18,16 @@
         data () {
             return {
                 message: '底部栏',
-                options : [
+                index1: 0,
+                options1 : [
+                    {'id': 1, 'text': '要闻'},
+                    {'id': 2, 'text': '上海'},
+                    {'id': 3, 'text': '财经'},
+                    {'id': 4, 'text': '娱乐'},
+                    {'id': 5, 'text': '体育'},
+                ],
+                index2: 0,
+                options2 : [
                     {'id': 1, 'text': '新闻', 'icon': 'ion-ios-paper-outline'},
                     {'id': 2, 'text': '订阅', 'icon': 'ion-ios-book-outline'},
                     {'id': 3, 'text': '图片', 'icon': 'ion-images', 'badge': '2'},
@@ -24,7 +36,14 @@
             }
         },
         methods: {
-
+            onTab1Click(index) {
+                console.log('onTab1Click', index);
+                this.index1 = index;
+            },
+            onTab2Click(index) {
+                console.log('onTab2Click', index);
+                this.index2 = index;
+            },
         },
     }
 </script>

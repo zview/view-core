@@ -1,13 +1,15 @@
 <template>
 
-    <div class="view-tabs tabs" :class="classes">
-        <a class="tab-item" v-for="(tabItem, index) in tabItems" :key="index"
-           :class="{'has-badge': tabItem.badge && tabItem.badge!='', 'active': activeIndex == index}"
-           @click="tabClicked(index)">
-            <i class="badge badge-assertive" v-if="tabItem.badge && tabItem.badge!=''">{{tabItem.badge}}</i>
-            <Icon :icon="tabItem.icon" v-if="tabItem.icon"></Icon>
-            {{tabItem.text}}
-        </a>
+    <div class="view-tabs-striped">
+        <div class="tabs">
+            <a v-for="(tabItem, index) in tabItems" :key="index"
+               class="tab-item"
+               :class="{'active': activeIndex == index}"
+               @click="tabClicked(index)">
+                {{tabItem.text}}
+                <!--<Icon :icon="tabItem.icon" v-if="tabItem.icon"></Icon>-->
+            </a>
+        </div>
     </div>
 
 </template>
@@ -17,18 +19,14 @@
     import { oneOf, insideIonic } from '../check';
 
     export default {
-        name: 'Tabs',
+        name: 'TabsStriped',
         props: {
-            tabItems: {
-                type: Array,
-                required: true
-            },
-            tabIndex: {
-                type: Number,
-                required: true,
-                validator(value) {
-                    return value >= 0
-                }
+            position: {
+                type: String,
+                validator (value) {
+                    return oneOf(value, ['bottom', 'top'], true);
+                },
+                default: 'top'
             },
             bgColor: {
                 type: String,
@@ -44,18 +42,16 @@
                     return insideIonic(value);
                 }
             },
-            isTop: {
-                type: [Boolean, String],
-                defalut: false,
+            tabItems: {
+                type: Array,
+                required: true
             },
-            isIconOnly: {
-                type: [Boolean, String],
-                defalut: false,
-            },
-            iconAlign: {
-                validator (value) {
-                    return oneOf(value, ['left', 'top'], true);
-                },
+            tabIndex: {
+                type: Number,
+                required: true,
+                validator(value) {
+                    return value >= 0
+                }
             },
             onTabClick: {
                 type: Function
@@ -64,23 +60,13 @@
         },
         mounted: function() {
             console.log('mounted');
+
+            let className = `tabs-striped tabs-${ this.position } tabs-background-${ this.bgColor } tabs-color-${ this.tabColor }`
+            this.$el.className = className;
         },
         computed: {
             activeIndex: function () {
                 return this.tabIndex;
-            },
-            classes () {
-                return [
-                    {
-                        [`tabs-top`]: !!this.isTop,
-                        [`tabs-icon-only`]: !!this.isIconOnly,
-                        [`tabs-icon-top`]: !!this.iconAlign && this.iconAlign=='top',
-                        [`tabs-icon-left`]: !!this.iconAlign && this.iconAlign=='left',
-                        [`tabs-${this.bgColor}`]: !!this.bgColor,
-                        [`${this.tabColor}-fg`]: !!this.tabColor,
-                        [`${this.className}`]: !!this.className
-                    }
-                ];
             },
         },
         methods: {
@@ -90,3 +76,4 @@
         },
     }
 </script>
+

@@ -1,10 +1,21 @@
 <template>
     <div class="page-tabs">
 
-        <Tabs :tab-items="options1" :tab-index="index1" :is-top="true" :on-tab-click="onTab1Click"></Tabs>
+        <Tabs :tab-items="tabs" :tab-index="tabIndex" icon-align="top" :on-tab-click="onTabClick"></Tabs>
 
-        <Tabs :tab-items="options2" :tab-index="index2" :on-tab-click="onTab2Click"
-              icon-align="top" bg-color="dark"></Tabs>
+        <Panel bg-color="white" style="margin-top: 50px;">
+            <p>
+                Active Tab Index: {{ tabIndex }}
+            </p>
+
+            <p>
+                active category index: {{ categories[categoryIndex].text }}
+            </p>
+        </Panel>
+
+        <Tabs :tab-items="categories" :tab-index="categoryIndex" :on-tab-click="onCategoryClick"
+              position="bottom" bg-color="assertive" tab-color="light">
+        </Tabs>
 
     </div>
 </template>
@@ -14,32 +25,37 @@
         data () {
             return {
                 message: '标签页',
-                index1: 0,
-                options1 : [
-                    {'id': 1, 'text': '要闻'},
-                    {'id': 2, 'text': '上海'},
-                    {'id': 3, 'text': '财经'},
-                    {'id': 4, 'text': '娱乐'},
-                    {'id': 5, 'text': '体育'},
+
+                tabs: [
+                    {'id': 1, 'text': 'tab 1', 'icon': 'ion-ios-telephone'},
+                    {'id': 2, 'text': 'tab 2', 'icon': 'ion-ios-clock'},
+                    {'id': 3, 'text': 'tab 3', 'icon': 'ion-ios-clock'},
                 ],
-                index2: 0,
-                options2 : [
-                    {'id': 1, 'text': '新闻', 'icon': 'ion-ios-paper-outline'},
-                    {'id': 2, 'text': '订阅', 'icon': 'ion-ios-book-outline'},
-                    {'id': 3, 'text': '图片', 'icon': 'ion-images', 'badge': '2'},
-                    {'id': 4, 'text': '视频', 'icon': 'ion-ios-videocam-outline'},
+
+                tabIndex: 0,
+
+                categories: [
+                    {'id': 1, 'text': '女装'},
+                    {'id': 2, 'text': '男装'},
+                    {'id': 3, 'text': '内衣'},
+                    {'id': 4, 'text': '鞋靴'},
+                    {'id': 5, 'text': '箱包'},
+                    {'id': 6, 'text': '更多'},
                 ],
+
+                categoryIndex: 0,
             }
         },
         methods: {
-            onTab1Click(index) {
-                console.log('onTab1Click', index);
-                this.index1 = index;
+            onTabClick(index) {
+                console.log('onTabClick', index);
+                this.tabIndex = index;
             },
-            onTab2Click(index) {
-                console.log('onTab2Click', index);
-                this.index2 = index;
-            },
+
+            onCategoryClick(index) {
+                console.log('onCategoryClick', index);
+                this.categoryIndex = index;
+            }
         },
     }
 </script>

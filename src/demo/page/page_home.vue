@@ -32,13 +32,11 @@
             <Item @click.native="_on_goto_page('/demo/breadcrumb')" note="BreadCrumb">面包屑</Item>
             <Item @click.native="_on_goto_page('/demo/steps')" note="Steps">步骤条</Item>
             <Item @click.native="_on_goto_page('/demo/tabs')" note="Tabs">标签页</Item>
-            <Item @click.native="_on_goto_page('/demo/tabsstriped')" note="TabsStriped">标签页(下划线)</Item>
             <Item @click.native="_on_goto_page('/demo/loadingbar')" note="LoadingBar">加载进度条</Item>
             <Item @click.native="_on_goto_page('/demo/buttonbar')" note="ButtonBar">按钮栏</Item>
             <Item @click.native="_on_goto_page('/demo/toolbar')" note="ToolBar">工具栏</Item>
-            <Item @click.native="_on_goto_page('/tabbar')" note="Tabbar/Page">底部栏</Item>
+            <Item @click.native="_on_goto_page('/demo/tabbar')" note="Tabbar/Page">底部栏</Item>
             <Item @click.native="_on_goto_page('/navbar')" note="Navbar/Page">导航栏</Item>
-            <Item @click.native="_on_goto_page('/sidebar')" note="Sidebar">侧边栏</Item>
 
             <Item color="light" bg-color="positive" note="Form">表单</Item>
             <Item @click.native="_on_goto_page('/demo/input')" note="Input">输入框</Item>

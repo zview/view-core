@@ -95,6 +95,11 @@ const routers = [
 
             //Navigator
             {
+                path: 'tabbar',
+                meta: {title: '底部栏'},
+                component: (resolve) => require(['../page/page_nav_tabbar.vue'], resolve),
+            },
+            {
                 path: 'buttonbar',
                 meta: {title: '按钮栏'},
                 component: (resolve) => require(['../page/page_nav_buttonbar.vue'], resolve),
@@ -103,11 +108,6 @@ const routers = [
                 path: 'tabs',
                 meta: {title: '标签页'},
                 component: (resolve) => require(['../page/page_nav_tabs.vue'], resolve),
-            },
-            {
-                path: 'tabsstriped',
-                meta: {title: '标签页(下划线)'},
-                component: (resolve) => require(['../page/page_nav_tabsstriped.vue'], resolve),
             },
 
             //Form
@@ -202,11 +202,7 @@ const routers = [
         ]
     },
     //Navigation
-    {
-        path: '/tabbar',
-        meta: {title: '底部栏'},
-        component: (resolve) => require(['../page/page_nav_tabbar.vue'], resolve),
-    },
+
     //Navigation
     {
         path: '/navbar',

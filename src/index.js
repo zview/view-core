@@ -22,7 +22,6 @@ import Icon from './component/icon';
 import Button from './component/button';
 
 //View
-import Alert from './component/alert';
 import Badge from './component/badge';
 import Progress from './component/progress';
 
@@ -47,10 +46,10 @@ import { AccordionList, AccordionItem } from './component/accordion';
 import Scalable from './component/scalable';
 
 //Navigation
-import { Navbar } from './component/navbar';
-import { Tabbar } from './component/tabbar';
+import Navbar from './component/navbar';
+import Tabbar from './component/tabbar';
 import { Page, Content, Header, Footer, SubHeader, SubFooter } from './component/container';
-import { Tabs, TabsStriped } from './component/tabs';
+import Tabs from './component/tabs';
 import ButtonBar from './component/buttonbar';
 
 //Other
@@ -100,7 +99,6 @@ const View = {
     Button,
 
     //View
-    Alert,
     Badge,
     Progress,
 
@@ -124,8 +122,8 @@ const View = {
     Toggle,
     Select,
     Slider,
-    Search,
     Cascade,
+    Search,
     Upload,
     Form,
 
@@ -135,7 +133,6 @@ const View = {
     Page,
     ButtonBar,
     Tabs,
-    TabsStriped,
     //
     Content,
     Header,
@@ -182,7 +179,6 @@ const View = {
 
 
         //View
-        Vue.component('Alert', Alert);
         Vue.component('Badge', Badge);
         Vue.component('Progress', Progress);
 
@@ -220,7 +216,6 @@ const View = {
         Vue.component('Page', Page); //配合Navbar,Tabbar使用
         Vue.component('ButtonBar', ButtonBar);
         Vue.component('Tabs', Tabs);
-        Vue.component('TabsStriped', TabsStriped);
 
         //
         Vue.component('Content', Content);
@@ -349,15 +344,21 @@ export { Icon };
 export { Button };
 
 //View
-export { Alert };
 export { Badge };
 export { Progress };
 
 //Layout
 export { List };
 export { Item };
+export { LinerTop };
+export { LinerBottom };
 export { Row };
 export { Col };
+export { Cells };
+export { Panel };
+export { AccordionList };
+export { AccordionItem };
+export { Scalable };
 
 //Form
 export { Input };
@@ -366,6 +367,7 @@ export { Check };
 export { Toggle };
 export { Select };
 export { Slider };
+export { Cascade };
 export { Search };
 export { Upload };
 export { Form };
@@ -376,7 +378,6 @@ export { Tabbar };
 export { Page };
 export { ButtonBar };
 export { Tabs };
-export { TabsStriped };
 export { Content };
 export { Header };
 export { Footer };
