@@ -1,6 +1,8 @@
 <template>
     <div class="page-button">
 
+        <Panel>{{message}}</Panel>
+
         <List type="list-inset" divider-content="按钮颜色" divider-bg-color="positive" divider-color="light">
             <Item bg-color="dimgray">
                 <Button type="block" bg-color="light" @click="_on_button_click('light')">light</Button>

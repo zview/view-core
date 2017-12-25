@@ -4,11 +4,11 @@
         <Navbar title="容器1" color="balanced"></Navbar>
 
         <Page :has-navbar="true" :has-tabbar="true">
-            内容
+            <Panel>内容</Panel>
         </Page>
 
-        <Tabbar :tab-items="options" :tab-index="index" :on-tab-click="onTabClick"
-                icon-align="top" bg-color="dark"></Tabbar>
+        <Tabbar :tab-items="tabitems" :tab-index="tabindex" :on-tab-click="_on_tab_click"
+                icon-align="top" bg-color="dark" tab-color="calm"></Tabbar>
 
     </div>
 </template>
@@ -19,8 +19,8 @@
             return {
                 message: '容器1',
 
-                index: 0,
-                options : [
+                tabindex: 0,
+                tabitems : [
                     {'id': 1, 'text': '新闻', 'icon': 'ion-ios-paper-outline'},
                     {'id': 2, 'text': '订阅', 'icon': 'ion-ios-book-outline'},
                     {'id': 3, 'text': '图片', 'icon': 'ion-images', 'badge': '2'},
@@ -32,9 +32,10 @@
 
         },
         methods: {
-            onTabClick(index) {
-                console.log('onTabClick', index);
-                this.index2 = index;
+            _on_tab_click(index) {
+                console.log('_on_tab_click', index);
+                let vm = this;
+                vm.tabindex = index;
             },
         },
     }

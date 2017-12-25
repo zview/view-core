@@ -63,7 +63,7 @@ $_view-colors: (
     white       : $white-color
 );
 
-// 主题-前景颜色
+// 主题-在元素里添加前景颜色
 // @include view-m-theme-fg-color();
 @mixin view-m-theme-fg-color()
 {
@@ -75,7 +75,7 @@ $_view-colors: (
         }
     }
 }
-// 主题-背景颜色
+// 主题-在元素里添加背景颜色
 // @include view-m-theme-bg-color();
 @mixin view-m-theme-bg-color()
 {

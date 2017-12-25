@@ -1,7 +1,9 @@
 <template>
-    <div class="page-font">
+    <div class="page-transition">
 
-        <span @click="addItem">新增</span> <span @click="reset">重置</span>
+        <Panel>{{message}}</Panel>
+
+        <Panel><span @click="addItem">新增</span> <span @click="reset">重置</span></Panel>
 
         <List>
             <Select :options="options" v-model="effect"></Select>

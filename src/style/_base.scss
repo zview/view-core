@@ -35,7 +35,7 @@ input::-ms-clear, input::-ms-reveal
 
 a
 {
-    color: $link-color;
+    //color: $link-color;
     background: transparent;
     text-decoration: none;
     outline: none;
@@ -44,12 +44,12 @@ a
 
     &:hover
     {
-        color: $link-hover-color;
+        //color: $link-hover-color;
     }
 
     &:active
     {
-        color: $link-active-color;
+        //color: $link-active-color;
     }
 
     &:active, &:hover
@@ -82,10 +82,6 @@ code, kbd, pre, samp
 @include view-m-base-fg-color();
 //背景颜色 .#{$key}-bg
 @include view-m-base-bg-color();
-//主题-前景颜色 &.#{$key}-fg
-//@include view-m-theme-fg-color();
-//主题-背景颜色  &.#{$key}-bg
-//@include view-m-theme-bg-color();
 //内边距 .padding-#{$i * 5}
 @include view-m-padding();
 //外边距 .margin-#{$i * 5}

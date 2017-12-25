@@ -1,7 +1,7 @@
 <template>
     <div class="page-font">
 
-        字体
+        <Panel>{{message}}</Panel>
 
     </div>
 </template>

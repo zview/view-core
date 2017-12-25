@@ -1,7 +1,7 @@
 <template>
     <div class="page-theme">
 
-        多主题
+        <Panel>{{message}}</Panel>
 
     </div>
 </template>

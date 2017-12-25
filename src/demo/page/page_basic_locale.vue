@@ -1,20 +1,18 @@
 <template>
     <div class="page-locale">
 
-        国际化
+        <Panel>{{message}}</Panel>
 
-        <hr/>
+        <Panel>
+            {{ $t("message.hello") }}<br/>
+            {{ $t("demo.vendor") }}
+        </Panel>
 
-
-        {{ $t("message.hello") }}
-
-        {{ $t("demo.vendor") }}
-
-        <hr/>
-
-        <span @click="_on_set_locale('en-US')">设置en-US语言</span>
-        <span @click="_on_set_locale('zh-TW')">设置zh-TW语言</span>
-        <span @click="_on_set_locale('zh-CN')">设置zh-CN语言</span>
+        <Panel>
+            <span @click="_on_set_locale('en-US')">设置en-US语言</span>
+            <span @click="_on_set_locale('zh-TW')">设置zh-TW语言</span>
+            <span @click="_on_set_locale('zh-CN')">设置zh-CN语言</span>
+        </Panel>
 
     </div>
 </template>

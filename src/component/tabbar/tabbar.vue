@@ -1,6 +1,6 @@
 <template>
 
-    <div class="view-tabs tabs" :class="classes">
+    <div class="view-tabbar tabs" :class="classes">
         <a class="tab-item" v-for="(tabItem, index) in tabItems" :key="index"
            :class="{'has-badge': tabItem.badge && tabItem.badge!='', 'active': activeIndex == index}"
            @click="tabClicked(index)">

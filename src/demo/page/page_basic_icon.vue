@@ -1,6 +1,8 @@
 <template>
     <div class="page-icon">
 
+        <Panel>{{message}}</Panel>
+
         <List type="list-inset" divider-content="FontAwesome" divider-bg-color="positive" divider-color="light">
             <Item color="calm"><Icon icon="fa-snowflake-o"></Icon>云横秦岭家何在</Item>
             <Item color="calm"><Icon icon="fa-bold"></Icon>雪拥蓝关马不前</Item>

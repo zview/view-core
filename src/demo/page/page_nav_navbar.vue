@@ -6,7 +6,7 @@
                 :show-menu="true" :on-menu="_on_menu"></Navbar>
 
         <Page :has-navbar="true">
-            内容
+            <Panel>内容</Panel>
         </Page>
 
     </div>

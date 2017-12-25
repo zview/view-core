@@ -1,13 +1,13 @@
 <template>
     <div class="page-tabbar">
 
-        <Tabbar :tab-items="options1" :tab-index="index1" :is-top="true" :on-tab-click="onTab1Click"></Tabbar>
+        <Tabbar :tab-items="tabitems1" :tab-index="tabindex1" :is-top="true" :on-tab-click="_on_tab1_click"></Tabbar>
 
-        <Tabbar :tab-items="options2" :tab-index="index2" :on-tab-click="onTab2Click"
-              icon-align="top" bg-color="dark"></Tabbar>
+        <Tabbar :tab-items="tabitems2" :tab-index="tabindex2" :on-tab-click="_on_tab2_click"
+              icon-align="top" bg-color="light" tab-color="calm"></Tabbar>
 
         <Page :has-tabbar="true" style="margin-top: 48px;">
-            内容
+            <Panel>内容</Panel>
         </Page>
 
     </div>
@@ -18,16 +18,18 @@
         data () {
             return {
                 message: '底部栏',
-                index1: 0,
-                options1 : [
+
+                tabindex1: 0,
+                tabitems1 : [
                     {'id': 1, 'text': '要闻'},
                     {'id': 2, 'text': '上海'},
                     {'id': 3, 'text': '财经'},
                     {'id': 4, 'text': '娱乐'},
                     {'id': 5, 'text': '体育'},
                 ],
-                index2: 0,
-                options2 : [
+
+                tabindex2: 0,
+                tabitems2 : [
                     {'id': 1, 'text': '新闻', 'icon': 'ion-ios-paper-outline'},
                     {'id': 2, 'text': '订阅', 'icon': 'ion-ios-book-outline'},
                     {'id': 3, 'text': '图片', 'icon': 'ion-images', 'badge': '2'},
@@ -36,13 +38,13 @@
             }
         },
         methods: {
-            onTab1Click(index) {
-                console.log('onTab1Click', index);
-                this.index1 = index;
+            _on_tab1_click(index) {
+                console.log('_on_tab1_click', index);
+                this.tabindex1 = index;
             },
-            onTab2Click(index) {
-                console.log('onTab2Click', index);
-                this.index2 = index;
+            _on_tab2_click(index) {
+                console.log('_on_tab2_click', index);
+                this.tabindex2 = index;
             },
         },
     }

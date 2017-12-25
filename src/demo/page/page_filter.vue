@@ -1,9 +1,12 @@
 <template>
     <div class="page-filter">
 
-        {{message}}<br/>
+        <Panel>{{message}}</Panel>
+
+        <Panel>
         {{datetime|formatdate}}<br/>
         {{datetime|formattime}}<br/>
+        </Panel>
 
     </div>
 </template>

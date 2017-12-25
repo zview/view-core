@@ -3,5 +3,11 @@
 .view-tabbar
 {
 
+    &.tabs
+    {
+
+        @include view-m-theme-fg-color();
+
+    }
 
 }

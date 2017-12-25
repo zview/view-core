@@ -1,6 +1,8 @@
 <template>
     <div class="page-editor">
 
+        <Panel>{{message}}</Panel>
+
         <Editor color="balanced" bg-color="dark" :value="val"></Editor>
 
     </div>

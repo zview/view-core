@@ -13,7 +13,18 @@
 
 .tabs-bottom .tab-item
 {
-    margin-top: 0px;
+    margin-top: 0;
+}
+
+.tab-item
+{
+    opacity: .5;
+    font-weight: normal;
+}
+
+.tab-item.active
+{
+    font-weight: bold;
 }
 
 .tabs-top > .tabs

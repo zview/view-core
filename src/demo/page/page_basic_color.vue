@@ -1,7 +1,7 @@
 <template>
     <div class="page-color">
 
-        颜色
+        <Panel>{{message}}</Panel>
 
     </div>
 </template>

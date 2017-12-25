@@ -1,6 +1,6 @@
 <template>
 
-    <div class="view-tabs-striped">
+    <div class="view-tabs">
         <div class="tabs">
             <a v-for="(tabItem, index) in tabItems" :key="index"
                class="tab-item"

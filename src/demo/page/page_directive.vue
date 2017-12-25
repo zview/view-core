@@ -1,6 +1,8 @@
 <template>
     <div class="page-directive">
 
+        <Panel>{{message}}</Panel>
+
         <input v-focus type="text"/>
         <div v-drag class="div-drag calm-bg"></div>
 
