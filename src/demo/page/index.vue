@@ -27,9 +27,6 @@
 
             //
             vm.$info('mounted');
-
-            //
-            vm.$service.alert('alert');
         },
         methods: {
             _on_goto_page: function (page) {

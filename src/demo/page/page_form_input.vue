@@ -13,6 +13,15 @@
             <Input type="text" placeholder="只有文字"
                    label="籍贯" v-model="val3"/>
 
+            <Input type="text" placeholder="只有文字"
+                   label-icon="ion-android-person"
+                   button-label="点击发送验证码"
+                   label="籍贯" v-model="val4"/>
+
+            <Input type="text" placeholder="图标文字"
+                   label-icon="ion-android-person" button-icon="ion-android-person"
+                   label="其他" v-model="val4"/>
+
         </List>
 
 
@@ -49,9 +58,9 @@
         </List>
 
         <List divider-content="按钮">
-            <Input type="button" button-label="按钮"/>
-            <Input type="reset" button-label="重置"/>
-            <Input type="submit" color="balanced" button-label="提交"/>
+            <Input type="button" input-label="按钮"/>
+            <Input type="reset" input-label="重置"/>
+            <Input type="submit" color="balanced" input-label="提交"/>
         </List>
 
 
@@ -66,6 +75,7 @@
                 val1: '',
                 val2: '',
                 val3: '',
+                val4: '',
 
                 v_password: '',
                 v_tel: '',

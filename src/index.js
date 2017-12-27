@@ -34,6 +34,7 @@ import Select from './component/select';
 import Slider from './component/slider';
 import Cascade from './component/cascade';
 import Search from './component/search';
+import DatePicker from './component/datapicker';
 import Upload from './component/upload';
 import Form from './component/form';
 
@@ -122,8 +123,9 @@ const View = {
     Toggle,
     Select,
     Slider,
-    Cascade,
     Search,
+    Cascade,
+    DatePicker,
     Upload,
     Form,
 
@@ -206,6 +208,7 @@ const View = {
         Vue.component('Slider', Slider);
         Vue.component('Search', Search);
         Vue.component('Cascade', Cascade);
+        Vue.component('DatePicker', DatePicker);
         Vue.component('Upload', Upload);
         Vue.component('Form', Form);
 
@@ -367,8 +370,9 @@ export { Check };
 export { Toggle };
 export { Select };
 export { Slider };
-export { Cascade };
 export { Search };
+export { Cascade };
+export { DatePicker };
 export { Upload };
 export { Form };
 

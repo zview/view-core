@@ -152,6 +152,11 @@ const routers = [
                 component: (resolve) => require(['../page/page_form_cascade.vue'], resolve),
             },
             {
+                path: 'datepicker',
+                meta: {title: '日期选择'},
+                component: (resolve) => require(['../page/page_form_datepicker.vue'], resolve),
+            },
+            {
                 path: 'upload',
                 meta: {title: '文件上传'},
                 component: (resolve) => require(['../page/page_form_upload.vue'], resolve),

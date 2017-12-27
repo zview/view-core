@@ -285,20 +285,44 @@ console.log('vendor', vendor);
 | `$loading` | 加载提示 | 
 | `$dialog` | 对话框 | 
 | `$popup` | 弹层 | 
-| `$actionSheet` | 操作列表 | 
-| `$tabbar` | 选项栏 | 
 | `$sidebar` | 侧边栏 | 
 | `$modal` | 模态窗 | 
-| `$storage` | 本地存储 |
+| `$actionsheet` | 操作列表 | 
+| `$backdrop` | 遮罩层 | 
+| `$storagel` | 本地存储 |
+| `$storages` | 会话存储 |
+
+全局方法
+
+取版本
+$version
+
+设置方言
+$set_locale(locale)
+
+设置调试模式
+$set_debug(debug)
+
+信息输出
+$info(...message)
+
+错误输出
+$error(...message)
 
 
-- [x] 告警提示 Alert
-- [ ] 确认提示 Confirm
+
+#### 服务(Service)
+- [x] 全屏遮罩 Backdrop
 - [x] 一般提示 Toast
+- [x] 加载提示 Loading/Spin
+- [x] 操作列表 ActionSheet
+- [x] 对话框 Dialog(Alert/Confirm)
+- [x] 自定义弹层 Popup
+- [x] 侧边栏 Sidebar
+
 - [ ] 全局提示 Message
 - [ ] 通知提醒 Notice
 - [ ] 模态框 Modal
-- [ ] 加载提示 Loading/Spin
 
 
 ### 3. 服务语法
@@ -386,14 +410,7 @@ console.log('vendor', vendor);
 #### 其他(Other)
 - [x] 编辑器 Editor
 
-#### 服务(Service)
-- [x] 全屏遮罩 Backdrop
-- [x] 一般提示 Toast
-- [x] 加载提示 Loading/Spin
-- [x] 操作列表 ActionSheet
-- [x] 对话框 Alert/Confirm
-- [x] 自定义弹层 Popup
-- [x] 侧边栏 Sidebar
+
 
 
 #### TODO

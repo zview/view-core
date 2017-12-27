@@ -32,13 +32,13 @@
                       :placeholder="placeholder" :readonly="readonly" :disabled="disabled"></textarea>
 
             <input v-if="type=='button'" type="button"
-                   class="button button-small" :class="classes" :value="buttonLabel"
+                   class="button button-small" :class="classes" :value="inputLabel"
                    :readonly="readonly" :disabled="disabled"/>
             <input v-if="type=='reset'" type="reset"
-                   class="button button-small" :class="classes" :value="buttonLabel"
+                   class="button button-small" :class="classes" :value="inputLabel"
                    :readonly="readonly" :disabled="disabled"/>
             <input v-if="type=='submit'" type="submit"
-                   class="button button-small" :class="classes" :value="buttonLabel"
+                   class="button button-small" :class="classes" :value="inputLabel"
                    :readonly="readonly" :disabled="disabled"/>
 
             <input v-if="type=='tel'" type="tel" :class="classes"
@@ -85,7 +85,12 @@
                    @blur="blur($event)"
                    :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
 
-            <Button type="clear" :icon="buttonIcon" :color="buttonColor" v-if="buttonIcon"></Button>
+            <slot name="right">
+                <Button type="clear" size="small" :icon="buttonIcon" :color="buttonColor"
+                        v-if="buttonIcon || buttonLabel">
+                    {{buttonLabel}}
+                </Button>
+            </slot>
 
         </div>
 
@@ -142,6 +147,7 @@ step	    规定输入字段的合法数字间隔。
                 default: ''
             },
             label: [Number, String],
+            labelIcon: String,
             disabled: [Boolean, String],
             readonly: [Boolean, String],
             color: {
@@ -165,9 +171,9 @@ step	    规定输入字段的合法数字间隔。
                 },
                 default: 'dark',
             },
+            inputLabel: [String, Number],
             buttonIcon: String,
             buttonLabel: [String, Number],
-            labelIcon: String,
             type: {
                 validator (value) {
                     return oneOf(value, ['text', 'password', 'textarea', 'button', 'reset', 'submit',
@@ -214,7 +220,7 @@ step	    规定输入字段的合法数字间隔。
                 return [
                     {
                         [`item-${this.displayStyle}`]: !!this.displayStyle,
-                        [`item-input-inset`]: !!this.buttonIcon,
+//                        [`item-input-inset`]: !!this.buttonIcon,
                         [`item-button-right`]: !!this.buttonIcon,
                         [`${this.itemClassName}`]: !!this.itemClassName
                     }

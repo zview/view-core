@@ -40,7 +40,7 @@ module.exports = merge(webpackBaseConfig, {
     //通过 http://localhost:8010/webpack-dev-server 访问
     devServer: {
         host: '0.0.0.0',
-        port: 8011,
+        port: 8021,
         disableHostCheck: true,
         contentBase: "./",//本地服务器所加载的页面所在的目录
         // publicPath: './',
