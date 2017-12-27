@@ -150,6 +150,10 @@ step	    规定输入字段的合法数字间隔。
             labelIcon: String,
             disabled: [Boolean, String],
             readonly: [Boolean, String],
+            showClear: {
+                type: [Boolean, String],
+                default: true,
+            },
             color: {
                 validator (value) {
                     return insideColor(value);
@@ -238,7 +242,7 @@ step	    规定输入字段的合法数字间隔。
             clear_classes () {
                 return [
                     {
-                        [`active`]: !!this.showClearButton,
+                        [`active`]: !!this.showClearButton && this.showClear,
                     }
                 ];
             },

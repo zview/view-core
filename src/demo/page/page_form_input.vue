@@ -15,11 +15,11 @@
 
             <Input type="text" placeholder="只有文字"
                    label-icon="ion-android-person"
-                   button-label="点击发送验证码"
+                   button-label="点击发送验证码" :show-clear="false"
                    label="籍贯" v-model="val4"/>
 
             <Input type="text" placeholder="图标文字"
-                   label-icon="ion-android-person" button-icon="ion-android-person"
+                   label-icon="ion-android-person" button-icon="ion-android-person" :show-clear="false"
                    label="其他" v-model="val4"/>
 
         </List>
