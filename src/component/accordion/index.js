@@ -1,4 +1,4 @@
-import AccordionList from './list.vue';
-import AccordionItem from './item.vue';
+import Accordion from './accordion.vue';
+import AccordionItem from './accordionitem.vue';
 
-export { AccordionList, AccordionItem };
+export { Accordion, AccordionItem };

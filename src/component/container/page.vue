@@ -1,9 +1,12 @@
 <template>
 
     <div class="view-page page" :class="classes">
-        <div class="view-page-content page-content" :class="content_classes">
+        <div class="view-page-content page-content" :class="content_classes" v-if="!noContent">
             <slot></slot>
         </div>
+        <template v-else>
+            <slot></slot>
+        </template>
     </div>
 
 </template>
@@ -18,6 +21,10 @@
             hasNavbar: Boolean,
             hasTabbar: Boolean,
             isPadding: Boolean,
+            noContent: {
+                type: Boolean,
+                default: false
+            },
             className: String
         },
         computed: {

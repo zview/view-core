@@ -1,6 +1,6 @@
 {
   "name": "zuv-view",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "title": "zuv view project",
   "description": "UI components library, based on Vue.js and ionic CSS.",
   "homepage": "http://www.zuv.cc/view",

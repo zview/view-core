@@ -43,7 +43,9 @@ import { List, Item, LinerTop, LinerBottom } from './component/list';
 import { Row, Col } from './component/grid';
 import Cells from './component/cells';
 import Panel from './component/panel';
-import { AccordionList, AccordionItem } from './component/accordion';
+import { Accordion, AccordionItem } from './component/accordion';
+import { Swiper, SwiperItem } from './component/swiper';
+import Scroller from './component/scroller';
 import Scalable from './component/scalable';
 
 //Navigation
@@ -67,6 +69,7 @@ import $cascadepanel from './service/cascadepanel';
 import $sidebar from './service/sidebar';
 import $dialog from './service/dialog';
 import $popup from './service/popup';
+import $modal from './service/modal';
 
 //Directive
 import dragable from './directive/dragable';
@@ -112,8 +115,11 @@ const View = {
     Col,
     Cells,
     Panel,
-    AccordionList,
+    Accordion,
     AccordionItem,
+    Swiper,
+    SwiperItem,
+    Scroller,
     Scalable,
 
     //Form
@@ -194,8 +200,11 @@ const View = {
         Vue.component('Col', Col);
         Vue.component('Cells', Cells);
         Vue.component('Panel', Panel);
-        Vue.component('Accordion', AccordionList);
+        Vue.component('Accordion', Accordion);
         Vue.component('AccordionItem', AccordionItem);
+        Vue.component('Swiper', Swiper);
+        Vue.component('SwiperItem', SwiperItem);
+        Vue.component('Scroller', Scroller);
         Vue.component('Scalable', Scalable);
 
 
@@ -289,6 +298,7 @@ const View = {
         Vue.prototype.$sidebar      = $sidebar;
         Vue.prototype.$dialog       = $dialog;
         Vue.prototype.$popup        = $popup;
+        Vue.prototype.$modal        = $modal;
 
 
         //Begin: 一些兼容性代码
@@ -359,8 +369,11 @@ export { Row };
 export { Col };
 export { Cells };
 export { Panel };
-export { AccordionList };
+export { Accordion };
 export { AccordionItem };
+export { Swiper };
+export { SwiperItem };
+export { Scroller };
 export { Scalable };
 
 //Form

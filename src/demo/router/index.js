@@ -88,6 +88,21 @@ const routers = [
                 component: (resolve) => require(['../page/page_layout_accordion.vue'], resolve),
             },
             {
+                path: 'swiper',
+                meta: {title: '轮播'},
+                component: (resolve) => require(['../page/page_layout_swiper.vue'], resolve),
+            },
+            {
+                path: 'swiper/default',
+                meta: {title: '轮播默认'},
+                component: (resolve) => require(['../page/page_layout_swiper_default.vue'], resolve),
+            },
+            {
+                path: 'swiper/vertical',
+                meta: {title: '轮播垂直'},
+                component: (resolve) => require(['../page/page_layout_swiper_vertical.vue'], resolve),
+            },
+            {
                 path: 'scalable',
                 meta: {title: '缩放'},
                 component: (resolve) => require(['../page/page_layout_scalable.vue'], resolve),
@@ -186,7 +201,7 @@ const routers = [
                 component: (resolve) => require(['../page/page_editor.vue'], resolve),
             },
 
-            //
+            //Service
             {
                 path: 'actionsheet',
                 meta: {title: '操作列表'},
@@ -202,12 +217,14 @@ const routers = [
                 meta: {title: '自定义弹层'},
                 component: (resolve) => require(['../page/page_service_popup.vue'], resolve),
             },
-
+            {
+                path: 'modal',
+                meta: {title: '模态框'},
+                component: (resolve) => require(['../page/page_service_modal.vue'], resolve),
+            },
 
         ]
     },
-    //Navigation
-
     //Navigation
     {
         path: '/navbar',
@@ -224,6 +241,11 @@ const routers = [
         path: '/container2',
         meta: {title: '容器2'},
         component: (resolve) => require(['../page/page_layout_container2.vue'], resolve),
+    },
+    {
+        path: '/scroller',
+        meta: {title: '下拉刷新/自动加载'},
+        component: (resolve) => require(['../page/page_layout_scroller.vue'], resolve),
     },
     //Sample
     {

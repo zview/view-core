@@ -319,10 +319,9 @@ $error(...message)
 - [x] 对话框 Dialog(Alert/Confirm)
 - [x] 自定义弹层 Popup
 - [x] 侧边栏 Sidebar
-
+- [x] 模态框 Modal
 - [ ] 全局提示 Message
 - [ ] 通知提醒 Notice
-- [ ] 模态框 Modal
 
 
 ### 3. 服务语法
@@ -357,6 +356,7 @@ $error(...message)
 - [ ] 树形控件 Tree
 - [ ] 时间轴 Timeline
 - [ ] 走马灯 Carousel
+- [x] 轮播 Swiper
 - [x] 容器 Content/Header/Footer/SubHeader/SubFooter
 
 #### 导航(Navigation)
@@ -382,7 +382,7 @@ $error(...message)
 - [x] 滑动条 Slider
 - [x] 级联选择 Cascade
 - [ ] 选择器 Picker
-- [ ] 日期选择 DatePicker
+- [x] 日期选择 DatePicker
 - [ ] 时间选择 TimerPicker
 - [ ] 地区选择 RegionPicker
 - [ ] 颜色选择 ColorPicker
@@ -393,9 +393,6 @@ $error(...message)
 - [x] 表单 Form
 
 #### 视图(View)
-- [ ] 全局提示 Message
-- [ ] 通知提醒 Notice
-- [ ] 模态框 Modal
 - [x] 进度条 Progress
 - [x] 徽标 Badge
 - [ ] 标签 Tag

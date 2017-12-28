@@ -12,6 +12,7 @@
     background-color: $page-background;
     overflow: hidden;
 
+
     &.has-navbar
     {
         .page-content
@@ -37,10 +38,12 @@
             padding-bottom: $padding-base;
         }
     }
+
 }
 
 /* page content */
-.page .page-content
+.page .page-content,
+.modal .page-content
 {
     position: absolute;
     top: 0;
@@ -68,5 +71,9 @@
     {
         padding-bottom: $padding-base;
     }
+}
 
+.modal .page-content
+{
+    padding-top: 44px;
 }
