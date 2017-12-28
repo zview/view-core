@@ -7,7 +7,7 @@
 </template>
 <script>
   import Vue from 'vue';
-  import Picker from './Picker.vue';
+  import Picker from './picker.vue';
   import channel from './channel';
 
   const formatDate = (value, format) => {

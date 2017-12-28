@@ -16,7 +16,7 @@
 
 <script>
 
-    import { oneOf, insideIonic } from '../check';
+    import { oneOf, insideIonic } from '../utils';
 
     const multipileCls = 'view-select-multipile';
 

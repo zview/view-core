@@ -28,7 +28,7 @@
 
 <script>
 
-    import { oneOf, insideIonic } from '../check';
+    import { oneOf, insideIonic } from '../utils';
     import Emitter from '../../mixins/emitter';
     import XmlHttp from './xmlhttp';
     import UploadList from './upload-list.vue';

@@ -28,13 +28,13 @@ import Progress from './component/progress';
 //Form
 import Input from './component/input';
 import Radio from './component/radio';
-import Check from './component/check/index.js';
+import Check from './component/check';
 import Toggle from './component/toggle';
 import Select from './component/select';
 import Slider from './component/slider';
 import Cascade from './component/cascade';
 import Search from './component/search';
-import DatePicker from './component/datapicker';
+import DatePicker from './component/datepicker';
 import Upload from './component/upload';
 import Form from './component/form';
 

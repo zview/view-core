@@ -22,7 +22,7 @@
 
 <script>
 
-    import { oneOf, insideIonic } from '../check';
+    import { oneOf, insideIonic } from '../utils';
 
     const DEFAULT_BACK_TEXT = '<i class="icon ion-ios-arrow-back"></i>';
     const DEFAULT_MENU_TEXT = '<i class="icon ion-navicon"></i>';

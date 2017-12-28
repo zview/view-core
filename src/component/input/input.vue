@@ -131,7 +131,7 @@ step	    规定输入字段的合法数字间隔。
 
 <script>
 
-    import { oneOf, insideIonic,insideColor } from '../check';
+    import { oneOf, insideIonic,insideColor } from '../utils';
 
     const prefixCls = 'view-input';
 

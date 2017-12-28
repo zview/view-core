@@ -19,7 +19,7 @@
 </template>
 
 <script>
-    import { oneOf, insideIonic } from '../check';
+    import { oneOf, insideIonic } from '../utils';
 
     const prefixCls = 'view-progress';
 

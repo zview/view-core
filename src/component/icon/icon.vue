@@ -6,7 +6,7 @@
 
 <script>
 
-    import { oneOf, insideIonic } from '../check';
+    import { oneOf, insideIonic } from '../utils';
 
     const faCls = 'fa';
     const iconCls = 'icon';

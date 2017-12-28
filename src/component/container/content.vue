@@ -8,7 +8,7 @@
 
 <script>
 
-    import { oneOf } from '../check';
+    import { oneOf } from '../utils';
 
     export default {
         name: 'Content',

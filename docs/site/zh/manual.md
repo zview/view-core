@@ -16,6 +16,13 @@ title: Manual
 
 
 
+
+### TODO
+
+1. Range的range-color无效
+2. Radio选中背景颜色变化只有一部分, 选中图标只能右边,不能左边
+3. Upload, Form,  Validator, Progress
+
 ----------
 
 ### 1.通用
@@ -410,10 +417,7 @@ $error(...message)
 
 
 
-#### TODO
 
-1. Range的range-color无效
-2. Radio选中背景颜色变化只有一部分, 选中图标只能右边,不能左边
 
 ----------
 

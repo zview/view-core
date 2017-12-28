@@ -10,7 +10,7 @@
 
 <script>
 
-    import { oneOf, insideColor } from '../check';
+    import { oneOf, insideColor } from '../utils';
 
     export default {
         name: 'List',

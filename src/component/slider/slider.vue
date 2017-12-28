@@ -12,7 +12,7 @@
 
 <script>
 
-    import { oneOf, insideIonic } from '../check';
+    import { oneOf, insideIonic } from '../utils';
 
     export default {
         name: 'Slider',
