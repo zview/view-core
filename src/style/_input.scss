@@ -12,6 +12,18 @@
         }
     }
 
+    .item-input-wrapper
+    {
+        border-radius: 0;
+        background-color: transparent;
+    }
+
+    .view-button.button.button-small
+    {
+        padding-left: 0;
+        padding-right: 0;
+        min-width: 70px;
+    }
 
 
     .input-clear

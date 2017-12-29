@@ -20,7 +20,8 @@ title: Manual
 ### TODO
 
 1. Range的range-color无效
-2. Radio选中背景颜色变化只有一部分, 选中图标只能右边,不能左边
+2. Radio图标只能右边,不能左边
+3. Check图标只能左边,不能右边
 3. Upload, Form,  Validator, Progress
 
 ----------
@@ -455,6 +456,13 @@ $error(...message)
 #### 图标(Icon)
 
 既然 **view** 是以 ionic 样式为基础的，那它当然也包含 [ionicons](http://ionicons.com/) 图标集。
+
+ionicons图标
+http://ionicons.com/
+https://ionicframework.com/docs/ionicons/
+
+fontawasome图标
+http://fontawesome.io/cheatsheet/
 
 
 ##### 用法

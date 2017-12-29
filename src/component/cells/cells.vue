@@ -2,7 +2,7 @@
   <div class="view-cells">
     <div class="row" v-for="(r, index) in rows">
       <div v-if="index != 0 || (outerBorder == true || outerBorder == 'true')" class="liner-top"></div>
-      <div class="col m-render-image-1-1" v-for="c in cols" @click="cellClicked(r*cols.length + c)">
+      <div class="col" v-for="c in cols" @click="cellClicked(r*cols.length + c)">
         <div v-if="c" class="liner-left"></div>
         <div class="cell-container" v-html="items[r*cols.length + c]"></div>
       </div>
@@ -10,6 +10,8 @@
     <div v-if="outerBorder == true || outerBorder == 'true'" class="liner-bottom"></div>
   </div>
 </template>
+
+<!--m-render-image-1-1-->
 
 <script>
   const range = (n) => {

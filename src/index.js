@@ -20,6 +20,7 @@ import VSwipe from 'vswipe';
 //Basic
 import Icon from './component/icon';
 import Button from './component/button';
+import { LinerLeft, LinerRight, LinerTop, LinerBottom } from './component/liner';
 
 //View
 import Badge from './component/badge';
@@ -39,10 +40,10 @@ import Upload from './component/upload';
 import Form from './component/form';
 
 //Layout
-import { List, Item, LinerTop, LinerBottom } from './component/list';
+import { List, Item } from './component/list';
 import { Row, Col } from './component/grid';
 import Cells from './component/cells';
-import Panel from './component/panel';
+import { Panel, Card } from './component/panel';
 import { Accordion, AccordionItem } from './component/accordion';
 import { Swiper, SwiperItem } from './component/swiper';
 import Scroller from './component/scroller';
@@ -101,6 +102,10 @@ const View = {
     //Basic
     Icon,
     Button,
+    LinerLeft,
+    LinerRight,
+    LinerTop,
+    LinerBottom,
 
     //View
     Badge,
@@ -109,12 +114,11 @@ const View = {
     //Layout
     List,
     Item,
-    LinerTop,
-    LinerBottom,
     Row,
     Col,
     Cells,
     Panel,
+    Card,
     Accordion,
     AccordionItem,
     Swiper,
@@ -184,6 +188,10 @@ const View = {
         //Basic
         Vue.component('Icon', Icon);
         Vue.component('Button', Button);
+        Vue.component('LinerLeft', LinerLeft);
+        Vue.component('LinerRight', LinerRight);
+        Vue.component('LinerTop', LinerTop);
+        Vue.component('LinerBottom', LinerBottom);
 
 
         //View
@@ -194,12 +202,11 @@ const View = {
         //Layout
         Vue.component('List', List);
         Vue.component('Item', Item);
-        Vue.component('LinerTop', LinerTop);
-        Vue.component('LinerBottom', LinerBottom);
         Vue.component('Row', Row);
         Vue.component('Col', Col);
         Vue.component('Cells', Cells);
         Vue.component('Panel', Panel);
+        Vue.component('Card', Card);
         Vue.component('Accordion', Accordion);
         Vue.component('AccordionItem', AccordionItem);
         Vue.component('Swiper', Swiper);
@@ -355,6 +362,10 @@ export default View;
 //Basic
 export { Icon };
 export { Button };
+export { LinerLeft };
+export { LinerRight };
+export { LinerTop };
+export { LinerBottom };
 
 //View
 export { Badge };
@@ -363,12 +374,11 @@ export { Progress };
 //Layout
 export { List };
 export { Item };
-export { LinerTop };
-export { LinerBottom };
 export { Row };
 export { Col };
 export { Cells };
 export { Panel };
+export { Card };
 export { Accordion };
 export { AccordionItem };
 export { Swiper };

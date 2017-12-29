@@ -1,9 +1,26 @@
 <template>
 
-    <div class="view-panel padding" :class="classes">
-        <slot></slot>
-    </div>
+    <div class="view-panel" :class="classes">
 
+        <slot name="header">
+            <Row class="view-panel-header" v-if="headerContent || subHeaderContent">
+                <Col v-html="headerContent"/>
+                <Col class="text-right" v-html="subHeaderContent"/>
+            </Row>
+        </slot>
+
+        <div class="view-panel-content">
+            <slot></slot>
+        </div>
+
+        <slot name="footer">
+            <Row class="view-panel-footer" v-if="footerContent || subFooterContent">
+                <Col v-html="footerContent"/>
+                <Col class="text-right" v-html="subFooterContent"/>
+            </Row>
+        </slot>
+
+    </div>
 
 </template>
 
@@ -31,6 +48,10 @@
                 },
                 default: 'outer',
             },
+            headerContent: [Number, String],
+            footerContent: [Number, String],
+            subHeaderContent: [Number, String],
+            subFooterContent: [Number, String],
             className: String
         },
         computed: {

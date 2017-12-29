@@ -2,7 +2,7 @@
 
     <div class="view-input-wrapper" :class="wrapper_classes">
 
-        <div class="view-input-item item item-input" :class="item_classes">
+        <div class="view-input-item item item-input" :class="item_classes" v-if="!isWrapper">
 
             <span class="view-input-label input-label" :class="label_classes" v-if="label || labelIcon">
                 <Icon :icon="labelIcon" v-if="labelIcon"></Icon>
@@ -85,13 +85,96 @@
                    @blur="blur($event)"
                    :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
 
-            <slot name="right">
-                <Button type="clear" size="small" :icon="buttonIcon" :color="buttonColor"
-                        v-if="buttonIcon || buttonLabel">
-                    {{buttonLabel}}
-                </Button>
-            </slot>
+        </div>
 
+
+        <div class="view-input-item item item-input-inset" v-else>
+            <div class="item-input-wrapper">
+                <span class="view-input-label input-label" :class="label_classes" v-if="label || labelIcon">
+                    <Icon :icon="labelIcon" v-if="labelIcon"></Icon>
+                    {{label}}
+                </span>
+
+                <input v-if="type=='text'" type="text" :class="classes"
+                       ref="input" :value="value"
+                       @compositionstart="compositionStart($event)"
+                       @compositionend="compositionEnd($event)"
+                       @input="input($event)"
+                       @focus="focus($event)"
+                       @blur="blur($event)"
+                       :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+                <input v-if="type=='password'" type="password" :class="classes"
+                       ref="input" :value="value"
+                       @input="updateValue($event.target.value)"
+                       @focus="focus($event)"
+                       @blur="blur($event)"
+                       :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+
+                <textarea v-if="type=='textarea'" :class="classes"
+                          ref="input" :value="value"
+                          @input="updateValue($event.target.value)"
+                          @focus="focus($event)"
+                          @blur="blur($event)"
+                          :placeholder="placeholder" :readonly="readonly" :disabled="disabled"></textarea>
+
+                <input v-if="type=='button'" type="button"
+                       class="button button-small" :class="classes" :value="inputLabel"
+                       :readonly="readonly" :disabled="disabled"/>
+                <input v-if="type=='reset'" type="reset"
+                       class="button button-small" :class="classes" :value="inputLabel"
+                       :readonly="readonly" :disabled="disabled"/>
+                <input v-if="type=='submit'" type="submit"
+                       class="button button-small" :class="classes" :value="inputLabel"
+                       :readonly="readonly" :disabled="disabled"/>
+
+                <input v-if="type=='tel'" type="tel" :class="classes"
+                       ref="input" :value="value"
+                       @input="updateValue($event.target.value)"
+                       @focus="focus($event)"
+                       @blur="blur($event)"
+                       :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+                <input v-if="type=='url'" type="url" :class="classes"
+                       ref="input" :value="value"
+                       @input="updateValue($event.target.value)"
+                       @focus="focus($event)"
+                       @blur="blur($event)"
+                       :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+                <input v-if="type=='email'" type="email" :class="classes"
+                       ref="input" :value="value"
+                       @input="updateValue($event.target.value)"
+                       @focus="focus($event)"
+                       @blur="blur($event)"
+                       :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+                <input v-if="type=='number'" type="number" :class="classes"
+                       ref="input" :value="value"
+                       @input="updateValue($event.target.value)"
+                       @focus="focus($event)"
+                       @blur="blur($event)"
+                       :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+
+                <input v-if="type=='date'" type="date" :class="classes"
+                       ref="input" :value="value"
+                       @input="updateValue($event.target.value)"
+                       @focus="focus($event)"
+                       @blur="blur($event)"
+                       :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+                <input v-if="type=='time'" type="time" :class="classes"
+                       ref="input" :value="value"
+                       @input="updateValue($event.target.value)"
+                       @focus="focus($event)"
+                       @blur="blur($event)"
+                       :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+                <input v-if="type=='color'" type="color" :class="classes"
+                       ref="input" :value="value"
+                       @input="updateValue($event.target.value)"
+                       @focus="focus($event)"
+                       @blur="blur($event)"
+                       :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+            </div>
+            <Button type="clear" size="small" :icon="buttonIcon" :color="buttonColor"
+                    v-if="buttonIcon || buttonLabel">
+                {{buttonLabel}}
+            </Button>
         </div>
 
         <span class="input-clear" :class="clear_classes" @click="clear(value)"></span>
@@ -188,13 +271,17 @@ step	    规定输入字段的合法数字间隔。
             },
             displayStyle: {
                 validator (value) {
-                    return oneOf(value, ['floating-label', 'stacked-label'], true);
+                    return oneOf(value, ['floating-label', 'stacked-label', 'inset'], true);
                 },
                 default: '',
             },
             placeholder: [Number, String],
             itemClassName: String,
             labelClassName: String,
+            isWrapper: {
+                type: [Boolean, String],
+                default: false,
+            },
             className: String
         },
         data() {
@@ -224,7 +311,6 @@ step	    规定输入字段的合法数字间隔。
                 return [
                     {
                         [`item-${this.displayStyle}`]: !!this.displayStyle,
-//                        [`item-input-inset`]: !!this.buttonIcon,
                         [`item-button-right`]: !!this.buttonIcon,
                         [`${this.itemClassName}`]: !!this.itemClassName
                     }

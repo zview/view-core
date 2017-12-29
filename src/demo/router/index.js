@@ -83,6 +83,11 @@ const routers = [
                 component: (resolve) => require(['../page/page_layout_panel.vue'], resolve),
             },
             {
+                path: 'card',
+                meta: {title: '卡片'},
+                component: (resolve) => require(['../page/page_layout_card.vue'], resolve),
+            },
+            {
                 path: 'accordion',
                 meta: {title: '折叠面板'},
                 component: (resolve) => require(['../page/page_layout_accordion.vue'], resolve),

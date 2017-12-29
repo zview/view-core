@@ -1,7 +1,8 @@
 <template>
     <div class="page-input">
 
-        <List>
+
+        <List divider-content="普通">
             <Input type="text" placeholder="图标文字"
                    label-icon="ion-android-person"
                    label="姓名" v-model="val1"/>
@@ -13,13 +14,23 @@
             <Input type="text" placeholder="只有文字"
                    label="籍贯" v-model="val3"/>
 
+        </List>
+
+
+        <List divider-content="包装">
+
             <Input type="text" placeholder="只有文字"
                    label-icon="ion-android-person"
-                   button-label="点击发送验证码" :show-clear="false"
+                   :is-wrapper="true"
+                   button-label="发送验证码"
+                   :show-clear="false"
                    label="籍贯" v-model="val4"/>
 
             <Input type="text" placeholder="图标文字"
-                   label-icon="ion-android-person" button-icon="ion-android-person" :show-clear="false"
+                   label-icon="ion-android-person"
+                   :is-wrapper="true"
+                   button-icon="ion-android-person"
+                   :show-clear="false"
                    label="其他" v-model="val4"/>
 
         </List>
@@ -39,9 +50,19 @@
         </List>
 
 
+        <List divider-content="堆叠">
+            <Input type="text" label="堆叠" display-style="stacked-label" placeholder="stacked" v-model="v_stacked"/>
+            <Input type="text" label="堆叠" display-style="stacked-label" placeholder="stacked" v-model="v_stacked"/>
+        </List>
+
+        <List divider-content="内联">
+            <Input type="text" display-style="inset" placeholder="姓名"/>
+            <Input type="email" display-style="inset" placeholder="邮箱"/>
+        </List>
+
         <List divider-content="浮动">
-            <Input type="text" label="浮动" display-style="floating-label" placeholder="浮动" v-model="v_floating"/>
-            <Input type="text" label="堆叠" display-style="stacked-label" placeholder="堆叠" v-model="v_stacked"/>
+            <Input type="text" label="浮动" display-style="floating-label" placeholder="floating" v-model="v_floating"/>
+            <Input type="text" label="浮动" display-style="floating-label" placeholder="floating" v-model="v_floating"/>
         </List>
 
 

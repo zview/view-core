@@ -19,11 +19,11 @@
 
         <List type="list-inset" divider-content="按钮样式" divider-bg-color="positive" divider-color="light">
             <Item>
-                <Button type="clear" bg-color="positive">Clear按钮</Button>
+                <Button type="clear" bg-color="positive">Clear按钮(无背景与边框)</Button>
                 <Button type="clear" bg-color="calm">Clear按钮</Button>
             </Item>
             <Item>
-                <Button type="outline" bg-color="balanced">Outline按钮</Button>
+                <Button type="outline" bg-color="balanced">Outline按钮(无背景)</Button>
                 <Button type="outline" bg-color="calm">Outline按钮</Button>
             </Item>
             <Item>

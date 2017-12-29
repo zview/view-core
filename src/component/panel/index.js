@@ -1,3 +1,4 @@
 import Panel from './panel.vue';
+import Card from './card.vue';
 
-export default Panel;
+export { Panel, Card };

@@ -28,7 +28,8 @@
                     return oneOf(value, ['top', 'center', 'bottom'], true);
                 }
             },
-            offset: [Number, String],
+            percent: [Number, String], //10 20 25 33 50 67 75 80 90
+            offset: [Number, String], //10 20 25 33 50 67 75 80 90
             className: String,
             xs: [Number, Object],
             sm: [Number, Object],
@@ -44,7 +45,8 @@
             classes () {
                 return [
                     {
-                        [`col-offset-${this.offset}`]: this.offset,
+                        [`col-${this.percent}`]: !!this.percent,
+                        [`col-offset-${this.offset}`]: !!this.offset,
                         [`col-${this.align}`]: !!this.align,
                         [`${this.color}`]: !!this.color,
                         [`${this.bgColor}-bg`]: !!this.bgColor,

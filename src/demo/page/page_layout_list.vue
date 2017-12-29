@@ -40,7 +40,7 @@
         </List>
 
         <List type="list-card" divider-content="卡片">
-            <Item>条目</Item>
+            <Item icon-left="ion-thumbsup">条目</Item>
             <Item>条目</Item>
             <Item>条目</Item>
         </List>
@@ -76,12 +76,12 @@
 
         <List divider-content="缩略图" divider-color="positive">
             <Item :thumbnail-left="true">
-                <img src="../static/images/sea.jpg" />
+                <img src="../static/images/nature-sea-800.jpg" />
                 <h2>标题</h2>
                 <p>内容</p>
             </Item>
             <Item :thumbnail-right="true">
-                <img src="../static/images/sea.jpg" />
+                <img src="../static/images/nature-sea-800.jpg" />
                 <h2>标题很长标题很长标题很长标题很长标题很长</h2>
                 <p>内容很多内容很多内容很多内容很多内容很多内容很多内容很多</p>
             </Item>
@@ -89,20 +89,20 @@
 
         <List divider-content="头像" divider-color="positive">
             <Item :avatar-left="true">
-                <img src="../static/images/rain.jpg" />
+                <img src="../static/images/nature-rain-1280v.jpg" />
                 <h2>标题</h2>
                 <p>内容</p>
             </Item>
             <Item :avatar-right="true">
-                <img src="../static/images/rain.jpg" />
+                <img src="../static/images/nature-rain-1280v.jpg" />
                 <h2>标题很长标题很长标题很长标题很长标题很长</h2>
                 <p>内容很多内容很多内容很多内容很多内容很多内容很多内容很多</p>
             </Item>
         </List>
 
         <List divider-content="图片" divider-color="positive">
-            <Item :image="true">
-                <img src="../static/images/sea.jpg" />
+            <Item :is-image="true">
+                <img src="../static/images/nature-sea-800.jpg" />
                 <h2>标题很长标题很长标题很长标题很长标题很长</h2>
                 <p>内容很多内容很多内容很多内容很多内容很多内容很多内容很多</p>
             </Item>

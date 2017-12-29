@@ -5,27 +5,52 @@
 
     &.panel-outer
     {
+        padding: 10px;
         margin: 10px;
-        @include view-m-border-radius(5px);
+        @include view-m-border-radius(2px);
+        @include view-m-box-shadow(0 0 1px rgba(0,0,0,.3));
     }
 
     &.panel-inset
     {
-
+        padding: 10px;
     }
 
     &.panel-card
     {
+        padding: 10px;
         margin: 10px;
-        @include view-m-box-shadow(0 0 3px rgba(0,0,0,.3));
+        @include view-m-box-shadow(0 0 5px rgba(0,0,0,.3));
         @include view-m-border-radius(5px);
     }
 
     &.panel-paddingless
     {
         padding: 0;
+        margin: 10px;
     }
 
+    .view-panel-header
+    {
+        font-weight: bold;
+    }
+
+    .view-panel-content
+    {
+
+    }
+
+    .view-panel-header.row,
+    .view-panel-footer.row
+    {
+        padding: 0;
+
+        .col
+        {
+            padding: 0;
+        }
+
+    }
 
 }
 

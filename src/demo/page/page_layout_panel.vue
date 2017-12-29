@@ -2,15 +2,29 @@
     <div class="page-panel">
 
         <Panel>
-            Outer(默认)
+            {{message}} Outer(默认)
         </Panel>
 
-        <Panel type="inset" bg-color="balanced">
-            Inset
+        <Panel type="inset" bg-color="balanced" color="stable">
+            {{message}} Inset
         </Panel>
 
-        <Panel type="card" bg-color="balanced">
-            Card
+        <Panel type="paddingless" bg-color="balanced" color="light">
+            {{message}} PaddingLess
+        </Panel>
+
+        <Panel type="card" bg-color="calm" color="light">
+            {{message}} Card
+        </Panel>
+
+        <Panel type="card" bg-color="calm" color="light" header-content="头部" footer-content="底部">
+            {{message}} Card
+        </Panel>
+
+        <Panel type="card"
+               header-content="头部"  sub-header-content="更多>>"
+               footer-content="底部"  sub-footer-content="更多>>">
+            {{message}} Card
         </Panel>
 
     </div>

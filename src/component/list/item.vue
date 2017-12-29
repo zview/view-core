@@ -35,16 +35,19 @@
             },
             note: String,
             iconLeft: String,
+            iconLeftColor: String,
             iconRight: String,
+            iconRightColor: String,
             buttonLeft: String,
             buttonRight: String,
             thumbnailLeft: [String, Boolean],
             thumbnailRight: [String, Boolean],
+            avatar: [String, Boolean],
             avatarLeft: [String, Boolean],
             avatarRight: [String, Boolean],
-            image: [String, Boolean],
-            iconLeftColor: String,
-            iconRightColor: String,
+            isImage: [String, Boolean],
+            isBody: [String, Boolean],
+            isTabs: [String, Boolean],
             className: String
         },
         computed: {
@@ -62,9 +65,12 @@
                         [`item-button-right`]: !!this.buttonRight,
                         [`item-thumbnail-left`]: !!this.thumbnailLeft,
                         [`item-thumbnail-right`]: !!this.thumbnailRight,
+                        [`item-avatar`]: !!this.avatar,
                         [`item-avatar-left`]: !!this.avatarLeft,
                         [`item-avatar-right`]: !!this.avatarRight,
-                        [`item-image`]: !!this.image,
+                        [`item-image`]: !!this.isImage,
+                        [`item-body`]: !!this.isBody,
+                        [`tabs tabs-secondary tabs-icon-left`]: !!this.isTabs,  //
                         [`${this.className}`]: !!this.className
                     }
                 ];

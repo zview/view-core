@@ -136,6 +136,63 @@
         </div>
         </Panel>
 
+
+        <Panel>
+            <Row>
+                <Col>
+                    <img src="../static/images/nature-splash-1280.jpg">
+                </Col>
+                <Col>
+                    <img src="../static/images/nature-macro-1280.jpg">
+                </Col>
+                <Col>
+                    <img src="../static/images/nature-splash-1280.jpg">
+                </Col>
+                <Col>
+                    <img src="../static/images/nature-macro-1280.jpg">
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <img src="../static/images/nature-splash-1280.jpg">
+                </Col>
+                <Col>
+                    <img src="../static/images/nature-macro-1280.jpg">
+                </Col>
+                <Col>
+                    <img src="../static/images/nature-splash-1280.jpg">
+                </Col>
+                <Col>
+                    <img src="../static/images/nature-macro-1280.jpg">
+                </Col>
+            </Row>
+        </Panel>
+
+
+        <Panel>
+            <pre>
+            .col-10	10%
+            .col-20	20%
+            .col-25	25%
+            .col-33	33.3333%
+            .col-50	50%
+            .col-67	66.6666%
+            .col-75	75%
+            .col-80	80%
+            .col-90	90%
+
+            .col-offset-10	10%
+            .col-offset-20	20%
+            .col-offset-25	25%
+            .col-offset-33	33.3333%
+            .col-offset-50	50%
+            .col-offset-67	66.6666%
+            .col-offset-75	75%
+            .col-offset-80	80%
+            .col-offset-90	90%
+            </pre>
+        </Panel>
+
     </div>
 </template>
 
@@ -153,5 +210,17 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
+
+    .row
+    {
+        .col
+        {
+            img
+            {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    }
 
 </style>

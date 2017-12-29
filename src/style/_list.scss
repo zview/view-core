@@ -54,10 +54,50 @@
         height: 52px;
     }
 
-    &.item-image img:first-child
+    &.item-image
     {
-        padding: 0 16px 16px 16px;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        img:first-child
+        {
+            padding: 0;
+        }
+
+        h2
+        {
+            padding-top: 5px;
+            padding-bottom: 10px;
+        }
+
+        p
+        {
+            padding-top: 5px;
+            padding-bottom: 10px;
+        }
     }
+
+
+    &.item-body
+    {
+
+        img:first-child
+        {
+            width: 100%;
+        }
+
+    }
+
+    &.tabs
+    {
+
+        .tab-item
+        {
+            line-height: 50px;
+        }
+
+    }
+
 }
 //--------------------------------------
 
