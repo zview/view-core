@@ -172,7 +172,7 @@
                        :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
             </div>
             <Button type="clear" size="small" :icon="buttonIcon" :color="buttonColor"
-                    v-if="buttonIcon || buttonLabel">
+                    v-if="buttonIcon || buttonLabel" @click.native="buttonClicked">
                 {{buttonLabel}}
             </Button>
         </div>
@@ -261,6 +261,9 @@ step	    规定输入字段的合法数字间隔。
             inputLabel: [String, Number],
             buttonIcon: String,
             buttonLabel: [String, Number],
+            onButtonClick: {
+                type: Function
+            },
             type: {
                 validator (value) {
                     return oneOf(value, ['text', 'password', 'textarea', 'button', 'reset', 'submit',
@@ -383,6 +386,11 @@ step	    规定输入字段的合法数字间隔。
 
             blur($event) {
 //                if (is_ios) this.showClearButton = false;
+            },
+
+
+            buttonClicked() {
+                if (this.onButtonClick) this.onButtonClick();
             }
         },
 

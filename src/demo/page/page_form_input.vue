@@ -19,19 +19,27 @@
 
         <List divider-content="包装">
 
-            <Input type="text" placeholder="只有文字"
+            <Input type="text" placeholder="请输入"
                    label-icon="ion-android-person"
                    :is-wrapper="true"
                    button-label="发送验证码"
                    :show-clear="false"
-                   label="籍贯" v-model="val4"/>
+                   :on-button-click="_on_send_smscode"
+                   label="文字" v-model="val4"/>
 
-            <Input type="text" placeholder="图标文字"
+            <Input type="text" placeholder="请输入"
                    label-icon="ion-android-person"
                    :is-wrapper="true"
                    button-icon="ion-android-person"
                    :show-clear="false"
-                   label="其他" v-model="val4"/>
+                   label="图标" v-model="val4"/>
+
+            <Input type="password" placeholder="请输入"
+                   label-icon="ion-android-person"
+                   :is-wrapper="true"
+                   button-label=" "
+                   :show-clear="false"
+                   label="空白" v-model="val4"/>
 
         </List>
 
@@ -116,7 +124,9 @@
             }
         },
         methods: {
-
+            _on_send_smscode: function () {
+                console.log('_on_send_smscode');
+            }
         },
     }
 </script>
