@@ -1,12 +1,9 @@
 <template>
 
     <div class="view-page page" :class="classes">
-        <div class="view-page-content page-content" :class="content_classes" v-if="!noContent">
+        <div class="view-page-content" :class="content_classes">
             <slot></slot>
         </div>
-        <template v-else>
-            <slot></slot>
-        </template>
     </div>
 
 </template>
@@ -40,6 +37,7 @@
             content_classes () {
                 return [
                     {
+                        [`page-content`]: !this.noContent,
                         [`padding-top`]: this.hasNavbar && this.isPadding,
                         [`padding-bottom`]: this.hasTabbar && this.isPadding,
                     }
