@@ -21,7 +21,7 @@
         <br/>
 
 
-        <List header-content="默认" sub-header-content="更多>>">
+        <List header-content="默认" sub-header-content="更多>>" :on-header-click="_on_header_click">
             <Item>条目</Item>
             <Item>条目</Item>
             <Item>条目</Item>
@@ -119,7 +119,9 @@
             }
         },
         methods: {
-
+            _on_header_click: function () {
+                console.log('_on_header_click');
+            },
         },
     }
 </script>

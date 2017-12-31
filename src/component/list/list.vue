@@ -6,7 +6,7 @@
 
         <slot name="header">
             <div class="view-item-header item item-divider" :class="item_header_classes"
-                 v-if="headerContent || subHeaderContent">
+                 v-if="headerContent || subHeaderContent" @click="on_header_clicked">
                 <Row class="view-list-header">
                     <Col v-html="headerContent"/>
                     <Col class="text-right" v-html="subHeaderContent"/>
@@ -63,6 +63,9 @@
                 }
             },
             headerClassName: String,
+            onHeaderClick: {
+                type: Function
+            },
         },
         computed: {
             classes () {
@@ -95,7 +98,12 @@
                     }
                 ];
             },
-        }
+        },
+        methods: {
+            on_header_clicked() {
+                if (this.onHeaderClick) this.onHeaderClick();
+            }
+        },
     }
 
 </script>
