@@ -21,38 +21,38 @@
         <br/>
 
 
-        <List dividerContent="默认">
+        <List header-content="默认" sub-header-content="更多>>">
             <Item>条目</Item>
             <Item>条目</Item>
             <Item>条目</Item>
         </List>
 
-        <List type="list-outer" divider-content="无边框" bg-color="light" divider-bg-color="light">
+        <List type="list-outer" header-content="无边框" bg-color="light" header-bg-color="light">
             <Item type="item-outer">条目</Item>
             <Item type="item-outer" icon-left="ion-social-github">条目</Item>
             <Item type="item-outer">条目</Item>
         </List>
 
-        <List type="list-inset" divider-content="边距缩进">
+        <List type="list-inset" header-content="边距缩进">
             <Item>条目</Item>
             <Item>条目</Item>
             <Item>条目</Item>
         </List>
 
-        <List type="list-card" divider-content="卡片">
+        <List type="list-card" header-content="卡片">
             <Item icon-left="ion-thumbsup">条目</Item>
             <Item>条目</Item>
             <Item>条目</Item>
         </List>
 
 
-        <List divider-content="颜色" divider-bg-color="positive" divider-color="light">
+        <List header-content="颜色" header-bg-color="positive" header-color="light">
             <Item bgColor="calm" color="light">条目</Item>
             <Item bgColor="calm" color="light">条目</Item>
             <Item bgColor="calm" color="light">条目</Item>
         </List>
 
-        <List divider-content="菜单" divider-color="positive">
+        <List header-content="菜单" header-color="positive">
             <Item note="武汉">湖北</Item>
             <Item>
                 武汉
@@ -60,7 +60,7 @@
             </Item>
         </List>
 
-        <List divider-content="图标" divider-color="positive">
+        <List header-content="图标" header-color="positive">
             <Item icon-left="ion-location"
                   icon-right="ion-ios-arrow-right">左右</Item>
             <Item icon-left="ion-thumbsup">左</Item>
@@ -68,13 +68,13 @@
             <Item icon-right="ion-ios-arrow-right" note="长沙">湖南</Item>
         </List>
 
-        <List divider-content="按钮" divider-color="positive">
+        <List header-content="按钮" header-color="positive">
             <Item button-left="左边" button-right="右边">条目</Item>
             <Item button-left="左边">条目</Item>
             <Item button-right="右边">条目</Item>
         </List>
 
-        <List divider-content="缩略图" divider-color="positive">
+        <List header-content="缩略图" header-color="positive">
             <Item :thumbnail-left="true">
                 <img src="../static/images/nature-sea-800.jpg" />
                 <h2>标题</h2>
@@ -87,7 +87,7 @@
             </Item>
         </List>
 
-        <List divider-content="头像" divider-color="positive">
+        <List header-content="头像" header-color="positive">
             <Item :avatar-left="true">
                 <img src="../static/images/nature-rain-1280v.jpg" />
                 <h2>标题</h2>
@@ -100,7 +100,7 @@
             </Item>
         </List>
 
-        <List divider-content="图片" divider-color="positive">
+        <List header-content="图片" header-color="positive">
             <Item :is-image="true">
                 <img src="../static/images/nature-sea-800.jpg" />
                 <h2>标题很长标题很长标题很长标题很长标题很长</h2>

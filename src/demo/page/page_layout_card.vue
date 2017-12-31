@@ -18,7 +18,7 @@
         </Card>
 
 
-        <List type="list-card">
+        <List type="list-card" header-content="默认" sub-header-content="更多>>">
             <Item icon-left="ion-thumbsup">条目</Item>
             <Item icon-left="ion-thumbsup">条目</Item>
             <Item icon-left="ion-thumbsup">条目</Item>

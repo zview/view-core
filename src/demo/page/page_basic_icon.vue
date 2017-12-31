@@ -3,12 +3,12 @@
 
         <Panel>{{message}}</Panel>
 
-        <List type="list-inset" divider-content="FontAwesome" divider-bg-color="positive" divider-color="light">
+        <List type="list-inset" header-content="FontAwesome" header-bg-color="positive" header-color="light">
             <Item color="calm"><Icon icon="fa-snowflake-o"></Icon>云横秦岭家何在</Item>
             <Item color="calm"><Icon icon="fa-bold"></Icon>雪拥蓝关马不前</Item>
         </List>
 
-        <List type="list-inset" divider-content="Ionic" divider-bg-color="positive" divider-color="light">
+        <List type="list-inset" header-content="Ionic" header-bg-color="positive" header-color="light">
             <Item color="calm"><Icon icon="ion-xbox"></Icon>云横秦岭家何在</Item>
             <Item color="calm"><Icon icon="ion-aperture"></Icon>雪拥蓝关马不前</Item>
             <Item color="calm"><Icon icon="ion-chevron-right"></Icon>雪拥蓝关马不前</Item>

@@ -17,6 +17,20 @@
         background-color: $page-background;
         padding: 18px 16px;
         border: none;
+
+        &.view-item-header,
+        &.view-item-footer
+        {
+            .row
+            {
+                padding: 0;
+
+                .col
+                {
+                    padding: 0;
+                }
+            }
+        }
     }
 
     &.item-icon-left,
@@ -112,7 +126,7 @@
     {
         padding-left: 16px;
 
-        .view-item-divider
+        .view-item-header
         {
             padding-left: 0;
         }
@@ -185,7 +199,7 @@
 
 }
 
-.view-item-divider
+.view-item-header
 {
     @include view-m-theme-fg-color();
     @include view-m-theme-bg-color();

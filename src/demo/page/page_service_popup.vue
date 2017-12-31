@@ -1,7 +1,7 @@
 <template>
     <div class="page-actionsheet">
 
-        <List divider-content="自定义弹层">
+        <List header-content="自定义弹层">
             <Item @click.native="_on_popup1" icon-right="ion-ios-arrow-right">自定义1</Item>
             <Item @click.native="_on_popup2" icon-right="ion-ios-arrow-right">自定义2</Item>
         </List>

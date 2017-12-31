@@ -1,11 +1,11 @@
 <template>
     <div class="page-radio">
 
-        <List :divider-content="val1">
+        <List :header-content="val1">
             <Radio color="balanced" indicator-color="balanced" :options="options1" v-model="val1"></Radio>
         </List>
 
-        <List :divider-content="val2">
+        <List :header-content="val2">
             <Radio indicator-color="dark" :options="options2" v-model="val2" indicator-align="left" title="请选择"></Radio>
         </List>
 

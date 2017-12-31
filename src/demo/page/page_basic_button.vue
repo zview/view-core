@@ -3,7 +3,7 @@
 
         <Panel>{{message}}</Panel>
 
-        <List type="list-inset" divider-content="按钮颜色" divider-bg-color="positive" divider-color="light">
+        <List type="list-inset" header-content="按钮颜色" header-bg-color="positive" header-color="light">
             <Item bg-color="dimgray">
                 <Button type="block" bg-color="light" @click="_on_button_click('light')">light</Button>
                 <Button type="block" bg-color="stable" @click="_on_button_click('stable')">stable</Button>
@@ -17,7 +17,7 @@
             </Item>
         </List>
 
-        <List type="list-inset" divider-content="按钮样式" divider-bg-color="positive" divider-color="light">
+        <List type="list-inset" header-content="按钮样式" header-bg-color="positive" header-color="light">
             <Item>
                 <Button type="clear" bg-color="positive">Clear按钮(无背景与边框)</Button>
                 <Button type="clear" bg-color="calm">Clear按钮</Button>
@@ -36,7 +36,7 @@
             </Item>
         </List>
 
-        <List type="list-inset" divider-content="按钮大小" divider-bg-color="positive" divider-color="light">
+        <List type="list-inset" header-content="按钮大小" header-bg-color="positive" header-color="light">
             <Item>
                 <Button bg-color="dark" size="small">小按钮</Button>
                 <Button bg-color="dark">默认按钮</Button>
@@ -44,7 +44,7 @@
             </Item>
         </List>
 
-        <List type="list-inset" divider-content="带图标" divider-bg-color="positive" divider-color="light">
+        <List type="list-inset" header-content="带图标" header-bg-color="positive" header-color="light">
             <Item>
                 <Button bg-color="calm" size="small" icon="ion-home">默认按钮</Button>
                 <Button bg-color="stable" size="small" icon="ion-heart" icon-align="right">默认按钮</Button>
@@ -55,7 +55,7 @@
             </Item>
         </List>
 
-        <List type="list-inset" divider-content="FAB按钮" divider-bg-color="positive" divider-color="light">
+        <List type="list-inset" header-content="FAB按钮" header-bg-color="positive" header-color="light">
             <Item>
                 <Button type="fab" bg-color="calm" icon="ion-home"></Button>
                 <Button type="fab" bg-color="calm">Top</Button>
@@ -76,7 +76,7 @@
             </Item>
         </List>
 
-        <List type="list-inset" divider-content="MD按钮" divider-bg-color="positive" divider-color="light">
+        <List type="list-inset" header-content="MD按钮" header-bg-color="positive" header-color="light">
             <Item>
                 <Button material="true" @click="_on_button_click('material')">按钮</Button>
                 <Button material="true" bg-color="calm">按钮</Button>

@@ -2,7 +2,7 @@
     <div class="page-input">
 
 
-        <List divider-content="普通">
+        <List header-content="普通">
             <Input type="text" placeholder="图标文字"
                    label-icon="ion-android-person"
                    label="姓名" v-model="val1"/>
@@ -17,7 +17,7 @@
         </List>
 
 
-        <List divider-content="包装">
+        <List header-content="包装">
 
             <Input type="text" placeholder="请输入"
                    label-icon="ion-android-person"
@@ -44,7 +44,7 @@
         </List>
 
 
-        <List divider-content="特殊类型">
+        <List header-content="特殊类型">
             <Input type="password" label="密码" placeholder="password" v-model="v_password"/>
             <Input type="tel" label="电话" placeholder="tel" v-model="v_tel"/>
             <Input type="url" label="网址" placeholder="url" v-model="v_url"/>
@@ -58,35 +58,35 @@
         </List>
 
 
-        <List divider-content="堆叠">
+        <List header-content="堆叠">
             <Input type="text" label="堆叠" display-style="stacked-label" placeholder="stacked" v-model="v_stacked"/>
             <Input type="text" label="堆叠" display-style="stacked-label" placeholder="stacked" v-model="v_stacked"/>
         </List>
 
-        <List divider-content="内联">
+        <List header-content="内联">
             <Input type="text" display-style="inset" placeholder="姓名"/>
             <Input type="email" display-style="inset" placeholder="邮箱"/>
         </List>
 
-        <List divider-content="浮动">
+        <List header-content="浮动">
             <Input type="text" label="浮动" display-style="floating-label" placeholder="floating" v-model="v_floating"/>
             <Input type="text" label="浮动" display-style="floating-label" placeholder="floating" v-model="v_floating"/>
         </List>
 
 
-        <List divider-content="有标签">
+        <List header-content="有标签">
             <Input type="text" placeholder="姓名" label="姓名" v-model="v_name"/>
             <Input type="text" placeholder="密码" label="密码"/>
             <Button type="block" bg-color="assertive">提交</Button>
         </List>
 
-        <List divider-content="无标签">
+        <List header-content="无标签">
             <Input type="text" placeholder="姓名"/>
             <Input type="text" placeholder="密码"/>
             <Button type="block" bg-color="assertive">提交</Button>
         </List>
 
-        <List divider-content="按钮">
+        <List header-content="按钮">
             <Input type="button" input-label="按钮"/>
             <Input type="reset" input-label="重置"/>
             <Input type="submit" color="balanced" input-label="提交"/>

@@ -6,7 +6,7 @@
         <Tabbar :tab-items="tabitems2" :tab-index="tabindex2" :on-tab-click="_on_tab2_click"
               icon-align="top" bg-color="light" tab-color="calm"></Tabbar>
 
-        <Page :has-tabbar="true" style="margin-top: 48px;">
+        <Page :has-tabbar="true" :has-navbar="true">
             <Panel>内容</Panel>
         </Page>
 

@@ -1,8 +1,19 @@
 <template>
 
     <div class="view-list list" :class="classes" :title="title">
-        <div class="view-item-divider item item-divider item-borderless"
-             :class="item_divider_classes" v-html="dividerContent" v-if="dividerContent"></div>
+        <!--<div class="view-item-divider item item-divider"
+             :class="item_divider_classes" v-html="dividerContent" v-if="dividerContent"></div>-->
+
+        <slot name="header">
+            <div class="view-item-header item item-divider" :class="item_header_classes"
+                 v-if="headerContent || subHeaderContent">
+                <Row class="view-list-header">
+                    <Col v-html="headerContent"/>
+                    <Col class="text-right" v-html="subHeaderContent"/>
+                </Row>
+            </div>
+        </slot>
+
         <slot></slot>
     </div>
 
@@ -27,7 +38,7 @@
             },
             title: [String, Number],
             className: String,
-            dividerContent:  [String, Number],
+            /*dividerContent:  [String, Number],
             dividerColor: {
                 validator (value) {
                     return insideColor(value);
@@ -38,7 +49,20 @@
                     return insideColor(value);
                 }
             },
-            dividerClassName: String
+            dividerClassName: String,*/
+            headerContent: [Number, String],
+            subHeaderContent: [Number, String],
+            headerColor: {
+                validator (value) {
+                    return insideColor(value);
+                }
+            },
+            headerBgColor: {
+                validator (value) {
+                    return insideColor(value);
+                }
+            },
+            headerClassName: String,
         },
         computed: {
             classes () {
@@ -53,12 +77,21 @@
                     }
                 ];
             },
-            item_divider_classes () {
+            /*item_divider_classes () {
                 return [
                     {
                         [`${this.dividerColor}-fg`]: !!this.dividerColor,
                         [`${this.dividerBgColor}-bg`]: !!this.dividerBgColor,
                         [`${this.dividerClassName}`]: !!this.dividerClassName
+                    }
+                ];
+            },*/
+            item_header_classes () {
+                return [
+                    {
+                        [`${this.headerColor}-fg`]: !!this.headerColor,
+                        [`${this.headerBgColor}-bg`]: !!this.headerBgColor,
+                        [`${this.headerClassName}`]: !!this.headerClassName
                     }
                 ];
             },

@@ -4,7 +4,7 @@
         <Search color="balanced" bg-color="dark" v-model="keywords"
                 :on-search="onSearch" :on-cancel="onCancel" cancel-text="取消"></Search>
 
-        <List dividerContent="结果" v-show="searching">
+        <List header-content="结果" v-show="searching">
             <Item>查询'{{keywords}}'.条目</Item>
         </List>
 

@@ -1,12 +1,11 @@
 <template>
     <div class="page-toggle">
 
-        <List :divider-content="'选中:' + val">
+        <List header-content="'选中:' + val">
             <Toggle color="positive" v-model="val" :label="'禁用' + val"></Toggle>
         </List>
 
-
-        <List divider-content="其他主题">
+        <List header-content="其他主题">
             <Toggle color="positive" label="positive"></Toggle>
             <Toggle color="calm" label="calm"></Toggle>
             <Toggle color="balanced" label="balanced"></Toggle>

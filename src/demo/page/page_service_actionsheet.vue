@@ -1,7 +1,7 @@
 <template>
     <div class="page-actionsheet">
 
-        <List divider-content="操作列表">
+        <List header-content="操作列表">
             <Item @click.native="_on_actionsheet" note="默认" icon-right="ion-ios-arrow-right">iOS</Item>
             <Item @click.native="_on_actionsheet('android')" icon-right="ion-ios-arrow-right">Android</Item>
             <Item @click.native="_on_actionsheet('weixin')" icon-right="ion-ios-arrow-right">微信</Item>

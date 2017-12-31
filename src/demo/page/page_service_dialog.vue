@@ -1,7 +1,7 @@
 <template>
     <div class="page-dialog">
 
-        <List divider-content="对话框">
+        <List header-content="对话框">
             <Item @click.native="_on_alert" note="提示框" icon-right="ion-ios-arrow-right">Alert</Item>
             <Item @click.native="_on_confirm" note="确认框" icon-right="ion-ios-arrow-right">Confirm</Item>
             <Item @click.native="_on_ios_alert" note="iOS提示框" icon-right="ion-ios-arrow-right">iOS Alert</Item>
