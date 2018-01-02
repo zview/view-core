@@ -4,10 +4,15 @@
         <Panel>
             <Row>
                 <Col>
-                    <DropdownCondition v-model="city" :on-item-click="_on_item_click" label="'地区'" :options="cityitems"></DropdownCondition>
+                    <DropdownCondition v-model="city" bg-color="stable" :on-item-click="_on_item_click"
+                                       label="地区" :options="cityitems"></DropdownCondition>
                 </Col>
                 <Col>
-                    <DropdownCondition v-model="city" label="'地区'" :options="cityitems"></DropdownCondition>
+                    <DropdownCondition v-model="city" bg-color="stable"
+                                       label="地区" :options="cityitems"></DropdownCondition>
+                </Col>
+                <Col>
+                    <Button size="small" type="block" material="true" bg-color="stable">搜索</Button>
                 </Col>
             </Row>
         </Panel>
@@ -87,5 +92,19 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
+
+    .row
+    {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .button
+    {
+        padding-bottom: 0;
+        padding-top: 0;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
 
 </style>

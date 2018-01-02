@@ -29,8 +29,11 @@
     .dropdown-toggle
     {
         background: #f3f3f3;
-        padding: 5px;
-        box-shadow: 0 2px 2px 0 rgba(0,0,0,.15);
+        padding: 4px;
+        box-shadow: 0 2px 1px 0 rgba(0,0,0,.15);
+
+        @include view-m-theme-fg-color();
+        @include view-m-theme-bg-color();
 
         .icon.ion-arrow-down-b,
         .icon.ion-arrow-up-b

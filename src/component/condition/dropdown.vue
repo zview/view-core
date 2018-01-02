@@ -1,6 +1,6 @@
 <template>
     <div class="view-dropdown-condition">
-        <div class="dropdown-toggle" @click="on_list_toggle">
+        <div class="dropdown-toggle" @click="on_list_toggle" :class="toggle_classes">
             <span>{{lbl}}</span>
             <i class="icon" :class="{'ion-arrow-down-b': !isShow, 'ion-arrow-up-b': isShow}"></i>
         </div>
@@ -20,6 +20,8 @@
 
 <script>
 
+    import { oneOf, insideIonic,insideColor } from '../utils';
+
     export default {
         componentName: "DropdownCondition",
         data() {
@@ -37,6 +39,16 @@
                 type: Array,
                 require: true,
             },
+            color: {
+                validator (value) {
+                    return insideColor(value);
+                }
+            },
+            bgColor: {
+                validator (value) {
+                    return insideColor(value);
+                }
+            },
             onItemClick: Function,
         },
         mounted() {
@@ -51,6 +63,16 @@
                 set:function(val) {
                     this.$emit('input', val);
                 }
+            },
+
+            toggle_classes () {
+                return [
+                    {
+                        [`${this.color}`]: !!this.color,
+                        [`${this.bgColor}-bg`]: !!this.bgColor,
+                        [`${this.className}`]: !!this.className
+                    }
+                ];
             },
         },
         methods: {
