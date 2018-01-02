@@ -6,7 +6,7 @@
             <Icon icon="ion-ios-search" class-name="placeholder-icon"></Icon>
             <form :id="formId" >
                 <input type="search" ref="input" :value="value"
-                       @change="updateValue($event.target.value)"
+                       @input="updateValue($event.target.value)"
                        :placeholder="placeholder" class="view-search" :class="classes"
                        :readonly="readonly" :disabled="disabled"/>
             </form>

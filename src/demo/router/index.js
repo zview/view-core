@@ -198,6 +198,11 @@ const routers = [
                 meta: {title: '进度条'},
                 component: (resolve) => require(['../page/page_view_progress.vue'], resolve),
             },
+            {
+                path: 'condition',
+                meta: {title: '条件选择'},
+                component: (resolve) => require(['../page/page_view_condition.vue'], resolve),
+            },
 
             //Other
             {

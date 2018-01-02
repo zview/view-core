@@ -25,13 +25,14 @@ import { LinerLeft, LinerRight, LinerTop, LinerBottom } from './component/liner'
 //View
 import Badge from './component/badge';
 import Progress from './component/progress';
+import { Condition, ConditionItem, DropdownCondition } from './component/condition';
 
 //Form
 import Input from './component/input';
 import Radio from './component/radio';
 import Check from './component/check';
 import Toggle from './component/toggle';
-import Select from './component/select';
+import { Select, VSelect } from './component/select';
 import Slider from './component/slider';
 import Cascade from './component/cascade';
 import Search from './component/search';
@@ -110,6 +111,9 @@ const View = {
     //View
     Badge,
     Progress,
+    Condition,
+    ConditionItem,
+    DropdownCondition,
 
     //Layout
     List,
@@ -132,6 +136,7 @@ const View = {
     Check,
     Toggle,
     Select,
+    VSelect,
     Slider,
     Search,
     Cascade,
@@ -197,6 +202,9 @@ const View = {
         //View
         Vue.component('Badge', Badge);
         Vue.component('Progress', Progress);
+        Vue.component('Condition', Condition);
+        Vue.component('ConditionItem', ConditionItem);
+        Vue.component('DropdownCondition', DropdownCondition);
 
 
         //Layout
@@ -221,6 +229,7 @@ const View = {
         Vue.component('Check', Check);
         Vue.component('Toggle', Toggle);
         Vue.component('Select', Select);
+        Vue.component('VSelect', VSelect);
         Vue.component('Slider', Slider);
         Vue.component('Search', Search);
         Vue.component('Cascade', Cascade);
@@ -370,6 +379,9 @@ export { LinerBottom };
 //View
 export { Badge };
 export { Progress };
+export { Condition };
+export { ConditionItem };
+export { DropdownCondition };
 
 //Layout
 export { List };
@@ -392,6 +404,7 @@ export { Radio };
 export { Check };
 export { Toggle };
 export { Select };
+export { VSelect };
 export { Slider };
 export { Search };
 export { Cascade };

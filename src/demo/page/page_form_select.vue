@@ -6,6 +6,19 @@
             <Select :label="'请选择' + val2" color="balanced" :multiple="true" :options="options2" v-model="val2"></Select>
         </List>
 
+
+        <Panel type="inset">
+
+            <VSelect v-model="selected" :options="['中国','美国','俄罗斯','德国']"></VSelect>
+
+        </Panel>
+
+        <Panel type="inset">
+
+            <VSelect :on-change="_on_select_change" :multiple="true" :options="[{label: '中国', value: 'China'}, {label: '美国', value: 'America'}, {label: '德国', value: 'German'}]"></VSelect>
+
+        </Panel>
+
     </div>
 </template>
 
@@ -26,9 +39,14 @@
                     {'name': '三', 'value': 3},
                     {'name': '五', 'value': 5},
                 ],
+
+                selected: '',
             }
         },
         methods: {
+            _on_select_change: function (value) {
+                console.log('_on_select_change', value);
+            }
 
         },
     }

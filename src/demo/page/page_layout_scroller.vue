@@ -7,13 +7,16 @@
 
             <Scroller :on-refresh="onRefresh" :on-infinite="onInfinite">
 
-                <item v-for="(item, index) in items" :key="index"
+                <Item>表头</Item>
+
+                <Item v-for="(item, index) in items" :key="index"
                       @click.native="onItemClick(index)"
                       :class="{'item-stable': index % 2 == 0}">
                     {{ item }}
-                </item>
+                </Item>
 
                 <div v-if="infiniteCount >= 2" slot="infinite" class="text-center">没有更多数据</div>
+
             </Scroller>
 
         </Page>

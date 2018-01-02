@@ -29,6 +29,41 @@
         </Panel>
 
         <Panel>
+            <span>指定:</span>
+
+            <Row>
+                <Col color="stable" bg-color="royal">100%</Col>
+            </Row>
+            <Row color="stable">
+                <Col bg-color="positive" :percent="10">
+                10%
+                </Col>
+                <Col bg-color="calm" :percent="90">
+                90%
+                </Col>
+            </Row>
+            <Row color="stable">
+                <Col bg-color="assertive" :percent="25">
+                25%
+                </Col>
+                <Col bg-color="balanced" :percent="25">
+                25%
+                </Col>
+                <Col bg-color="energized" :percent="50">
+                50%
+                </Col>
+            </Row>
+            <Row color="stable">
+                <Col bg-color="assertive" :percent="25">
+                25%
+                </Col>
+                <Col bg-color="balanced" :percent="75">
+                75%
+                </Col>
+            </Row>
+        </Panel>
+
+        <Panel>
         <span>偏移:</span>
 
         <Row color="stable">

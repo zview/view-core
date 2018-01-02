@@ -5,7 +5,7 @@
          'pull-up': (state === 1),
          'refreshing': (state === 2),
          'touching': touching,
-         'page-content': isPageContent
+         'page-content': (isPageContent)
        }"
       @touchstart="onRefresh ? touchStart($event) : undefined"
       @touchmove="onRefresh ? touchMove($event) : undefined"
@@ -49,8 +49,8 @@
         default: 44
       },
         isPageContent: {
-            type: Boolean,
-            default: true
+          type: [String, Boolean],
+            default: true,
         },
       onRefresh: {
         type: Function,
@@ -93,84 +93,84 @@
           return
         }
         if (this.top >= this.offset) {
-          this.state = 1
+          this.state = 1;
         } else {
-          this.state = 0
+          this.state = 0;
         }
       },
       mouseMove(e) {
         if (this.$el.scrollTop > 0 || !this.touching) {
           return
         }
-        let diff = e.pageY - this.startY
-        if (diff > 0) e.preventDefault()
-        this.top = Math.pow(diff, 0.8) + (this.state === 2 ? this.offset : 0)
+        let diff = e.pageY - this.startY;
+        if (diff > 0) e.preventDefault();
+        this.top = Math.pow(diff, 0.8) + (this.state === 2 ? this.offset : 0);
 
         if (this.state === 2) { // in refreshing
           return
         }
         if (this.top >= this.offset) {
-          this.state = 1
+          this.state = 1;
         } else {
-          this.state = 0
+          this.state = 0;
         }
       },
       touchEnd (e) {
-        this.touching = false
+        this.touching = false;
         if (this.state === 2) { // in refreshing
-          this.state = 2
-          this.top = this.offset
-          return
+          this.state = 2;
+          this.top = this.offset;
+          return;
         }
         if (this.top >= this.offset) { // do refresh
-          this.refresh()
+          this.refresh();
         } else {  // cancel refresh
-          this.state = 0
-          this.top = 0
+          this.state = 0;
+          this.top = 0;
         }
       },
       mouseUp (e) {
-        this.touching = false
+        this.touching = false;
         if (this.state === 2) { // in refreshing
-          this.state = 2
-          this.top = this.offset
+          this.state = 2;
+          this.top = this.offset;
           return
         }
         if (this.top >= this.offset) { // do refresh
-          this.refresh()
+          this.refresh();
         } else {  // cancel refresh
-          this.state = 0
-          this.top = 0
+          this.state = 0;
+          this.top = 0;
         }
       },
       refresh () {
-        this.state = 2
-        this.top = this.offset
-        this.onRefresh(this.refreshDone)
+        this.state = 2;
+        this.top = this.offset;
+        this.onRefresh(this.refreshDone);
       },
       refreshDone () {
-        this.state = 0
-        this.top = 0
+        this.state = 0;
+        this.top = 0;
       },
       infinite () {
-        this.infiniteLoading = true
-        this.onInfinite(this.infiniteDone)
+        this.infiniteLoading = true;
+        this.onInfinite(this.infiniteDone);
       },
       infiniteDone () {
-        this.infiniteLoading = false
+        this.infiniteLoading = false;
       },
       onScroll (e) {
         if (this.infiniteLoading) {
           return
         }
-        let outerHeight = this.$el.clientHeight
-        let innerHeight = this.$el.querySelector('.scroll-inner').clientHeight
+        let outerHeight = this.$el.clientHeight;
+        let innerHeight = this.$el.querySelector('.scroll-inner').clientHeight;
         let scrollTop = this.$el.scrollTop;
-        let ptrHeight = this.onRefresh ? this.$el.querySelector('.pull-to-refresh-layer').clientHeight : 0
-        let infiniteHeight = this.$el.querySelector('.infinite-layer').clientHeight
-        let bottom = innerHeight - outerHeight - scrollTop - ptrHeight
+        let ptrHeight = this.onRefresh ? this.$el.querySelector('.pull-to-refresh-layer').clientHeight : 0;
+        let infiniteHeight = this.$el.querySelector('.infinite-layer').clientHeight;
+        let bottom = innerHeight - outerHeight - scrollTop - ptrHeight;
 
-        if (bottom < infiniteHeight) this.infinite()
+        if (bottom < infiniteHeight) this.infinite();
       }
     }
   }
