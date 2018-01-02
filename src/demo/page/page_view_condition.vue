@@ -4,10 +4,10 @@
         <Panel>
             <Row>
                 <Col>
-                    <DropdownCondition v-model="city" :on-item-click="_on_item_click" :title="'地区'" :options="cityitems"></DropdownCondition>
+                    <DropdownCondition v-model="city" :on-item-click="_on_item_click" label="'地区'" :options="cityitems"></DropdownCondition>
                 </Col>
                 <Col>
-                    <DropdownCondition v-model="city" :title="'地区'" :options="cityitems"></DropdownCondition>
+                    <DropdownCondition v-model="city" label="'地区'" :options="cityitems"></DropdownCondition>
                 </Col>
             </Row>
         </Panel>

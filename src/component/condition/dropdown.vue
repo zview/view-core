@@ -25,12 +25,12 @@
         data() {
             return {
                 isShow: false,
-                lbl: this.title,
+                lbl: this.label,
             }
         },
         props: {
             value: {},
-            title: {
+            label: {
                 type: [String, Number],
             },
             options: {
