@@ -70,6 +70,7 @@
             <!--<Item @click.native="_on_goto_page('/demo/tooltip')" note="Tooltip">文字提示</Item>-->
             <!--<Item @click.native="_on_goto_page('/demo/poptip')" note="Poptip">气泡提示</Item>-->
             <!--<Item @click.native="_on_goto_page('/demo/backtop')" note="BackTop">回到顶部</Item>-->
+            <Item @click.native="_on_goto_page('/demo/stars')" note="Stars">星级</Item>
 
             <Item color="light" bg-color="positive" note="Chart">图表</Item>
             <Item @click.native="_on_goto_page('/demo/circle')" note="Circle">进度环</Item>

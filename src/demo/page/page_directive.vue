@@ -3,8 +3,10 @@
 
         <Panel>{{message}}</Panel>
 
-        <input v-focus type="text"/>
-        <div v-drag class="div-drag calm-bg"></div>
+        <Panel>
+            <input v-focus type="text"/>
+            <div v-drag class="div-drag calm-bg"></div>
+        </Panel>
 
     </div>
 </template>
@@ -28,6 +30,18 @@
     {
         width: 100px;
         height: 100px;
+    }
+
+    .div-gesture
+    {
+        display: inline-block;
+        width: 400px;
+        height: 400px;
+        background: #ADADAD;
+        float: left;
+        margin: 15px;
+        word-break: normal;
+        word-wrap: break-word;
     }
 
 </style>

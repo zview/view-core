@@ -203,6 +203,11 @@ const routers = [
                 meta: {title: '条件选择'},
                 component: (resolve) => require(['../page/page_view_condition.vue'], resolve),
             },
+            {
+                path: 'stars',
+                meta: {title: '星级'},
+                component: (resolve) => require(['../page/page_view_stars.vue'], resolve),
+            },
 
             //Other
             {

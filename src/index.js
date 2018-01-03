@@ -26,6 +26,7 @@ import { LinerLeft, LinerRight, LinerTop, LinerBottom } from './component/liner'
 import Badge from './component/badge';
 import Progress from './component/progress';
 import { Condition, ConditionItem, DropdownCondition } from './component/condition';
+import Stars from './component/stars';
 
 //Form
 import Input from './component/input';
@@ -114,6 +115,7 @@ const View = {
     Condition,
     ConditionItem,
     DropdownCondition,
+    Stars,
 
     //Layout
     List,
@@ -205,6 +207,7 @@ const View = {
         Vue.component('Condition', Condition);
         Vue.component('ConditionItem', ConditionItem);
         Vue.component('DropdownCondition', DropdownCondition);
+        Vue.component('Stars', Stars);
 
 
         //Layout
@@ -260,7 +263,6 @@ const View = {
         //Directive
         Vue.directive("drag", dragable);
         Vue.directive("focus", focusable);
-        // Vue.directive("gesture", focusable);
 
 
         //Filter
@@ -382,6 +384,7 @@ export { Progress };
 export { Condition };
 export { ConditionItem };
 export { DropdownCondition };
+export { Stars };
 
 //Layout
 export { List };
