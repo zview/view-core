@@ -5,12 +5,26 @@
         <div class="view-check-item item item-checkbox"
              v-for="(option, index) in options" :key="index"
              @click="_on_cell_click(index, option.value)" :class="item_classes">
-            <label class="view-check-label checkbox" :for="index">
+            <label class="view-check-label checkbox">
                 <input class="view-check" :class="classes" type="checkbox"
                        :name="check_id" :value="option.value" v-model="val"
                        :readonly="readonly" :disabled="disabled"/>
             </label>
-            {{option.name}}
+            <div class="view-check-image">
+                <img :src="option.image" v-if="option.image"/>
+            </div>
+            <div class="view-check-name">
+                <span>{{option.name}}</span>
+                <Icon class="float-right" :icon="option.icon" v-if="option.icon && option.icon!=''"></Icon>
+            </div>
+            <div class="view-check-desc" v-if="option.desc || option.subdesc">
+                <span v-if="option.desc && option.desc!=''">
+                    {{option.desc}}
+                </span>
+                <span class="float-right" v-if="option.subdesc && option.subdesc!=''">
+                    {{option.subdesc}}
+                </span>
+            </div>
         </div>
     </div>
 

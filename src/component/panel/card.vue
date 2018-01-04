@@ -3,7 +3,7 @@
     <div class="view-card card" :class="classes">
 
         <slot name="header">
-            <div class="item item-divider" v-if="headerContent" v-html="headerContent"></div>
+            <div class="item item-divider" v-if="headerContent" v-html="headerContent" @click="on_header_clicked"></div>
         </slot>
 
         <div class="item item-text-wrap">
@@ -38,7 +38,10 @@
             },
             headerContent: [Number, String],
             footerContent: [Number, String],
-            className: String
+            onHeaderClick: {
+                type: Function
+            },
+            className: String,
         },
         computed: {
             classes () {
@@ -50,6 +53,11 @@
                     }
                 ];
             },
-        }
+        },
+        methods: {
+            on_header_clicked() {
+                if (this.onHeaderClick) this.onHeaderClick();
+            }
+        },
     }
 </script>

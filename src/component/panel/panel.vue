@@ -3,7 +3,7 @@
     <div class="view-panel" :class="classes">
 
         <slot name="header">
-            <Row class="view-panel-header" v-if="headerContent || subHeaderContent">
+            <Row class="view-panel-header" v-if="headerContent || subHeaderContent" @click="on_header_clicked">
                 <Col v-html="headerContent"/>
                 <Col class="text-right" v-html="subHeaderContent"/>
             </Row>
@@ -52,6 +52,9 @@
             footerContent: [Number, String],
             subHeaderContent: [Number, String],
             subFooterContent: [Number, String],
+            onHeaderClick: {
+                type: Function
+            },
             className: String
         },
         computed: {
@@ -68,6 +71,11 @@
                     }
                 ];
             },
-        }
+        },
+        methods: {
+            on_header_clicked() {
+                if (this.onHeaderClick) this.onHeaderClick();
+            }
+        },
     }
 </script>

@@ -17,7 +17,7 @@
             {{message}} Card
         </Panel>
 
-        <Panel type="card" bg-color="calm" color="light" header-content="头部" footer-content="底部">
+        <Panel type="card" bg-color="calm" color="light" header-content="头部" footer-content="底部" :on-header-click="_on_header_click">
             {{message}} Card
         </Panel>
 
@@ -38,7 +38,9 @@
             }
         },
         methods: {
-
+            _on_header_click: function () {
+                console.log('_on_header_click');
+            },
         },
     }
 </script>

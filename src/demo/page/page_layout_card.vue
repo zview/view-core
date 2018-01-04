@@ -6,7 +6,7 @@
         </Card>
 
 
-        <Card header-content="头部" footer-content="底部">
+        <Card header-content="头部" footer-content="底部" :on-header-click="_on_header_click">
             {{message}}
         </Card>
 
@@ -18,7 +18,7 @@
         </Card>
 
 
-        <List type="list-card" header-content="默认" sub-header-content="更多>>">
+        <List type="list-card" header-content="默认" sub-header-content="更多>>" :on-header-click="_on_header_click">
             <Item icon-left="ion-thumbsup">条目</Item>
             <Item icon-left="ion-thumbsup">条目</Item>
             <Item icon-left="ion-thumbsup">条目</Item>
@@ -121,7 +121,9 @@
             }
         },
         methods: {
-
+            _on_header_click: function () {
+                console.log('_on_header_click');
+            },
         },
     }
 </script>

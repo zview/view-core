@@ -31,7 +31,7 @@ import Stars from './component/stars';
 //Form
 import Input from './component/input';
 import Radio from './component/radio';
-import Check from './component/check';
+import { Check, CheckItem } from './component/check';
 import Toggle from './component/toggle';
 import { Select, VSelect } from './component/select';
 import Slider from './component/slider';
@@ -136,6 +136,7 @@ const View = {
     Input,
     Radio,
     Check,
+    CheckItem,
     Toggle,
     Select,
     VSelect,
@@ -230,6 +231,7 @@ const View = {
         Vue.component('Input', Input);
         Vue.component('Radio', Radio);
         Vue.component('Check', Check);
+        Vue.component('CheckItem', CheckItem);
         Vue.component('Toggle', Toggle);
         Vue.component('Select', Select);
         Vue.component('VSelect', VSelect);
@@ -405,6 +407,7 @@ export { Scalable };
 export { Input };
 export { Radio };
 export { Check };
+export { CheckItem };
 export { Toggle };
 export { Select };
 export { VSelect };
