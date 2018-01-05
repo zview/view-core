@@ -4,8 +4,11 @@
         <Panel>{{message}}</Panel>
 
         <Panel>
-        {{datetime|formatdate}}<br/>
-        {{datetime|formattime}}<br/>
+            {{datetime|formatdate}}<br/>
+            {{datetime|formattime}}<br/>
+            {{datetime|formatdatetime('yyyy')}}<br/>
+            {{str|capitalize}}<br/>
+            {{str|viewsubstr(2)}}<br/>
         </Panel>
 
     </div>
@@ -17,6 +20,7 @@
             return {
                 message: '过滤器',
                 datetime: '2017-06-19T09:27:02.149286',
+                str: 'book is good',
             }
         },
         methods: {

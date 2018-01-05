@@ -81,6 +81,7 @@ import focusable from './directive/focusable';
 //Filter
 import formatdate from './filter/formatdate';
 import formattime from './filter/formattime';
+import formatdatetime from './filter/formatdatetime';
 import capitalize from './filter/capitalize';
 import viewsubstr from './filter/viewsubstr';
 
@@ -270,6 +271,7 @@ const View = {
         //Filter
         Vue.filter('formatdate', formatdate);
         Vue.filter('formattime', formattime);
+        Vue.filter('formatdatetime', formatdatetime);
         Vue.filter('capitalize', capitalize);
         Vue.filter('viewsubstr', viewsubstr);
 

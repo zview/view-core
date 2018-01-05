@@ -25,14 +25,8 @@
                 message: '下拉刷新/自动加载, 基于vue-scroller v2.2.0',
                 items: [],
                 infiniteCount: 0,
-
-                tabindex: 0,
-                tabitems : [
-                    {'id': 1, 'text': '新闻', 'icon': 'ion-ios-paper-outline'},
-                    {'id': 2, 'text': '订阅', 'icon': 'ion-ios-book-outline'},
-                    {'id': 3, 'text': '图片', 'icon': 'ion-images', 'badge': '2'},
-                    {'id': 4, 'text': '视频', 'icon': 'ion-ios-videocam-outline'},
-                ],
+                top: 0,
+                bottom: 0,
             }
         },
         mounted() {

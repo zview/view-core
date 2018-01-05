@@ -668,6 +668,7 @@ http://fontawesome.io/cheatsheet/
 | `formattime` | 格式化时间 | 
 | `capitalize` | 首字母大写 |
 | `viewsubstr` | 字符串截取 |
+| `formatdatetime` | 格式化日期时间 | 
 
 ----------
 
