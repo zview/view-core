@@ -112,6 +112,11 @@ const routers = [
                 meta: {title: '缩放'},
                 component: (resolve) => require(['../page/page_layout_scalable.vue'], resolve),
             },
+            {
+                path: 'scroller',
+                meta: {title: '下拉刷新/自动加载'},
+                component: (resolve) => require(['../page/page_layout_scroller.vue'], resolve),
+            },
 
             //Navigator
             {
@@ -256,11 +261,6 @@ const routers = [
         path: '/container2',
         meta: {title: '容器2'},
         component: (resolve) => require(['../page/page_layout_container2.vue'], resolve),
-    },
-    {
-        path: '/scroller',
-        meta: {title: '下拉刷新/自动加载'},
-        component: (resolve) => require(['../page/page_layout_scroller.vue'], resolve),
     },
     //Sample
     {

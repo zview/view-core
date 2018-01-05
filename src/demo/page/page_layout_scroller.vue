@@ -1,25 +1,19 @@
 <template>
     <div class="page-scroller">
 
-        <Page :has-navbar="true" :no-content="true">
+        <Scroller :on-refresh="onRefresh" :on-infinite="onInfinite" :has-navbar="true" :has-tabbar="false">
 
-            <Navbar title="示例" color="balanced"></Navbar>
+            <Item>表头</Item>
 
-            <Scroller :on-refresh="onRefresh" :on-infinite="onInfinite">
+            <Item v-for="(item, index) in items" :key="index"
+                  @click.native="onItemClick(index)"
+                  :class="{'item-stable': index % 2 == 0}">
+                {{ item }}
+            </Item>
 
-                <Item>表头</Item>
+            <div v-if="infiniteCount >= 2" slot="infinite" class="text-center">没有更多数据</div>
 
-                <Item v-for="(item, index) in items" :key="index"
-                      @click.native="onItemClick(index)"
-                      :class="{'item-stable': index % 2 == 0}">
-                    {{ item }}
-                </Item>
-
-                <div v-if="infiniteCount >= 2" slot="infinite" class="text-center">没有更多数据</div>
-
-            </Scroller>
-
-        </Page>
+        </Scroller>
 
     </div>
 </template>
@@ -31,6 +25,14 @@
                 message: '下拉刷新/自动加载, 基于vue-scroller v2.2.0',
                 items: [],
                 infiniteCount: 0,
+
+                tabindex: 0,
+                tabitems : [
+                    {'id': 1, 'text': '新闻', 'icon': 'ion-ios-paper-outline'},
+                    {'id': 2, 'text': '订阅', 'icon': 'ion-ios-book-outline'},
+                    {'id': 3, 'text': '图片', 'icon': 'ion-images', 'badge': '2'},
+                    {'id': 4, 'text': '视频', 'icon': 'ion-ios-videocam-outline'},
+                ],
             }
         },
         mounted() {
@@ -61,7 +63,7 @@
                         for (let i = start; i < start + 10; i++) {
                             this.items.push(i + ' - keep walking, be 2 with you.');
                         }
-                        this.bottom = this.bottom + 10;;
+                        this.bottom = this.bottom + 10;
 
                         this.infiniteCount++;
                     }
@@ -72,7 +74,9 @@
 
             onItemClick(index) {
                 console.log(index);
-            }
+            },
+
+
         }
     }
 </script>

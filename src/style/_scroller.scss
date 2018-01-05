@@ -61,6 +61,16 @@ $color-text-gray: #aaa;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
+    &.has-navbar
+    {
+        margin-top: $navbar-height;
+    }
+
+    &.has-tabbar
+    {
+        margin-bottom: $tabbar-height;
+    }
+
     &.touching .scroll-inner {
         transition-duration: 0ms;
     }

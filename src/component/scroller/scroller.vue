@@ -5,7 +5,8 @@
          'pull-up': (state === 1),
          'refreshing': (state === 2),
          'touching': touching,
-         'page-content': (isPageContent)
+         'has-navbar': !!hasNavbar,
+         'has-tabbar': !!hasTabbar,
        }"
       @touchstart="onRefresh ? touchStart($event) : undefined"
       @touchmove="onRefresh ? touchMove($event) : undefined"
@@ -18,7 +19,7 @@
     <div class="scroll-inner"
       :style="{
         transform: 'translate3d(0, ' + top + 'px, 0)',
-        webkitTransform: 'translate3d(0, ' + top + 'px, 0)'
+        webkitTransform: 'translate3d(0, ' + top + 'px, 0)',
       }"
     >
       <div class="pull-to-refresh-layer" v-if="!!onRefresh">
@@ -48,9 +49,13 @@
         type: Number,
         default: 44
       },
-        isPageContent: {
+        hasNavbar: {
           type: [String, Boolean],
-            default: true,
+            default: false,
+        },
+        hasTabbar: {
+            type: [String, Boolean],
+            default: false,
         },
       onRefresh: {
         type: Function,

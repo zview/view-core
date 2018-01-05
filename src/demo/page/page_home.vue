@@ -24,7 +24,7 @@
             <!--<Item @click.native="_on_goto_page('/demo/timeline')" note="Timeline">时间轴</Item>-->
             <!--<Item @click.native="_on_goto_page('/demo/carousel')" note="Carousel">走马灯</Item>-->
             <Item @click.native="_on_goto_page('/demo/swiper')" note="Swiper">轮播</Item>
-            <Item @click.native="_on_goto_page('/scroller')" note="Refresh/Infinite">下拉刷新/自动加载</Item>
+            <Item @click.native="_on_goto_page('/demo/scroller')" note="Refresh/Infinite">下拉刷新/自动加载</Item>
             <Item @click.native="_on_goto_page('/container1')" note="Page/Navbar/Tabbar">容器1</Item>
             <Item @click.native="_on_goto_page('/container2')" note="Content/Header/Footer">容器2</Item>
 
