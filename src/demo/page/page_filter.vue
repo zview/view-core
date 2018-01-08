@@ -6,7 +6,7 @@
         <Panel>
             {{datetime|formatdate}}<br/>
             {{datetime|formattime}}<br/>
-            {{datetime|formatdatetime('yyyy')}}<br/>
+            {{datetime|formatdatetime('yyyy年MM月dd日')}}<br/>
             {{str|capitalize}}<br/>
             {{str|viewsubstr(2)}}<br/>
         </Panel>
