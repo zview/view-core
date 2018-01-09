@@ -1,20 +1,12 @@
 # view
 
 
-## ionic项目
+### What is view?
 
-* 源码
+一套简洁优雅的UI组件库
 
-https://github.com/ionic-team/ionic
+### Contact with me
 
-* 发布
-
-http://code.ionicframework.com/1.3.2/ionic-v1.3.2.zip
-
-
-## iview项目
-
-
-## vonic项目
+Luther luther(at)zuv(dot)cc
 
 
