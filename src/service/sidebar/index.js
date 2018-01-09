@@ -3,7 +3,7 @@ import Sidebar from './sidebar';
 
 let _sidebars = {};
 
-class VonicSidebar {
+class ViewSidebar {
 
   fromTemplateUrl(url, options) {
     return new Promise((resolve, reject) => {
@@ -62,4 +62,4 @@ class VonicSidebar {
   }
 }
 
-export default new VonicSidebar()
+export default new ViewSidebar()
