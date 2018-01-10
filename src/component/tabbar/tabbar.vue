@@ -5,7 +5,7 @@
            :class="{'has-badge': tabItem.badge && tabItem.badge!='', 'active': activeIndex == index}"
            @click="tabClicked(index)">
             <i class="badge badge-assertive" v-if="tabItem.badge && tabItem.badge!=''">{{tabItem.badge}}</i>
-            <Icon :icon="tabItem.icon" size="3x" v-if="tabItem.icon"></Icon>
+            <Icon :icon="tabItem.icon" v-if="tabItem.icon"></Icon>
             {{tabItem.text}}
         </a>
     </div>

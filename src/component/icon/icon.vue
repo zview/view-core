@@ -33,6 +33,10 @@
                     ], true);
                 }
             },
+            isFixWidth: {
+                type: [String, Boolean],
+                default: false,
+            },
             className: String
         },
         computed: {
@@ -44,7 +48,7 @@
                         [`${this.icon}`]: !!this.icon,
                         [`fa-${this.type}`]: this.icon.indexOf('fa-')==0 && !!this.type,
                         [`fa-${this.size}`]: this.icon.indexOf('fa-')==0 && !!this.size,
-                        [`fa-fw`]: this.icon.indexOf('fa-')==0,  //固定宽度,列表对齐
+                        [`fa-fw`]: !!this.isFixWidth,  //固定宽度,列表对齐
                         [`${this.className}`]: !!this.className
                     }
                 ];
