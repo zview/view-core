@@ -340,6 +340,8 @@ $error(...message)
 - [x] 模态框 Modal
 - [ ] 全局提示 Message
 - [ ] 通知提醒 Notice
+- [ ] 本地存储
+- [ ] 会话存储
 
 
 ### 3. 服务语法
