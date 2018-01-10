@@ -39,12 +39,12 @@
             classes () {
                 return [
                     {
+                        [`${iconCls}`]: true, //this.icon.indexOf('ion-')==0,
+                        [`${faCls}`]: this.icon.indexOf('fa-')==0,
+                        [`${this.icon}`]: !!this.icon,
                         [`fa-${this.type}`]: this.icon.indexOf('fa-')==0 && !!this.type,
                         [`fa-${this.size}`]: this.icon.indexOf('fa-')==0 && !!this.size,
                         [`fa-fw`]: this.icon.indexOf('fa-')==0,  //固定宽度,列表对齐
-                        [`${faCls}`]: this.icon.indexOf('fa-')==0,
-                        [`${iconCls}`]: this.icon.indexOf('ion-')==0,
-                        [`${this.icon}`]: !!this.icon,
                         [`${this.className}`]: !!this.className
                     }
                 ];
