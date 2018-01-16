@@ -24,6 +24,7 @@
                 vm.$actionsheet.show({
                     theme: theme || '',
                     title: '标题',
+                    cancelText: '取消',
                     buttons: {
                         'Action - 1': () => {
                             console.log('action 1 called.');

@@ -43,6 +43,14 @@
         </List>
 
 
+        <Panel type="card" header-content="宽度一致">
+            <p>
+                <Icon icon="fa-phone" :is-fix-width="true"></Icon> 电话: 13300000000<br/>
+                <Icon icon="fa-envelope" :is-fix-width="true"></Icon> 邮箱: zuv@zuv.cc
+            </p>
+        </Panel>
+
+
         <Panel type="card" header-content="列表图标">
             <ul class="fa-ul">
                 <li><i class="fa-li fa fa-check-square"></i>List icons</li>

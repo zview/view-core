@@ -1,19 +1,19 @@
 <template>
-    <div class="page-cascade">
+    <div class='page-cascade'>
 
-        <Panel  type="inset">
-            <div class="item item-divider">
+        <Panel  type='inset'>
+            <div class='item item-divider'>
                 选择您所属的行政区划：
             </div>
-            <Cascade :fields="fields" :data="cities" :value="value" :on-change="onChange"></Cascade>
+            <Cascade :data-fields='fields' :data='cities' :value='value' :on-change='onChange'></Cascade>
 
             <!-- 使用远程数据 -->
             <!--
             <cascade
-              :fields="fields"
-              ajax-url="path/to/data"
-              :value="value"
-              :on-change="onChange"
+              :fields='fields'
+              ajax-url='path/to/data'
+              :value='value'
+              :on-change='onChange'
             ></cascade>
             -->
         </Panel>
@@ -27,7 +27,7 @@
             return {
                 message: '级联选择',
                 fields: [
-                    "省", "市", "区"
+                    '省', '市', '区'
                 ],
 
                 cities: [
@@ -168,6 +168,6 @@
     }
 </script>
 
-<style lang="scss" rel="stylesheet/scss" scoped>
+<style lang='scss' rel='stylesheet/scss' scoped>
 
 </style>

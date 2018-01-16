@@ -1,16 +1,18 @@
 <template>
 
-  <List class="list-ios view-cascade">
-    <label v-for="(f, index) in fields"
-           class="item item-ios item-icon-right"
-           @click="showCascadePanel(index)">
-      <!--<div class="liner-top" v-if="index = 0"></div>-->
-      <span v-text="f"></span>
-      <i class="icon ion-ios-arrow-right"></i>
-      <span class="item-note" v-text="value[index]"></span>
-        <!--<div class="liner-bottom" v-if="index < fields.length - 1"></div>-->
-    </label>
-  </List>
+  <Row class="list view-cascade">
+      <Col v-for="(f, index) in dataFields" :key="index">
+          <label
+              class="item item-icon-right"
+              @click="showCascadePanel(index)">
+              <!--<div class="liner-top" v-if="index = 0"></div>-->
+              <span v-text="f"></span>
+              <i class="icon ion-ios-arrow-right"></i>
+              <span class="item-note" v-text="value[index]"></span>
+              <!--<div class="liner-bottom" v-if="index < dataFields.length - 1"></div>-->
+          </label>
+      </Col>
+  </Row>
 
 </template>
 
@@ -42,7 +44,7 @@
   export default {
 
     props: {
-      fields: {
+      dataFields: {
         type: Array,
         required: true
       },
@@ -94,7 +96,7 @@
     methods: {
       showCascadePanel(index) {
           let vm = this;
-        let v = vm.value, f = vm.fields;
+        let v = vm.value, f = vm.dataFields;
 
         if (index > v.length) {
           if (vm.$toast) vm.$toast.show('请先选择' + f[index - 1]);
