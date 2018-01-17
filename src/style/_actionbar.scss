@@ -1,0 +1,49 @@
+@import "base";
+
+.view-actionbar
+{
+
+    &.tabs-top .tabs
+    {
+        top: 0;
+    }
+
+    &.tabs-top .tabs.has-navbar
+    {
+        top: $navbar-height;
+    }
+
+    &.tabs-bottom .tabs
+    {
+        bottom: 0;
+    }
+
+    &.tabs-bottom .tabs.has-tabbar
+    {
+        bottom: $tabbar-height;
+    }
+
+    .tabs
+    {
+        padding: 0;
+        position: fixed;
+        height: $actionbar-height;
+        line-height: $actionbar-height;
+    }
+
+    &.tabs-top .tab-item
+    {
+        margin-top: 0;
+    }
+    &.tabs-bottom .tab-item
+    {
+        margin-top: 0;
+    }
+    .tab-item
+    {
+        font-weight: normal;
+        width: 100%;
+        max-width: 100%;
+    }
+
+}

@@ -1,0 +1,44 @@
+<template>
+    <div class="page-actionbar">
+
+        <ActionBar position="top" bg-color="assertive" tab-color="light" :has-navbar="true">
+            <div style="float: left; background-color: #1d3e81; width: 30%; height: 100%; color:white;">
+                <span>左边</span>
+            </div>
+            <div style="float: right; background-color: #3f3f3f; width: 70%; height: 100%; color:white;">
+                <span>右边</span>
+            </div>
+        </ActionBar>
+
+        <Panel style="margin-top: 60px; height: 600px; margin-bottom: 60px;">
+            {{message}}
+        </Panel>
+
+        <ActionBar position="bottom" bg-color="assertive" :has-tabbar="false">
+            <div style="float: left; background-color: #1d3e81; width: 70%; height: 100%; color:white;">
+                <span>左边</span>
+            </div>
+            <div style="float: right; background-color: #3f3f3f; width: 30%; height: 100%; color:white;">
+                <span>右边</span>
+            </div>
+        </ActionBar>
+
+    </div>
+</template>
+
+<script>
+    export default {
+        data () {
+            return {
+                message: '工具栏',
+            }
+        },
+        methods: {
+
+        },
+    }
+</script>
+
+<style lang="scss" rel="stylesheet/scss" scoped>
+
+</style>

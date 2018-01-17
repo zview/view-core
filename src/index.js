@@ -57,6 +57,7 @@ import Navbar from './component/navbar';
 import Tabbar from './component/tabbar';
 import { Page, Content, Header, Footer, SubHeader, SubFooter } from './component/container';
 import Tabs from './component/tabs';
+import ActionBar from './component/actionbar';
 import ButtonBar from './component/buttonbar';
 
 //Other
@@ -154,6 +155,7 @@ const View = {
     Navbar,
     Tabbar,
     Page,
+    ActionBar,
     ButtonBar,
     Tabs,
     //
@@ -250,16 +252,17 @@ const View = {
         //Navigation
         Vue.component('Navbar', Navbar);
         Vue.component('Tabbar', Tabbar);
-        Vue.component('Page', Page); //配合Navbar,Tabbar使用
+        Vue.component('Page', Page); //Page,Navbar,Tabbar配合使用
+        //
+        Vue.component('ActionBar', ActionBar);
         Vue.component('ButtonBar', ButtonBar);
         Vue.component('Tabs', Tabs);
-
         //
         Vue.component('Content', Content);
         Vue.component('Header', Header);
         Vue.component('Footer', Footer);
         Vue.component('SubHeader', SubHeader);
-        Vue.component('SubFooter', SubFooter);
+        Vue.component('SubFooter', SubFooter); //Content,Header,Footer配合使用
 
 
         //Other
@@ -428,6 +431,7 @@ export { Form };
 export { Navbar };
 export { Tabbar };
 export { Page };
+export { ActionBar };
 export { ButtonBar };
 export { Tabs };
 export { Content };

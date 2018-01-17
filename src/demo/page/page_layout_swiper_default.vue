@@ -1,7 +1,9 @@
 <template>
     <div class="page-swiper-default">
 
-        <Swiper ref="swiper" direction="horizontal" width="100%" height="150" pager-color="#ea5a49" pager-bg-color="#e5e4e3" :callback="callback">
+        <Swiper ref="swiper" direction="horizontal" width="100%" height="150"
+                pager-color="#ea5a49" pager-bg-color="#e5e4e3"
+                :callback="callback">
             <SwiperItem>
                 <h1 @click="onClick()">Item 1</h1>
             </SwiperItem>
@@ -60,28 +62,30 @@
 
     .swiper-item
     {
-        padding-top: 50px;
-        background-color: #FFF;
+        background-color: #fff;
 
         h1
         {
             color: #fff;
             font-size: 32px;
-            line-height: 50px;
+            line-height: 150px;
             text-align: center;
             font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
         }
 
-        &:nth-of-type(1) h1 {
-            color: #0a9dc7;
+        &:nth-of-type(1)
+        {
+            background-color: #0a9dc7;
         }
 
-        &:nth-of-type(2) h1 {
-            color: #44cc00;
+        &:nth-of-type(2)
+        {
+            background-color: #44cc00;
         }
 
-        &:nth-of-type(3) h1 {
-            color: #ffc900;
+        &:nth-of-type(3)
+        {
+            background-color: #ffc900;
         }
     }
 

@@ -3,13 +3,13 @@
 
         <Tabs :tab-items="tabs" :tab-index="tabIndex" icon-align="top" :on-tab-click="onTabClick"></Tabs>
 
-        <Panel bg-color="white" style="margin-top: 50px;">
+        <Panel type="inset" bg-color="white" style="margin-top: 50px;">
             <p>
-                Active Tab Index: {{ tabIndex }}
+                激活索引: {{ tabIndex }}
             </p>
 
             <p>
-                active category index: {{ categories[categoryIndex].text }}
+                激活分类: {{ categories[categoryIndex].text }}
             </p>
         </Panel>
 
@@ -31,7 +31,6 @@
                     {'id': 2, 'text': 'tab 2', 'icon': 'ion-ios-clock'},
                     {'id': 3, 'text': 'tab 3', 'icon': 'ion-ios-clock'},
                 ],
-
                 tabIndex: 0,
 
                 categories: [
@@ -42,7 +41,6 @@
                     {'id': 5, 'text': '箱包'},
                     {'id': 6, 'text': '更多'},
                 ],
-
                 categoryIndex: 0,
             }
         },

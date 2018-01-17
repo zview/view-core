@@ -37,7 +37,7 @@
             <Item @click.native="_on_goto_page('/demo/tabs')" note="Tabs">标签页</Item>
             <!--<Item @click.native="_on_goto_page('/demo/loadingbar')" note="LoadingBar">加载进度条</Item>-->
             <Item @click.native="_on_goto_page('/demo/buttonbar')" note="ButtonBar">按钮栏</Item>
-            <!--<Item @click.native="_on_goto_page('/demo/toolbar')" note="ToolBar">工具栏</Item>-->
+            <Item @click.native="_on_goto_page('/demo/actionbar')" note="ActionBar/ToolBar">工具栏</Item>
             <Item @click.native="_on_goto_page('/demo/tabbar')" note="Tabbar/Page">底部栏</Item>
             <Item @click.native="_on_goto_page('/navbar')" note="Navbar/Page">导航栏</Item>
 

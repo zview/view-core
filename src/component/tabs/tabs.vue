@@ -1,6 +1,6 @@
 <template>
 
-    <div class="view-tabs">
+    <div>
         <div class="tabs">
             <a v-for="(tabItem, index) in tabItems" :key="index"
                class="tab-item"
@@ -60,8 +60,7 @@
         },
         mounted: function() {
             console.log('mounted');
-
-            let className = `tabs-striped tabs-${ this.position } tabs-background-${ this.bgColor } tabs-color-${ this.tabColor }`
+            let className = `view-tabs tabs-striped tabs-${ this.position } tabs-background-${ this.bgColor } tabs-color-${ this.tabColor }`;
             this.$el.className = className;
         },
         computed: {

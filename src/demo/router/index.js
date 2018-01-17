@@ -130,6 +130,11 @@ const routers = [
                 component: (resolve) => require(['../page/page_nav_buttonbar.vue'], resolve),
             },
             {
+                path: 'actionbar',
+                meta: {title: '工具栏'},
+                component: (resolve) => require(['../page/page_nav_actionbar.vue'], resolve),
+            },
+            {
                 path: 'tabs',
                 meta: {title: '标签页'},
                 component: (resolve) => require(['../page/page_nav_tabs.vue'], resolve),
