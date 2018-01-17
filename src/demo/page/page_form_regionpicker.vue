@@ -2,19 +2,16 @@
     <div class='page-cascade'>
 
         <Panel  type='inset'>
-            <div class='item item-divider'>
-                选择您所属的行政区划：
-            </div>
-            <Cascade :data-fields='fields' :data='cities' :value='value' :on-change='onChange'></Cascade>
+            <RegionPicker label="地区" :data-fields='fields' :data='cities' :value='value' :on-change='onChange'></RegionPicker>
 
             <!-- 使用远程数据 -->
             <!--
-            <Cascade
+            <RegionPicker
               :fields='fields'
               ajax-url='path/to/data'
               :value='value'
               :on-change='onChange'
-            ></Cascade>
+            ></RegionPicker>
             -->
         </Panel>
 

@@ -53,7 +53,7 @@
             <!--<Item @click.native="_on_goto_page('/demo/picker')" note="Picker">选择器</Item>-->
             <Item @click.native="_on_goto_page('/demo/datepicker')" note="DatePicker">日期选择</Item>
             <!--<Item @click.native="_on_goto_page('/demo/timepicker')" note="TimerPicker">时间选择</Item>-->
-            <!--<Item @click.native="_on_goto_page('/demo/regionpicker')" note="RegionPicker">地区选择</Item>-->
+            <Item @click.native="_on_goto_page('/demo/regionpicker')" note="RegionPicker">地区选择</Item>
             <!--<Item @click.native="_on_goto_page('/demo/colorpicker')" note="ColorPicker">颜色选择</Item>-->
             <!--<Item @click.native="_on_goto_page('/demo/tranfer')" note="Transfer">穿梭框</Item>-->
             <!--<Item @click.native="_on_goto_page('/demo/number')" note="Number">数字输入</Item>-->
