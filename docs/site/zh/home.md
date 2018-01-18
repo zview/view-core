@@ -20,6 +20,12 @@ title: 首页
 
 <hr/>
 
+### 查看示例
+
+[demo](http://www.zuv.cc/view/demo/index.html)
+
+[demo-source](http://www.zuv.cc/view/demo.zip)
+
 ### 关于作者
 
 Luther 

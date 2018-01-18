@@ -54,7 +54,7 @@ Vue.use(View);
 没错，就这么简单。
 
 <div class="device-ios">
-  <iframe class="demo-ios" src="./demo/getting_started.html" frameborder="0"></iframe>
+  <iframe class="demo-ios" src="./demo/index.html" frameborder="0"></iframe>
 </div>
 
 <hr/>
