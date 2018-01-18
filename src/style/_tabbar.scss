@@ -5,6 +5,8 @@
 
     &.tabs
     {
+        height: $tabbar-height;
+        vertical-align: middle;
 
         @include view-m-theme-fg-color();
 

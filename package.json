@@ -1,6 +1,6 @@
 {
   "name": "zuv-view",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "title": "zuv view project",
   "description": "UI components library, based on Vue.js and ionic CSS.",
   "homepage": "http://www.zuv.cc/view",
@@ -19,7 +19,7 @@
   "main": "dist/view.min.js",
   "files": [
     "dist",
-    "demo"
+    "docs"
   ],
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "build": "rimraf dist && webpack --progress --hide-modules --config webpack.prod.config.js",
     "init": "rimraf demo && webpack --progress --config webpack.dev.config.js",
     "dev": "webpack-dev-server --config webpack.dev.config.js",
+    "docs": "rimraf docs/demo && webpack --progress --hide-modules --config webpack.docs.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js,.vue src"
   },

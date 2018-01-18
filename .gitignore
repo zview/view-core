@@ -3,3 +3,5 @@ src/config/env.js
 /npm-debug.log
 /yarn-error.log
 /node_modules/
+/demo/
+/docs/demo/
