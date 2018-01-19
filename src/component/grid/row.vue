@@ -23,10 +23,14 @@
                     return insideIonic(value);
                 }
             },
-            align: {
+            valign: {
                 validator (value) {
                     return oneOf(value, ['top', 'center', 'bottom'], true);
                 }
+            },
+            wrap: {
+                type: Boolean,
+                default: false,
             },
             gutter: {
                 type: Number,
@@ -38,7 +42,8 @@
             classes () {
                 return [
                     {
-                        [`row-${this.align}`]: !!this.align,
+                        [`row-${this.valign}`]: !!this.valign,
+                        [`row-wrap`]: !!this.wrap,
                         [`${this.color}`]: !!this.color,
                         [`${this.bgColor}-bg`]: !!this.bgColor,
                         [`${this.className}`]: !!this.className

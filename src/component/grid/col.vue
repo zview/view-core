@@ -23,7 +23,7 @@
                     return insideIonic(value);
                 }
             },
-            align: {
+            valign: {
                 validator (value) {
                     return oneOf(value, ['top', 'center', 'bottom'], true);
                 }
@@ -47,7 +47,7 @@
                     {
                         [`col-${this.percent}`]: !!this.percent,
                         [`col-offset-${this.offset}`]: !!this.offset,
-                        [`col-${this.align}`]: !!this.align,
+                        [`col-${this.valign}`]: !!this.valign,
                         [`${this.color}`]: !!this.color,
                         [`${this.bgColor}-bg`]: !!this.bgColor,
                         [`${this.className}`]: !!this.className

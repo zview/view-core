@@ -128,20 +128,20 @@
             <Col bg-color="positive">
             20%
             </Col>
-            <Col bg-color="calm" align="top">
+            <Col bg-color="calm" valign="top">
             20%
             </Col>
-            <Col bg-color="assertive" align="center">
+            <Col bg-color="assertive" valign="center">
             20%
             </Col>
-            <Col bg-color="balanced" align="bottom">
+            <Col bg-color="balanced" valign="bottom">
             20%
             </Col>
             <Col bg-color="energized">
             1<br/>2<br/>3<br/>4<br/>
             </Col>
         </Row>
-        <Row color="stable" align="bottom">
+        <Row color="stable" valign="bottom">
             <Col bg-color="positive">
             20%
             </Col>
@@ -199,6 +199,36 @@
                 </Col>
                 <Col>
                     <img src="../static/images/nature-macro-1280.jpg">
+                </Col>
+            </Row>
+        </Panel>
+
+
+        <Panel>
+            <Row :wrap="true">
+                <Col :percent="25">
+                <img src="../static/images/nature-macro-1280.jpg">
+                </Col>
+                <Col :percent="25">
+                <img src="../static/images/nature-macro-1280.jpg">
+                </Col>
+                <Col :percent="25">
+                <img src="../static/images/nature-macro-1280.jpg">
+                </Col>
+                <Col :percent="25">
+                <img src="../static/images/nature-macro-1280.jpg">
+                </Col>
+                <Col :percent="25">
+                <img src="../static/images/nature-macro-1280.jpg">
+                </Col>
+                <Col :percent="25">
+                <img src="../static/images/nature-macro-1280.jpg">
+                </Col>
+                <Col :percent="25">
+                <img src="../static/images/nature-macro-1280.jpg">
+                </Col>
+                <Col :percent="25">
+                <img src="../static/images/nature-macro-1280.jpg">
                 </Col>
             </Row>
         </Panel>
