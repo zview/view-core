@@ -6,8 +6,8 @@
         <Page :has-navbar="true" :has-tabbar="true">
             <List>
                 <Item @click.native="_on_goto_page('/demo')" note="Demo">示例</Item>
-                <Item note="Docs">文档</Item>
-                <Item note="Github">源码</Item>
+                <Item @click.native="_on_goto_docs" note="Docs">文档</Item>
+                <Item @click.native="_on_goto_github" note="Github">源码</Item>
             </List>
         </Page>
 
@@ -33,7 +33,15 @@
                 console.log('_on_goto_page', page);
                 let vm = this;
                 vm.$router.push(page);
-            }
+            },
+            _on_goto_docs: function () {
+                console.log('_on_goto_docs');
+                window.location.href = 'http://www.zuv.cc/view/';
+            },
+            _on_goto_github: function () {
+                console.log('_on_goto_github');
+                window.location.href = 'https://github.com/zview/view';
+            },
         },
     }
 </script>
