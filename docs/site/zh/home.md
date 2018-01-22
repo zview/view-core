@@ -24,7 +24,7 @@ title: 首页
 
 [demo](http://www.zuv.cc/view/demo/index.html)
 
-[demo-source](http://www.zuv.cc/view/demo.zip)
+[demo-source](http://www.zuv.cc/view/demo-src.zip)
 
 ### 关于作者
 

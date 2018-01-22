@@ -10,6 +10,16 @@
 
         @include view-m-theme-fg-color();
 
+        .tab-item
+        {
+            .icon.fa
+            {
+                margin: 2px 0;
+                height: 30px;
+                font-size: 30px;
+            }
+        }
+
     }
 
 }

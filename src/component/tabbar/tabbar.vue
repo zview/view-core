@@ -1,12 +1,12 @@
 <template>
 
     <div class="view-tabbar tabs" :class="classes">
-        <a class="tab-item" v-for="(tabItem, index) in tabItems" :key="index"
-           :class="{'has-badge': tabItem.badge && tabItem.badge!='', 'active': activeIndex == index}"
+        <a class="tab-item" v-for="(item, index) in titems" :key="index"
+           :class="{'has-badge': item.badge && item.badge>0, 'active': tindex == index}"
            @click="tabClicked(index)">
-            <i class="badge badge-assertive" v-if="tabItem.badge && tabItem.badge!=''">{{tabItem.badge}}</i>
-            <Icon :icon="tabItem.icon" v-if="tabItem.icon"></Icon>
-            {{tabItem.text}}
+            <i class="badge badge-assertive" v-if="item.badge && item.badge>0">{{item.badge}}</i>
+            <Icon :icon="item.icon" v-if="item.icon"></Icon>
+            {{item.text}}
         </a>
     </div>
 
@@ -62,13 +62,23 @@
             },
             className: String
         },
+        data () {
+            return {
+                titems: this.tabItems,
+                tindex: this.tabIndex,
+            }
+        },
         mounted: function() {
             console.log('mounted');
         },
+        watch: {
+            tabIndex: function (val) {
+                console.log('watch tabIndex', val);
+                let vm = this;
+                vm.tindex = val;
+            }
+        },
         computed: {
-            activeIndex: function () {
-                return this.tabIndex;
-            },
             classes () {
                 return [
                     {
@@ -85,8 +95,9 @@
         },
         methods: {
             tabClicked(index) {
-                if (this.onTabClick) this.onTabClick(index);
-            }
+                let vm = this;
+                if (vm.onTabClick) vm.onTabClick(index);
+            },
         },
     }
 </script>
