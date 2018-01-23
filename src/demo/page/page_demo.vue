@@ -6,7 +6,7 @@
                 :show-back="true" :show-menu="true"></Navbar>
 
         <Page :has-navbar="true">
-            <transition>
+            <transition name="demo">
                 <router-view></router-view>
             </transition>
         </Page>

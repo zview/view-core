@@ -1,10 +1,12 @@
 <template>
     <div view-app>
-        <transition name="page"
+        <transition
             @before-enter="beforePageEnter" @after-enter="afterPageEnter"
             @before-leave="beforePageLeave" @after-leave="afterPageLeave">
             <router-view></router-view>
         </transition>
+
+        <!-- TODO: transition name="page" 存在兼容性问题-->
     </div>
 </template>
 
