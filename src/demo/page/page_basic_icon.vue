@@ -3,29 +3,18 @@
 
         <Panel>{{message}}</Panel>
 
-        <List type="list-inset" header-content="FontAwesome" header-bg-color="positive" header-color="light">
+        <List type="list-card" header-content="FontAwesome" header-bg-color="positive" header-color="light">
             <Item color="calm"><Icon icon="fa-snowflake-o"></Icon>云横秦岭家何在</Item>
             <Item color="calm"><Icon icon="fa-bold"></Icon>雪拥蓝关马不前</Item>
         </List>
 
-        <List type="list-inset" header-content="Ionic" header-bg-color="positive" header-color="light">
+        <List type="list-card" header-content="Ionic" header-bg-color="positive" header-color="light">
             <Item color="calm"><Icon icon="ion-xbox"></Icon>云横秦岭家何在</Item>
             <Item color="calm"><Icon icon="ion-aperture"></Icon>雪拥蓝关马不前</Item>
             <Item color="calm"><Icon icon="ion-chevron-right"></Icon>雪拥蓝关马不前</Item>
         </List>
 
-        <List type="list-inset" header-content="FontAwesome的style样式" header-bg-color="positive" header-color="light">
-            <Item color="calm"><Icon icon="fa-snowflake-o" style="font-size:48px;"></Icon>font-size:48px;</Item>
-            <Item color="calm"><Icon icon="fa-snowflake-o" style="font-size:60px;color:red;"></Icon>font-size:60px;color:red;</Item>
-        </List>
-
-        <List type="list-inset" header-content="FontAwesome大小" header-bg-color="positive" header-color="light">
-            <Item color="calm"><Icon icon="fa-snowflake-o" size="lg"></Icon>lg</Item>
-            <Item color="calm"><Icon icon="fa-snowflake-o" size="2x"></Icon>2x</Item>
-            <Item color="calm"><Icon icon="fa-snowflake-o" size="5x"></Icon>5x</Item>
-        </List>
-
-        <List type="list-inset" header-content="FontAwesome动画" header-bg-color="positive" header-color="light">
+        <List type="list-card" header-content="FontAwesome动画" header-bg-color="positive" header-color="light">
             <Item color="calm"><Icon icon="fa-spinner" type="spin"></Icon>spin</Item>
             <Item color="calm"><Icon icon="fa-circle-o-notch" type="spin"></Icon>spin</Item>
             <Item color="calm"><Icon icon="fa-refresh" type="spin"></Icon>spin</Item>
@@ -33,7 +22,20 @@
             <Item color="calm"><Icon icon="fa-spinner" type="pulse"></Icon>pulse</Item>
         </List>
 
-        <List type="list-inset" header-content="FontAwesome变形" header-bg-color="positive" header-color="light">
+        <List type="list-card" header-content="FontAwesome的style样式" header-bg-color="positive" header-color="light">
+            <Item color="calm"><Icon icon="fa-snowflake-o" style="font-size:48px;"></Icon>font-size:48px;</Item>
+            <Item color="calm"><Icon icon="fa-snowflake-o" style="font-size:60px;color:red;"></Icon>font-size:60px;color:red;</Item>
+        </List>
+
+        <List type="list-card" header-content="FontAwesome大小" header-bg-color="positive" header-color="light">
+            <Item color="calm"><Icon icon="fa-snowflake-o" size="lg"></Icon>lg</Item>
+            <Item color="calm"><Icon icon="fa-snowflake-o" size="2x"></Icon>2x</Item>
+            <Item color="calm"><Icon icon="fa-snowflake-o" size="5x"></Icon>5x</Item>
+        </List>
+
+
+
+        <List type="list-card" header-content="FontAwesome变形" header-bg-color="positive" header-color="light">
             <Item color="calm"><Icon icon="fa-shield"></Icon></Item>
             <Item color="calm"><Icon icon="fa-shield" type="rotate-90"></Icon>rotate-90</Item>
             <Item color="calm"><Icon icon="fa-shield" type="rotate-180"></Icon>rotate-180</Item>
