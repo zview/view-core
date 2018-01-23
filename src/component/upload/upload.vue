@@ -10,7 +10,7 @@
                 {{label}}
             </span>
 
-            <div class="view-upload-item view-input" :class="classes"
+            <div class="view-upload-item view-input" :class="upload_classes"
                  @drop.prevent="_on_file_drop"
                  @dragover.prevent="dragOver = true"
                  @dragleave.prevent="dragOver = false">
@@ -27,7 +27,7 @@
 
         </div>
 
-        <UploadList v-if="showUploadList"
+        <UploadList v-if="showUploadList & fileList.length>0"
                     :files="fileList"
                     @on-file-remove="handleListRemove"
                     @on-file-preview="handleListPreview">
@@ -44,7 +44,7 @@
 <script>
 
     //
-    import { oneOf, insideIonic } from '../utils';
+    import { oneOf, insideIonic, insideColor } from '../utils';
     import Emitter from '../../mixins/emitter';
     import XmlHttp from './xmlhttp';
     import UploadList from './upload-list.vue';
@@ -74,6 +74,16 @@
                 }
             },
             labelClassName: String,
+            color: {
+                validator (value) {
+                    return insideColor(value);
+                }
+            },
+            bgColor: {
+                validator (value) {
+                    return insideColor(value);
+                }
+            },
             action: {  //上传地址
                 type: String,
                 required: true
@@ -218,20 +228,15 @@
             input_id: function () {
                 return 'view-upload-input-'+(Math.random() * 10000 + '').split('.')[0];
             },
-            classes () {
+            upload_classes () {
                 return [
                     `${prefixCls}`,
                     {
+                        [`${this.color}`]: !!this.color,
+                        [`${this.bgColor}-bg`]: !!this.bgColor,
                         [`${prefixCls}-select`]: this.type === 'select',
                         [`${prefixCls}-drag`]: this.type === 'drag',
                         [`${prefixCls}-dragOver`]: this.type === 'drag' && this.dragOver
-                    }
-                ];
-            },
-            upload_label_classes () {
-                return [
-                    {
-                        [`${this.uploadLabelClassName}`]: !!this.uploadLabelClassName
                     }
                 ];
             },
@@ -240,6 +245,13 @@
                     {
                         [`fg-${this.labelColor}`]: !!this.labelColor,
                         [`${this.labelClassName}`]: !!this.labelClassName
+                    }
+                ];
+            },
+            upload_label_classes () {
+                return [
+                    {
+                        [`${this.uploadLabelClassName}`]: !!this.uploadLabelClassName
                     }
                 ];
             },

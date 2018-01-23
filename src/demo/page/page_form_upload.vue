@@ -53,9 +53,6 @@
 
 <script>
 
-    import imageexif from '../../util/image-exif';
-    import imagecomp from '../../util/image-compressor';
-
     const ACTION_1 = '//jsonplaceholder.typicode.com/posts/';
     const ACTION_2 = 'http://gslb-mykid.xbdedu.cn/file';
 

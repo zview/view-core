@@ -3,40 +3,38 @@
 
         <Form>
             <Input type="text"  placeholder="图标文字"
-                   color="balanced" bg-color="dark"
+                   color="balanced" bg-color="stable"
                    label-color="positive"
                    label-icon="ion-android-person"
                    label="姓名" v-model="textval"/>
 
             <Input type="text" placeholder="只有图标"
-                   color="balanced" bg-color="dark"
+                   color="balanced" bg-color="stable"
                    label-color="positive"
                    label-icon="ion-android-person"/>
 
             <Input type="text" placeholder="只有文字"
-                   color="balanced" bg-color="dark"
+                   color="balanced" bg-color="stable"
                    label-color="positive"
                    label="籍贯"/>
 
-            <Input type="password"
+            <Input type="password" bg-color="stable"
                    label-icon="ion-ios-unlocked-outline" label="密码"/>
 
-            <Input type="tel" label-icon="fa-phone" label="电话"/>
-            <Input type="url" label="网址"/>
-            <Input type="email" label="邮箱"/>
-            <Input type="number" label="数字"/>
-            <Input type="date" label="日期"/>
-            <Input type="time" label="时间"/>
-            <Input type="color" label="颜色"/>
+            <Input type="tel" bg-color="stable" label-icon="fa-phone" label="电话"/>
+            <Input type="url" bg-color="stable" label="网址"/>
+            <Input type="email" bg-color="stable" label="邮箱"/>
+            <Input type="number" bg-color="stable" label="数字"/>
+            <Input type="date" bg-color="stable" label="日期"/>
+            <Input type="time" bg-color="stable" label="时间"/>
+            <Input type="color" bg-color="stable" label="颜色"/>
 
-            <Upload accept="*/*" label="文件"
+            <Upload accept="*/*" label="文件" bg-color="stable"
                     action="//" :show-upload-list="false">
                 <Icon icon="ion-ios-plus-outline"></Icon>
             </Upload>
 
-            <Input type="textarea" label="描述" placeholder="默认文本区域"/>
-            <Input type="textarea" color="balanced" v-model="textareaval"/>
-
+            <Input type="textarea" label="描述" bg-color="stable" placeholder="默认文本区域" v-model="textareaval"/>
 
             <Search color="balanced" bg-color="dark" v-model="search_val"></Search>
             <Toggle color="positive" v-model="toggle_val" :label="'禁用' + toggle_val"></Toggle>
