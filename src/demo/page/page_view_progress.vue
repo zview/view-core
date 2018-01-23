@@ -4,6 +4,7 @@
         <Row>
             <Col>
                 <Progress :percent="10"></Progress>
+                <Progress :percent="100"></Progress>
             </Col>
         </Row>
 

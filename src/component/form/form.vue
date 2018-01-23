@@ -11,7 +11,7 @@
     import { oneOf, insideIonic } from '../utils';
 
     export default {
-        name: 'List',
+        name: 'Form',
         props: {
             type: {
                 validator (value) {
@@ -20,6 +20,11 @@
             },
             title: [String, Number],
             className: String
+        },
+        mounted () {
+            let vm = this;
+            vm.$on('on-form-item-change', vm.onFieldChange);
+
         },
         computed: {
             classes () {
@@ -30,7 +35,12 @@
                     }
                 ];
             },
-        }
+        },
+        methods: {
+            onFieldChange: function () {
+
+            },
+        },
     }
 
 </script>

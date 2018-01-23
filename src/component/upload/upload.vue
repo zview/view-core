@@ -1,23 +1,38 @@
 <template>
 
-    <div class="view_upload_item" :class="classes"
-         @drop.prevent="_on_file_drop"
-         @dragover.prevent="dragOver = true"
-         @dragleave.prevent="dragOver = false">
-        <input :id="input_id" type="file"
-               :accept="accept" :multiple="multiple"
-               @change="_on_file_change" ref="input-element">
-        <label class="view_upload_label" :for="input_id" :class="label_classes">
-            <slot></slot>
-        </label>
-        <slot name="tip"></slot>
 
-        <UploadList
-            v-if="showUploadList"
-            :files="fileList"
-            @on-file-remove="handleRemove"
-            @on-file-preview="handlePreview">
+    <div class="view-input-wrapper">
+
+        <div class="view-input-item item item-input">
+
+            <span class="view-input-label input-label" :class="label_classes" v-if="label || labelIcon">
+                <Icon :icon="labelIcon" v-if="labelIcon"></Icon>
+                {{label}}
+            </span>
+
+            <div class="view-upload-item view-input" :class="classes"
+                 @drop.prevent="_on_file_drop"
+                 @dragover.prevent="dragOver = true"
+                 @dragleave.prevent="dragOver = false">
+
+                <input :id="input_id" type="file"
+                       :accept="accept" :multiple="multiple"
+                       @change="_on_file_change" ref="input-element">
+                <label class="view-upload-label" :for="input_id" :class="upload_label_classes">
+                    <slot></slot>
+                </label>
+                <slot name="tip"></slot>
+
+            </div>
+
+        </div>
+
+        <UploadList v-if="showUploadList"
+                    :files="fileList"
+                    @on-file-remove="handleListRemove"
+                    @on-file-preview="handleListPreview">
         </UploadList>
+
     </div>
 
     <!--触发方式-->
@@ -28,18 +43,37 @@
 
 <script>
 
+    //
     import { oneOf, insideIonic } from '../utils';
     import Emitter from '../../mixins/emitter';
     import XmlHttp from './xmlhttp';
     import UploadList from './upload-list.vue';
 
+    import imageexif from '../../util/image-exif';
+    import imagecomp from '../../util/image-compressor';
+
+    //
     const prefixCls = 'view-upload';
+
+    //
+    const KB = 1024;
+    const COMPRESS_MAX_WIDTH    = 1280;
+    const COMPRESS_MAX_HEIGHT   = 960;
+    const COMPRESS_MAX_QUALITY  = 0.9;
 
     export default {
         name : 'Upload',
         mixins: [ Emitter ],
         components: { UploadList },
         props : {
+            label: [Number, String],
+            labelIcon: String,
+            labelColor: {
+                validator (value) {
+                    return insideIonic(value);
+                }
+            },
+            labelClassName: String,
             action: {  //上传地址
                 type: String,
                 required: true
@@ -72,20 +106,19 @@
                 type: Boolean,
                 default: false
             },
-            showUploadList: {
-                type: Boolean,
-                default: true
-            },
             multiple: { //多文件上传
                 type: Boolean,
                 default: false
             },
-            type: { //
+            type: { //方式
                 type: String,
                 validator (value) {
                     return oneOf(value, ['select', 'drag'], true);
                 },
                 default: 'select'
+            },
+            accept: { //允许的上传类型  (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept)
+                type: String
             },
             format: { //允许的文件扩展名
                 type: Array,
@@ -93,73 +126,89 @@
                     return [];
                 }
             },
-            accept: { //允许的上传类型  (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept)
-                type: String
-            },
-            perSize: { //单个文件大小限制，单位 kb
+            perSize: { //单个文件大小限制，单位 KB
                 type: Number
             },
-            maxSize: { //文件大小限制，单位 kb
+            maxSize: { //文件大小限制，单位 KB
                 type: Number
             },
             maxNum: { //文件个数限制
                 type: Number
             },
-            onProgress: {
+
+            //
+            compress: { //压缩
+                type: Boolean,
+                default: false
+            },
+            compressMaxWidth: {
+                type: Number,
+                default: COMPRESS_MAX_WIDTH,
+            },
+            compressMaxHeight: {
+                type: Number,
+                default: COMPRESS_MAX_HEIGHT,
+            },
+            compressMaxQuality: {
+                type: Number,
+                default: COMPRESS_MAX_QUALITY,
+            },
+
+            //
+            onItemPrepare: { //单个文件开始
                 type: Function,
                 default () {
                     return {};
                 }
             },
-            onSuccess: {
+            onItemProgress: { //单个文件进度
                 type: Function,
                 default () {
                     return {};
                 }
             },
-            onError: {
+            onItemSuccess: { //单个文件成功
                 type: Function,
                 default () {
                     return {};
                 }
             },
-            onRemove: {
+            onItemError: { //单个文件失败
                 type: Function,
                 default () {
                     return {};
                 }
             },
-            onPreview: {
-                type: Function,
-                default () {
-                    return {};
-                }
-            },
-            onExceededSize: {
-                type: Function,
-                default () {
-                    return {};
-                }
-            },
-            onFormatError: {
-                type: Function,
-                default () {
-                    return {};
-                }
-            },
-            defaultFileList: {
+
+            initFileList: {  //初始的文件列表
                 type: Array,
                 default() {
                     return [];
                 }
             },
-            labelClassName: String,
+            showUploadList: { //显示上传列表
+                type: Boolean,
+                default: true
+            },
+            onListRemove: { //上传列表中删除
+                type: Function,
+                default () {
+                    return {};
+                }
+            },
+            onListPreview: { //上传列表中预览
+                type: Function,
+                default () {
+                    return {};
+                }
+            },
+            uploadLabelClassName: String,
         },
         data () {
             return {
                 dragOver: false,
-                fileList: [],
-                tempIndex: 1
+                fileList: [],  //上传文件列表
+                tmpIndex: 1,  //待上传文件索引
             };
         },
         mounted: function() {
@@ -179,22 +228,30 @@
                     }
                 ];
             },
+            upload_label_classes () {
+                return [
+                    {
+                        [`${this.uploadLabelClassName}`]: !!this.uploadLabelClassName
+                    }
+                ];
+            },
             label_classes () {
                 return [
                     {
+                        [`fg-${this.labelColor}`]: !!this.labelColor,
                         [`${this.labelClassName}`]: !!this.labelClassName
                     }
                 ];
             },
         },
         watch: {
-            defaultFileList: {
+            initFileList: {
                 immediate: true,
                 handler(fileList) {
                     this.fileList = fileList.map(item => {
                         item.status = 'finished';
                         item.percentage = 100;
-                        item.uid = Date.now() + this.tempIndex++;
+                        item.uid = Date.now() + this.tmpIndex++;
                         return item;
                     });
                 }
@@ -235,14 +292,14 @@
                 //校验文件
                 if(!files || files.length<=0 || !files[0])
                 {
-                    vm.$emit('terminate', '读取文件发生错误');
+                    vm.$emit('terminate', null, '读取文件发生错误');
                     return false;
                 }
 
                 //校验文件个数
                 if(vm.multiple && vm.maxNum && vm.maxNum>1 && files.length>vm.maxNum)
                 {
-                    vm.$emit('terminate', '文件个数超出限制: ' + files.length + '/' + vm.maxNum);
+                    vm.$emit('terminate', null, '文件个数超出限制: ' + files.length + ' > ' + vm.maxNum);
                     return false;
                 }
 
@@ -254,21 +311,22 @@
                 }
 
                 //校验文件大小
-                if(vm.maxSize && vm.maxSize>0 && totalsize>vm.maxSize * 1024)
+                if(vm.maxSize && vm.maxSize>0 && totalsize>vm.maxSize * KB)
                 {
-                    vm.$emit('terminate', '文件大小超出范围: ' + totalsize + '/' + vm.maxSize * 1024);
+                    vm.$emit('terminate', null, '文件大小超出范围: ' + totalsize + '>' + vm.maxSize * KB);
                     return false;
                 }
 
                 //上传文件
                 vm.$emit('prepare');
-                let postFiles = Array.prototype.slice.call(files);
-                if (!vm.multiple) postFiles = postFiles.slice(0, 1);
-                if (postFiles.length === 0) return false;
-
-                postFiles.forEach(file => {
-                    vm._on_handle_file(file);
-                });
+                let _files = Array.prototype.slice.call(files);
+                if (!vm.multiple) _files = _files.slice(0, 1);
+                if (_files.length > 0)  {
+                    _files.forEach(file => {
+                        vm._on_handle_file(file);
+                    });
+                }
+                vm.$emit('finish');
 
                 //
                 vm.$refs['input-element'].value = null;
@@ -283,60 +341,113 @@
                     const _file_format = file.name.split('.').pop().toLocaleLowerCase();
                     const checked = vm.format.some(item => item.toLocaleLowerCase() === _file_format);
                     if (!checked) {
-                        vm.onFormatError(file, vm.fileList);
+                        vm.$emit('terminate', file, '文件格式不被允许: ' + _file_format + ' not in ' + vm.format);
                         return false;
                     }
                 }
 
                 // check size
                 if (vm.perSize) {
-                    if (file.size > vm.perSize * 1024) {
-                        vm.onExceededSize(file, vm.fileList);
+                    if (file.size > vm.perSize * KB) {
+                        vm.$emit('terminate', file, '文件大小超出范围: ' + file.size + ' > ' + vm.perSize * KB);
                         return false;
                     }
                 }
 
-                //
+                // 开始上传
                 vm.handleStart(file);
-                let formData = new FormData();
-                formData.append(vm.name, file);
 
-                XmlHttp({
-                    headers: vm.headers,
-                    crossDomain: vm.crossDomain,
-                    withCredentials: vm.withCredentials,
-                    file: file,
-                    data: vm.data,
-                    filename: vm.name,
-                    action: vm.action,
-                    method: vm.method,
-                    onProgress: e => {
-                        vm.handleProgress(e, file);
-                    },
-                    onSuccess: res => {
-                        vm.handleSuccess(res, file);
-                    },
-                    onError: (err, response) => {
-                        vm.handleError(err, response, file);
-                    }
+                if(vm.compress) {
+                    //
+                    vm._switch_render_image(file,function (blob) {
+
+                        XmlHttp({
+                            headers: vm.headers,
+                            crossDomain: vm.crossDomain,
+                            withCredentials: vm.withCredentials,
+                            blob: blob,
+                            data: vm.data,
+                            filename: vm.name,
+                            action: vm.action,
+                            method: vm.method,
+                            onProgress: err => {
+                                vm.handleProgress(err, file);
+                            },
+                            onSuccess: res => {
+                                vm.handleSuccess(res, file);
+                            },
+                            onError: (err, res) => {
+                                vm.handleError(err, res, file);
+                            }
+                        });
+
+                    });
+                }
+                else {
+                    XmlHttp({
+                        headers: vm.headers,
+                        crossDomain: vm.crossDomain,
+                        withCredentials: vm.withCredentials,
+                        file: file,
+                        data: vm.data,
+                        filename: vm.name,
+                        action: vm.action,
+                        method: vm.method,
+                        onProgress: err => {
+                            vm.handleProgress(err, file);
+                        },
+                        onSuccess: res => {
+                            vm.handleSuccess(res, file);
+                        },
+                        onError: (err, res) => {
+                            vm.handleError(err, res, file);
+                        }
+                    });
+                }
+
+            },
+
+            //
+            _switch_render_image: function (file, callback) {
+                console.log('_switch_render_image');
+                let vm = this;
+
+                //非iPhone做压缩操作
+                if (!navigator.userAgent.match(/iphone/i)) {
+                    imagecomp._render_image_to_blob(file, vm.compressMaxWidth, vm.compressMaxHeight,
+                        vm.compressMaxQuality, null, callback);
+                    return;
+                }
+
+                //iPhone做旋转且压缩操作
+                imageexif.getData(file, function() {
+                    let metaall = imageexif.getAllTags(this);
+                    console.log('metaall', metaall);
+                    let orientation = imageexif.getTag(this, 'Orientation');
+                    console.log('orientation', orientation);
+                    imagecomp._render_image_to_blob(file, vm.compressMaxWidth, vm.compressMaxHeight,
+                        vm.compressMaxQuality, orientation, callback);
                 });
             },
 
+            //
             getFile (file) {
                 let vm = this;
 
-                const fileList = vm.fileList;
+                const _files = vm.fileList;
                 let target;
-                fileList.every(item => {
+                _files.every(item => {
                     target = file.uid === item.uid ? item : null;
                     return !target;
                 });
                 return target;
             },
+
+            //
             handleStart (file) {
                 let vm = this;
 
-                file.uid = Date.now() + vm.tempIndex++;
+                file.uid = Date.now() + vm.tmpIndex++;
                 const _file = {
                     status: 'uploading',
                     name: file.name,
@@ -346,74 +457,77 @@
                     showProgress: true
                 };
                 vm.fileList.push(_file);
+                vm.onItemPrepare(_file);
             },
-            handleProgress (e, file) {
+            handleProgress (err, file) {
                 let vm = this;
-
                 const _file = vm.getFile(file);
-                vm.onProgress(e, _file, vm.fileList);
-                _file.percentage = e.percent || 0;
+                const _files = vm.fileList;
+
+                vm.onItemProgress(err, _file, _files);
+                _file.percentage = err.percent || 0;
             },
             handleSuccess (res, file) {
                 let vm = this;
-
                 const _file = vm.getFile(file);
+                const _files = vm.fileList;
+
                 if (_file) {
                     _file.status = 'finished';
                     _file.response = res;
 
-                    vm.dispatch('FormItem', 'on-form-change', _file);
-                    vm.onSuccess(res, _file, vm.fileList);
+                    vm.dispatch('Form', 'on-form-item-change', _file);
+                    vm.onItemSuccess(res, _file, _files);
 
                     setTimeout(() => {
                         _file.showProgress = false;
                     }, 1000);
                 }
             },
-            handleError (err, response, file) {
+            handleError (err, res, file) {
                 let vm = this;
-
                 const _file = vm.getFile(file);
-                const fileList = vm.fileList;
+                const _files = vm.fileList;
+
                 _file.status = 'fail';
-                fileList.splice(fileList.indexOf(_file), 1);
-
-                vm.onError(err, response, file);
+                _files.splice(_files.indexOf(_file), 1);
+                vm.onItemError(err, res, file);
             },
 
-            handleRemove(file) {
-                let vm = this;
 
-                const fileList = vm.fileList;
-                fileList.splice(fileList.indexOf(file), 1);
-                vm.onRemove(file, fileList);
+            //
+            clearFileList() {
+                let vm = this;
+                vm.fileList = [];
             },
-            handlePreview(file) {
-                let vm = this;
 
+            //列表的操作
+            handleListRemove(file) {
+                let vm = this;
+                const _files = vm.fileList;
+                _files.splice(_files.indexOf(file), 1);
+                vm.onListRemove(file, _files);
+            },
+            handleListPreview(file) {
+                let vm = this;
                 if (file.status === 'finished') {
-                    vm.onPreview(file);
+                    vm.onListPreview(file);
                 }
             },
-            clearFiles() {
-                let vm = this;
-
-                vm.fileList = [];
-            }
         }
     }
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
 
-    .view_upload_item
+    .view-upload-item
     {
         input[type="file"]
         {
             display: none;
         }
 
-        label.view_upload_label
+        label.view-upload-label
         {
             display: inline-block;
             position: relative;

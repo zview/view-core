@@ -29,6 +29,11 @@
             <Input type="time" label="时间"/>
             <Input type="color" label="颜色"/>
 
+            <Upload accept="*/*" label="文件"
+                    action="//" :show-upload-list="false">
+                <Icon icon="ion-ios-plus-outline"></Icon>
+            </Upload>
+
             <Input type="textarea" label="描述" placeholder="默认文本区域"/>
             <Input type="textarea" color="balanced" v-model="textareaval"/>
 

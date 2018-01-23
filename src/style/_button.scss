@@ -60,6 +60,18 @@
     @include view-m-theme-fg-color();
     @include view-m-theme-bg-color();
 
+    &.button.fa
+    {
+        line-height: 42px;
+        font-size: 16px;
+    }
+
+    &.button.button-small.fa
+    {
+        line-height: 26px;
+        font-size: 12px;
+    }
+
     // Fab Button
     &.button-fab
     {

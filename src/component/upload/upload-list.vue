@@ -1,21 +1,21 @@
 <template>
-    <ul :class="[prefixCls + '-list']">
+    <ul :class="[prefixCls + '-list', 'item']">
         <li
             v-for="file in files"
-            :class="fileCls(file)"
-            @click="handleClick(file)">
+            :class="fileCls(file)">
             <span @click="handlePreview(file)">
                 <Icon :icon="format(file)"></Icon> {{ file.name }}
             </span>
             <Icon
-                icon="ios-close-empty"
+                icon="ion-backspace"
                 :class="[prefixCls + '-list-remove']"
                 v-show="file.status === 'finished'"
                 @click.native="handleRemove(file)"></Icon>
+            <br/>
             <transition name="fade">
                 <Progress
                     v-if="file.showProgress"
-                    :stroke-width="2"
+                    :stroke-width="3"
                     :percent="parsePercentage(file.percentage)"
                     :status="file.status === 'finished' && file.showProgress ? 'success' : 'normal'">
                 </Progress>
@@ -51,9 +51,6 @@
                     }
                 ];
             },
-            handleClick (file) {
-                this.$emit('on-file-click', file);
-            },
             handlePreview (file) {
                 this.$emit('on-file-preview', file);
             },
@@ -62,25 +59,31 @@
             },
             format (file) {
                 const format = file.name.split('.').pop().toLocaleLowerCase() || '';
-                let type = 'document';
+                let type = 'fa-file-o';
 
                 if (['gif','jpg','jpeg','png','bmp','webp'].indexOf(format) > -1) {
-                    type = 'image';
+                    type = 'fa-file-image-o';
                 }
                 if (['mp4','m3u8','rmvb','avi','swf','3gp','mkv','flv'].indexOf(format) > -1) {
-                    type = 'ios-film';
+                    type = 'fa-file-video-o';
                 }
                 if (['mp3','wav','wma','ogg','aac','flac'].indexOf(format) > -1) {
-                    type = 'ios-musical-notes';
+                    type = 'fa-file-audio-o';
                 }
-                if (['doc','txt','docx','pages','epub','pdf'].indexOf(format) > -1) {
-                    type = 'document-text';
+                if (['txt'].indexOf(format) > -1) {
+                    type = 'fa-file-text-o';
+                }
+                if (['pdf'].indexOf(format) > -1) {
+                    type = 'fa-file-pdf-o';
+                }
+                if (['doc','docx','pages','epub'].indexOf(format) > -1) {
+                    type = 'fa-file-word-o';
                 }
                 if (['numbers','csv','xls','xlsx'].indexOf(format) > -1) {
-                    type = 'stats-bars';
+                    type = 'fa-file-excel-o';
                 }
                 if (['keynote','ppt','pptx'].indexOf(format) > -1) {
-                    type = 'ios-videocam';
+                    type = 'fa-file-powerpoint-o';
                 }
 
                 return type;
@@ -91,3 +94,13 @@
         }
     };
 </script>
+
+
+<style lang="scss" rel="stylesheet/scss" scoped>
+
+    ul.view-upload-list
+    {
+
+    }
+
+</style>

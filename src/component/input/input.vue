@@ -345,7 +345,6 @@ step	    规定输入字段的合法数字间隔。
             },*/
         },
 
-
         methods: {
             clear(value) {
                 this.$refs.input.blur();

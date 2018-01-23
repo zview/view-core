@@ -3,39 +3,48 @@
 
         <List>
 
-            <Item>
-                <Upload action="http://ysbd-dev.xbdedu.cn/api/file/?filetype=4"
-                        @terminate="_on_upload_terminate"
-                        @prepare="_on_upload_prepare"
-                        :on-success="_on_upload_success">
+            <Item>{{message}}</Item>
 
-                    <Button type="outline" color="positive" icon="fa-cloud">单文件</Button>
+            <Upload accept="*/*" label="单文件上传"
+                    :action="action"
+                    :cross-domain="false"
+                    :headers="headers"
+                    :data="data"
+                    :show-upload-list="true"
+                    @terminate="_on_upload_terminate"
+                    @prepare="_on_upload_prepare"
+                    @finish="_on_upload_finish">
 
-                </Upload>
-            </Item>
+                <Icon icon="ion-ios-plus-outline"></Icon>
 
-            <Item>
-                <Upload action="http://ysbd-dev.xbdedu.cn/api/file/?filetype=4"
-                        accept="image/*"
-                        :data="{'filetype': 4}"
-                        :format="['jpg','jpeg','png']"
-                        :per-size="10 * 1024 * 1024"
-                        :max-size="10 * 1024 * 1024 * 4"
-                        :max-num="4"
-                        :on-progress="_on_upload_progress"
-                        :on-success="_on_upload_success"
-                        :on-error="_on_upload_error"
-                        :on-preview="_on_file_preview"
-                        :on-remove="_on_file_remove"
-                        :on-format-error="_on_file_format_error"
-                        :on-exceeded-size="_on_file_exceeded_size"
-                        @terminate="_on_upload_terminate"
-                        @prepare="_on_upload_prepare" multiple>
+            </Upload>
 
-                    <Button type="outline" color="positive" icon="fa-cloud">多文件</Button>
+            <Upload accept="image/*" label="多文件上传"
+                    :action="action"
+                    :cross-domain="false"
+                    :headers="headers"
+                    :data="data"
+                    :format="['jpg','jpeg']"
+                    :per-size="4 * 1024"
+                    :max-size="16 * 1024"
+                    :max-num="4"
+                    :compress="true"
+                    :show-upload-list="true"
+                    :init-file-list="init_file_list"
+                    :on-item-prepare="_on_item_prepare"
+                    :on-item-progress="_on_item_progress"
+                    :on-item-success="_on_item_success"
+                    :on-item-error="_on_item_error"
+                    :on-list-preview="_on_list_preview"
+                    :on-list-remove="_on_list_remove"
+                    @terminate="_on_upload_terminate"
+                    @prepare="_on_upload_prepare"
+                    @finish="_on_upload_finish"
+                    multiple>
 
-                </Upload>
-            </Item>
+                <Icon icon="ion-ios-plus-outline"></Icon>
+
+            </Upload>
 
         </List>
 
@@ -44,111 +53,78 @@
 
 <script>
 
-    import ExifImage from '../../util/image-exif';
-    import compressor from '../../util/image-compressor';
+    import imageexif from '../../util/image-exif';
+    import imagecomp from '../../util/image-compressor';
+
+    const ACTION_1 = '//jsonplaceholder.typicode.com/posts/';
+    const ACTION_2 = 'http://gslb-mykid.xbdedu.cn/file';
 
     export default {
         data () {
             return {
                 message: '文件上传',
+
+                action: ACTION_2,
+                headers: { 'Authorization':'Token 1234' },
+                data: {'filetype': 4},
+                init_file_list: [{'name': '1.jpg'},{'name': '2.ppt'}],
             }
         },
         methods: {
-            _on_upload_terminate(message) {
-                console.log('_on_upload_terminate', message);
+
+            //整个过程
+            _on_upload_terminate(file, message) {
+                console.log('_on_upload_terminate', file, message);
+                let vm = this;
+
                 //显示提示信息并关闭进度条
+                vm.$toast.show(message, 1000).then(() => {
+                    console.log('toast hide');
+                });
             },
             _on_upload_prepare () {
                 console.log('_on_upload_prepare');
                 //打开进度条
             },
-
-            _on_upload_progress: function (event, file, fileList) {
-                console.log('_on_upload_progress', event.percent, event.loaded, event.total);
-
-            },
-            _on_upload_success: function (response, file, fileList) {
-                console.log('_on_upload_success', response, file, fileList);
-
-            },
-            _on_upload_error: function (error, file, fileList) {
-                console.log('_on_upload_error', error, file, fileList);
-
+            _on_upload_finish () {
+                console.log('_on_upload_finish');
+                //显示提示信息并关闭进度条
             },
 
-            _on_file_preview: function (file) {
-                console.log('_on_file_preview', file);
+            //单个文件
+            _on_item_prepare: function (file) {
+                console.log('_on_item_prepare', file);
 
             },
-            _on_file_remove: function (file, fileList) {
-                console.log('_on_file_remove', file, fileList);
+            _on_item_progress: function (event, file, files) {
+                console.log('_on_item_progress', event.percent, event.loaded, event.total, file, files);
 
             },
-            _on_file_format_error: function (file, fileList) {
-                console.log('_on_file_format_error', file, fileList);
+            _on_item_success: function (res, file, files) {
+                console.log('_on_item_success', res, file, files);
 
             },
-            _on_file_exceeded_size: function (file, fileList) {
-                console.log('_on_file_exceeded_size', file, fileList);
+            _on_item_error: function (err, file, files) {
+                console.log('_on_item_error', err, file, files);
 
             },
 
-
-
-            /*_on_upload_progress (progress, eventid) {
-                console.log('_on_upload_progress', progress, eventid);
-                //刷新进度条
-            },
-            _on_upload_fileprev (file, eventid) {
-                console.log('_on_upload_fileprev', file, eventid);
-                //预览图片
-            },
-            _on_upload_complete(file, eventid) {
-                console.log('_on_upload_complete', file, eventid);
-                var vm = this;
-
-                //
-                vm._switch_render_image(file,function (blob) {
-
-                    //构造Form
-                    const formdata = new FormData();
-                    formdata.append('file', blob);
-
-                    //执行上传
-                    vm._exec_http_upload_file(eventid, formdata);
-                });
-
-            },*/
-
-
-
-
-            _switch_render_image: function (file, callback) {
-                console.log('_switch_render_image');
-
-                let max_width = 1280;
-                let max_height = 960;
-                let max_quality = 0.9;
-
-                if (!navigator.userAgent.match(/iphone/i)) {
-                    compressor._render_image_to_blob(file, max_width, max_height, max_quality, null, callback);
-                    return;
-                }
-
-                ExifImage.getData(file, function() {
-                    let metaall = ExifImage.getAllTags(this);
-                    console.log('metaall', metaall);
-                    let orientation = ExifImage.getTag(this, 'Orientation');
-                    console.log('orientation', orientation);
-                    compressor._render_image_to_blob(file, max_width, max_height, max_quality, orientation, callback);
+            //文件列表
+            _on_list_preview: function (file) {
+                console.log('_on_list_preview', file);
+                let vm = this;
+                vm.$toast.show('文件列表预览', 1000).then(() => {
+                    console.log('toast hide');
                 });
             },
-            _exec_http_upload_file: function (eventid, formdata) {
-                console.log('_exec_http_upload_file', eventid, formdata);
-
-                //执行上传
-                console.log('执行上传');
+            _on_list_remove: function (file, files) {
+                console.log('_on_list_remove', file, files);
+                let vm = this;
+                vm.$toast.show('文件列表移除', 1000).then(() => {
+                    console.log('toast hide');
+                });
             },
+
         },
     }
 </script>
