@@ -529,6 +529,7 @@
     {
         .view-upload-wrapper
         {
+            width: 100%;
             padding: 13px 15px;
         }
     }

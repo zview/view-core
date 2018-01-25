@@ -1,15 +1,10 @@
 @import "base";
 
 
-.view-upload
+.view-upload-wrapper
 {
     @include view-m-theme-fg-color();
     @include view-m-theme-bg-color();
 
-    &.view-input
-    {
-        width: 100%;
-        font-size: 26px;
-    }
 
 }

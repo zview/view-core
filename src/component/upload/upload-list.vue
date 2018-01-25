@@ -100,11 +100,11 @@
 
     .view-upload-list-files
     {
-        margin: 10px 0;
+        margin: 5px 0;
 
         .view-upload-list-file
         {
-            padding: 15px 0;
+            padding: 2px 0;
 
             span.view-upload-list-file-label
             {
