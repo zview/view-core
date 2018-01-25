@@ -1,9 +1,9 @@
 <template>
-    <ul :class="[prefixCls + '-list', 'item']">
-        <li
+    <div :class="[prefixCls + '-list-files']">
+        <div
             v-for="file in files"
             :class="fileCls(file)">
-            <span @click="handlePreview(file)">
+            <span @click="handlePreview(file)" class="view-upload-list-file-label" style="font-size: 15px;">
                 <Icon :icon="format(file)"></Icon> {{ file.name }}
             </span>
             <Icon
@@ -20,8 +20,8 @@
                     :status="file.status === 'finished' && file.showProgress ? 'success' : 'normal'">
                 </Progress>
             </transition>
-        </li>
-    </ul>
+        </div>
+    </div>
 </template>
 <script>
 
@@ -98,8 +98,19 @@
 
 <style lang="scss" rel="stylesheet/scss" scoped>
 
-    ul.view-upload-list
+    .view-upload-list-files
     {
+        margin: 10px;
+
+        .view-upload-list-file
+        {
+            padding: 15px 0;
+
+            span.view-upload-list-file-label
+            {
+                font-size: 15px;
+            }
+        }
 
     }
 

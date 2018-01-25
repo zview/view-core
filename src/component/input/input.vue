@@ -85,6 +85,8 @@
                    @blur="blur($event)"
                    :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
 
+            <slot></slot>
+
         </div>
 
 
@@ -170,6 +172,9 @@
                        @focus="focus($event)"
                        @blur="blur($event)"
                        :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
+
+                <slot></slot>
+
             </div>
             <Button type="clear" size="small" :icon="buttonIcon" :color="buttonColor"
                     v-if="buttonIcon || buttonLabel" @click.native="buttonClicked">
@@ -268,7 +273,7 @@ step	    规定输入字段的合法数字间隔。
                 validator (value) {
                     return oneOf(value, ['text', 'password', 'textarea', 'button', 'reset', 'submit',
                         'tel', 'url', 'email', 'number',
-                        'date', 'time', 'color']);
+                        'date', 'time', 'color', 'slot']);
                 },
                 default: 'text',
             },

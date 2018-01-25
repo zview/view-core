@@ -30,7 +30,7 @@ title: 首页
 
 Luther 
 
-xluther(at)zuv(dot)com
+xluther(at)zuv(dot)cc
 
 <p class="tip">
   项目fork自vonic, 对代码及组件进行了重构。

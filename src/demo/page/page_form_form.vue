@@ -29,14 +29,15 @@
             <Input type="time" bg-color="stable" label="时间"/>
             <Input type="color" bg-color="stable" label="颜色"/>
 
-            <Upload accept="*/*" label="文件" bg-color="stable"
-                    action="//" :show-upload-list="false">
-                <Icon icon="ion-ios-plus-outline"></Icon>
-            </Upload>
-
             <Input type="textarea" label="描述" bg-color="stable" placeholder="默认文本区域" v-model="textareaval"/>
 
-            <Search color="balanced" bg-color="dark" v-model="search_val"></Search>
+            <Input type="slot" bg-color="stable" label="文件">
+                <Upload accept="*/*" action="//" :show-upload-list="false">
+                    <Icon icon="ion-ios-plus-outline"></Icon>
+                </Upload>
+            </Input>
+
+
             <Toggle color="positive" v-model="toggle_val" :label="'禁用' + toggle_val"></Toggle>
             <Slider color="positive" :min="0" :max="100" v-model="slider_val">
                 <Icon slot="left" icon="ion-ios-sunny-outline"></Icon>
@@ -46,9 +47,11 @@
             <Radio indicator-color="balanced" :options="radio_options" v-model="radio_val" :title="'请选择' + radio_val"></Radio>
             <Check :title="'请选择' + check_val" :options="check_options" v-model="check_val"></Check>
 
-            <Input type="button" button-label="按钮"/>
-            <Input type="reset" button-label="重置"/>
-            <Input type="submit" color="balanced" button-label="提交"/>
+            <Search color="balanced" bg-color="dark" v-model="search_val"></Search>
+
+            <Input type="button" input-label="按钮"/>
+            <Input type="reset" input-label="重置"/>
+            <Input type="submit" color="balanced" input-label="提交"/>
         </Form>
 
     </div>
@@ -67,21 +70,21 @@
                 toggle_val: false,
                 slider_val: 25,
 
-                select_val: 5,
+                select_val: 3,
                 select_options : [
                     {'name': '一', 'value': 1},
                     {'name': '三', 'value': 3},
                     {'name': '五', 'value': 5},
                 ],
 
-                radio_val: 5,
+                radio_val: 3,
                 radio_options : [
                     {'name': '一', 'value': 1},
                     {'name': '三', 'value': 3},
                     {'name': '五', 'value': 5},
                 ],
 
-                check_val: [5],
+                check_val: [3],
                 check_options : [
                     {'name': '一', 'value': 1},
                     {'name': '三', 'value': 3},

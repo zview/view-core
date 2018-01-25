@@ -1,29 +1,20 @@
 <template>
 
 
-    <div class="view-input-wrapper">
+    <div class="view-upload-wrapper">
 
-        <div class="view-input-item item item-input">
+        <div class="view-upload-item" :class="upload_classes"
+             @drop.prevent="_on_file_drop"
+             @dragover.prevent="dragOver = true"
+             @dragleave.prevent="dragOver = false">
 
-            <span class="view-input-label input-label" :class="label_classes" v-if="label || labelIcon">
-                <Icon :icon="labelIcon" v-if="labelIcon"></Icon>
-                {{label}}
-            </span>
-
-            <div class="view-upload-item view-input" :class="upload_classes"
-                 @drop.prevent="_on_file_drop"
-                 @dragover.prevent="dragOver = true"
-                 @dragleave.prevent="dragOver = false">
-
-                <input :id="input_id" type="file"
-                       :accept="accept" :multiple="multiple"
-                       @change="_on_file_change" ref="input-element">
-                <label class="view-upload-label" :for="input_id" :class="upload_label_classes">
-                    <slot></slot>
-                </label>
-                <slot name="tip"></slot>
-
-            </div>
+            <input :id="input_id" type="file"
+                   :accept="accept" :multiple="multiple"
+                   @change="_on_file_change" ref="input-element">
+            <label class="view-upload-item-label" :for="input_id" :class="upload_label_classes">
+                <slot></slot>
+            </label>
+            <slot name="tip"></slot>
 
         </div>
 
@@ -66,14 +57,6 @@
         mixins: [ Emitter ],
         components: { UploadList },
         props : {
-            label: [Number, String],
-            labelIcon: String,
-            labelColor: {
-                validator (value) {
-                    return insideIonic(value);
-                }
-            },
-            labelClassName: String,
             color: {
                 validator (value) {
                     return insideColor(value);
@@ -226,7 +209,7 @@
         },
         computed: {
             input_id: function () {
-                return 'view-upload-input-'+(Math.random() * 10000 + '').split('.')[0];
+                return 'view-upload-item-input-'+(Math.random() * 10000 + '').split('.')[0];
             },
             upload_classes () {
                 return [
@@ -237,14 +220,6 @@
                         [`${prefixCls}-select`]: this.type === 'select',
                         [`${prefixCls}-drag`]: this.type === 'drag',
                         [`${prefixCls}-dragOver`]: this.type === 'drag' && this.dragOver
-                    }
-                ];
-            },
-            label_classes () {
-                return [
-                    {
-                        [`fg-${this.labelColor}`]: !!this.labelColor,
-                        [`${this.labelClassName}`]: !!this.labelClassName
                     }
                 ];
             },
@@ -539,7 +514,7 @@
             display: none;
         }
 
-        label.view-upload-label
+        label.view-upload-item-label
         {
             display: inline-block;
             position: relative;

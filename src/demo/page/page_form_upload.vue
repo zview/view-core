@@ -5,46 +5,51 @@
 
             <Item>{{message}}</Item>
 
-            <Upload accept="*/*" label="单文件上传"
-                    :action="action"
-                    :cross-domain="false"
-                    :headers="headers"
-                    :data="data"
-                    :show-upload-list="true"
-                    @terminate="_on_upload_terminate"
-                    @prepare="_on_upload_prepare"
-                    @finish="_on_upload_finish">
+            <Item>
+                <Upload accept="*/*" label="单文件上传"
+                        :action="action"
+                        :cross-domain="false"
+                        :headers="headers"
+                        :data="data"
+                        :show-upload-list="true"
+                        @terminate="_on_upload_terminate"
+                        @prepare="_on_upload_prepare"
+                        @finish="_on_upload_finish">
 
-                <Icon icon="ion-ios-plus-outline"></Icon>
+                    <Icon icon="ion-ios-plus-outline"></Icon>单文件上传
 
-            </Upload>
+                </Upload>
+            </Item>
 
-            <Upload accept="image/*" label="多文件上传"
-                    :action="action"
-                    :cross-domain="false"
-                    :headers="headers"
-                    :data="data"
-                    :format="['jpg','jpeg']"
-                    :per-size="4 * 1024"
-                    :max-size="16 * 1024"
-                    :max-num="4"
-                    :compress="true"
-                    :show-upload-list="true"
-                    :init-file-list="init_file_list"
-                    :on-item-prepare="_on_item_prepare"
-                    :on-item-progress="_on_item_progress"
-                    :on-item-success="_on_item_success"
-                    :on-item-error="_on_item_error"
-                    :on-list-preview="_on_list_preview"
-                    :on-list-remove="_on_list_remove"
-                    @terminate="_on_upload_terminate"
-                    @prepare="_on_upload_prepare"
-                    @finish="_on_upload_finish"
-                    multiple>
+            <Item>
+                <Upload accept="image/*" label="多文件上传"
+                        :action="action"
+                        :cross-domain="false"
+                        :headers="headers"
+                        :data="data"
+                        :format="['jpg','jpeg']"
+                        :per-size="4 * 1024"
+                        :max-size="16 * 1024"
+                        :max-num="4"
+                        :compress="true"
+                        :show-upload-list="true"
+                        :init-file-list="init_file_list"
+                        :on-item-prepare="_on_item_prepare"
+                        :on-item-progress="_on_item_progress"
+                        :on-item-success="_on_item_success"
+                        :on-item-error="_on_item_error"
+                        :on-list-preview="_on_list_preview"
+                        :on-list-remove="_on_list_remove"
+                        @terminate="_on_upload_terminate"
+                        @prepare="_on_upload_prepare"
+                        @finish="_on_upload_finish"
+                        multiple>
 
-                <Icon icon="ion-ios-plus-outline"></Icon>
+                    <Icon icon="ion-ios-plus-outline"></Icon>多文件上传
 
-            </Upload>
+                </Upload>
+            </Item>
+
 
         </List>
 
