@@ -507,18 +507,31 @@
 
 <style lang="scss" rel="stylesheet/scss" scoped>
 
-    .view-upload-item
-    {
-        input[type="file"]
-        {
-            display: none;
-        }
 
-        label.view-upload-item-label
+    .view-upload-wrapper
+    {
+        .view-upload-item
         {
-            display: inline-block;
-            position: relative;
+            input[type="file"]
+            {
+                display: none;
+            }
+
+            label.view-upload-item-label
+            {
+                display: inline-block;
+                position: relative;
+            }
         }
     }
+
+    .item.item-input
+    {
+        .view-upload-wrapper
+        {
+            padding: 13px 15px;
+        }
+    }
+
 
 </style>

@@ -100,7 +100,7 @@
 
     .view-upload-list-files
     {
-        margin: 10px;
+        margin: 10px 0;
 
         .view-upload-list-file
         {
