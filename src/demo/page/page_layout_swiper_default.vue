@@ -53,6 +53,8 @@
 
             setTimeout(() => {
                 this.$refs.swiper.resize();
+                let count = this.$refs.swiper.count();
+                console.log('count', count);
             }, 1000);
 
         },

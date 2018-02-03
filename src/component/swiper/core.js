@@ -4,7 +4,8 @@ const DEFAULT_OPTIONS = {
   direction: 'vertical',
   threshold: 30,
   duration: 250,
-  transitionEnd: noop
+  transitionEnd: noop,
+  resizeEnd: noop,
 };
 
 // utilities
@@ -152,6 +153,7 @@ function Swiper(container, swiperOptions) {
 
   function resize() {
     execFn(setup);
+    options.resizeEnd && options.resizeEnd.call(count);
   }
 
   // bind events

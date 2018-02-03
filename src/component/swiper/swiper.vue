@@ -101,7 +101,10 @@
             if (this.callback) {
               this.callback(prev, current);
             }
-          }
+          },
+          resizeEnd: (count) => {
+            this.itemCount = count;
+          },
         });
 
         this.swiper = swiper;
@@ -135,7 +138,11 @@
 
       resize() {
         this.swiper.resize();
-      }
+      },
+
+      count() {
+        return this.itemCount;
+      },
     }
   }
 </script>
