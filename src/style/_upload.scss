@@ -3,8 +3,134 @@
 
 .view-upload-wrapper
 {
+
     @include view-m-theme-fg-color();
     @include view-m-theme-bg-color();
 
+    .view-upload
+    {
+        input[type="file"]
+        {
+            display: none;
+        }
 
+        label.view-upload-item
+        {
+            display: inline-block;
+            position: relative;
+        }
+    }
+
+    .view-upload-preview
+    {
+        width: 64px;
+        height: 64px;
+        border-radius: 15%;
+    }
+
+
+    .view-upload-files
+    {
+
+        .view-upload-grid-file
+        {
+            width: 100%;
+
+            .image-holder
+            {
+                padding: 5px;
+                border-radius: 5px;
+                display: flex;
+                color: $dimgray-color;
+                @include view-m-box-shadow(0 0 5px rgba(0,0,0,.3));
+
+                .image-holder-delete
+                {
+                    position: relative;
+                    left: -10px;
+                    top: -10px;
+                    height: 24px;
+                    width: 24px;
+                }
+
+                .image-holder-info
+                {
+                    position: absolute;
+                    bottom: 30px;
+                    height: 15px;
+                    float: right;
+                }
+            }
+
+            &.view-upload-file-1
+            {
+                .image-holder
+                {
+                    min-height: 142px;
+                }
+            }
+            &.view-upload-file-2
+            {
+                .image-holder
+                {
+                    min-height: 128px;
+                }
+            }
+            &.view-upload-file-3
+            {
+                .image-holder
+                {
+                    min-height: 112px;
+                }
+            }
+            &.view-upload-file-4
+            {
+                .image-holder
+                {
+                    min-height: 96px;
+                }
+            }
+            &.view-upload-file-5
+            {
+                .image-holder
+                {
+                    min-height: 64px;
+                }
+            }
+
+
+            &.view-upload-list-file-finish
+            {
+
+            }
+
+        }
+
+        .view-upload-list-file
+        {
+            padding: 2px 0;
+
+            &.view-upload-list-file-finish
+            {
+
+            }
+
+            span.view-upload-file-label
+            {
+                font-size: 15px;
+            }
+        }
+
+    }
 }
+
+.item.item-input
+{
+    .view-upload-wrapper
+    {
+        width: 100%;
+        padding: 13px 15px;
+    }
+}
+
+

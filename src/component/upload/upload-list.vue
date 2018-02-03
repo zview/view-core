@@ -1,14 +1,30 @@
 <template>
-    <div :class="[prefixCls + '-list-files']">
-        <div
-            v-for="file in files"
-            :class="fileCls(file)">
-            <span @click="handlePreview(file)" class="view-upload-list-file-label" style="font-size: 15px;">
+    <div :class="[prefixCls + '-files']">
+        <Row :wrap="true" v-if="display === 'grid'">
+            <Col :class="fileCls(file)" :percent="calcPercent(colnum)"
+                 v-if="file.status === 'finished'"
+                 v-for="(file, index) in files" :key="index">
+
+                <div class="image-holder" :style="'background:url('+file.url+');background-size:cover;'">
+                    <img class="image-holder-delete" src="../../assets/clear@3x.png" alt="x"
+                         v-show="file.status === 'finished'"
+                         @click="handleRemove(file)"/>
+                    <span class="image-holder-info">
+                        <Icon :icon="format(file)"></Icon> {{file.name}}
+                    </span>
+                </div>
+
+            </Col>
+        </Row>
+
+        <div v-for="file in files" :class="fileCls(file)" v-if="display === 'list'">
+            <span @click="handlePreview(file)" class="view-upload-file-label">
                 <Icon :icon="format(file)"></Icon> {{ file.name }}
+                <img :src="file.url" alt="preview" v-if="file.url"/>
             </span>
             <Icon
                 icon="ion-backspace"
-                :class="[prefixCls + '-list-remove']"
+                :class="[prefixCls + '-file-remove']"
                 v-show="file.status === 'finished'"
                 @click.native="handleRemove(file)"></Icon>
             <br/>
@@ -25,6 +41,9 @@
 </template>
 <script>
 
+    //
+    import { oneOf, insideIonic, insideColor } from '../utils';
+
     const prefixCls = 'view-upload';
 
     export default {
@@ -35,6 +54,20 @@
                 default() {
                     return [];
                 }
+            },
+            display: {
+                type: String,
+                validator (value) {
+                    return oneOf(value, ['list', 'grid'], true);
+                },
+                default: 'list'
+            },
+            colnum: {
+                type: Number,
+                validator (value) {
+                    return oneOf(value, [1, 2, 3, 4, 5], true);
+                },
+                default: 1,
             }
         },
         data () {
@@ -45,9 +78,10 @@
         methods: {
             fileCls (file) {
                 return [
-                    `${prefixCls}-list-file`,
+                    `${prefixCls}-${this.display}-file`,
+                    `${prefixCls}-file-${this.colnum}`,
                     {
-                        [`${prefixCls}-list-file-finish`]: file.status === 'finished'
+                        [`${prefixCls}-file-finish`]: file.status === 'finished'
                     }
                 ];
             },
@@ -90,28 +124,28 @@
             },
             parsePercentage (val) {
                 return parseInt(val, 10);
-            }
+            },
+            calcPercent: function (val) {
+                if(val>=5) {
+                    return 20;
+                }
+                if(val==4) {
+                    return 25;
+                }
+                else if(val==3) {
+                    return 33;
+                }
+                else if(val==2) {
+                    return 50;
+                }
+                else {
+                    return 100;
+                }
+            },
         }
     };
 </script>
 
-
 <style lang="scss" rel="stylesheet/scss" scoped>
-
-    .view-upload-list-files
-    {
-        margin: 5px 0;
-
-        .view-upload-list-file
-        {
-            padding: 2px 0;
-
-            span.view-upload-list-file-label
-            {
-                font-size: 15px;
-            }
-        }
-
-    }
 
 </style>

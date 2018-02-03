@@ -1,9 +1,8 @@
 <template>
 
-
     <div class="view-upload-wrapper">
 
-        <div class="view-upload-item" :class="upload_classes"
+        <div class="view-upload" :class="upload_classes"
              @drop.prevent="_on_file_drop"
              @dragover.prevent="dragOver = true"
              @dragleave.prevent="dragOver = false">
@@ -11,15 +10,19 @@
             <input :id="input_id" type="file"
                    :accept="accept" :multiple="multiple"
                    @change="_on_file_change" ref="input-element">
-            <label class="view-upload-item-label" :for="input_id" :class="upload_label_classes">
+            <label class="view-upload-label" :for="input_id" :class="upload_label_classes">
                 <slot></slot>
             </label>
             <slot name="tip"></slot>
 
         </div>
 
-        <UploadList v-if="showUploadList & fileList.length>0"
+        <img class="view-upload-preview" ref="preview" src="" alt="preview" v-if="showPreviewLocal"/>
+
+        <UploadList v-if="showFiles & fileList.length>0"
                     :files="fileList"
+                    :display="fileListType"
+                    :colnum="fileListColnum"
                     @on-file-remove="handleListRemove"
                     @on-file-preview="handleListPreview">
         </UploadList>
@@ -37,11 +40,12 @@
     //
     import { oneOf, insideIonic, insideColor } from '../utils';
     import Emitter from '../../mixins/emitter';
-    import XmlHttp from './xmlhttp';
-    import UploadList from './upload-list.vue';
-
+//    import XmlHttp from './xmlhttp';
     import imageexif from '../../util/image-exif';
     import imagecomp from '../../util/image-compressor';
+    import { _http_request } from './http-request';
+
+    import UploadList from './upload-list.vue';
 
     //
     const prefixCls = 'view-upload';
@@ -130,6 +134,23 @@
             },
 
             //
+            isError: { //错误处理
+                type: Function,
+                default () {
+                    return (status, data) => {
+                        console.log('default iserror');
+                        return status < 200 || status >= 300;
+                    };
+                }
+            },
+
+            //
+            showPreviewLocal: { //本地预览
+                type: Boolean,
+                default: false
+            },
+
+            //
             compress: { //压缩
                 type: Boolean,
                 default: false
@@ -173,15 +194,29 @@
                 }
             },
 
-            initFileList: {  //初始的文件列表
+            initFiles: {  //初始的文件列表
                 type: Array,
                 default() {
                     return [];
                 }
             },
-            showUploadList: { //显示上传列表
+            showFiles: { //显示上传列表
                 type: Boolean,
                 default: true
+            },
+            fileListType: {
+                type: String,
+                validator (value) {
+                    return oneOf(value, ['list', 'grid'], true);
+                },
+                default: 'list'
+            },
+            fileListColnum: {
+                type: Number,
+                validator (value) {
+                    return oneOf(value, [1, 2, 3, 4, 5], true);
+                },
+                default: 1,
             },
             onListRemove: { //上传列表中删除
                 type: Function,
@@ -232,7 +267,7 @@
             },
         },
         watch: {
-            initFileList: {
+            initFiles: {
                 immediate: true,
                 handler(fileList) {
                     this.fileList = fileList.map(item => {
@@ -273,7 +308,7 @@
 
 
             _handle_files: function (files) {
-                console.log('_handle_files', files.length);
+                console.log('_handle_files', files);
                 let vm = this;
 
                 //校验文件
@@ -320,7 +355,7 @@
             },
 
             _on_handle_file: function (file) {
-                console.log('_on_handle_file');
+                console.log('_on_handle_file', file);
                 let vm = this;
 
                 // check format
@@ -346,9 +381,25 @@
 
                 if(vm.compress) {
                     //
-                    vm._switch_render_image(file,function (blob) {
+                    vm._switch_render_image(file, function (blob) {
 
-                        XmlHttp({
+                        let request = new _http_request(vm.action, vm.method);
+                        request.precall(
+                            err => {
+                                vm.handleProgress(err, file);
+                            },
+                            res => {
+                                vm.handleSuccess(res, file);
+                            },
+                            (err, res) => {
+                                vm.handleError(err, res, file);
+                            },
+                            (status, data) => {
+                                return vm.handleIsError(status, data);
+                            });
+                        request.execute(vm.data, vm.headers, vm.withCredentials, vm.crossDomain, vm.name, null, blob);
+
+                        /*XmlHttp({
                             headers: vm.headers,
                             crossDomain: vm.crossDomain,
                             withCredentials: vm.withCredentials,
@@ -357,6 +408,9 @@
                             filename: vm.name,
                             action: vm.action,
                             method: vm.method,
+                            isError: (status, data) => {
+                                vm.handleIsError(status, data);
+                            },
                             onProgress: err => {
                                 vm.handleProgress(err, file);
                             },
@@ -366,12 +420,29 @@
                             onError: (err, res) => {
                                 vm.handleError(err, res, file);
                             }
-                        });
+                        });*/
 
                     });
                 }
                 else {
-                    XmlHttp({
+
+                    let request = new _http_request(vm.action, vm.method);
+                    request.precall(
+                        err => {
+                            vm.handleProgress(err, file);
+                        },
+                        res => {
+                            vm.handleSuccess(res, file);
+                        },
+                        (err, res) => {
+                            vm.handleError(err, res, file);
+                        },
+                        (status, data) => {
+                            return vm.handleIsError(status, data);
+                        });
+                    request.execute(vm.data, vm.headers, vm.withCredentials, vm.crossDomain, vm.name, file, null);
+
+                    /*XmlHttp({
                         headers: vm.headers,
                         crossDomain: vm.crossDomain,
                         withCredentials: vm.withCredentials,
@@ -380,6 +451,9 @@
                         filename: vm.name,
                         action: vm.action,
                         method: vm.method,
+                        isError: (status, data) => {
+                            vm.handleIsError(status, data);
+                        },
                         onProgress: err => {
                             vm.handleProgress(err, file);
                         },
@@ -389,7 +463,7 @@
                         onError: (err, res) => {
                             vm.handleError(err, res, file);
                         }
-                    });
+                    });*/
                 }
 
             },
@@ -431,6 +505,10 @@
             },
 
             //
+            handleIsError(status, data) {
+                let vm = this;
+                return vm.isError(status, data);
+            },
             handleStart (file) {
                 let vm = this;
 
@@ -441,8 +519,19 @@
                     size: file.size,
                     percentage: 0,
                     uid: file.uid,
+                    raw: file,
                     showProgress: true
                 };
+
+                try
+                {
+                    _file.url = window.URL? window.URL.createObjectURL(file) : window.webkitURL.createObjectURL(file);
+                }
+                catch (err)
+                {
+                    console.error(err);
+                }
+
                 vm.fileList.push(_file);
                 vm.onItemPrepare(_file);
             },
@@ -470,6 +559,8 @@
                         _file.showProgress = false;
                     }, 1000);
                 }
+
+                if(vm.showPreviewLocal) vm.preview_local(file);
             },
             handleError (err, res, file) {
                 let vm = this;
@@ -501,37 +592,24 @@
                     vm.onListPreview(file);
                 }
             },
+
+            preview_local (file) {
+                let vm = this;
+                let reader = new FileReader();
+                reader.onload = function(e)
+                {
+                    const src = e.target.result;
+                    vm.$refs.preview.src = src;
+//                    return '<img src=' + src + '/>';
+                };
+                reader.readAsDataURL(file);
+                //reader.readAsText(file);
+                //reader.readAsBinaryString(file);
+            },
         }
     }
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-
-
-    .view-upload-wrapper
-    {
-        .view-upload-item
-        {
-            input[type="file"]
-            {
-                display: none;
-            }
-
-            label.view-upload-item-label
-            {
-                display: inline-block;
-                position: relative;
-            }
-        }
-    }
-
-    .item.item-input
-    {
-        .view-upload-wrapper
-        {
-            width: 100%;
-            padding: 13px 15px;
-        }
-    }
 
 </style>

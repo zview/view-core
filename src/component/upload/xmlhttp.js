@@ -21,6 +21,11 @@ function getBody(xhr) {
     }
 }
 
+function isError(status) {
+    console.log('xmlhttp iserror');
+    return status < 200 || status >= 300;
+}
+
 export default function upload(option) {
 
     if (typeof XMLHttpRequest === 'undefined') {
@@ -48,7 +53,9 @@ export default function upload(option) {
 
     //Complete
     xhr.onload = function onload() {
-        if (xhr.status < 200 || xhr.status >= 300) {
+        var iserror = option.isError?option.isError(xhr.status, getBody(xhr)):isError(xhr.status);
+        console.log('onload', iserror);
+        if (iserror) {
             return option.onError(getError(action, method, xhr), getBody(xhr));
         }
         option.onSuccess(getBody(xhr));
