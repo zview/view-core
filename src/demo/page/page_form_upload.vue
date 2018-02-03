@@ -115,8 +115,8 @@
                 console.log('_on_item_success', res, file, files);
 
             },
-            _on_item_error: function (err, file, files) {
-                console.log('_on_item_error', err, file, files);
+            _on_item_error: function (err, res, files) {
+                console.log('_on_item_error', err, res, files);
 
             },
 

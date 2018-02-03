@@ -4,26 +4,23 @@
         <Swiper ref="swiper" direction="horizontal" width="100%" height="150"
                 pager-color="#ea5a49" pager-bg-color="#e5e4e3"
                 :callback="callback">
-            <SwiperItem>
-                <h1 @click="onClick()">Item 1</h1>
-            </SwiperItem>
-
-            <SwiperItem>
-                <h1>Item 2</h1>
-            </SwiperItem>
-
-            <SwiperItem>
-                <h1>Item 3</h1>
+            <SwiperItem v-for="(banner, index) in banners" :key="index"
+                        v-if="banners && banners.length>0">
+                <h1 @click="onClick()">Item {{index}}</h1>
             </SwiperItem>
         </Swiper>
 
         <div class="row">
-            <div class="col col-50">
+            <div class="col col-33">
                 <button class="button button-assertive button-block" @click="prev()">prev</button>
             </div>
 
-            <div class="col col-50">
+            <div class="col col-33">
                 <button class="button button-assertive button-block" @click="next()">next</button>
+            </div>
+
+            <div class="col col-33">
+                <button class="button button-assertive button-block" @click="resize()">resize</button>
             </div>
         </div>
 
@@ -31,11 +28,33 @@
 </template>
 
 <script>
+
+    const BANNER_SIZE = 3;
+
     export default {
         data () {
             return {
                 message: '轮播默认',
+                banners: [],
             }
+        },
+        created() {
+            console.log('created');
+            let vm = this;
+        },
+        mounted: function() {
+            console.log('mounted');
+            let vm = this;
+
+            //
+            for(let i=0;i<BANNER_SIZE;i++) {
+                vm.banners.push({'image':'./static/logo-overlay.png'})
+            }
+
+            setTimeout(() => {
+                this.$refs.swiper.resize();
+            }, 1000);
+
         },
         methods: {
             onClick() {
@@ -49,6 +68,10 @@
 
             prev() {
                 this.$refs.swiper.prev();
+            },
+
+            resize() {
+                this.$refs.swiper.resize();
             },
 
             callback(prev, current) {
@@ -68,6 +91,7 @@
         {
             color: #fff;
             font-size: 32px;
+            height: 150px;
             line-height: 150px;
             text-align: center;
             font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;

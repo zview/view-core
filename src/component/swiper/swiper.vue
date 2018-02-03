@@ -1,8 +1,5 @@
 <template>
-  <div style="overflow: hidden" :style="{
-    'width': w,
-    'height': h
-  }">
+  <div style="overflow: hidden" :style="{'width': w,'height': h}">
     <div class="swiper">
       <slot></slot>
     </div>
@@ -11,7 +8,8 @@
       :size="itemCount"
       :pager-color="pagerColor"
       :pager-bg-color="pagerBgColor"
-      ref="pagination"></pagination>
+      ref="pagination">
+    </pagination>
   </div>
 </template>
 

@@ -33,12 +33,16 @@ function Swiper(container, swiperOptions) {
 
   // Setup
   function setup() {
+    //
+    items = container.querySelectorAll(options.itemClass);
+    count = items.length;
+
     // reset container's width and height
     var w = width;
-    var h = height * count;
+    var h = count>0? height * count : height;
 
     if (options.direction === 'horizontal') {
-      w = width * count;
+      w = count>0? width * count: width;
       h = height;
     }
 
