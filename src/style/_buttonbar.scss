@@ -2,7 +2,7 @@
 
 $border-radius: 5px;
 
-.view-buttonbar
+.view-buttonbar.button-bar
 {
     margin: 10px 0;
 
@@ -22,6 +22,22 @@ $border-radius: 5px;
     {
         border-top-right-radius: $border-radius;
         border-bottom-right-radius: $border-radius;
+    }
+
+    &.buttonbar-tabs
+    {
+        .view-button.button
+        {
+            border-radius: $border-radius $border-radius 0 0;
+            border-bottom-width: 0;
+            border-right-width: 1px;
+            margin-right: 1px;
+        }
+
+        .view-button.button:last-child
+        {
+            margin-right: 0;
+        }
     }
 
 }

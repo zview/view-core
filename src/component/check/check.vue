@@ -10,8 +10,8 @@
                        :name="check_id" :value="option.value" v-model="val"
                        :readonly="readonly" :disabled="disabled"/>
             </label>
-            <div class="view-check-image">
-                <img :src="option.image" v-if="option.image"/>
+            <div class="view-check-image" v-if="option.image">
+                <img :src="option.image"/>
             </div>
             <div class="view-check-name">
                 <span>{{option.name}}</span>
@@ -96,15 +96,15 @@
         },
         methods: {
             _on_cell_click: function (index, value) {
-//                console.log('_on_cell_click', index, value);
+                console.log('_on_cell_click', index, value);
                 let vm = this;
 
-                let i = vm.val.indexOf(value)
+                /*let i = vm.val.indexOf(value)
                 if (i == -1) {
                     vm.val.push(value)
                 } else {
                     vm.val.splice(i, 1)
-                }
+                }*/
 //                vm.val.sort()
             }
         },

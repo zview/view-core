@@ -22,10 +22,18 @@
                 required: true
             },
             theme: {
+                type: String,
                 validator (value) {
                     return insideIonic(value);
                 },
                 default: 'positive'
+            },
+            type: {
+                type: String,
+                validator (value) {
+                    return oneOf(value, ['buttonbar-btn', 'buttonbar-tabs'], true);
+                },
+                default: 'buttonbar-btn'
             },
             tabIndex: {
                 type: Number,
@@ -50,6 +58,7 @@
             classes () {
                 return [
                     {
+                        [`${this.type}`]: !!this.type,
                         [`${this.className}`]: !!this.className
                     }
                 ];

@@ -33,6 +33,12 @@
             <Item type="item-outer">条目</Item>
         </List>
 
+        <List type="list-borderless" header-content="BorderLess">
+            <Item>条目</Item>
+            <Item>条目</Item>
+            <Item>条目</Item>
+        </List>
+
         <List type="list-inset" header-content="边距缩进">
             <Item>条目</Item>
             <Item>条目</Item>

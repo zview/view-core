@@ -1,7 +1,7 @@
 <template>
     <div class="page-buttonbar">
 
-        <ButtonBar theme="balanced" :options="options"
+        <ButtonBar theme="balanced" :options="options" type="buttonbar-tabs"
                    @on-tab-click="_on_tab_click"
                    :on-tab-selected="_on_tab_selected"></ButtonBar>
 
@@ -23,8 +23,25 @@
                        @on-tab-click="_on_tab_click"></ButtonBar>
         </Panel>
 
+        <Panel type="inset" bg-color="light">
+            <ButtonBar theme="assertive" :options="options_theme" :tab-index="0" type="buttonbar-tabs"
+                       @on-tab-click="_on_tab_click"></ButtonBar>
+            <ButtonBar theme="positive" :options="options_theme" :tab-index="1" type="buttonbar-tabs"
+                       @on-tab-click="_on_tab_click"></ButtonBar>
+            <ButtonBar theme="balanced" :options="options_theme" :tab-index="1" type="buttonbar-tabs"
+                       @on-tab-click="_on_tab_click"></ButtonBar>
+            <ButtonBar theme="energized" :options="options_theme" :tab-index="1" type="buttonbar-tabs"
+                       @on-tab-click="_on_tab_click"></ButtonBar>
+            <ButtonBar theme="calm" :options="options_theme" :tab-index="1" type="buttonbar-tabs"
+                       @on-tab-click="_on_tab_click"></ButtonBar>
+            <ButtonBar theme="royal" :options="options_theme" :tab-index="1" type="buttonbar-tabs"
+                       @on-tab-click="_on_tab_click"></ButtonBar>
+            <ButtonBar theme="dark" :options="options_theme" :tab-index="1" type="buttonbar-tabs"
+                       @on-tab-click="_on_tab_click"></ButtonBar>
+        </Panel>
+
         <div class="item item-divider">
-            商品分类:
+            商品分类: {{index_promotion}}
         </div>
         <Panel type="inset" bg-color="light">
             <ButtonBar theme="assertive" :options="options_promotion" :tab-index="index_promotion"

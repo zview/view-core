@@ -22,9 +22,9 @@ title: 首页
 
 ### 查看示例
 
-[demo](http://www.zuv.cc/view/demo/index.html)
+[demo](http://www.zuv.cc/view/demo/)
 
-[demo-source](http://www.zuv.cc/view/demo-src.zip)
+[demo-source](http://www.zuv.cc/view/demo.zip)
 
 ### 关于作者
 

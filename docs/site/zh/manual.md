@@ -29,11 +29,9 @@ http://code.ionicframework.com/1.3.2/ionic-v1.3.2.zip
 
 ### TODO
 
-1. Range的range-color无效
-2. Radio图标只能右边,不能左边
-3. Check图标只能左边,不能右边
-4. List的list-inset样式在微信浏览器存在问题
-5. Upload, Form,  Validator, Progress
+1. Radio图标只能右边,不能左边
+2. Check图标只能左边,不能右边
+3. Validator, Progress
 
 ----------
 

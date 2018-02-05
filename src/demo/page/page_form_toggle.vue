@@ -1,7 +1,7 @@
 <template>
     <div class="page-toggle">
 
-        <List header-content="'选中:' + val">
+        <List :header-content="'选中:' + val">
             <Toggle color="positive" v-model="val" :label="'禁用' + val"></Toggle>
         </List>
 
