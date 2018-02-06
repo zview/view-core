@@ -60,7 +60,8 @@ export class _http_request {
 
         //Header
         if (crossDomain) {
-            vm.$http.setRequestHeader('Access-Control-Allow-Origin', '*');
+            let lorigin = window.location.origin; //'*'
+            vm.$http.setRequestHeader('Access-Control-Allow-Origin', lorigin);
         }
         const hheaders = headers || {};
         for (let item in hheaders) {

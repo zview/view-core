@@ -5,8 +5,7 @@
                    @on-tab-click="_on_tab_click"
                    :on-tab-selected="_on_tab_selected"></ButtonBar>
 
-
-        <Panel type="inset" bg-color="light">
+        <Panel bg-color="light">
             <ButtonBar theme="assertive" :options="options_theme" :tab-index="0"
                        @on-tab-click="_on_tab_click"></ButtonBar>
             <ButtonBar theme="positive" :options="options_theme" :tab-index="1"
@@ -23,7 +22,7 @@
                        @on-tab-click="_on_tab_click"></ButtonBar>
         </Panel>
 
-        <Panel type="inset" bg-color="light">
+        <Panel bg-color="light">
             <ButtonBar theme="assertive" :options="options_theme" :tab-index="0" type="buttonbar-tabs"
                        @on-tab-click="_on_tab_click"></ButtonBar>
             <ButtonBar theme="positive" :options="options_theme" :tab-index="1" type="buttonbar-tabs"
@@ -40,16 +39,23 @@
                        @on-tab-click="_on_tab_click"></ButtonBar>
         </Panel>
 
-        <div class="item item-divider">
+        <Panel bg-color="light">
+            <ButtonBar theme="assertive" :options="options_theme" :tab-index="0" type="buttonbar-tabs"
+                       @on-tab-click="_on_tab_click"></ButtonBar>
+            <ButtonBar theme="positive" size="normal" :options="options_theme" :tab-index="1" type="buttonbar-tabs"
+                       @on-tab-click="_on_tab_click"></ButtonBar>
+            <ButtonBar theme="balanced" size="large" :options="options_theme" :tab-index="1" type="buttonbar-tabs"
+                       @on-tab-click="_on_tab_click"></ButtonBar>
+        </Panel>
+
+        <Panel bg-color="light">
             商品分类: {{index_promotion}}
-        </div>
-        <Panel type="inset" bg-color="light">
+
             <ButtonBar theme="assertive" :options="options_promotion" :tab-index="index_promotion"
                        @on-tab-click="_on_tab_click_prom"></ButtonBar>
-        </Panel>
-        <div class="item item-borderless">
+
             选中: {{ options_promotion[index_promotion].name }}
-        </div>
+        </Panel>
 
     </div>
 </template>

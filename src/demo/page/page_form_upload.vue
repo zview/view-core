@@ -28,7 +28,7 @@
                         :is-error="_is_error"
                         :headers="headers"
                         :data="data"
-                        :format="['jpg','jpeg']"
+                        :format="['jpg','jpeg','png']"
                         :per-size="4 * 1024"
                         :max-size="16 * 1024"
                         :max-num="4"
@@ -70,7 +70,7 @@
             return {
                 message: '文件上传',
 
-                action: ACTION_1,
+                action: ACTION_2,
                 headers: { 'Authorization':'Token 1234' },
                 data: {'filetype': 4},
                 init_files: [], //[{'name': '1.jpg', 'url': 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'},{'name': '2.ppt', 'url': 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
@@ -80,7 +80,9 @@
 
             _is_error: function (status, data) {
                 console.log('_is_error', status, data);
-                return status < 200 || status >= 300 || (data && data.result != 0);
+//                return status < 200 || status >= 300 || (data && data.result != 0);
+//                return status < 200 || status >= 300;
+                return false;
             },
 
             //整个过程

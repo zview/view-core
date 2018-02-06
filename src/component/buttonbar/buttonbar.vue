@@ -2,7 +2,7 @@
 
     <div class="view-buttonbar button-bar" :class="classes">
         <Button v-for="(option,index) in options" @click.native="_on_tab_click(index, option.id)"
-                size="small" :theme="theme" :class="button_class(index)"
+                :size="size" :theme="theme" :class="button_class(index)"
                 :key="index" :icon="option.icon">
             {{option.name}}
         </Button>
@@ -34,6 +34,13 @@
                     return oneOf(value, ['buttonbar-btn', 'buttonbar-tabs'], true);
                 },
                 default: 'buttonbar-btn'
+            },
+            size: {
+                type: String,
+                validator (value) {
+                    return oneOf(value, ['normal', 'small', 'large'], true);
+                },
+                default: 'small'
             },
             tabIndex: {
                 type: Number,
@@ -68,8 +75,8 @@
             button_class(index) {
                 let vm = this;
                 let buttonClass = {};
-                buttonClass['button button-small button-' + this.theme + ' button-outline'] = index !== this.active_index;
-                buttonClass['button button-small button-' + this.theme] = index == this.active_index;
+                buttonClass['buttonbar-' + this.theme + ' button-outline'] = index !== this.active_index;
+                buttonClass['buttonbar-' + this.theme] = index == this.active_index;
                 return buttonClass;
             },
             _on_tab_click: function (index, id) {
