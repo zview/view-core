@@ -23,6 +23,7 @@
                     :files="fileList"
                     :display="fileListType"
                     :colnum="fileListColnum"
+                    :show-info="showFileInfo"
                     @on-file-remove="handleListRemove"
                     @on-file-preview="handleListPreview">
         </UploadList>
@@ -203,6 +204,10 @@
             showFiles: { //显示上传列表
                 type: Boolean,
                 default: true
+            },
+            showFileInfo: { //显示文件信息(类型、名称)
+                type: Boolean,
+                default: false
             },
             fileListType: {
                 type: String,

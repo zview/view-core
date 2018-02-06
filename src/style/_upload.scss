@@ -16,8 +16,9 @@
 
         label.view-upload-label
         {
-            display: inline-block;
-            position: relative;
+            display: block;
+            /*display: inline-block;
+            position: relative;*/
         }
     }
 
@@ -32,85 +33,97 @@
     .view-upload-files
     {
 
-        .view-upload-grid-file
+        .row
         {
-            width: 100%;
+            padding: 0;
 
-            &.col
+            .view-upload-grid-file
             {
-                padding: 5px;
-            }
+                width: 100%;
 
-            .image-holder
-            {
-                padding: 5px;
-                border-radius: 5px;
-                display: flex;
-                color: $dimgray-color;
-                @include view-m-box-shadow(0 0 5px rgba(0,0,0,.3));
-
-                .image-holder-delete
+                &.col
                 {
-                    position: relative;
-                    left: -10px;
-                    top: -10px;
-                    height: 20px;
-                    width: 20px;
+                    padding: 5px;
                 }
 
-                .image-holder-info
-                {
-                    position: absolute;
-                    bottom: 30px;
-                    height: 15px;
-                    float: right;
-                    opacity: 0.4;
-                }
-            }
-
-            &.view-upload-file-1
-            {
                 .image-holder
                 {
-                    min-height: 142px;
+                    padding: 5px;
+                    border-radius: 5px;
+                    display: flex;
+                    color: $dimgray-color;
+                    @include view-m-box-shadow(0 0 5px rgba(0,0,0,.3));
+
+                    .image-holder-delete
+                    {
+                        position: relative;
+                        left: -10px;
+                        top: -10px;
+                        height: 20px;
+                        width: 20px;
+                    }
+
+                    .image-holder-info
+                    {
+                        position: absolute;
+                        bottom: 30px;
+                        height: 15px;
+                        float: right;
+                        opacity: 0.4;
+                    }
                 }
-            }
-            &.view-upload-file-2
-            {
-                .image-holder
+
+                &.view-upload-file-1
                 {
-                    min-height: 128px;
+                    .image-holder
+                    {
+                        width: 30vw; /* viewport 的33% */
+                        height: 30vw;
+                    }
                 }
-            }
-            &.view-upload-file-3
-            {
-                .image-holder
+                &.view-upload-file-2
                 {
-                    min-height: 112px;
+                    .image-holder
+                    {
+                        width: 30vw; /* viewport 的33% */
+                        height: 30vw;
+                    }
                 }
-            }
-            &.view-upload-file-4
-            {
-                .image-holder
+                &.view-upload-file-3
                 {
-                    min-height: 96px;
+                    .image-holder
+                    {
+                        width: 28vw; /* viewport 的33% */
+                        height: 28vw;
+                    }
                 }
-            }
-            &.view-upload-file-5
-            {
-                .image-holder
+                &.view-upload-file-4
                 {
-                    min-height: 64px;
+                    .image-holder
+                    {
+                        width: 20vw; /* viewport 的25% */
+                        height: 20vw;
+                    }
                 }
-            }
+                &.view-upload-file-5
+                {
+                    .image-holder
+                    {
+                        width: 16vw; /* viewport 的20% */
+                        height: 16vw;
+                    }
+                }
 
 
-            &.view-upload-list-file-finish
-            {
+                &.view-upload-list-file-finish
+                {
+
+                }
 
             }
-
         }
+
+
 
         .view-upload-list-file
         {

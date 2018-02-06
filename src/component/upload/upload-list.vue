@@ -9,7 +9,7 @@
                     <img class="image-holder-delete" src="../../assets/clear@3x.png" alt="x"
                          v-show="file.status === 'finished'"
                          @click="handleRemove(file)"/>
-                    <span class="image-holder-info">
+                    <span class="image-holder-info" v-if="showInfo">
                         <Icon :icon="format(file)"></Icon> {{file.name}}
                     </span>
                 </div>
@@ -68,6 +68,10 @@
                     return oneOf(value, [1, 2, 3, 4, 5], true);
                 },
                 default: 1,
+            },
+            showInfo: {
+                type: Boolean,
+                default: false,
             }
         },
         data () {

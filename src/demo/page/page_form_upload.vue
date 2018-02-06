@@ -22,7 +22,7 @@
             </Item>
 
             <Item>
-                <Upload accept="image/*" label="多文件上传" upload-label-class-name="cls-upload-label"
+                <Upload accept="image/*" label="多文件上传"
                         :action="action"
                         :cross-domain="false"
                         :is-error="_is_error"
@@ -35,6 +35,7 @@
                         :compress="true"
                         :show-preview-local="false"
                         :show-files="true"
+                        :show-file-info="false"
                         file-list-type="grid"
                         :file-list-colnum="3"
                         :init-files="init_files"
