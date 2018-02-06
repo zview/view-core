@@ -41,7 +41,7 @@
             },
             size: {
                 validator (value) {
-                    return oneOf(value, ['small', 'large'], true);
+                    return oneOf(value, ['small', 'large', 'normal'], true);
                 }
             },
             iconAlign: {
@@ -65,7 +65,7 @@
                         [`button-${this.type}`]: !!this.type,
                         [`${outlineCls}`]: !!this.outline || this.outline=='true',
                         [`${materialCls}`]: !!this.material || this.material=='true',
-                        [`button-${this.size}`]: !!this.size,
+                        [`button-${this.size}`]: !!this.size && this.size != 'normal',
                         [`${faCls}`]: this.icon && this.icon.indexOf('fa-')==0,
                         [`${iconCls}`]: this.icon && this.icon.indexOf('ion-')==0,
                         [`${this.icon}`]: !!this.icon,

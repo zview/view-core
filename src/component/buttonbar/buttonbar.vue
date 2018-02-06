@@ -38,7 +38,7 @@
             size: {
                 type: String,
                 validator (value) {
-                    return oneOf(value, ['normal', 'small', 'large'], true);
+                    return oneOf(value, ['small', 'large', 'normal'], true);
                 },
                 default: 'small'
             },
