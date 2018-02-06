@@ -22,7 +22,7 @@
             </Item>
 
             <Item>
-                <Upload accept="image/*" label="多文件上传"
+                <Upload accept="image/*" label="多文件上传" upload-label-class-name="cls-upload-label"
                         :action="action"
                         :cross-domain="false"
                         :is-error="_is_error"
