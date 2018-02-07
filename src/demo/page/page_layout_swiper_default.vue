@@ -3,6 +3,7 @@
 
         <Swiper ref="swiper" direction="horizontal" width="100%" height="150"
                 pager-color="#ea5a49" pager-bg-color="#e5e4e3"
+                :enable-loop="true" :loop-interval="2000"
                 :callback="callback">
             <SwiperItem v-for="(banner, index) in banners" :key="index"
                         v-if="banners && banners.length>0">
@@ -11,15 +12,19 @@
         </Swiper>
 
         <div class="row">
-            <div class="col col-33">
+            <div class="col col-25">
                 <button class="button button-assertive button-block" @click="prev()">prev</button>
             </div>
 
-            <div class="col col-33">
+            <div class="col col-25">
                 <button class="button button-assertive button-block" @click="next()">next</button>
             </div>
 
-            <div class="col col-33">
+            <div class="col col-25">
+                <button class="button button-assertive button-block" @click="loop()">loop</button>
+            </div>
+
+            <div class="col col-25">
                 <button class="button button-assertive button-block" @click="resize()">resize</button>
             </div>
         </div>
@@ -70,6 +75,10 @@
 
             prev() {
                 this.$refs.swiper.prev();
+            },
+
+            loop() {
+                this.$refs.swiper.loop();
             },
 
             resize() {

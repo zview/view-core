@@ -208,6 +208,12 @@ function Swiper(container, swiperOptions) {
       activate(current);
     },
 
+      loop: function () {
+          noTransition();
+          current = current < count - 1 ? ++current : 0;
+          activate(current);
+      },
+
     go: function (index) {
       noTransition();
       current = index;
