@@ -95,9 +95,7 @@
 
                 //显示提示信息并关闭进度条
 //                vm.$loading.hide();
-                vm.$toast.show(message, 1000).then(() => {
-                    console.log('toast hide');
-                });
+                vm.$toast.show(message, 1000);
             },
             _on_upload_prepare () {
                 console.log('_on_upload_prepare');
@@ -139,9 +137,7 @@
 
 //                vm.$loading.hide();
                 let message = res.message;//cutility.response.parseMessage(res);
-                vm.$toast.show(message, 1500).then(() => {
-                    console.log('toast hide');
-                });
+                vm.$toast.show(message, 1500);
             },
 
             //文件列表
@@ -149,18 +145,14 @@
                 console.log('_on_list_preview', file);
                 let vm = this;
 
-                vm.$toast.show('文件列表预览', 1000).then(() => {
-                    console.log('toast hide');
-                });
+                vm.$toast.show('文件列表预览', 1000);
             },
             _on_list_remove: function (file, files) {
                 console.log('_on_list_remove', file, files);
                 let vm = this;
 
                 vm.wait_files = files;
-                vm.$toast.show('文件列表移除', 1000).then(() => {
-                    console.log('toast hide');
-                });
+                vm.$toast.show('文件列表移除', 1000);
             },
 
         },
