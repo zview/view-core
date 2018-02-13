@@ -124,9 +124,9 @@
                 let vm = this;
 
                 //
-                vm.waitfiles = files;
-                if(vm.waitfiles && vm.waitfiles.length) {
-                    for(let pic of vm.waitfiles) {
+                vm.wait_files = files;
+                if(vm.wait_files && vm.wait_files.length) {
+                    for(let pic of vm.wait_files) {
                         pic.url = pic.response.data.fileurl; //cvar.render_imgholder(pic.response.data.filename);
                     }
                 }
@@ -157,7 +157,7 @@
                 console.log('_on_list_remove', file, files);
                 let vm = this;
 
-                vm.waitfiles = files;
+                vm.wait_files = files;
                 vm.$toast.show('文件列表移除', 1000).then(() => {
                     console.log('toast hide');
                 });
