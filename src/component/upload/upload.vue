@@ -150,6 +150,10 @@
                 type: Boolean,
                 default: false
             },
+            loadLocalData: { //本地预览
+                type: Boolean,
+                default: true
+            },
 
             //
             compress: { //压缩
@@ -528,13 +532,15 @@
                     showProgress: true
                 };
 
-                try
-                {
-                    _file.url = window.URL? window.URL.createObjectURL(file) : window.webkitURL.createObjectURL(file);
-                }
-                catch (err)
-                {
-                    console.error(err);
+                if(vm.loadLocalData) {
+                    try
+                    {
+                        _file.url = window.URL? window.URL.createObjectURL(file) : window.webkitURL.createObjectURL(file);
+                    }
+                    catch (err)
+                    {
+                        console.error(err);
+                    }
                 }
 
                 vm.fileList.push(_file);

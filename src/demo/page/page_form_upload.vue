@@ -36,7 +36,8 @@
                         :show-preview-local="false"
                         :show-files="true"
                         :show-file-info="false"
-                        file-list-type="grid"
+                        :load-local-data="false"
+                        :file-list-type="'grid'"
                         :file-list-colnum="3"
                         :init-files="init_files"
                         :on-item-prepare="_on_item_prepare"
@@ -74,6 +75,7 @@
                 action: ACTION_2,
                 headers: { 'Authorization':'Token 1234' },
                 data: {'filetype': 4},
+                wait_files: [],
                 init_files: [], //[{'name': '1.jpg', 'url': 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'},{'name': '2.ppt', 'url': 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
             }
         },
@@ -92,6 +94,7 @@
                 let vm = this;
 
                 //显示提示信息并关闭进度条
+//                vm.$loading.hide();
                 vm.$toast.show(message, 1000).then(() => {
                     console.log('toast hide');
                 });
@@ -108,7 +111,9 @@
             //单个文件
             _on_item_prepare: function (file) {
                 console.log('_on_item_prepare', file);
+                let vm = this;
 
+                vm.$loading.show('正在上传');
             },
             _on_item_progress: function (event, file, files) {
                 console.log('_on_item_progress', event.percent, event.loaded, event.total, file, files);
@@ -116,17 +121,34 @@
             },
             _on_item_success: function (res, file, files) {
                 console.log('_on_item_success', res, file, files);
+                let vm = this;
 
+                //
+                vm.waitfiles = files;
+                if(vm.waitfiles && vm.waitfiles.length) {
+                    for(let pic of vm.waitfiles) {
+                        pic.url = pic.response.data.fileurl; //cvar.render_imgholder(pic.response.data.filename);
+                    }
+                }
+
+                vm.$loading.hide();
             },
             _on_item_error: function (err, res, files) {
                 console.log('_on_item_error', err, res, files);
+                let vm = this;
 
+//                vm.$loading.hide();
+                let message = res.message;//cutility.response.parseMessage(res);
+                vm.$toast.show(message, 1500).then(() => {
+                    console.log('toast hide');
+                });
             },
 
             //文件列表
             _on_list_preview: function (file) {
                 console.log('_on_list_preview', file);
                 let vm = this;
+
                 vm.$toast.show('文件列表预览', 1000).then(() => {
                     console.log('toast hide');
                 });
@@ -134,6 +156,8 @@
             _on_list_remove: function (file, files) {
                 console.log('_on_list_remove', file, files);
                 let vm = this;
+
+                vm.waitfiles = files;
                 vm.$toast.show('文件列表移除', 1000).then(() => {
                     console.log('toast hide');
                 });
