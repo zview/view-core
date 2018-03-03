@@ -41,7 +41,6 @@
     //
     import { oneOf, insideIonic, insideColor } from '../utils';
     import Emitter from '../../mixins/emitter';
-//    import XmlHttp from './xmlhttp';
     import imageexif from '../../util/image-exif';
     import imagecomp from '../../util/image-compressor';
     import { _http_request } from './http-request';
@@ -407,30 +406,6 @@
                                 return vm.handleIsError(status, data);
                             });
                         request.execute(vm.data, vm.headers, vm.withCredentials, vm.crossDomain, vm.name, null, blob);
-
-                        /*XmlHttp({
-                            headers: vm.headers,
-                            crossDomain: vm.crossDomain,
-                            withCredentials: vm.withCredentials,
-                            blob: blob,
-                            data: vm.data,
-                            filename: vm.name,
-                            action: vm.action,
-                            method: vm.method,
-                            isError: (status, data) => {
-                                vm.handleIsError(status, data);
-                            },
-                            onProgress: err => {
-                                vm.handleProgress(err, file);
-                            },
-                            onSuccess: res => {
-                                vm.handleSuccess(res, file);
-                            },
-                            onError: (err, res) => {
-                                vm.handleError(err, res, file);
-                            }
-                        });*/
-
                     });
                 }
                 else {
@@ -450,29 +425,6 @@
                             return vm.handleIsError(status, data);
                         });
                     request.execute(vm.data, vm.headers, vm.withCredentials, vm.crossDomain, vm.name, file, null);
-
-                    /*XmlHttp({
-                        headers: vm.headers,
-                        crossDomain: vm.crossDomain,
-                        withCredentials: vm.withCredentials,
-                        file: file,
-                        data: vm.data,
-                        filename: vm.name,
-                        action: vm.action,
-                        method: vm.method,
-                        isError: (status, data) => {
-                            vm.handleIsError(status, data);
-                        },
-                        onProgress: err => {
-                            vm.handleProgress(err, file);
-                        },
-                        onSuccess: res => {
-                            vm.handleSuccess(res, file);
-                        },
-                        onError: (err, res) => {
-                            vm.handleError(err, res, file);
-                        }
-                    });*/
                 }
 
             },

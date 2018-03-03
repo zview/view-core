@@ -44,16 +44,13 @@
     },
 
     computed: {
-      /*v: function () {
-        return this.value;
-      }*/
-
         v: {
             get: function () {
                 return this.value;
             },
             set: function (val) {
-                this.$emit('input', this.value);
+                this.$emit('input', val);
+                this.$refs.datetime.value = val;
             }
         },
     },
@@ -84,9 +81,9 @@
 
         channel.$on('PickerOkEvent', (value) => {
           this.v = value;
-          console.log('datetime input =>', this.$refs.datetime);
-          this.$refs.datetime.value = value;
-          this.$emit('input', value);
+//          console.log('datetime input =>', this.$refs.datetime);
+//          this.$refs.datetime.value = value;
+//          this.$emit('input', value);
 
           this.formatedDate = formatDate(value, this.dateFormat);
           if (this.picker)

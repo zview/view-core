@@ -1,140 +1,156 @@
 <template>
-
-    <div class="view-regionpicker view-item item item-input">
+    <div view-regionpicker class="view-item item item-input" @click="showPicker()">
         <span v-if="label != ''" class="input-label" v-text="label"></span>
-
-        <Row>
-            <Col v-for="(f, index) in dataFields" :key="index" class="text-right">
-            <label @click="showCascadePanel(index)">
-                <span v-text="value[index]"></span>
-                <i class="icon ion-ios-arrow-right"></i>
-                <span v-text="f"></span>
-            </label>
-
-            </Col>
-        </Row>
+        <input ref="inputer" type="datetime" :value="v">
+        <span v-text="formatedNames"></span>
     </div>
-
-
 </template>
 
 <script>
 
-  import axios from 'axios';
-  import Vue from 'vue';
+    import Vue from 'vue';
+    import Picker from './picker.vue';
+    import channel from './channel';
 
-  const filter = (filters, data) => {
-    let options = [];
 
-    data.forEach((d) => {
-      let r = true;
-      filters.forEach((f, i) => {
-        r = r && f == d[i];
-      });
-      if (r) {
-        let option = d[filters.length];
+    const formatRegionCode = (codes) => {
+        console.log('formatRegionCode', codes);
+        let array = codes.split('-');
+        return array[array.length - 1];
+    };
 
-        if (!!option && options.indexOf(option) == -1) {
-          options.push(option);
+    const formatRegionCodes = (value, data) => {
+        console.log('value', value);
+
+        let codes = [];
+
+        let selfcode = value;
+        let parentcode = '';
+        let items = data.filter(item => (item.value == selfcode && (item.level == 'x0' || item.level == 'x1')));  //区县级
+        if (items && items.length > 0) {
+            selfcode = items[0].value;
+            parentcode = items[0].parent;
         }
-      }
-    });
+        codes.push(selfcode);
 
-    return options;
-  };
+        selfcode = '';
+        items = data.filter(item => (item.value == parentcode && (item.level == 'd0' || item.level == 'd1')));  //地市级
+        if (items && items.length > 0) {
+            selfcode = items[0].value;
+            parentcode = items[0].parent;
+        }
+        codes.push(selfcode);
 
-  export default {
+        selfcode = '';
+        items = data.filter(item => (item.value == parentcode && (item.level == 'c0' || item.level == 'c1')));  //省级
+        if (items && items.length > 0) {
+            selfcode = items[0].value;
+            parentcode = items[0].parent;
+        }
+        codes.push(selfcode);
 
-    props: {
-        label: {
-            type: String,
-            default: ''
+        codes.reverse();
+        return codes.join('-');
+    };
+
+    const formatRegionNames = (codes, data) => {
+        console.log('codes', codes);
+
+        let names = [];
+
+        for (let code of codes.split('-')) {
+            let name = '';
+            let items = data.filter(item => (item.value == code));
+            if (items && items.length > 0) {
+                name = items[0].name;
+            }
+            names.push(name);
+        }
+
+        return names.join('-');
+    };
+
+
+    export default {
+        props: {
+            label: {
+                type: String,
+                default: ''
+            },
+            placeholder: {
+                type: String,
+                default: ''
+            },
+            value: {
+                type: String,
+                default: ''
+            },
+            data: {
+                type: Array
+            },
+            onPicked: Function,
+            onCancel: Function,
         },
-      dataFields: {
-        type: Array,
-        required: true
-      },
 
-      ajaxUrl: {
-        type: String,
-        default: undefined
-      },
+        computed: {
+            v: {
+                get: function () {
+                    return this.value;
+                },
+                set: function (val) {
+                    this.$refs.inputer.value = val;
+                    this.$emit('input', val);
+                }
+            },
+        },
 
-      ajaxData: {
-        type: String,
-        default: undefined
-      },
+        data() {
+            return {
+                picker: undefined, // picker vm
+                formatedCodes: '',
+                formatedNames: '',
+            }
+        },
 
-      data: {
-        type: Array
-      },
+        mounted() {
+            let vm = this;
+            vm.formatedCodes = formatRegionCodes(vm.value, vm.data);
+            vm.formatedNames = formatRegionNames(vm.formatedCodes, vm.data);
+        },
 
-      value: {
-        type: Array,
-        required: true
-      },
+        methods: {
+            showPicker() {
+                let vm = this;
 
-      onChange: {
-        type: Function,
-        required: true
-      }
-    },
+                let el = document.createElement('div');
+                el.setAttribute('view-picker', '');
+                document.body.appendChild(el);
 
-    data() {
-      return {
-        options: []
-      }
-    },
+                let PickerComponent = Vue.extend(Picker);
+                vm.picker = new PickerComponent({
+                    data: {
+                        value: formatRegionCodes(vm.value, vm.data),  //当前值
+                        data: vm.data, //全部数据
+                    }
+                }).$mount('[view-picker]');
 
-    mounted() {
-      if (this.ajaxUrl) {
-        axios.get(this.ajaxUrl)
-          .then(response => response.data)
-          .then((data) => {
-            this.data = this.ajaxData ? data[this.ajaxData] : data;
-            this.options = this.filter();
-          })
-      } else {
-        this.options = this.filter();
-      }
-    },
+                channel.$on('PickerOkEvent', (value) => {
+                    this.v = formatRegionCode(value);
+                    vm.formatedNames = formatRegionNames(value, vm.data);
 
-    methods: {
-      showCascadePanel(index) {
-          let vm = this;
-        let v = vm.value, f = vm.dataFields;
+                    if (vm.onPicked) vm.onPicked(value, vm.formatedNames);
 
-        if (index > v.length) {
-          if (vm.$toast) vm.$toast.show('请先选择' + f[index - 1]);
-          return;
+                    if (vm.picker) vm.picker.hide();
+                    channel.$off('PickerOkEvent');
+                });
+
+                channel.$on('PickerCancelEvent', () => {
+                    if (vm.onCancel) vm.onCancel();
+                    channel.$off('PickerCancelEvent');
+                });
+
+                vm.picker.show();
+            }
         }
-
-        let title = f[index];
-        let options = vm.filter(index);
-        // console.log('show cascade panel =>', title, options)
-
-        vm.$cascadepanel
-          .show(title, options)
-          .then((optionIndex) => {
-            if (optionIndex == -1) return;
-
-            this.value.splice(index, 1, options[optionIndex]);
-            this.resetDown(index);
-
-            this.onChange(this.value);
-          });
-      },
-
-      filter(index) {
-        let filters = [];
-        for (let i = 0; i < index; i++) filters.push(this.value[i]);
-        return filter(filters, this.data);
-      },
-
-      resetDown(index) {
-        let len = index + 1;
-        this.value.splice(len, this.value.length - len);
-      }
     }
-  }
 </script>
