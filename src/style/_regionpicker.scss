@@ -2,11 +2,6 @@
 
 [view-regionpicker] {
     height: 50px;
-    input[type=datetime] {
-        position: absolute;
-        top: -50000px;
-        left: -50000px;
-    }
 }
 
 [view-picker], .view-regionpicker {

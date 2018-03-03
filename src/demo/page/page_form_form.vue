@@ -37,6 +37,8 @@
                 </Upload>
             </Input>
 
+            <RegionPicker v-model="region_val" label="地区" :data='regiondata'></RegionPicker>
+
 
             <Toggle color="positive" v-model="toggle_val" :label="'禁用' + toggle_val"></Toggle>
             <Slider color="positive" :min="0" :max="100" v-model="slider_val">
@@ -58,6 +60,9 @@
 </template>
 
 <script>
+
+    import RegionData from '../static/datas/regiondata.json';
+
     export default {
         data () {
             return {
@@ -90,6 +95,11 @@
                     {'name': '三', 'value': 3},
                     {'name': '五', 'value': 5},
                 ],
+
+                region_val: '130102',
+                regioncodes: '130000-130100-130102',
+                regionnames: '河北省-石家庄市-长安区',
+                regiondata: RegionData,
             }
         },
         methods: {

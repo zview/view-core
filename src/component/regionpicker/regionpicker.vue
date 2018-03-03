@@ -1,8 +1,11 @@
 <template>
-    <div view-regionpicker class="view-item item item-input" @click="showPicker()">
-        <span v-if="label != ''" class="input-label" v-text="label"></span>
-        <input ref="inputer" type="datetime" :value="v">
-        <span v-text="formatedNames"></span>
+
+    <div class="view-input-wrapper">
+        <div view-regionpicker class="view-input-item view-item item item-input" @click="showPicker()">
+            <span v-if="label != ''" class="view-input-label input-label" v-text="label"></span>
+            <input ref="inputer" type="hidden" :value="v"/>
+            <span class="view-input" v-text="formatedNames"></span>
+        </div>
     </div>
 </template>
 
@@ -11,7 +14,6 @@
     import Vue from 'vue';
     import Picker from './picker.vue';
     import channel from './channel';
-
 
     const formatRegionCode = (codes) => {
         console.log('formatRegionCode', codes);
