@@ -18,7 +18,9 @@
     const formatRegionCode = (codes) => {
         console.log('formatRegionCode', codes);
         let array = codes.split('-');
-        return array[array.length - 1];
+        let code = array[array.length - 1];
+        if(!code || code=='') code = array[array.length - 2];
+        return code;
     };
 
     const formatRegionCodes = (value, data) => {
@@ -32,6 +34,11 @@
         if (items && items.length > 0) {
             selfcode = items[0].value;
             parentcode = items[0].parent;
+        }
+        else
+        {
+            selfcode = '';
+            parentcode = value;
         }
         codes.push(selfcode);
 
