@@ -95,19 +95,19 @@
             let vm = this;
 
             //启动默认值
-            let provs = vm.data.filter(item => (item.level == 'c0' || item.level == 'c1'));
+            let provs = vm.data.filter(item => (item.level.startsWith('c')));
             vm.years = [entry,entry,entry,entry];
             vm.years = vm.years.concat(provs);
             vm.years = vm.years.concat([entry,entry,entry,entry]);
             vm.yindex = initval;
 
-            let citys = vm.data.filter(item => (item.parent == provs[0].value && (item.level == 'd0' || item.level == 'd1')));
+            let citys = vm.data.filter(item => (item.parent == provs[0].value && item.level.startsWith('d')));
             vm.months = [entry,entry,entry,entry];
             vm.months = vm.months.concat(citys);
             vm.months = vm.months.concat([entry,entry,entry,entry]);
             vm.mindex = initval;
 
-            let cntrys = vm.data.filter(item => (item.parent == citys[0].value && (item.level == 'x0' || item.level == 'x1')));
+            let cntrys = vm.data.filter(item => (item.parent == citys[0].value && item.level.startsWith('x')));
             vm.dates = [entry,entry,entry,entry];
             vm.dates = vm.dates.concat(cntrys);
             vm.dates = vm.dates.concat([entry,entry,entry,entry]);
@@ -188,7 +188,7 @@
                 //
                 let haschange = false;
                 if(yIndex != vm.yindex) {
-                    let citys = vm.data.filter(item => (item.parent == vm.years[yIndex].value && (item.level == 'd0' || item.level == 'd1')));
+                    let citys = vm.data.filter(item => (item.parent == vm.years[yIndex].value && item.level.startsWith('d')));
                     vm.months = [entry,entry,entry,entry];
                     vm.months = vm.months.concat(citys);
                     vm.months = vm.months.concat([entry,entry,entry,entry]);
@@ -200,7 +200,7 @@
 
                 //
                 if(mIndex != vm.mindex || haschange) {
-                    let cntrys = vm.data.filter(item => (item.parent == vm.months[mIndex].value && (item.level == 'x0' || item.level == 'x1')));
+                    let cntrys = vm.data.filter(item => (item.parent == vm.months[mIndex].value && item.level.startsWith('x')));
                     vm.dates = [entry,entry,entry,entry];
                     vm.dates = vm.dates.concat(cntrys);
                     vm.dates = vm.dates.concat([entry,entry,entry,entry]);
@@ -230,7 +230,7 @@
                 let haschange = false;
                 let yindex = vm.getItemIndex(vm.years, ymd[0]);
                 if(yindex != vm.yindex) {
-                    let citys = vm.data.filter(item => (item.parent == vm.years[yindex].value && (item.level == 'd0' || item.level == 'd1')));
+                    let citys = vm.data.filter(item => (item.parent == vm.years[yindex].value && item.level.startsWith('d')));
                     vm.months = [entry,entry,entry,entry];
                     vm.months = vm.months.concat(citys);
                     vm.months = vm.months.concat([entry,entry,entry,entry]);
@@ -243,7 +243,7 @@
                 //
                 let mindex = vm.getItemIndex(vm.months, ymd[1]);
                 if(mindex != vm.mindex || haschange) {
-                    let cntrys = vm.data.filter(item => (item.parent == vm.months[mindex].value && (item.level == 'x0' || item.level == 'x1')));
+                    let cntrys = vm.data.filter(item => (item.parent == vm.months[mindex].value && item.level.startsWith('x')));
                     vm.dates = [entry,entry,entry,entry];
                     vm.dates = vm.dates.concat(cntrys);
                     vm.dates = vm.dates.concat([entry,entry,entry,entry]);

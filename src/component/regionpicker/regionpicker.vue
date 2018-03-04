@@ -4,9 +4,10 @@
         <div view-regionpicker class="view-input-item view-item item item-input" @click="showPicker()">
             <span v-if="label != ''" class="view-input-label input-label" v-text="label"></span>
             <input ref="inputer" type="hidden" :value="v"/>
-            <span class="view-input" v-text="formatedNames"></span>
+            <span class="view-input-text" v-text="formatedNames"></span>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -30,7 +31,7 @@
 
         let selfcode = value;
         let parentcode = '';
-        let items = data.filter(item => (item.value == selfcode && (item.level == 'x0' || item.level == 'x1')));  //区县级
+        let items = data.filter(item => (item.value == selfcode && item.level.startsWith('x')));  //区县级
         if (items && items.length > 0) {
             selfcode = items[0].value;
             parentcode = items[0].parent;
@@ -43,7 +44,11 @@
         codes.push(selfcode);
 
         selfcode = '';
-        items = data.filter(item => (item.value == parentcode && (item.level == 'd0' || item.level == 'd1')));  //地市级
+        items = data.filter(item => (item.value == parentcode && item.level.startsWith('d')));  //地市级
+        if(!items || items.length==0)  //两级都没找到,给个默认值
+        {
+            items = data.filter(item => (item.level.startsWith('d')));
+        }
         if (items && items.length > 0) {
             selfcode = items[0].value;
             parentcode = items[0].parent;
@@ -51,7 +56,7 @@
         codes.push(selfcode);
 
         selfcode = '';
-        items = data.filter(item => (item.value == parentcode && (item.level == 'c0' || item.level == 'c1')));  //省级
+        items = data.filter(item => (item.value == parentcode && item.level.startsWith('c')));  //省级
         if (items && items.length > 0) {
             selfcode = items[0].value;
             parentcode = items[0].parent;

@@ -1,10 +1,18 @@
 @import "base";
 
-[view-regionpicker] {
+[view-regionpicker]
+{
     height: 50px;
+
+    .view-input-text
+    {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
 
-[view-picker], .view-regionpicker {
+[view-picker], .view-regionpicker
+{
     position: fixed;
     left: 0;
     bottom: 0;
