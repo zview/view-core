@@ -403,7 +403,7 @@ $error(...message)
 - [ ] 选择器 Picker
 - [x] 日期选择 DatePicker
 - [ ] 时间选择 TimerPicker
-- [ ] 地区选择 RegionPicker
+- [x] 地区选择 RegionPicker
 - [ ] 颜色选择 ColorPicker
 - [ ] 穿梭框 Transfer
 - [ ] 数字输入 Number
