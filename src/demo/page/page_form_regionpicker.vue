@@ -19,11 +19,11 @@
         <Panel>{{message}}</Panel>
 
         <Panel type="paddingless">
-            <RegionPicker v-model="code" label="地区"
-                          :data='regiondata' :on-picked="_on_picker_picked" :on-cancel="_on_picker_cancel"></RegionPicker>
+            <RegionPicker v-model="code" label="地区" :data='regiondata'
+                :on-picked="_on_picker_picked" :on-cancel="_on_picker_cancel"></RegionPicker>
         </Panel>
 
-        <Panel>
+        <Panel @click.native="_on_change_code">
             value: {{ code }}
         </Panel>
 
@@ -205,6 +205,11 @@
             },
             _on_picker_cancel: function () {
                 console.log('_on_picker_cancel');
+            },
+            _on_change_code: function () {
+                console.log('_on_change_code');
+                let vm = this;
+                vm.code = '430101';
             },
         },
     }

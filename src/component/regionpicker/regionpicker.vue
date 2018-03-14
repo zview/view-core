@@ -132,6 +132,15 @@
             vm.formatedNames = formatRegionNames(vm.formatedCodes, vm.data);
         },
 
+        watch: {
+            value: function (val) {
+                let vm = this;
+
+                vm.formatedCodes = formatRegionCodes(val, vm.data);
+                vm.formatedNames = formatRegionNames(vm.formatedCodes, vm.data);
+            },
+        },
+
         methods: {
             showPicker() {
                 let vm = this;
