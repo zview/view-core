@@ -5,8 +5,7 @@
         <label class="view-search-label item-input-wrapper" :class="label_classes">
             <Icon icon="ion-ios-search" class-name="placeholder-icon"></Icon>
             <form :id="formId" >
-                <input type="search" ref="input" :value="value"
-                       @input="input($event)"
+                <input type="search" ref="input" v-model="val"
                        :placeholder="placeholder" class="view-search" :class="classes"
                        :readonly="readonly" :disabled="disabled"/>
             </form>
@@ -56,7 +55,7 @@
         },
         data() {
             return {
-                formId: 'view-search-' + Math.random().toString(36).substring(3, 8)
+                formId: 'view-search-' + Math.random().toString(36).substring(3, 8),
             }
         },
         mounted: function() {
@@ -87,14 +86,14 @@
                     }
                 ];
             },
-            /*val: {
+            val: {
                 get:function() {
                     return this.value;
                 },
                 set:function(val) {
                     this.$emit('input', val);
                 }
-            },*/
+            },
         },
         methods: {
             search(e) {
@@ -106,12 +105,6 @@
 
             cancel() {
                 if (this.onCancel) this.onCancel();
-            },
-
-            input($event) {
-                let value = $event.target.value;
-                this.$refs.input.value = value;
-                this.$emit('input', value);
             },
         },
 
