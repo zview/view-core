@@ -10,7 +10,7 @@
 
 ### 编写可复用组件
 
-Vue 组件的 API 来自三部分 - props, events 和 slots ：
+Vue 组件的 API 来自三部分 - props, events 和 slots:
 
 Props 允许外部环境传递数据给组件
 Events 允许组件对外部环境产生副作用(side effects)
