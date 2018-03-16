@@ -106,6 +106,10 @@
             cancel() {
                 if (this.onCancel) this.onCancel();
             },
+
+            focus() {
+                this.$refs.input.focus();
+            },
         },
 
     }
