@@ -5,11 +5,10 @@
         <label class="view-search-label item-input-wrapper" :class="label_classes">
             <Icon icon="ion-ios-search" class-name="placeholder-icon"></Icon>
             <form :id="formId" >
-                <input type="text" ref="input" :value="value"
-                       @input="updateValue($event.target.value)"
+                <input type="search" ref="input" :value="value"
+                       @input="input($event)"
                        :placeholder="placeholder" class="view-search" :class="classes"
                        :readonly="readonly" :disabled="disabled"/>
-                <!--type="search"-->
             </form>
         </label>
         <slot name="right">
@@ -100,7 +99,7 @@
         methods: {
             search(e) {
                 e.preventDefault();
-                let search = document.querySelector('#' + this.formId + ' > [type=text]'); //[type=search]
+                let search = document.querySelector('#' + this.formId + ' > [type=search]');
                 search.blur();
                 if (this.onSearch) this.onSearch(search.value);
             },
@@ -109,10 +108,11 @@
                 if (this.onCancel) this.onCancel();
             },
 
-            updateValue(value) {
+            input($event) {
+                let value = $event.target.value;
                 this.$refs.input.value = value;
                 this.$emit('input', value);
-            }
+            },
         },
 
     }
