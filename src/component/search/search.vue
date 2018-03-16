@@ -8,7 +8,8 @@
                 <input type="text" ref="input" :value="value"
                        @input="updateValue($event.target.value)"
                        :placeholder="placeholder" class="view-search" :class="classes"
-                       :readonly="readonly" :disabled="disabled"/>  //type="search"
+                       :readonly="readonly" :disabled="disabled"/>
+                <!--type="search"-->
             </form>
         </label>
         <slot name="right">
