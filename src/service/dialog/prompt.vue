@@ -7,8 +7,7 @@
       </div>
 
       <div class="popup-body">
-          <!--<textarea v-model="content"/>-->
-          <Input type="textarea" v-model="content"/>
+          <Input :type="inputType" :show-clear="false" v-model="content"/>
       </div>
 
       <div class="popup-buttons">
@@ -71,6 +70,7 @@
       return {
         title: '提示',
         content: '',
+          inputType: 'textarea',
         okText: '确定',
         okTheme: 'assertive',
         cancelText: '取消',

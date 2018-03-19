@@ -446,14 +446,25 @@
 
 .popup
 {
-    .item-input
+
+    .view-input-wrapper .view-input-item.item-input
     {
         padding: 0;
+        margin-left: 5px;
+        margin-right: 5px;
+        min-height: 36px;
 
-        textarea
+        .view-input
         {
             padding: 5px;
         }
+
+        input.view-input
+        {
+            height: 36px;
+        }
+
     }
+
 }
 

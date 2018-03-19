@@ -5,8 +5,7 @@
       <div class="popup-head">
         <div class="popup-title" v-text="title"></div>
         <div class="popup-sub-title">
-            <!--<textarea v-model="content"/>-->
-            <Input type="textarea" v-model="content"/>
+            <Input :type="inputType" :show-clear="false" v-model="content"/>
         </div>
         <div class="liner-bottom"></div>
       </div>
@@ -44,6 +43,7 @@
       return {
         title: '提示',
         content: '',
+          inputType: 'textarea',
         okText: '确定',
         cancelText: '取消',
         okTheme: 'assertive',

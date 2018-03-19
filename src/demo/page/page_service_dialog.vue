@@ -87,6 +87,7 @@
                 vm.$dialog.prompt({
                     theme: 'ios',
                     title: '请输入内容?',
+                    inputType: 'number',
                     cancelText: '取消',
                     okText: '打开'
                 }).then((res) => {
