@@ -8,19 +8,16 @@
 
     }
 
-    .view-check-item
+    .view-check-item.item.item-checkbox
     {
         //padding-bottom: 5px;
         //padding-top: 5px;
 
-        .view-check-label
+        .view-check-label.checkbox
         {
-            .view-check
-            {
+            margin-right: 40px;
 
-            }
-
-            input[type='checkbox']
+            input[type='checkbox'].view-check
             {
 
             }
@@ -44,7 +41,8 @@
 
         .view-check-desc
         {
-            padding-left: 5px;
+            //padding-left: 5px;
+            margin-top: 5px;
 
             span
             {

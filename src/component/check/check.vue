@@ -4,8 +4,8 @@
         <div class="view-check-title item item-divider" v-if="title">{{title}}</div>
         <div class="view-check-item item item-checkbox"
              v-for="(option, index) in options" :key="index"
-             @click="_on_cell_click(index, option.value)" :class="item_classes">
-            <label class="view-check-label checkbox">
+             :class="item_classes">
+            <label class="view-check-label checkbox" @click="_on_item_click(index, option.value)">
                 <input class="view-check" :class="classes" type="checkbox"
                        :name="check_id" :value="option.value" v-model="val"
                        :readonly="readonly" :disabled="disabled"/>
@@ -15,13 +15,16 @@
             </div>
             <div class="view-check-name">
                 <span>{{option.name}}</span>
-                <Icon class="float-right" :icon="option.icon" v-if="option.icon && option.icon!=''"></Icon>
+                <Icon class="float-right" :icon="option.icon"
+                      v-if="option.icon && option.icon!=''"
+                      @click="_on_sub_click(index, option.value)"></Icon>
             </div>
             <div class="view-check-desc" v-if="option.desc || option.subdesc">
                 <span v-if="option.desc && option.desc!=''">
                     {{option.desc}}
                 </span>
-                <span class="float-right" v-if="option.subdesc && option.subdesc!=''">
+                <span class="float-right" v-if="option.subdesc && option.subdesc!=''"
+                      @click="_on_sub_click(index, option.value)">
                     {{option.subdesc}}
                 </span>
             </div>
@@ -58,6 +61,8 @@
             },
             title: [String, Number],
             itemClassName: String,
+            onItemClick: Function,
+            onSubClick: Function,
             className: String
         },
         data() {
@@ -95,9 +100,10 @@
             },
         },
         methods: {
-            _on_cell_click: function (index, value) {
-                console.log('_on_cell_click', index, value);
+            _on_item_click: function (index, value) {
+//                console.log('_on_item_click', index, value);
                 let vm = this;
+                if (vm.onItemClick) vm.onItemClick(index, value);
 
                 /*let i = vm.val.indexOf(value)
                 if (i == -1) {
@@ -106,7 +112,12 @@
                     vm.val.splice(i, 1)
                 }*/
 //                vm.val.sort()
-            }
+            },
+            _on_sub_click: function (index, value) {
+//                console.log('_on_sub_click', index, value);
+                let vm = this;
+                if (vm.onSubClick) vm.onSubClick(index, value);
+            },
         },
     }
 </script>
