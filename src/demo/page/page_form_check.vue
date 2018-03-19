@@ -10,7 +10,8 @@
         </List>
 
         <List>
-            <Check :title="'选择' + val3" :options="options3" v-model="val3"></Check>
+            <Check :title="'选择' + val3" :options="options3" v-model="val3"
+                   :on-item-click="_on_change_state" :on-sub-click="_on_change_num"></Check>
         </List>
 
         <List>
@@ -56,6 +57,14 @@
             }
         },
         methods: {
+            _on_change_state: function (val) {
+                console.log('_on_change_state', val);
+
+            },
+            _on_change_num: function (index, value) {
+                console.log('_on_change_num', index, value, this.val3);
+
+            },
 
         },
     }

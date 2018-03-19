@@ -5,7 +5,7 @@
         <div class="view-check-item item item-checkbox"
              v-for="(option, index) in options" :key="index"
              :class="item_classes">
-            <label class="view-check-label checkbox" @click="_on_item_click(index, option.value)">
+            <label class="view-check-label checkbox">
                 <input class="view-check" :class="classes" type="checkbox"
                        :name="check_id" :value="option.value" v-model="val"
                        :readonly="readonly" :disabled="disabled"/>
@@ -96,23 +96,24 @@
                 },
                 set:function(val) {
                     this.$emit('input', val);
+                    if (this.onItemClick) this.onItemClick(val);
                 }
             },
         },
         methods: {
-            _on_item_click: function (index, value) {
-//                console.log('_on_item_click', index, value);
+            /*_on_item_click: function (index, value) {
+                console.log('_on_item_click', index, value);
                 let vm = this;
-                if (vm.onItemClick) vm.onItemClick(index, value);
 
-                /*let i = vm.val.indexOf(value)
+                let i = vm.val.indexOf(value);
                 if (i == -1) {
-                    vm.val.push(value)
-                } else {
-                    vm.val.splice(i, 1)
-                }*/
-//                vm.val.sort()
-            },
+                    vm.val.push(value);
+                }
+                else {
+                    vm.val.splice(i, 1);
+                }
+                vm.val.sort();
+            },*/
             _on_sub_click: function (index, value) {
 //                console.log('_on_sub_click', index, value);
                 let vm = this;
