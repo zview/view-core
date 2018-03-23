@@ -37,7 +37,8 @@ export class _http_request {
 
         //Complete
         vm.$http.onload = function onload() {
-            var iserror = isError!=null?isError(vm.$http.status, vm.getBody(vm.$http)):vm.isStatueError(vm.$http.status);
+            var iserror = (isError && isError!=null)?isError(vm.$http.status, vm.getBody(vm.$http)):vm.isStatueError(vm.$http.status);
+            // var iserror = isError(vm.$http.status, vm.getBody(vm.$http));
             console.log('onload', iserror);
             if (iserror) {
                 return onError(vm.getError(vm.action, vm.method, vm.$http), vm.getBody(vm.$http));

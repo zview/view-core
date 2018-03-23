@@ -2,10 +2,17 @@
 
 [view-datepicker] {
     height: 50px;
+
     input[type=datetime] {
         position: absolute;
         top: -50000px;
         left: -50000px;
+    }
+
+    .view-input-text
+    {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 

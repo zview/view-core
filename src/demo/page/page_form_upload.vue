@@ -72,7 +72,7 @@
             return {
                 message: '文件上传',
 
-                action: ACTION_2,
+                action: ACTION_1,
                 headers: { 'Authorization':'Token 1234' },
                 data: {'filetype': 4},
                 wait_files: [],
@@ -83,9 +83,9 @@
 
             _is_error: function (status, data) {
                 console.log('_is_error', status, data);
-//                return status < 200 || status >= 300 || (data && data.result != 0);
+                return status < 200 || status >= 300 || (data && data.result != 0);
 //                return status < 200 || status >= 300;
-                return false;
+//                return false;
             },
 
             //整个过程

@@ -5,7 +5,7 @@
       <div class="popup-head">
         <div class="popup-title" v-text="title"></div>
         <div class="popup-sub-title">
-            <Input :type="inputType" :show-clear="false" v-model="content"/>
+            <Input ref="inputer" :type="inputType" :show-clear="false" v-model="content"/>
         </div>
         <div class="liner-bottom"></div>
       </div>
@@ -54,7 +54,7 @@
     methods: {
       show(options) {
           let vm = this;
-        extend(vm, options)
+        extend(vm, options);
 
         vm.$backdrop.show();
         vm.state = 1;

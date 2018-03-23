@@ -39,6 +39,8 @@
 
             <RegionPicker v-model="region_val" label="地区" :data='regiondata'></RegionPicker>
 
+            <DatePicker v-model="date_val" label="生日" date-format="yyyy-mm-dd"></DatePicker>
+
 
             <Toggle color="positive" v-model="toggle_val" :label="'禁用' + toggle_val"></Toggle>
             <Slider color="positive" :min="0" :max="100" v-model="slider_val">
@@ -49,7 +51,9 @@
             <Radio indicator-color="balanced" :options="radio_options" v-model="radio_val" :title="'请选择' + radio_val"></Radio>
             <Check :title="'请选择' + check_val" :options="check_options" v-model="check_val"></Check>
 
+            <br/>
             <Search color="balanced" bg-color="dark" v-model="search_val"></Search>
+            <br/>
 
             <Input type="button" input-label="按钮"/>
             <Input type="reset" input-label="重置"/>
@@ -95,6 +99,8 @@
                     {'name': '三', 'value': 3},
                     {'name': '五', 'value': 5},
                 ],
+
+                date_val: '2016-12-01',
 
                 region_val: '130102',
                 regioncodes: '130000-130100-130102',

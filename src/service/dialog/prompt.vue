@@ -7,7 +7,7 @@
       </div>
 
       <div class="popup-body">
-          <Input :type="inputType" :show-clear="false" v-model="content"/>
+          <Input ref="inputer" :type="inputType" :show-clear="false" v-model="content"/>
       </div>
 
       <div class="popup-buttons">

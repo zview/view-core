@@ -1,99 +1,102 @@
 <template>
-  <div view-datepicker class="view-item item item-input" @click="showPicker()">
-    <span v-if="label != ''" class="input-label" v-text="label"></span>
-    <input ref="datetime" type="datetime" :value="v">
-    <span v-text="formatedDate"></span>
-  </div>
+    <div class="view-input-wrapper">
+        <div view-datepicker class="view-input-item view-item item item-input" @click="showPicker()">
+            <span v-if="label != ''" class="view-input-label input-label" v-text="label"></span>
+            <input ref="datetime" type="datetime" :value="v">
+            <span class="view-input-text" v-text="formatedDate"></span>
+        </div>
+    </div>
 </template>
+
 <script>
-  import Vue from 'vue';
-  import Picker from './picker.vue';
-  import channel from './channel';
+    import Vue from 'vue';
+    import Picker from './picker.vue';
+    import channel from './channel';
 
-  const formatDate = (value, format) => {
-    switch(format) {
-      case 'yyyy/mm/dd':
-        return value.split('-').join('/');
-        break;
-      default:
-        return value;
-    }
-  };
-
-  export default {
-    props: {
-      label: {
-        type: String,
-        default: ''
-      },
-      placeholder: {
-        type: String,
-        default: ''
-      },
-      value: {
-        type: String,
-        default: ''
-      },
-      dateFormat: {
-        type: String,
-        default: 'yyyy-mm-dd',
-        validator: function (value) {
-          return ['yyyy-mm-dd', 'yyyy/mm/dd'].indexOf(value) > -1;
+    const formatDate = (value, format) => {
+        switch (format) {
+            case 'yyyy/mm/dd':
+                return value.split('-').join('/');
+                break;
+            default:
+                return value;
         }
-      }
-    },
+    };
 
-    computed: {
-        v: {
-            get: function () {
-                return this.value;
+    export default {
+        props: {
+            label: {
+                type: String,
+                default: ''
             },
-            set: function (val) {
-                this.$emit('input', val);
-                this.$refs.datetime.value = val;
+            placeholder: {
+                type: String,
+                default: ''
+            },
+            value: {
+                type: String,
+                default: ''
+            },
+            dateFormat: {
+                type: String,
+                default: 'yyyy-mm-dd',
+                validator: function (value) {
+                    return ['yyyy-mm-dd', 'yyyy/mm/dd'].indexOf(value) > -1;
+                }
             }
         },
-    },
 
-    data() {
-      return {
-        picker: undefined, // picker vm
-        formatedDate: '',
-      }
-    },
+        computed: {
+            v: {
+                get: function () {
+                    return this.value;
+                },
+                set: function (val) {
+                    this.$emit('input', val);
+                    this.$refs.datetime.value = val;
+                }
+            },
+        },
 
-    mounted() {
-      this.formatedDate = formatDate(this.value, this.dateFormat);
-    },
+        data() {
+            return {
+                picker: undefined, // picker vm
+                formatedDate: '',
+            }
+        },
 
-    methods: {
-      showPicker() {
-        let el = document.createElement('div');
-        el.setAttribute('view-picker', '');
-        document.body.appendChild(el);
+        mounted() {
+            this.formatedDate = formatDate(this.value, this.dateFormat);
+        },
 
-        let PickerComponent = Vue.extend(Picker);
-        this.picker = new PickerComponent({
-          data: {
-            value: this.v
-          }
-        }).$mount('[view-picker]');
+        methods: {
+            showPicker() {
+                let el = document.createElement('div');
+                el.setAttribute('view-picker', '');
+                document.body.appendChild(el);
 
-        channel.$on('PickerOkEvent', (value) => {
-          this.v = value;
+                let PickerComponent = Vue.extend(Picker);
+                this.picker = new PickerComponent({
+                    data: {
+                        value: this.v
+                    }
+                }).$mount('[view-picker]');
+
+                channel.$on('PickerOkEvent', (value) => {
+                    this.v = value;
 //          console.log('datetime input =>', this.$refs.datetime);
 //          this.$refs.datetime.value = value;
 //          this.$emit('input', value);
 
-          this.formatedDate = formatDate(value, this.dateFormat);
-          if (this.picker)
-            this.picker.hide();
+                    this.formatedDate = formatDate(value, this.dateFormat);
+                    if (this.picker)
+                        this.picker.hide();
 
-          channel.$off('PickerOkEvent');
-        });
+                    channel.$off('PickerOkEvent');
+                });
 
-        this.picker.show();
-      }
+                this.picker.show();
+            }
+        }
     }
-  }
 </script>
