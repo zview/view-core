@@ -50,7 +50,7 @@
             <Item @click.native="_on_goto_page('/demo/search')" note="Search">搜索框</Item>
             <Item @click.native="_on_goto_page('/demo/slider')" note="Slider">滑动条</Item>
             <Item @click.native="_on_goto_page('/demo/cascade')" note="Cascade">级联选择</Item>
-            <!--<Item @click.native="_on_goto_page('/demo/picker')" note="Picker">选择器</Item>-->
+            <!--<Item @click.native="_on_goto_page('/demo/picker')" note="PickerView">选择器</Item>-->
             <Item @click.native="_on_goto_page('/demo/datepicker')" note="DatePicker">日期选择</Item>
             <!--<Item @click.native="_on_goto_page('/demo/timepicker')" note="TimerPicker">时间选择</Item>-->
             <Item @click.native="_on_goto_page('/demo/regionpicker')" note="RegionPicker">地区选择</Item>

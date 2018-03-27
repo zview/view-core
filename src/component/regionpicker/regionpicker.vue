@@ -13,7 +13,7 @@
 <script>
 
     import Vue from 'vue';
-    import Picker from './picker.vue';
+    import PickerView from './regionpickerview.vue';
     import channel from './channel';
 
     const formatRegionCode = (codes) => {
@@ -149,7 +149,7 @@
                 el.setAttribute('view-picker', '');
                 document.body.appendChild(el);
 
-                let PickerComponent = Vue.extend(Picker);
+                let PickerComponent = Vue.extend(PickerView);
                 vm.picker = new PickerComponent({
                     data: {
                         value: formatRegionCodes(vm.value, vm.data),  //当前值

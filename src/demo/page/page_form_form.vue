@@ -32,7 +32,7 @@
             <Input type="textarea" label="描述" bg-color="stable" placeholder="默认文本区域" v-model="textareaval"/>
 
             <Input type="slot" bg-color="stable" label="文件">
-                <Upload accept="*/*" action="//" :show-upload-list="false">
+                <Upload accept="*/*" action="//" :show-files="true">
                     <Icon icon="ion-ios-plus-outline"></Icon>
                 </Upload>
             </Input>

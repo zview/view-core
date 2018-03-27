@@ -10,18 +10,8 @@
 
 <script>
     import Vue from 'vue';
-    import PickerView from './datepickerview.vue';
-    import channel from './datechannel';
-
-    const formatDate = (value, format) => {
-        switch (format) {
-            case 'yyyy/mm/dd':
-                return value.split('-').join('/');
-                break;
-            default:
-                return value;
-        }
-    };
+    import PickerView from './timepickerview.vue';
+    import channel from './timechannel';
 
     export default {
         props: {
@@ -36,13 +26,6 @@
             value: {
                 type: String,
                 default: ''
-            },
-            dateFormat: {
-                type: String,
-                default: 'yyyy-mm-dd',
-                validator: function (value) {
-                    return ['yyyy-mm-dd', 'yyyy/mm/dd'].indexOf(value) > -1;
-                }
             }
         },
 
@@ -66,7 +49,7 @@
         },
 
         mounted() {
-            this.formatedDate = formatDate(this.value, this.dateFormat);
+            this.formatedDate = this.value;
         },
 
         methods: {
@@ -84,11 +67,8 @@
 
                 channel.$on('PickerOkEvent', (value) => {
                     this.v = value;
-//          console.log('datetime input =>', this.$refs.datetime);
-//          this.$refs.datetime.value = value;
-//          this.$emit('input', value);
 
-                    this.formatedDate = formatDate(value, this.dateFormat);
+                    this.formatedDate = value;
                     if (this.picker)
                         this.picker.hide();
 

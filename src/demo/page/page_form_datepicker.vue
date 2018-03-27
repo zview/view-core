@@ -11,6 +11,14 @@
             value: {{ birthday }}
         </Panel>
 
+        <Panel type="paddingless">
+            <TimePicker v-model="curtime" label="时间"></TimePicker>
+        </Panel>
+
+        <Panel>
+            value: {{ curtime }}
+        </Panel>
+
     </div>
 </template>
 
@@ -20,6 +28,7 @@
             return {
                 message: '日期选择器',
                 birthday: '2016-12-01',
+                curtime: '12:12:12',
             }
         },
         methods: {

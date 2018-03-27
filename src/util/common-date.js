@@ -1,6 +1,10 @@
 var SIGN_REGEXP = /([yMdhsm])(\1*)/g;
 var DEFAULT_PATTERN = 'yyyy-MM-dd';
 
+var DATE_PATTERN = 'yyyy-MM-dd';
+var TIME_PATTERN = 'hh:mm:ss';
+var DATETIME_PATTERN = 'yyyy-MM-dd hh:mm:ss';
+
 function padding(s, len) {
     var len = len - (s + '').length;
     for (var i = 0; i < len; i++) { s = '0' + s; }
@@ -9,6 +13,11 @@ function padding(s, len) {
 
 //
 let common_formater = {
+    PATTERN: {
+        date: DATE_PATTERN,
+        time: TIME_PATTERN,
+        datetime: DATETIME_PATTERN,
+    },
     formatDate: {
         format: function(date, pattern) {
             pattern = pattern || DEFAULT_PATTERN;

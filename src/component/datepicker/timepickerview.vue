@@ -46,49 +46,36 @@
   </div>
 </template>
 <script>
-  import channel from './channel';
+  import channel from './timechannel';
 
-  const defaultYears = () => {
-    let years = ['','',''];
-    let today = new Date();
-    const passed = today.getFullYear() - 1975;
-    let start = today.getFullYear() - passed;
-    let end = today.getFullYear() + passed;
-    for (let y = start; y <= end; y++) years.push(y + '');
-    return years.concat(['','','']);
-  };
-
-  const defaultMonths = () => [
-    '','','',
-    '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12',
-    '','',''
+  const defaultYears = () => [
+      '','','',
+      '00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11',
+      '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23',
+      '','',''
   ];
 
-  const defaultDates = (yyyy, mm) => {
-    let dates = ['','',''];
-    let today = new Date();
-    let year = today.getFullYear();
-    let month = today.getMonth();
+  const defaultMonths = () => [
+      '','','',
+      '00', '01', '02', '03', '04', '05', '06', '07', '08', '09',
+      '10', '11', '12', '13', '14', '15', '16', '17', '18', '19',
+      '20', '21', '22', '23', '24', '25', '26', '27', '28', '29',
+      '30', '31', '32', '33', '34', '35', '36', '37', '38', '39',
+      '40', '41', '42', '43', '44', '45', '46', '47', '48', '49',
+      '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
+      '','',''
+  ];
 
-    if (yyyy)
-      year = parseInt(yyyy);
-
-    if (mm)
-      month = parseInt(mm) - 1;
-
-    let end = 30;
-
-    if ([0,2,4,6,7,9,11].indexOf(month) > -1) { // 闰月：一月、三月、五月、七月、八月、十月、十二月
-      end = 31;
-    }
-    else if (month == 1) { // 二月
-      // 计算闰二月
-      end = year % 100 == 0 ? (year % 400 == 0 ? 29 : 28) : (year % 4 == 0 ? 29 : 28);
-    }
-
-    for (let d = 1; d <= end; d++) dates.push((100 + d + '').substr(1,2));
-    return dates.concat(['','','']);
-  };
+  const defaultDates = () => [
+      '','','',
+      '00', '01', '02', '03', '04', '05', '06', '07', '08', '09',
+      '10', '11', '12', '13', '14', '15', '16', '17', '18', '19',
+      '20', '21', '22', '23', '24', '25', '26', '27', '28', '29',
+      '30', '31', '32', '33', '34', '35', '36', '37', '38', '39',
+      '40', '41', '42', '43', '44', '45', '46', '47', '48', '49',
+      '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
+      '','',''
+  ];
 
   const item_height = 34;
 
@@ -191,7 +178,7 @@
         setOpacity(this.$refs.m_scroller.$el, mIndex);
         setOpacity(this.$refs.d_scroller.$el, dIndex);
 
-        let yyyy = this.years[yIndex];
+        /*let yyyy = this.years[yIndex];
         let mm = this.months[mIndex];
         let dd = this.dates[dIndex];
         let newDates = defaultDates(yyyy, mm);
@@ -203,13 +190,13 @@
 
         if (this.dates.indexOf(dd) === -1) {
           dIndex = this.dates.length - 4;
-        }
+        }*/
 
-        this.value = this.years[yIndex] + '-' + this.months[mIndex] + '-' + this.dates[dIndex];
+        this.value = this.years[yIndex] + ':' + this.months[mIndex] + ':' + this.dates[dIndex];
       },
 
       setYmd() {
-        let ymd = this.value.split('-');
+        let ymd = this.value.split(':');
         let yIndex = this.years.indexOf(ymd[0]);
         let mIndex = this.months.indexOf(ymd[1]);
         let dIndex = this.dates.indexOf(ymd[2]);

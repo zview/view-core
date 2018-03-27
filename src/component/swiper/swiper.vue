@@ -159,9 +159,13 @@
             resize() {
                 this.swiper.resize();
 
-                if (this.$refs.pagination) {
-                    this.$refs.pagination.init();
-                }
+                this.itemCount = this.swiper.count;
+
+                Vue.nextTick(() => {
+                    if (this.$refs.pagination) {
+                        this.$refs.pagination.init();
+                    }
+                });
             },
 
             count() {
