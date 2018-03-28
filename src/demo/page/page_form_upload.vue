@@ -7,6 +7,7 @@
 
             <Item>
                 <Upload accept="*/*" label="单文件上传"
+                        v-model="init_files1"
                         :action="action"
                         :cross-domain="false"
                         :headers="headers"
@@ -22,7 +23,12 @@
             </Item>
 
             <Item>
+                <Button type="block" bg-color="positive" @click="_on_get_value1">取值</Button>
+            </Item>
+
+            <Item>
                 <Upload accept="image/*" label="多文件上传"
+                        v-model="init_files2"
                         :action="action"
                         :cross-domain="false"
                         :is-error="_is_error"
@@ -39,7 +45,6 @@
                         :load-local-data="false"
                         :file-list-type="'grid'"
                         :file-list-colnum="3"
-                        :init-files="init_files"
                         :on-item-prepare="_on_item_prepare"
                         :on-item-progress="_on_item_progress"
                         :on-item-success="_on_item_success"
@@ -54,6 +59,10 @@
                     <Icon icon="ion-ios-plus-outline"></Icon>多文件上传
 
                 </Upload>
+            </Item>
+
+            <Item>
+                <Button type="block" bg-color="positive" @click="_on_get_value2">取值</Button>
             </Item>
 
 
@@ -72,11 +81,21 @@
             return {
                 message: '文件上传',
 
+                //
                 action: ACTION_1,
                 headers: { 'Authorization':'Token 1234' },
                 data: {'filetype': 4},
+
+                //
+                init_files1: [],
+                init_files2: [
+                 {'name': '1.jpg', 'url': 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'},
+                 {'name': '2.ppt', 'url': 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}
+                ],
+
+
+                //
                 wait_files: [],
-                init_files: [], //[{'name': '1.jpg', 'url': 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'},{'name': '2.ppt', 'url': 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
             }
         },
         methods: {
@@ -103,29 +122,29 @@
             },
             _on_upload_finish () {
                 console.log('_on_upload_finish');
+                let vm = this;
+
                 //显示提示信息并关闭进度条
+                vm.$loading.hide();
             },
 
             //单个文件
             _on_item_prepare: function (file) {
                 console.log('_on_item_prepare', file);
                 let vm = this;
-
                 vm.$loading.show('正在上传');
             },
             _on_item_progress: function (event, file, files) {
                 console.log('_on_item_progress', event.percent, event.loaded, event.total, file, files);
-
             },
             _on_item_success: function (res, file, files) {
                 console.log('_on_item_success', res, file, files);
                 let vm = this;
 
                 //
-                vm.wait_files = files;
-                if(vm.wait_files && vm.wait_files.length) {
-                    for(let pic of vm.wait_files) {
-                        pic.url = pic.response.data.fileurl; //cvar.render_imgholder(pic.response.data.filename);
+                if(files && files.length) {
+                    for(let pic of files) {
+//                        pic.url = pic.response.data.fileurl; //cvar.render_imgholder(pic.response.data.filename);
                     }
                 }
 
@@ -136,23 +155,34 @@
                 let vm = this;
 
 //                vm.$loading.hide();
-                let message = res.message;//cutility.response.parseMessage(res);
+                let message = res.message || res;//cutility.response.parseMessage(res);
                 vm.$toast.show(message, 1500);
             },
+
 
             //文件列表
             _on_list_preview: function (file) {
                 console.log('_on_list_preview', file);
                 let vm = this;
-
                 vm.$toast.show('文件列表预览', 1000);
             },
             _on_list_remove: function (file, files) {
                 console.log('_on_list_remove', file, files);
                 let vm = this;
-
-                vm.wait_files = files;
                 vm.$toast.show('文件列表移除', 1000);
+            },
+
+
+            //
+            _on_get_value1: function () {
+                let vm = this;
+                console.log('_on_get_value1', vm.init_files1);
+                vm.$toast.show('文件列表' + vm.init_files1.length, 1000);
+            },
+            _on_get_value2: function () {
+                let vm = this;
+                console.log('_on_get_value2', vm.init_files2);
+                vm.$toast.show('文件列表' + vm.init_files2.length, 1000);
             },
 
         },

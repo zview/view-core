@@ -10,17 +10,28 @@
 
 <script>
     import Vue from 'vue';
-    import PickerView from './datepickerview.vue';
-    import channel from './datechannel';
+    import PickerView from './datetimepickerview.vue';
+    import channel from './datetimechannel';
 
-    const formatDate = (value, format) => {
-        switch (format) {
-            case 'yyyy/MM/dd':
-                return value.split('-').join('/');
-                break;
-            default:
-                return value;
+    const PATTERN = 'yyyy-MM-dd hh:mm:ss';
+
+    const encodeDate = (value) => {
+        return value.split(' ').join('-').replace(/:/g, '-');
+    };
+
+    const decodeDate = (value) => {
+        let result = '';
+        let dates = value.split('-');
+        for (let i = 0; i < dates.length; i++) {
+            result += dates[i];
+            if (i <= 1)
+                result += '-';
+            else if (i == 2)
+                result += ' ';
+            else if(i>2 && i<dates.length-1)
+                result += ':';
         }
+        return result;
     };
 
     export default {
@@ -37,13 +48,6 @@
                 type: String,
                 default: ''
             },
-            dateFormat: {
-                type: String,
-                default: 'yyyy-MM-dd',
-                validator: function (value) {
-                    return ['yyyy-MM-dd', 'yyyy/MM/dd'].indexOf(value) > -1;
-                }
-            }
         },
 
         computed: {
@@ -66,7 +70,7 @@
         },
 
         mounted() {
-            this.formatedDate = formatDate(this.value, this.dateFormat);
+            this.formatedDate = this.value;
         },
 
         methods: {
@@ -78,17 +82,14 @@
                 let PickerComponent = Vue.extend(PickerView);
                 this.picker = new PickerComponent({
                     data: {
-                        value: this.v
+                        value: encodeDate(this.v)
                     }
                 }).$mount('[view-picker]');
 
                 channel.$on('PickerOkEvent', (value) => {
-                    this.v = value;
-//          console.log('datetime input =>', this.$refs.datetime);
-//          this.$refs.datetime.value = value;
-//          this.$emit('input', value);
+                    this.v = decodeDate(value);
 
-                    this.formatedDate = formatDate(value, this.dateFormat);
+                    this.formatedDate = decodeDate(value);
                     if (this.picker)
                         this.picker.hide();
 

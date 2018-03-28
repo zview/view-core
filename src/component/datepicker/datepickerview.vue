@@ -45,6 +45,7 @@
     </div>
   </div>
 </template>
+
 <script>
   import channel from './datechannel';
 

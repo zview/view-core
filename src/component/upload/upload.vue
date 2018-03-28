@@ -17,7 +17,9 @@
 
         </div>
 
-        <img class="view-upload-preview" ref="preview" src="" alt="preview" v-if="showPreviewLocal"/>
+        <div v-if="showPreviewLocal" class="preview">
+            <img class="view-upload-preview" ref="preview" src="" alt="preview"/>
+        </div>
 
         <UploadList v-if="showFiles & fileList.length>0"
                     :files="fileList"
@@ -47,6 +49,12 @@
 
     import UploadList from './upload-list.vue';
 
+
+    const is_http_error = (status, data) => {
+        console.log('default iserror');
+        return status < 200 || status >= 300;
+    };
+
     //
     const prefixCls = 'view-upload';
 
@@ -61,6 +69,12 @@
         mixins: [ Emitter ],
         components: { UploadList },
         props : {
+            value: {
+                type: Array,
+                default() {
+                    return [];
+                }
+            },
             color: {
                 validator (value) {
                     return insideColor(value);
@@ -136,12 +150,7 @@
             //
             isError: { //错误处理
                 type: Function,
-                default () {
-                    return (status, data) => {
-                        console.log('default iserror');
-                        return status < 200 || status >= 300;
-                    };
-                }
+                default: is_http_error,
             },
 
             //
@@ -198,12 +207,6 @@
                 }
             },
 
-            initFiles: {  //初始的文件列表
-                type: Array,
-                default() {
-                    return [];
-                }
-            },
             showFiles: { //显示上传列表
                 type: Boolean,
                 default: true
@@ -249,6 +252,16 @@
         },
         mounted: function() {
             console.log('mounted');
+
+            this.fileList = this.value.map(item => {
+                item.status = 'finished';
+                item.percentage = 100;
+                item.uid = Date.now() + this.tmpIndex++;
+                return item;
+            });
+
+            //
+            this.val = this.fileList;
         },
         computed: {
             input_id: function () {
@@ -273,9 +286,17 @@
                     }
                 ];
             },
+            val: {
+                get:function() {
+                    return this.fileList;
+                },
+                set:function(val) {
+                    this.$emit('input', val);
+                }
+            },
         },
         watch: {
-            initFiles: {
+            /*initFiles: {
                 immediate: true,
                 handler(fileList) {
                     this.fileList = fileList.map(item => {
@@ -285,7 +306,7 @@
                         return item;
                     });
                 }
-            }
+            }*/
         },
         methods: {
             _file_click : function () {
@@ -396,33 +417,27 @@
                             err => {
                                 vm.handleProgress(err, file);
                             },
-                            res => {
-                                vm.handleSuccess(res, file);
+                            (status, error, data) => {
+                                return vm.handleLoaded(status, error, data, file);
                             },
                             (err, res) => {
                                 vm.handleError(err, res, file);
-                            },
-                            (status, data) => {
-                                return vm.handleIsError(status, data);
                             });
                         request.execute(vm.data, vm.headers, vm.withCredentials, vm.crossDomain, vm.name, null, blob);
                     });
                 }
                 else {
-
+                    //
                     let request = new _http_request(vm.action, vm.method);
                     request.precall(
                         err => {
                             vm.handleProgress(err, file);
                         },
-                        res => {
-                            vm.handleSuccess(res, file);
+                        (status, error, data) => {
+                            return vm.handleLoaded(status, error, data, file);
                         },
                         (err, res) => {
                             vm.handleError(err, res, file);
-                        },
-                        (status, data) => {
-                            return vm.handleIsError(status, data);
                         });
                     request.execute(vm.data, vm.headers, vm.withCredentials, vm.crossDomain, vm.name, file, null);
                 }
@@ -466,6 +481,18 @@
             },
 
             //
+            handleLoaded(status, error, data, file) {
+                console.log('handleLoaded', status);
+                let vm = this;
+                var iserror = vm.handleIsError(status, data);
+                console.log('onload', iserror);
+                if (iserror) {
+                    vm.handleError(error, data, file);
+                }
+                else {
+                    vm.handleSuccess(data, file);
+                }
+            },
             handleIsError(status, data) {
                 let vm = this;
                 return vm.isError(status, data);
@@ -517,6 +544,9 @@
 
                     vm.dispatch('Form', 'on-form-item-change', _file);
                     vm.onItemSuccess(res, _file, _files);
+
+                    //
+                    this.val = _files;
 
                     setTimeout(() => {
                         _file.showProgress = false;
@@ -574,5 +604,13 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
+
+    .view-upload-wrapper
+    {
+        .preview
+        {
+            clear: both;
+        }
+    }
 
 </style>

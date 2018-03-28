@@ -112,6 +112,7 @@
                         }
                     },
                     resizeEnd: (count) => {
+                        console.log('_resize_end', count);
                         this.itemCount = count;
                     },
                 });
@@ -157,14 +158,15 @@
             },
 
             resize() {
-                this.swiper.resize();
+                this.swiper.refresh((count) => {
 
-                this.itemCount = this.swiper.count;
+                    this.itemCount = count;
 
-                Vue.nextTick(() => {
-                    if (this.$refs.pagination) {
-                        this.$refs.pagination.init();
-                    }
+                    Vue.nextTick(() => {
+                        if (this.$refs.pagination) {
+                            this.$refs.pagination.init();
+                        }
+                    });
                 });
             },
 

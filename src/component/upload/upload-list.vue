@@ -20,7 +20,7 @@
         <div v-for="file in files" :class="fileCls(file)" v-if="display === 'list'">
             <span @click="handlePreview(file)" class="view-upload-file-label">
                 <Icon :icon="format(file)"></Icon> {{ file.name }}
-                <img :src="file.url" alt="preview" v-if="file.url"/>
+                <!--<img :src="file.url" alt="preview" v-if="file.url"/>-->
             </span>
             <Icon
                 icon="ion-backspace"

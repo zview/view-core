@@ -51,8 +51,7 @@
             console.log('mounted');
             let vm = this;
 
-            //
-            for(let i=0;i<BANNER_SIZE;i++) {
+            /*for(let i=0;i<BANNER_SIZE;i++) {
                 vm.banners.push({'image':'./static/logo-overlay.png'})
             }
 
@@ -60,8 +59,7 @@
                 this.$refs.swiper.resize();
                 let count = this.$refs.swiper.count();
                 console.log('count', count);
-            }, 1000);
-
+            }, 100);*/
         },
         methods: {
             onClick() {
@@ -82,11 +80,22 @@
             },
 
             resize() {
-                this.$refs.swiper.resize();
+                let vm = this;
+
+                //
+                for(let i=0;i<BANNER_SIZE;i++) {
+                    vm.banners.push({'image':'./static/logo-overlay.png'})
+                }
+
+                setTimeout(() => {
+                    this.$refs.swiper.resize();
+                    let count = this.$refs.swiper.count();
+                    console.log('count', count);
+                }, 100);
             },
 
             callback(prev, current) {
-                console.log(prev, current);
+//                console.log(prev, current);
             }
         },
     }

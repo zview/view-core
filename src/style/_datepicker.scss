@@ -87,5 +87,44 @@
                 opacity: .2;
             }
         }
+
+        .dp-list-full {
+            height: 100%;
+            width: 33%;
+            background: #f5f5f5;
+
+            &.dp-years {
+                width: 20%;
+            }
+
+            &.dp-months {
+                left: 20%;
+            }
+
+            &.dp-dates {
+                left: 36%;
+            }
+
+            &.dp-hours {
+                left: 52%;
+            }
+
+            &.dp-minutes {
+                left: 68%;
+            }
+
+            &.dp-seconds {
+                left: 84%;
+            }
+
+            .dp-item {
+                height: 34px;
+                font-size: 16px;
+                line-height: 16px;
+                padding: 9px 0;
+                text-align: center;
+                opacity: .2;
+            }
+        }
     }
 }

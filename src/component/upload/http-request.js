@@ -16,7 +16,7 @@ export class _http_request {
     }
 
 
-    precall(onProgress, onSuccess, onError, isError)
+    precall(onProgress, onLoaded, onError)
     {
         let vm = this;
 
@@ -37,13 +37,10 @@ export class _http_request {
 
         //Complete
         vm.$http.onload = function onload() {
-            var iserror = (isError && isError!=null)?isError(vm.$http.status, vm.getBody(vm.$http)):vm.isStatueError(vm.$http.status);
-            // var iserror = isError(vm.$http.status, vm.getBody(vm.$http));
-            console.log('onload', iserror);
-            if (iserror) {
-                return onError(vm.getError(vm.action, vm.method, vm.$http), vm.getBody(vm.$http));
-            }
-            onSuccess(vm.getBody(vm.$http));
+            var status = vm.$http.status;
+            var error = vm.getError(vm.action, vm.method, status);
+            var data = vm.$http.responseText || vm.$http.response;
+            onLoaded(status, error, vm.getBody(data));
         };
     }
 
@@ -85,17 +82,16 @@ export class _http_request {
     }
 
 
-    getError(action, method, xhr) {
-        const msg = `fail to ${method} ${action} ${xhr.status}'`;
+    getError(action, method, status) {
+        const msg = `fail to ${method} ${action} ${status}'`;
         const err = new Error(msg);
-        err.status = xhr.status;
+        err.status = status;
         err.method = method;
         err.url = action;
         return err;
     }
 
-    getBody(xhr) {
-        const text = xhr.responseText || xhr.response;
+    getBody(text) {
         if (!text) {
             return text;
         }
@@ -107,11 +103,5 @@ export class _http_request {
             return text;
         }
     }
-
-    isStatueError(status) {
-        console.log('xmlhttprequest iserror');
-        return status < 200 || status >= 300;
-    }
-
 
 }

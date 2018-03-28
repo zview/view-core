@@ -4,11 +4,11 @@
         <Panel>{{message}}</Panel>
 
         <Panel type="paddingless">
-            <DatePicker v-model="birthday" label="生日" date-format="yyyy-mm-dd"></DatePicker>
+            <DatePicker v-model="curdate" label="日期" date-format="yyyy-MM-dd"></DatePicker>
         </Panel>
 
         <Panel>
-            value: {{ birthday }}
+            value: {{ curdate }}
         </Panel>
 
         <Panel type="paddingless">
@@ -19,6 +19,14 @@
             value: {{ curtime }}
         </Panel>
 
+        <Panel type="paddingless">
+            <DateTimePicker v-model="curdatetime" label="日期时间"></DateTimePicker>
+        </Panel>
+
+        <Panel>
+            value: {{ curdatetime }}
+        </Panel>
+
     </div>
 </template>
 
@@ -27,8 +35,9 @@
         data () {
             return {
                 message: '日期选择器',
-                birthday: '2016-12-01',
+                curdate: '2016-12-01',
                 curtime: '12:12:12',
+                curdatetime: '2016-12-01 12:12:12',
             }
         },
         methods: {
