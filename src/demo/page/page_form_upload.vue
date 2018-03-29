@@ -102,8 +102,8 @@
 
             _is_error: function (status, data) {
                 console.log('_is_error', status, data);
-                return status < 200 || status >= 300 || (data && data.result != 0);
-//                return status < 200 || status >= 300;
+//                return status < 200 || status >= 300 || (data && data.result != 0);
+                return status < 200 || status >= 300;
 //                return false;
             },
 

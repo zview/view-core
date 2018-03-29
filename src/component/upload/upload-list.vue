@@ -2,6 +2,7 @@
     <div :class="[prefixCls + '-files']">
         <Row :wrap="true" v-if="display === 'grid'">
             <Col :class="fileCls(file)" :percent="calcPercent(colnum)"
+                 @click.native="handlePreview(file)"
                  v-if="file.status === 'finished'"
                  v-for="(file, index) in files" :key="index">
 
