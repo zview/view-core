@@ -1,7 +1,8 @@
 <template>
     <div class="page-form">
 
-        <Form>
+        <Form @submit.prevent="_on_handler_submit">
+
             <Input type="text"  placeholder="图标文字"
                    color="balanced" bg-color="stable"
                    label-color="positive"
@@ -21,7 +22,12 @@
             <Input type="password" bg-color="stable"
                    label-icon="ion-ios-unlocked-outline" label="密码"/>
 
-            <Input type="tel" bg-color="stable" label-icon="fa-phone" label="电话"/>
+            <Input type="tel" bg-color="stable" label-icon="fa-phone" label="电话" name="i_tel"
+                   data-vv-as="电话" v-validate="'required|phone'"
+                   :label-color="errors.has('i_tel')?'assertive':''"/>
+            <Input type="tel" bg-color="stable" label-icon="fa-mobile" label="手机" name="i_mobile"
+                   data-vv-as="手机" v-validate="'required|mobile'"
+                   :label-color="errors.has('i_mobile')?'assertive':''"/>
             <Input type="url" bg-color="stable" label="网址"/>
             <Input type="email" bg-color="stable" label="邮箱"/>
             <Input type="number" bg-color="stable" label="数字"/>
@@ -39,7 +45,9 @@
 
             <RegionPicker v-model="region_val" label="地区" :data='regiondata'></RegionPicker>
 
-            <DatePicker v-model="date_val" label="生日" date-format="yyyy-mm-dd"></DatePicker>
+            <DatePicker v-model="curdate" label="日期" date-format="yyyy-MM-dd"></DatePicker>
+            <TimePicker v-model="curtime" label="时间"></TimePicker>
+            <DateTimePicker v-model="curdatetime" label="日期时间"></DateTimePicker>
 
 
             <Toggle color="positive" v-model="toggle_val" :label="'禁用' + toggle_val"></Toggle>
@@ -55,9 +63,10 @@
             <Search color="balanced" bg-color="dark" v-model="search_val"></Search>
             <br/>
 
-            <Input type="button" input-label="按钮"/>
+            <Input type="button" input-label="按钮" @click.native="_on_handler_submit"/>
             <Input type="reset" input-label="重置"/>
             <Input type="submit" color="balanced" input-label="提交"/>
+
         </Form>
 
     </div>
@@ -100,7 +109,9 @@
                     {'name': '五', 'value': 5},
                 ],
 
-                date_val: '2016-12-01',
+                curdate: '2016-12-01',
+                curtime: '12:12:12',
+                curdatetime: '2016-12-01 12:12:12',
 
                 region_val: '130102',
                 regioncodes: '130000-130100-130102',
@@ -109,7 +120,23 @@
             }
         },
         methods: {
+            _on_handler_submit: function (event) {
+                console.log('_on_handler_submit');
+                let vm = this;
 
+                //
+                vm.$validator.validateAll();
+                if (vm.errors.any()) {
+                    let messages = '';
+                    for(let item of vm.errors.items) {
+                        messages += item.msg + '<br/>';
+                    }
+                    vm.$toast.show(messages, 1500);
+                    return;
+                }
+
+                vm.$toast.show('提交成功', 1500);
+            },
         },
     }
 </script>

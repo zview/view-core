@@ -31,7 +31,7 @@ http://code.ionicframework.com/1.3.2/ionic-v1.3.2.zip
 
 1. Radio图标只能右边,不能左边
 2. Check图标只能左边,不能右边
-3. Validator, Progress
+3. Progress
 4. Picker做成通用的
 
 ----------
@@ -44,6 +44,7 @@ http://code.ionicframework.com/1.3.2/ionic-v1.3.2.zip
 - [x] 国际化 Locale
 - [x] 动画 Animation
 - [x] 过渡 Transition
+- [x] 校验 Validator
 
 ----------
 
@@ -292,6 +293,11 @@ console.log('vendor', vendor);
   * `zoomLeft`
   * `zoomRight`
   * `zoomUp`
+  
+  
+#### 校验(Validetor)  
+
+集成vee-validate
 
 ----------
 

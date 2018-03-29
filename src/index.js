@@ -17,6 +17,42 @@ import VSwipe from 'vswipe';
 
 //--------------------------------------------------------------------------
 
+//校验设置
+import VeeValidate, {Validator} from 'vee-validate';
+import vmessage_zh_CN from 'vee-validate/dist/locale/zh_CN';
+
+//
+const isPhone = {
+    messages: {
+        zh_CN:(field, args) => field + '必须是合法的电话号码',
+    },
+    validate: (value, args) => {
+        return /^([0-9]{3,4}-)?[0-9]{7,8}$/.test(value) || /^((13|14|15|16|17|18)[0-9]{1}\d{8})$/.test(value);
+    }
+};
+
+const isMobile = {
+    messages: {
+        zh_CN:(field, args) => field + '必须是11位合法的数字',
+    },
+    validate: (value, args) => {
+        return value.length == 11 && /^((13|14|15|16|17|18)[0-9]{1}\d{8})$/.test(value);
+    }
+};
+
+const dictionary = {
+    zh_CN: {
+        messages: {
+            min_value: function(e,n)
+            {
+                return e+"必须大于"+n[0]+".";
+            },
+        }
+    }
+};
+
+//--------------------------------------------------------------------------
+
 //Basic
 import Icon from './component/icon';
 import Button from './component/button';
@@ -197,6 +233,21 @@ const View = {
         Vue.locale('zh-CN', zhCNMergeLocale, null);
         Vue.locale('zh-TW', zhTWMergeLocale, null);
         Vue.locale('en-US', enUSMergeLocale, null);
+
+        //
+        Validator.addLocale(vmessage_zh_CN);
+        Validator.extend('phone', isPhone);
+        Validator.extend('mobile', isMobile);
+        Validator.updateDictionary(dictionary);
+
+        let validate_locale = 'zh_CN';
+        if(cfg_lang == 'en-US') {
+            validate_locale = 'en';
+        }
+        if(cfg_lang == 'zh-TW') {
+            validate_locale = 'zh_TW';
+        }
+        Vue.use(VeeValidate, { 'locale': validate_locale, });
 
         //
         Vue.use(VueScroller);

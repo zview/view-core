@@ -1,6 +1,6 @@
 {
   "name": "zuv-view",
-  "version": "0.8.8",
+  "version": "0.8.9",
   "title": "zuv view project",
   "description": "UI components library, based on Vue.js and ionic CSS.",
   "homepage": "http://www.zuv.cc/view",
@@ -47,6 +47,7 @@
     "object-assign": "^4.1.1",
     "vswipe": "1.0.1",
     "vue-scroller": "2.2.0",
+    "vee-validate": "2.0.0-rc.19",
     "storage-js-iso": "^0.2.0"
   },
   "peerDependencies": {
