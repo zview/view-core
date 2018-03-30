@@ -4,7 +4,7 @@
         <div class="view-radio-title item item-divider" v-if="title">{{title}}</div>
         <div class="view-radio-item item item-radio" v-for="(option, index) in options" :key="index"
              @click="_on_cell_click(index, option.value)" :class="item_classes">
-            <input class="view-radio" type="radio" :name="radio_id"
+            <input class="view-radio" type="radio" :name="radio_name"
                    :value="option.value" v-model="val"
                    :readonly="readonly" :disabled="disabled"/>
             <div class="radio-content">
@@ -61,7 +61,7 @@
         },
         data() {
             return {
-                radio_id: 'view-radio-' + Math.random().toString(36).substring(3, 6),
+                radio_name: 'view-radio-' + Math.random().toString(36).substring(3, 6),
             }
         },
         computed: {

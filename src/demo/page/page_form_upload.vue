@@ -139,8 +139,8 @@
 
                 //
                 if(files && files.length) {
-                    for(let pic of files) {
-//                        pic.url = pic.response.data.fileurl; //cvar.render_imgholder(pic.response.data.filename);
+                    for(let image of files) {
+//                        image.url = image.response.data.fileurl; //cvar.render_imgholder(image.response.data.filename);
                     }
                 }
 

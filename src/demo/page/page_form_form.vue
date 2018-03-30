@@ -24,10 +24,10 @@
 
             <Input type="tel" bg-color="stable" label-icon="fa-phone" label="电话" name="i_tel"
                    data-vv-as="电话" v-validate="'required|phone'"
-                   :label-color="errors.has('i_tel')?'assertive':''"/>
+                   :label-color="errors.has('i_tel')?'assertive':''" v-model="phone_val"/>
             <Input type="tel" bg-color="stable" label-icon="fa-mobile" label="手机" name="i_mobile"
                    data-vv-as="手机" v-validate="'required|mobile'"
-                   :label-color="errors.has('i_mobile')?'assertive':''"/>
+                   :label-color="errors.has('i_mobile')?'assertive':''" v-model="mobile_val"/>
             <Input type="url" bg-color="stable" label="网址"/>
             <Input type="email" bg-color="stable" label="邮箱"/>
             <Input type="number" bg-color="stable" label="数字"/>
@@ -67,6 +67,11 @@
             <Input type="reset" input-label="重置"/>
             <Input type="submit" color="balanced" input-label="提交"/>
 
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
         </Form>
 
     </div>
@@ -83,6 +88,9 @@
 
                 textval: '',
                 textareaval: '',
+
+                phone_val: '',
+                mobile_val: '',
 
                 search_val: 'search',
                 toggle_val: false,

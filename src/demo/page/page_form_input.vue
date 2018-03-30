@@ -30,7 +30,9 @@
             <Input type="text" placeholder="请输入"
                    label-icon="ion-android-person"
                    :is-wrapper="true"
+                   name="wrapper_val4"
                    button-icon="ion-android-person"
+                   @button-click="_on_button_click"
                    :show-clear="false"
                    label="图标" v-model="val4"/>
 
@@ -126,7 +128,10 @@
         methods: {
             _on_send_smscode: function () {
                 console.log('_on_send_smscode');
-            }
+            },
+            _on_button_click: function (name) {
+                console.log('_on_button_click', name);
+            },
         },
     }
 </script>
