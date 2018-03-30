@@ -92,10 +92,6 @@
                  {'name': '1.jpg', 'url': 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'},
                  {'name': '2.ppt', 'url': 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}
                 ],
-
-
-                //
-                wait_files: [],
             }
         },
         methods: {
@@ -116,8 +112,8 @@
 //                vm.$loading.hide();
                 vm.$toast.show(message, 1000);
             },
-            _on_upload_prepare () {
-                console.log('_on_upload_prepare');
+            _on_upload_prepare (files) {
+                console.log('_on_upload_prepare', files);
                 //打开进度条
             },
             _on_upload_finish () {

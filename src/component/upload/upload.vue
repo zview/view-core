@@ -340,6 +340,9 @@
                 console.log('_handle_files', files);
                 let vm = this;
 
+                let exist_files = vm.fileList;
+                let exist_files_len = exist_files?exist_files.length:0;
+
                 //校验文件
                 if(!files || files.length<=0 || !files[0])
                 {
@@ -348,7 +351,7 @@
                 }
 
                 //校验文件个数
-                if(vm.multiple && vm.maxNum && vm.maxNum>1 && files.length>vm.maxNum)
+                if(vm.multiple && vm.maxNum && vm.maxNum>1 && files.length + exist_files_len>vm.maxNum)
                 {
                     vm.$emit('terminate', null, '文件个数超出限制: ' + files.length + ' > ' + vm.maxNum);
                     return false;
@@ -369,7 +372,7 @@
                 }
 
                 //上传文件
-                vm.$emit('prepare');
+                vm.$emit('prepare', exist_files);
                 let _files = Array.prototype.slice.call(files);
                 if (!vm.multiple) _files = _files.slice(0, 1);
                 if (_files.length > 0)  {
