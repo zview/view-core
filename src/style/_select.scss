@@ -17,7 +17,12 @@
 
         &.view-select-multipile
         {
+            min-width: 140px;
+        }
 
+        select[multiple]
+        {
+            min-width: 140px;
         }
 
     }
