@@ -33,11 +33,14 @@
                     {'name': '三', 'value': 3},
                     {'name': '五', 'value': 5},
                 ],
-                val2: [5,3],
+                val2: [11,21],
                 options2 : [
-                    {'name': '一', 'value': 1},
-                    {'name': '三', 'value': 3},
-                    {'name': '五', 'value': 5},
+                    {'name': '一年级', 'disabled': true},
+                    {'name': '一(1)班', 'value': 11},
+                    {'name': '一(2)班', 'value': 12},
+                    {'name': '二年级', 'disabled': true},
+                    {'name': '二(1)班', 'value': 21},
+                    {'name': '二(2)班', 'value': 22},
                 ],
 
                 selected: '',

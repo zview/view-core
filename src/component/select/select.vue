@@ -6,9 +6,10 @@
         </label>
         <select class="view-select" v-model="val" :class="classes"
                 :multiple="multiple" :readonly="readonly" :disabled="disabled">
-            <option disabled value="">请选择</option>
+            <option disabled>请选择</option>
             <option v-for="(option, index) in options" :key="index"
-                    :value="option.value">{{option.name}}</option>
+                    :value="option.value"
+                    :disabled="option.disabled == true">{{option.name}}</option>
         </select>
     </div>
 
