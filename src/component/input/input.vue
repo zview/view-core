@@ -175,11 +175,13 @@
 
                 <slot></slot>
 
+                <Button type="clear" size="small" :icon="buttonIcon" :color="buttonColor"
+                        v-if="buttonIcon || buttonLabel" @click.native="buttonClicked">
+                    {{buttonLabel}}
+                </Button>
+
             </div>
-            <Button type="clear" size="small" :icon="buttonIcon" :color="buttonColor"
-                    v-if="buttonIcon || buttonLabel" @click.native="buttonClicked">
-                {{buttonLabel}}
-            </Button>
+
         </div>
 
         <span class="input-clear" :class="clear_classes" @click="clear(value)"></span>
