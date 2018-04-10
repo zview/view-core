@@ -82,7 +82,7 @@
                 message: '文件上传',
 
                 //
-                action: ACTION_1,
+                action: ACTION_2,
                 headers: { 'Authorization':'Token 1234' },
                 data: {'filetype': 4},
 
@@ -99,8 +99,8 @@
             _is_error: function (status, data) {
                 console.log('_is_error', status, data);
 //                return status < 200 || status >= 300 || (data && data.result != 0);
-                return status < 200 || status >= 300;
-//                return false;
+//                return status < 200 || status >= 300;
+                return false;
             },
 
             //整个过程

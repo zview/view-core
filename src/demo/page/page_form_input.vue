@@ -23,6 +23,7 @@
                    label-icon="ion-android-person"
                    :is-wrapper="true"
                    button-label="发送验证码"
+                   button-color="calm"
                    :show-clear="false"
                    :on-button-click="_on_send_smscode"
                    label="文字" v-model="val4"/>

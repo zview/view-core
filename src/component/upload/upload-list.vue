@@ -2,14 +2,16 @@
     <div :class="[prefixCls + '-files']">
         <Row :wrap="true" v-if="display === 'grid'">
             <Col :class="fileCls(file)" :percent="calcPercent(colnum)"
-                 @click.native="handlePreview(file)"
                  v-if="file.status === 'finished'"
                  v-for="(file, index) in files" :key="index">
 
-                <div class="image-holder" :style="'background:url('+file.url+');background-size:cover;'">
-                    <img class="image-holder-delete" src="../../assets/clear@3x.png" alt="x"
-                         v-show="file.status === 'finished'"
-                         @click="handleRemove(file)"/>
+                <img class="image-holder-delete" src="../../assets/clear@3x.png" alt="x"
+                     v-show="file.status === 'finished'"
+                     @click="handleRemove(file)"/>
+
+                <div class="image-holder" :style="'background-image:url('+file.url+');background-size:cover;'"
+                     @click="handlePreview(file)">
+
                     <span class="image-holder-info" v-if="showInfo">
                         <Icon :icon="format(file)"></Icon> {{file.name}}
                     </span>
@@ -19,10 +21,11 @@
         </Row>
 
         <div v-for="file in files" :class="fileCls(file)" v-if="display === 'list'">
-            <span @click="handlePreview(file)" class="view-upload-file-label">
-                <Icon :icon="format(file)"></Icon> {{ file.name }}
+            <div @click="handlePreview(file)" class="view-upload-file-label">
+                <Icon :icon="format(file)"></Icon>
+                <span>{{ file.name }}</span>
                 <!--<img :src="file.url" alt="preview" v-if="file.url"/>-->
-            </span>
+            </div>
             <Icon
                 icon="ion-backspace"
                 :class="[prefixCls + '-file-remove']"

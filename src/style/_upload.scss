@@ -46,6 +46,15 @@
                     padding: 5px;
                 }
 
+                .image-holder-delete
+                {
+                    position: relative;
+                    left: 5px;
+                    top: 25px;
+                    height: 20px;
+                    width: 20px;
+                }
+
                 .image-holder
                 {
                     padding: 5px;
@@ -53,15 +62,6 @@
                     display: flex;
                     color: $dimgray-color;
                     @include view-m-box-shadow(0 0 5px rgba(0,0,0,.3));
-
-                    .image-holder-delete
-                    {
-                        position: relative;
-                        left: -10px;
-                        top: -10px;
-                        height: 20px;
-                        width: 20px;
-                    }
 
                     .image-holder-info
                     {
@@ -134,9 +134,16 @@
 
             }
 
-            span.view-upload-file-label
+            div.view-upload-file-label
             {
                 font-size: 15px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                span
+                {
+                    //max-width: 120px;
+                }
             }
         }
 

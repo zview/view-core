@@ -23,7 +23,7 @@
         margin-left: 0;
         padding-left: 0;
         padding-right: 0;
-        min-width: 45px;
+        min-width: 40px;
     }
 
 
@@ -69,7 +69,7 @@
             @include view-m-theme-bg-color();
 
             height: 50px;
-            padding: 13px 2px;
+            padding: 13px 5px;
             //position: relative;
         }
 
