@@ -10,24 +10,29 @@
                        :name="check_id" :value="option.value" v-model="val"
                        :readonly="readonly" :disabled="disabled"/>
             </label>
-            <div class="view-check-image" v-if="option.image">
-                <img :src="option.image"/>
-            </div>
-            <div class="view-check-name">
-                <span>{{option.name}}</span>
-                <Icon class="float-right" :icon="option.icon"
-                      v-if="option.icon && option.icon!=''"
-                      @click="_on_sub_click(index, option.value)"></Icon>
-            </div>
-            <div class="view-check-desc" v-if="option.desc || option.subdesc">
-                <span v-if="option.desc && option.desc!=''">
-                    {{option.desc}}
-                </span>
-                <span class="float-right" v-if="option.subdesc && option.subdesc!=''"
-                      @click="_on_sub_click(index, option.value)">
-                    {{option.subdesc}}
-                </span>
-            </div>
+
+            <Row>
+                <Col :percent="option.extraicon?80:90">
+                    <span class="view-check-name">{{option.name}}</span><br/>
+                    <span class="view-check-desc" v-if="option.desc && option.desc!=''">
+                        {{option.desc}}
+                    </span>
+                </Col>
+                <Col class="float-right text-right">
+                    <div class="float-left text-right" @click.native="_on_sub_click(index, option.value)"
+                         v-if="option.icon || option.subdesc">
+                        <Icon class="float-right" :icon="option.icon"
+                              v-if="option.icon && option.icon!=''"></Icon><br/>
+                        <span class="view-check-desc" v-if="option.subdesc && option.subdesc!=''">{{option.subdesc}}</span>
+                    </div>
+                    <div class="float-right text-right" @click.native="_on_extra_click(index, option.value)"
+                         v-if="option.extraicon">
+                        <Icon class="float-right" :icon="option.extraicon"
+                              v-if="option.extraicon && option.extraicon!=''"></Icon><br/>
+                    </div>
+                </Col>
+            </Row>
+
         </div>
     </div>
 
@@ -63,6 +68,7 @@
             itemClassName: String,
             onItemClick: Function,
             onSubClick: Function,
+            onExtraClick: Function,
             className: String
         },
         data() {
@@ -115,9 +121,14 @@
                 vm.val.sort();
             },*/
             _on_sub_click: function (index, value) {
-//                console.log('_on_sub_click', index, value);
+                console.log('_on_sub_click', index, value);
                 let vm = this;
                 if (vm.onSubClick) vm.onSubClick(index, value);
+            },
+            _on_extra_click: function (index, value) {
+                console.log('_on_extra_click', index, value);
+                let vm = this;
+                if (vm.onExtraClick) vm.onExtraClick(index, value);
             },
         },
     }

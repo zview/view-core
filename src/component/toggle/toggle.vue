@@ -3,7 +3,7 @@
     <div class="view-toggle-item item item-toggle view-item-toggle" :class="item_classes">
         <span class="view-toggle-label">{{label}}</span>
         <label class="toggle" :class="classes">
-            <input type="checkbox" v-model="val">
+            <input type="checkbox" v-model="val" :readonly="readonly" :disabled="disabled">
             <div class="view-toggle track">
                 <div class="handle"></div>
             </div>
@@ -30,6 +30,8 @@
                 }
             },
             label: String,
+            disabled: [Boolean, String],
+            readonly: [Boolean, String],
             itemClassName: String,
             className: String
         },

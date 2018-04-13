@@ -15,7 +15,8 @@
 
         .view-check-label.checkbox
         {
-            margin-right: 40px;
+            //margin-right: 80px;
+            width: calc(100% - 80px);
 
             input[type='checkbox'].view-check
             {
@@ -23,32 +24,22 @@
             }
         }
 
-        .view-check-image
+        .row, .col
         {
-            float: left;
-            img
-            {
-                width: 60px;
-                height: 45px;
-                padding: 5px;
-            }
+            padding: 0;
         }
+
 
         .view-check-name
         {
-
+            font-size: 14px;
+            color: $dimgray-color;
         }
 
         .view-check-desc
         {
-            //padding-left: 5px;
-            margin-top: 5px;
-
-            span
-            {
-                font-size: 12px;
-                color: $darkgray-color;
-            }
+            font-size: 12px;
+            color: $darkgray-color;
         }
 
     }
