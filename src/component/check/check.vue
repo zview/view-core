@@ -19,13 +19,13 @@
                     </span>
                 </Col>
                 <Col class="float-right text-right">
-                    <div class="float-left text-right" @click.native="_on_sub_click(index, option.value)"
+                    <div class="float-left text-right" @click="_on_sub_click(index, option.value)"
                          v-if="option.icon || option.subdesc">
                         <Icon class="float-right" :icon="option.icon"
                               v-if="option.icon && option.icon!=''"></Icon><br/>
                         <span class="view-check-desc" v-if="option.subdesc && option.subdesc!=''">{{option.subdesc}}</span>
                     </div>
-                    <div class="float-right text-right" @click.native="_on_extra_click(index, option.value)"
+                    <div class="float-right text-right" @click="_on_extra_click(index, option.value)"
                          v-if="option.extraicon">
                         <Icon class="float-right" :icon="option.extraicon"
                               v-if="option.extraicon && option.extraicon!=''"></Icon><br/>

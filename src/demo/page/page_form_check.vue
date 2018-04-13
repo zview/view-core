@@ -11,7 +11,9 @@
 
         <List>
             <Check :title="'选择' + val3" :options="options3" v-model="val3"
-                   :on-item-click="_on_change_state" :on-sub-click="_on_change_num"></Check>
+                   :on-item-click="_on_change_state"
+                   :on-sub-click="_on_change_num"
+                   :on-extra-click="_on_delete"></Check>
         </List>
 
         <List>
@@ -47,9 +49,9 @@
 
                 val3: [1,3],
                 options3: [
-                    {'name': '商品1', 'value': 1, 'desc': '￥200', 'subdesc': 'x1', 'icon': 'ion-edit'},
-                    {'name': '商品2', 'value': 2, 'desc': '￥100', 'subdesc': 'x2', 'icon': 'ion-edit'},
-                    {'name': '商品3', 'value': 3, 'desc': '￥300', 'subdesc': 'x3', 'icon': 'ion-edit'},
+                    {'name': '商品1', 'value': 1, 'desc': '￥200', 'subdesc': 'x1', 'icon': 'ion-edit', 'extraicon': 'fa-trash'},
+                    {'name': '商品2', 'value': 2, 'desc': '￥100', 'subdesc': 'x2', 'icon': 'ion-edit', 'extraicon': 'fa-trash'},
+                    {'name': '商品3', 'value': 3, 'desc': '￥300', 'subdesc': 'x3', 'icon': 'ion-edit', 'extraicon': 'fa-trash'},
                 ],
 
                 val4: null,
@@ -62,6 +64,10 @@
             },
             _on_change_num: function (index, value) {
                 console.log('_on_change_num', index, value, this.val3);
+
+            },
+            _on_delete: function (index, value) {
+                console.log('_on_delete', index, value, this.val3);
 
             },
 
