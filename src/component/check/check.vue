@@ -13,7 +13,7 @@
 
             <Row>
                 <Col :percent="option.extraicon?80:90">
-                    <span class="view-check-name">{{option.name}}</span><br/>
+                    <span class="view-check-name">{{option.name}}</span>
                     <span class="view-check-desc" v-if="option.desc && option.desc!=''">
                         {{option.desc}}
                     </span>
@@ -28,7 +28,7 @@
                     <div class="float-right text-right" @click="_on_extra_click(index, option.value)"
                          v-if="option.extraicon">
                         <Icon class="float-right" :icon="option.extraicon"
-                              v-if="option.extraicon && option.extraicon!=''"></Icon><br/>
+                              v-if="option.extraicon && option.extraicon!=''"></Icon>
                     </div>
                 </Col>
             </Row>
