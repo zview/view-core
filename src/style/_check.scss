@@ -34,12 +34,18 @@
         {
             font-size: 14px;
             color: $dimgray-color;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: block;
         }
 
         .view-check-desc
         {
             font-size: 12px;
             color: $darkgray-color;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: block;
         }
 
     }
