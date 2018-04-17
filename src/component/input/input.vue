@@ -413,7 +413,9 @@ step	    规定输入字段的合法数字间隔。
 
         watch: {
             value: function (newValue) {
-                this.showClearButton = !!newValue
+                if(this.showClear) {
+                    this.showClearButton = !!newValue
+                }
             }
         },
     }

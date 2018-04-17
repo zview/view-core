@@ -90,7 +90,7 @@
         </List>
 
         <List header-content="按钮">
-            <Input type="button" input-label="按钮"/>
+            <Input type="button" input-label="按钮" @click.native="_on_set_value"/>
             <Input type="reset" input-label="重置"/>
             <Input type="submit" color="balanced" input-label="提交"/>
         </List>
@@ -127,6 +127,11 @@
             }
         },
         methods: {
+            _on_set_value: function () {
+                console.log('_on_set_value');
+                let vm = this;
+                vm.val4 = '1234';
+            },
             _on_send_smscode: function () {
                 console.log('_on_send_smscode');
             },

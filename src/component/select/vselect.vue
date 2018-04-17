@@ -835,6 +835,11 @@
        * @return {Boolean}
        */
       isValueEmpty() {
+
+          if(this.disabled) {
+              return false;
+          }
+
         if (this.mutableValue) {
           if (typeof this.mutableValue === 'object') {
             return !Object.keys(this.mutableValue).length
