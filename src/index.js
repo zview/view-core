@@ -76,6 +76,7 @@ import Search from './component/search';
 import Picker from './component/picker';
 import { DatePicker, TimePicker, DateTimePicker } from './component/datepicker';
 import RegionPicker from './component/regionpicker';
+import { Item1Picker } from './component/itempicker';
 import Upload from './component/upload';
 import Form from './component/form';
 
@@ -188,6 +189,7 @@ const View = {
     TimePicker,
     DateTimePicker,
     RegionPicker,
+    Item1Picker,
     Upload,
     Form,
 
@@ -303,6 +305,7 @@ const View = {
         Vue.component('TimePicker', TimePicker);
         Vue.component('DateTimePicker', DateTimePicker);
         Vue.component('RegionPicker', RegionPicker);
+        Vue.component('Item1Picker', Item1Picker);
         Vue.component('Upload', Upload);
         Vue.component('Form', Form);
 
@@ -482,6 +485,7 @@ export { Search };
 export { Cascade };
 export { DatePicker };
 export { RegionPicker };
+export { Item1Picker };
 export { Upload };
 export { Form };
 

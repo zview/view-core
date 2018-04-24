@@ -197,6 +197,11 @@ const routers = [
                 component: (resolve) => require(['../page/page_form_regionpicker.vue'], resolve),
             },
             {
+                path: 'itempicker',
+                meta: {title: '分栏选择'},
+                component: (resolve) => require(['../page/page_form_itempicker.vue'], resolve),
+            },
+            {
                 path: 'upload',
                 meta: {title: '文件上传'},
                 component: (resolve) => require(['../page/page_form_upload.vue'], resolve),

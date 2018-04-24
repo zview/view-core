@@ -165,8 +165,8 @@
                 vm.show1 = false;
                 vm.show2 = false;
             },
-            _on_confirm: function () {
-                console.log('_on_confirm');
+            _on_confirm: function (selects) {
+                console.log('_on_confirm', selects);
                 let vm = this;
                 vm.show1 = false;
                 vm.show2 = false;
