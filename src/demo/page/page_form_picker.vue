@@ -4,10 +4,10 @@
         <Panel>{{message}}</Panel>
 
         <!--<Panel type="paddingless">
-            <PickerView :show="show1"
+            <Picker :show="show1"
                     :selectData="pickData1"
                     @cancel="_on_cancel"
-                    @confirm="_on_confirm"></PickerView>
+                    @confirm="_on_confirm"></Picker>
         </Panel>
 
         <Panel @click.native="toggle_show1">
@@ -163,11 +163,13 @@
                 console.log('_on_cancel');
                 let vm = this;
                 vm.show1 = false;
+                vm.show2 = false;
             },
             _on_confirm: function () {
                 console.log('_on_confirm');
                 let vm = this;
                 vm.show1 = false;
+                vm.show2 = false;
             },
 
         },

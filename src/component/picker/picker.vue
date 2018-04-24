@@ -350,7 +350,13 @@
         deep: true
       },
       show (val) {
-        val && this.setTop(this.selectData.default || [])
+        val && this.setTop(this.selectData.default || []);
+          if(val) {
+              this.$backdrop.show();
+          }
+          else {
+              this.$backdrop.hide();
+          }
       }
     }
   }
