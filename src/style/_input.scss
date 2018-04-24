@@ -23,7 +23,12 @@
         margin-left: 0;
         padding-left: 0;
         padding-right: 0;
-        min-width: 40px;
+        //min-width: 40px;
+
+        position: absolute;
+        top: 14px;
+        right: 9px;
+        z-index: 3;
     }
 
 
@@ -71,6 +76,7 @@
             height: 50px;
             padding: 13px 5px;
             //position: relative;
+            overflow-y: scroll;
         }
 
 
@@ -93,7 +99,7 @@
         }
         textarea
         {
-            min-height: 80px;
+            min-height: 120px;
         }
 
         input[type='tel'],

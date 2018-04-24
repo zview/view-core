@@ -63,7 +63,7 @@
             let items = [{'name': '', 'index': 0},{'name': '', 'index': 0},{'name': '', 'index': 0}];
             let values = ['', '', ''];
             for (let item of this.items) {
-                values.push(item.value + '');
+                values.push(item.index);
                 items.push(item)
             }
             values = values.concat(['', '', '']);

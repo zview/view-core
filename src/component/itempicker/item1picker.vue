@@ -3,7 +3,7 @@
         <div view-datepicker class="view-input-item view-item item item-input" @click="showPicker()">
             <span v-if="label != ''" class="view-input-label input-label" v-text="label"></span>
             <input ref="datetime" type="datetime" :value="v">
-            <span class="view-input-text" v-text="formatedDate"></span>
+            <span v-if="showName" class="view-input-text" v-text="formatedDate"></span>
         </div>
     </div>
 </template>
@@ -12,6 +12,14 @@
     import Vue from 'vue';
     import PickerView from './item1pickerview.vue';
     import channel from './item1channel';
+
+    const formatDate = (items, value) => {
+        let searchs = items.filter(item => item.index == value);
+        if (searchs && searchs.length > 0) {
+            return searchs[0].name;
+        }
+        return value;
+    };
 
     export default {
         props: {
@@ -30,6 +38,10 @@
             items: {
                 type: Array,
                 default: {},
+            },
+            showName: {
+                type: Boolean,
+                default: true,
             }
         },
 
@@ -53,7 +65,7 @@
         },
 
         mounted() {
-            this.formatedDate = this.value;
+            this.formatedDate = formatDate(this.items, this.value);
         },
 
         methods: {
@@ -73,7 +85,8 @@
                 channel.$on('PickerOkEvent', (value) => {
                     this.v = value;
 
-                    this.formatedDate = value;
+                    this.formatedDate = formatDate(this.items, value);
+
                     if (this.picker)
                         this.picker.hide();
 
@@ -81,7 +94,7 @@
                 });
 
                 this.picker.show();
-            }
+            },
         }
     }
 </script>

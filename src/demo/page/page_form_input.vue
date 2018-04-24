@@ -44,6 +44,13 @@
                    :show-clear="false"
                    label="空白" v-model="val4"/>
 
+            <Input type="textarea" placeholder="请输入"
+                   label-icon="ion-android-person"
+                   :is-wrapper="true"
+                   button-label="发送验证码"
+                   :show-clear="false"
+                   label="空白" v-model="val4"/>
+
         </List>
 
 

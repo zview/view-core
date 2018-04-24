@@ -10,7 +10,7 @@
             </span>
 
             <input v-if="type=='text'" type="text" :class="classes"
-                   ref="input" :value="value" :name="name"
+                   ref="input" :value="value" :name="inputName"
                    @compositionstart="compositionStart($event)"
                    @compositionend="compositionEnd($event)"
                    @input="input($event)"
@@ -18,14 +18,14 @@
                    @blur="onBlur($event)"
                    :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
             <input v-if="type=='password'" type="password" :class="classes"
-                   ref="input" :value="value" :name="name"
+                   ref="input" :value="value" :name="inputName"
                    @input="updateValue($event.target.value)"
                    @focus="onFocus($event)"
                    @blur="onBlur($event)"
                    :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
 
             <textarea v-if="type=='textarea'" :class="classes"
-                      ref="input" :value="value" :name="name"
+                      ref="input" :value="value" :name="inputName"
                       @input="updateValue($event.target.value)"
                       @focus="onFocus($event)"
                       @blur="onBlur($event)"
@@ -42,44 +42,44 @@
                    :readonly="readonly" :disabled="disabled"/>
 
             <input v-if="type=='tel'" type="tel" :class="classes"
-                   ref="input" :value="value" :name="name"
+                   ref="input" :value="value" :name="inputName"
                    @input="updateValue($event.target.value)"
                    @focus="onFocus($event)"
                    @blur="onBlur($event)"
                    :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
             <input v-if="type=='url'" type="url" :class="classes"
-                   ref="input" :value="value" :name="name"
+                   ref="input" :value="value" :name="inputName"
                    @input="updateValue($event.target.value)"
                    @focus="onFocus($event)"
                    @blur="onBlur($event)"
                    :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
             <input v-if="type=='email'" type="email" :class="classes"
-                   ref="input" :value="value" :name="name"
+                   ref="input" :value="value" :name="inputName"
                    @input="updateValue($event.target.value)"
                    @focus="onFocus($event)"
                    @blur="onBlur($event)"
                    :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
             <input v-if="type=='number'" type="number" :class="classes"
-                   ref="input" :value="value" :name="name"
+                   ref="input" :value="value" :name="inputName"
                    @input="updateValue($event.target.value)"
                    @focus="onFocus($event)"
                    @blur="onBlur($event)"
                    :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
 
             <input v-if="type=='date'" type="date" :class="classes"
-                   ref="input" :value="value" :name="name"
+                   ref="input" :value="value" :name="inputName"
                    @input="updateValue($event.target.value)"
                    @focus="onFocus($event)"
                    @blur="onBlur($event)"
                    :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
             <input v-if="type=='time'" type="time" :class="classes"
-                   ref="input" :value="value" :name="name"
+                   ref="input" :value="value" :name="inputName"
                    @input="updateValue($event.target.value)"
                    @focus="onFocus($event)"
                    @blur="onBlur($event)"
                    :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
             <input v-if="type=='color'" type="color" :class="classes"
-                   ref="input" :value="value" :name="name"
+                   ref="input" :value="value" :name="inputName"
                    @input="updateValue($event.target.value)"
                    @focus="onFocus($event)"
                    @blur="onBlur($event)"
@@ -98,7 +98,7 @@
                 </span>
 
                 <input v-if="type=='text'" type="text" :class="classes"
-                       ref="input" :value="value" :name="name"
+                       ref="input" :value="value" :name="inputName"
                        @compositionstart="compositionStart($event)"
                        @compositionend="compositionEnd($event)"
                        @input="input($event)"
@@ -106,14 +106,14 @@
                        @blur="onBlur($event)"
                        :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
                 <input v-if="type=='password'" type="password" :class="classes"
-                       ref="input" :value="value" :name="name"
+                       ref="input" :value="value" :name="inputName"
                        @input="updateValue($event.target.value)"
                        @focus="onFocus($event)"
                        @blur="onBlur($event)"
                        :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
 
                 <textarea v-if="type=='textarea'" :class="classes"
-                          ref="input" :value="value" :name="name"
+                          ref="input" :value="value" :name="inputName"
                           @input="updateValue($event.target.value)"
                           @focus="onFocus($event)"
                           @blur="onBlur($event)"
@@ -130,44 +130,44 @@
                        :readonly="readonly" :disabled="disabled"/>
 
                 <input v-if="type=='tel'" type="tel" :class="classes"
-                       ref="input" :value="value" :name="name"
+                       ref="input" :value="value" :name="inputName"
                        @input="updateValue($event.target.value)"
                        @focus="onFocus($event)"
                        @blur="onBlur($event)"
                        :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
                 <input v-if="type=='url'" type="url" :class="classes"
-                       ref="input" :value="value" :name="name"
+                       ref="input" :value="value" :name="inputName"
                        @input="updateValue($event.target.value)"
                        @focus="onFocus($event)"
                        @blur="onBlur($event)"
                        :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
                 <input v-if="type=='email'" type="email" :class="classes"
-                       ref="input" :value="value" :name="name"
+                       ref="input" :value="value" :name="inputName"
                        @input="updateValue($event.target.value)"
                        @focus="onFocus($event)"
                        @blur="onBlur($event)"
                        :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
                 <input v-if="type=='number'" type="number" :class="classes"
-                       ref="input" :value="value" :name="name"
+                       ref="input" :value="value" :name="inputName"
                        @input="updateValue($event.target.value)"
                        @focus="onFocus($event)"
                        @blur="onBlur($event)"
                        :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
 
                 <input v-if="type=='date'" type="date" :class="classes"
-                       ref="input" :value="value" :name="name"
+                       ref="input" :value="value" :name="inputName"
                        @input="updateValue($event.target.value)"
                        @focus="onFocus($event)"
                        @blur="onBlur($event)"
                        :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
                 <input v-if="type=='time'" type="time" :class="classes"
-                       ref="input" :value="value" :name="name"
+                       ref="input" :value="value" :name="inputName"
                        @input="updateValue($event.target.value)"
                        @focus="onFocus($event)"
                        @blur="onBlur($event)"
                        :placeholder="placeholder" :readonly="readonly" :disabled="disabled"/>
                 <input v-if="type=='color'" type="color" :class="classes"
-                       ref="input" :value="value" :name="name"
+                       ref="input" :value="value" :name="inputName"
                        @input="updateValue($event.target.value)"
                        @focus="onFocus($event)"
                        @blur="onBlur($event)"
@@ -296,11 +296,23 @@ step	    规定输入字段的合法数字间隔。
                 type: [Boolean, String],
                 default: false,
             },
+            AutoHeight: {  //Textarea自动增高(默认是scroll的)
+                type: [Boolean, String],
+                default: false,
+            },
             className: String
         },
         data() {
             return {
                 showClearButton: false,
+                inputName: 'view-input-' + Math.random().toString(36).substring(2, 7),
+            }
+        },
+        mounted: function() {
+            console.log('page-viewform mounted');
+            let vm = this;
+            if(vm.name && vm.name!='') {
+                vm.inputName = vm.name;
             }
         },
         computed: {
@@ -367,6 +379,11 @@ step	    规定输入字段的合法数字间隔。
             updateValue(value) {
                 this.$refs.input.value = value;
                 this.$emit('input', value);
+
+                //自动增高
+                if(this.type === 'textarea' && this.AutoHeight) {
+                    this.$refs.input.style.height = this.$refs.input.scrollTop + this.$refs.input.scrollHeight + "px";
+                }
             },
 
             input($event) {
