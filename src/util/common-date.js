@@ -73,6 +73,24 @@ let common_formater = {
             }
             return null;
         },
+        tdate: function (date) {
+            return this.format(new Date(date),DATE_PATTERN);
+        },
+        ttime: function (date) {
+            return this.format(new Date(date),TIME_PATTERN);
+        },
+        tdatetime: function (date) {
+            return this.format(new Date(date),DATETIME_PATTERN);
+        },
+        curdate: function () {
+            return this.format(new Date(),DATE_PATTERN);
+        },
+        curtime: function () {
+            return this.format(new Date(),TIME_PATTERN);
+        },
+        curdatetime: function () {
+            return this.format(new Date(),DATETIME_PATTERN);
+        },
     },
 };
 

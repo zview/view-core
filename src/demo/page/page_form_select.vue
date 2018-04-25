@@ -3,7 +3,7 @@
 
         <List>
             <Select :label="'请选择' + val" color="balanced" :options="options" v-model="val"></Select>
-            <Select :label="'请选择' + val2" color="balanced" :multiple="true" :options="options2" v-model="val2"></Select>
+            <Select label="请选择" color="balanced" :multiple="true" :show-selected="true" :options="options2" v-model="val2"></Select>
         </List>
 
 
@@ -38,9 +38,13 @@
                     {'name': '一年级', 'disabled': true},
                     {'name': '一(1)班', 'value': 11},
                     {'name': '一(2)班', 'value': 12},
+                    {'name': '一(3)班', 'value': 13},
+                    {'name': '一(4)班', 'value': 14},
                     {'name': '二年级', 'disabled': true},
                     {'name': '二(1)班', 'value': 21},
                     {'name': '二(2)班', 'value': 22},
+                    {'name': '二(3)班', 'value': 23},
+                    {'name': '二(4)班', 'value': 24},
                 ],
 
                 selected: '',

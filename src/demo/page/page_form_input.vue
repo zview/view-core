@@ -71,6 +71,7 @@
         <List header-content="堆叠">
             <Input type="text" label="堆叠" display-style="stacked-label" placeholder="stacked" v-model="v_stacked"/>
             <Input type="text" label="堆叠" display-style="stacked-label" placeholder="stacked" v-model="v_stacked"/>
+            <Input type="textarea" label="堆叠" display-style="stacked-label" placeholder="stacked" v-model="v_stacked"/>
         </List>
 
         <List header-content="内联">

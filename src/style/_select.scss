@@ -10,6 +10,16 @@
     {
         font-size: 14px;
         line-height: 20px;
+        font-weight: bold;
+    }
+
+    .view-select-selected
+    {
+        word-wrap: break-word;
+        word-break: break-all;
+        display: inline-block;
+        white-space: normal;
+        margin-right: 140px;
     }
 
     .view-select

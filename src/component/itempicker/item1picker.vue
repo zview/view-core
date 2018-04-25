@@ -1,5 +1,5 @@
 <template>
-    <div class="view-input-wrapper">
+    <div class="view-input-wrapper" :class="classes">
         <div view-datepicker class="view-input-item view-item item item-input" @click="showPicker()">
             <span v-if="label != ''" class="view-input-label input-label" v-text="label"></span>
             <input ref="datetime" type="datetime" :value="v">
@@ -42,10 +42,21 @@
             showName: {
                 type: Boolean,
                 default: true,
+            },
+            showLine: {
+                type: Boolean,
+                default: true,
             }
         },
 
         computed: {
+            classes () {
+                return [
+                    {
+                        [`hide`]: !this.showLine
+                    }
+                ];
+            },
             v: {
                 get: function () {
                     return this.value;

@@ -89,7 +89,6 @@
 
         </div>
 
-
         <div class="view-input-item item item-input-inset" v-else>
             <div class="item-input-wrapper">
                 <span class="view-input-label input-label" :class="label_classes" v-if="label || labelIcon">
@@ -175,14 +174,14 @@
 
                 <slot></slot>
 
-                <Button type="clear" size="small" :icon="buttonIcon" :color="buttonColor"
-                        v-if="buttonIcon || buttonLabel" @click.native="buttonClicked">
-                    {{buttonLabel}}
-                </Button>
-
             </div>
 
         </div>
+
+        <Button type="clear" size="small" :icon="buttonIcon" :color="buttonColor"
+                v-if="buttonIcon || buttonLabel" @click.native="buttonClicked">
+            {{buttonLabel}}
+        </Button>
 
         <span class="input-clear" :class="clear_classes" @click="clear(value)"></span>
 
@@ -296,7 +295,7 @@ step	    规定输入字段的合法数字间隔。
                 type: [Boolean, String],
                 default: false,
             },
-            AutoHeight: {  //Textarea自动增高(默认是scroll的)
+            autoHeight: {  //Textarea自动增高(默认是scroll的)
                 type: [Boolean, String],
                 default: false,
             },
@@ -381,7 +380,7 @@ step	    规定输入字段的合法数字间隔。
                 this.$emit('input', value);
 
                 //自动增高
-                if(this.type === 'textarea' && this.AutoHeight) {
+                if(this.type === 'textarea' && this.autoHeight) {
                     this.$refs.input.style.height = this.$refs.input.scrollTop + this.$refs.input.scrollHeight + "px";
                 }
             },

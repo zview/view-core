@@ -56,6 +56,7 @@
                 <Icon slot="right" icon="ion-ios-sunny"></Icon>
             </Slider>
             <Select :label="'请选择' + select_val" color="balanced" :options="select_options" v-model="select_val"></Select>
+            <Select label="请选择" color="balanced" :multiple="true" :show-selected="true" :options="select_options2" v-model="select_val2"></Select>
             <Radio indicator-color="balanced" :options="radio_options" v-model="radio_val" :title="'请选择' + radio_val"></Radio>
             <Check :title="'请选择' + check_val" :options="check_options" v-model="check_val"></Check>
 
@@ -101,6 +102,20 @@
                     {'name': '一', 'value': 1},
                     {'name': '三', 'value': 3},
                     {'name': '五', 'value': 5},
+                ],
+
+                select_val2: [11,21],
+                select_options2 : [
+                    {'name': '一年级', 'disabled': true},
+                    {'name': '一(1)班', 'value': 11},
+                    {'name': '一(2)班', 'value': 12},
+                    {'name': '一(3)班', 'value': 13},
+                    {'name': '一(4)班', 'value': 14},
+                    {'name': '二年级', 'disabled': true},
+                    {'name': '二(1)班', 'value': 21},
+                    {'name': '二(2)班', 'value': 22},
+                    {'name': '二(3)班', 'value': 23},
+                    {'name': '二(4)班', 'value': 24},
                 ],
 
                 radio_val: 3,
