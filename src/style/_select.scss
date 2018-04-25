@@ -11,6 +11,7 @@
         font-size: 14px;
         line-height: 20px;
         font-weight: bold;
+        color: $dimgray-color;
     }
 
     .view-select-selected
@@ -27,16 +28,21 @@
 
         &.view-select-multipile
         {
-            min-width: 140px;
+            min-width: 130px;
         }
 
         select[multiple]
         {
-            min-width: 140px;
+            min-width: 130px;
         }
 
     }
 
+}
+
+.item-select select
+{
+    padding: 0 16px;
 }
 
 
