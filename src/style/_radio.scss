@@ -11,7 +11,7 @@
 
     .view-radio-title
     {
-
+        @include view-m-form-item-title();
     }
 
     .view-radio-item

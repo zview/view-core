@@ -5,7 +5,7 @@
 {
     .view-check-title
     {
-
+        @include view-m-form-item-title();
     }
 
     .view-check-item.item.item-checkbox
