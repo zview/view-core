@@ -423,7 +423,7 @@ step	    规定输入字段的合法数字间隔。
 
             buttonClicked() {
                 if (this.onButtonClick) this.onButtonClick();
-                if(this.name!='') this.$emit('button-click', this.name);
+                if(this.name!='') this.$emit('button-click', this.name, this.$refs.input.value);
             }
         },
 

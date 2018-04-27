@@ -143,8 +143,8 @@
             _on_send_smscode: function () {
                 console.log('_on_send_smscode');
             },
-            _on_button_click: function (name) {
-                console.log('_on_button_click', name);
+            _on_button_click: function (name, value) {
+                console.log('_on_button_click', name, value);
             },
         },
     }
