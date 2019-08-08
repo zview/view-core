@@ -337,6 +337,7 @@ step	    规定输入字段的合法数字间隔。
                     {
                         [`item-${this.displayStyle}`]: !!this.displayStyle,
                         [`item-button-right`]: !!this.buttonIcon,
+                        [`item-show-clear`]: !!this.showClearButton && this.showClear,
                         [`${this.itemClassName}`]: !!this.itemClassName
                     }
                 ];

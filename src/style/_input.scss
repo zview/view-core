@@ -27,7 +27,7 @@
 
         position: absolute;
         top: 14px;
-        right: 9px;
+        right: 3px;
         z-index: 3;
     }
 
@@ -36,7 +36,7 @@
     {
         position: absolute;
         top: 14px;
-        right: 9px;
+        right: 3px;
         z-index: 3;
 
         width: 24px;
@@ -46,10 +46,12 @@
         background-repeat: no-repeat;
         background-position: 5px 5px;
 
-        visibility: hidden;
+        //visibility: hidden;
+        display: none;
         &.active
         {
-            visibility: visible;
+            //visibility: visible;
+            display: block;
         }
     }
 
@@ -60,6 +62,16 @@
         {
             padding-top: 0;
             padding-bottom: 0;
+        }
+
+        &.item-show-clear
+        {
+
+            input[type='text']
+            {
+                padding-right: 30px;
+            }
+
         }
 
         .view-input-label
