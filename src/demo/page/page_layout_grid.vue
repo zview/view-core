@@ -234,6 +234,58 @@
         </Panel>
 
 
+            <GridList>
+                <GridItem>
+                    <i class="icon ion-ios-flame"></i>
+                    <span>one</span>
+                </GridItem>
+                <GridItem>
+                    <i class="icon ion-ios-flame"></i>
+                    <span>two</span>
+                </GridItem>
+                <GridItem>
+                    <i class="icon ion-ios-flame"></i>
+                    <span>three</span>
+                </GridItem>
+                <GridItem>
+                    <Icon icon="fa-phone" size="2x"></Icon>
+                    <span>one</span>
+                </GridItem>
+                <GridItem>
+                    <Icon icon="fa-phone" size="2x"></Icon>
+                    <span>two</span>
+                </GridItem>
+                <GridItem>
+                    <Icon icon="fa-phone" size="2x"></Icon>
+                    <span>three</span>
+                </GridItem>
+                <GridItem>
+                    <Icon icon="fa-spinner" type="spin"></Icon>
+                    <span>one</span>
+                </GridItem>
+                <GridItem>
+                    <Icon icon="fa-spinner" type="spin"></Icon>
+                    <span>two</span>
+                </GridItem>
+                <GridItem>
+                    <Icon icon="fa-spinner" type="spin"></Icon>
+                    <span>three</span>
+                </GridItem>
+                <GridItem>
+                    <img src="../static/images/nature-macro-1280.jpg">
+                    <span>four</span>
+                </GridItem>
+                <GridItem>
+                    <img src="../static/images/nature-macro-1280.jpg">
+                    <span>five</span>
+                </GridItem>
+                <GridItem>
+                    <img src="../static/images/nature-macro-1280.jpg">
+                    <span>six</span>
+                </GridItem>
+            </GridList>
+
+
         <Panel>
             <pre>
             .col-10	10%

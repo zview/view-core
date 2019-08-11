@@ -12,7 +12,7 @@
             <Item @click.native="_on_goto_page('/demo/button')" note="Button">按钮</Item>
 
             <Item color="light" bg-color="positive" note="Layout">布局</Item>
-            <Item @click.native="_on_goto_page('/demo/grid')" note="Row/Col">栅格</Item>
+            <Item @click.native="_on_goto_page('/demo/grid')" note="Row/Col/Grid">栅格</Item>
             <Item @click.native="_on_goto_page('/demo/cells')" note="Cells">宫格</Item>
             <Item @click.native="_on_goto_page('/demo/list')" note="List/Item">列表</Item>
             <Item @click.native="_on_goto_page('/demo/table')" note="Table">表格</Item>

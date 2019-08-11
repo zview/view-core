@@ -6,7 +6,11 @@
           取消
         </slot>
       </button>
-
+      <button class="button button-clear button-stable" @click="clear()">
+        <slot name="clear">
+          清除
+        </slot>
+      </button>
       <button class="button button-clear button-balanced btn-confirm" @click="confirm()">
         <slot name="confirm">
           确定
@@ -162,7 +166,10 @@
       confirm() {
         channel.$emit('PickerOkEvent', this.value);
       },
-
+      clear() {
+        this.value = '';
+        this.confirm();
+      },
       cancel() {
         channel.$emit('PickerCancelEvent');
       },

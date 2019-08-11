@@ -82,7 +82,7 @@ import Form from './component/form';
 
 //Layout
 import { List, Item } from './component/list';
-import { Row, Col } from './component/grid';
+import { Row, Col, GridList, GridItem } from './component/grid';
 import Cells from './component/cells';
 import { Panel, Card } from './component/panel';
 import { Accordion, AccordionItem } from './component/accordion';
@@ -163,6 +163,8 @@ const View = {
     Item,
     Row,
     Col,
+    GridList,
+    GridItem,
     Cells,
     Panel,
     Card,
@@ -278,6 +280,8 @@ const View = {
         Vue.component('Item', Item);
         Vue.component('Row', Row);
         Vue.component('Col', Col);
+        Vue.component('GridList', GridList);
+        Vue.component('GridItem', GridItem);
         Vue.component('Cells', Cells);
         Vue.component('Panel', Panel);
         Vue.component('Card', Card);
@@ -462,6 +466,8 @@ export { List };
 export { Item };
 export { Row };
 export { Col };
+export { GridList };
+export { GridItem };
 export { Cells };
 export { Panel };
 export { Card };

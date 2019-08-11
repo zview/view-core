@@ -12,3 +12,213 @@
 
 
 }
+
+
+
+.view-gridlist
+{
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    &:before
+    {
+        content: " ";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        height: 1px;
+        border-top: 1px solid #C7C7C7;
+        color: #C7C7C7;
+        transform-origin: 0 0;
+        transform: scaleY(0.5);
+    }
+    &:after
+    {
+        content: " ";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1px;
+        bottom: 0;
+        border-left: 1px solid #C7C7C7;
+        color: #C7C7C7;
+        transform-origin: 0 0;
+        transform: scaleX(0.5);
+    }
+}
+
+.view-griditem
+{
+    position: relative;
+    float: left;
+    padding: 20px 10px;
+    width: 33.3333%;
+    box-sizing: border-box;
+
+    &:before
+    {
+        content: " ";
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 1px;
+        bottom: 0;
+        border-right: 1px solid #C7C7C7;
+        color: #C7C7C7;
+        transform-origin: 100% 0;
+        transform: scaleX(0.5);
+    }
+    &:after
+    {
+        content: " ";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 1px;
+        border-bottom: 1px solid #C7C7C7;
+        color: #C7C7C7;
+        transform-origin: 0 100%;
+        transform: scaleY(0.5);
+    }
+
+    .icon
+    {
+        text-align: center;
+        margin: 0 auto;
+
+        & + span
+        {
+            margin-top: 5px;
+        }
+    }
+
+    img
+    {
+        text-align: center;
+        margin: 0 auto;
+        height: 2.5em;
+        width: 2.5em;
+
+        & + span
+        {
+            margin-top: 5px;
+        }
+    }
+
+    span, p
+    {
+        display: block;
+        text-align: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+
+/*.view-gridlist
+{
+    position: relative;
+    overflow: hidden;
+
+
+    &::before
+    {
+        //@include view-m-liner(top);
+        //@include view-m-liner(left);
+    }
+    &::after
+    {
+        @include view-m-liner(top);
+        @include view-m-liner(left);
+    }
+
+    !*display: flex;
+    flex-direction: row;
+    align-items: center;*!
+    //justify-content: center;
+    //flex-direction: column;
+    //flex-wrap: wrap;
+    //align-content: space-between;
+
+
+    .view-griditem
+    {
+        position: relative;
+        float: left;
+        padding: 20px 10px;
+        width: 33.3333%;
+        box-sizing: border-box;
+        text-align: center;
+        //border-width: 1px;
+
+        !*display: block;
+        position: relative;
+        text-align: center;
+        flex-basis: 33.3333%;
+        flex-grow: 0;
+        flex-shrink: 0;*!
+        //background: #ffa500;
+
+
+
+        &::before
+        {
+            @include view-m-liner(right);
+            @include view-m-liner(bottom);
+        }
+        &::after
+        {
+            //@include view-m-liner(right);
+            //@include view-m-liner(bottom);
+        }
+
+
+        !*&::before
+        {
+            content: '';    //追加一个空
+            position: absolute;    //设置定位
+            top: 0;  //如果不设置可能会出现偏移
+            left: 0;
+            border: 1px solid $dimgray-color;    //设置边框
+            width: 200%;    //设置为插入元素的两倍宽高
+            height: 200%;
+            transform-origin: 0 0;    //设置元素的基点为0 0
+            transform: scale(0.5,0.5);    //宽高缩小一半
+            box-sizing: border-box;    //设置盒模型 这一步必须要有,否则边框不会随着一起缩放
+        }*!
+
+
+        //float: left;
+        //width: 30%;
+        //padding: 30% 0 0 0;
+        //margin: 1px;
+        //border-radius: 4%;
+
+
+        .icon, img
+        {
+            text-align: center;
+            margin: 0 auto;
+
+            & + span
+            {
+                margin-top: 5px;
+            }
+        }
+
+        span, p
+        {
+            display: block;
+            text-align: center;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+
+
+}*/
