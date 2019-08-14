@@ -235,19 +235,19 @@
 
 
             <GridList>
-                <GridItem>
+                <GridItem @click.native="_on_item_click">
                     <i class="icon ion-ios-flame"></i>
                     <span>one</span>
                 </GridItem>
-                <GridItem>
+                <GridItem @click.native="_on_item_click">
                     <i class="icon ion-ios-flame"></i>
                     <span>two</span>
                 </GridItem>
-                <GridItem>
+                <GridItem @click.native="_on_item_click">
                     <i class="icon ion-ios-flame"></i>
                     <span>three</span>
                 </GridItem>
-                <GridItem>
+                <GridItem @click.native="_on_item_click">
                     <Icon icon="fa-phone" size="2x"></Icon>
                     <span>one</span>
                 </GridItem>
@@ -321,7 +321,9 @@
             }
         },
         methods: {
-
+            _on_item_click: function () {
+                console.log('_on_item_click');
+            },
         },
     }
 </script>

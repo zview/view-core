@@ -45,13 +45,12 @@
         },
         created() {
             console.log('created');
-            let vm = this;
         },
         mounted: function() {
             console.log('mounted');
             let vm = this;
 
-            /*for(let i=0;i<BANNER_SIZE;i++) {
+            for(let i=0;i<BANNER_SIZE;i++) {
                 vm.banners.push({'image':'./static/logo-overlay.png'})
             }
 
@@ -59,7 +58,7 @@
                 this.$refs.swiper.resize();
                 let count = this.$refs.swiper.count();
                 console.log('count', count);
-            }, 100);*/
+            }, 100);
         },
         methods: {
             onClick() {
@@ -83,6 +82,7 @@
                 let vm = this;
 
                 //
+                vm.banners = [];
                 for(let i=0;i<BANNER_SIZE;i++) {
                     vm.banners.push({'image':'./static/logo-overlay.png'})
                 }

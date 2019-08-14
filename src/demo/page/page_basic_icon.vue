@@ -4,8 +4,8 @@
         <Panel>{{message}}</Panel>
 
         <List type="list-card" header-content="FontAwesome" header-bg-color="positive" header-color="light">
-            <Item color="calm"><Icon icon="fa-snowflake-o"></Icon>云横秦岭家何在</Item>
-            <Item color="calm"><Icon icon="fa-bold"></Icon>雪拥蓝关马不前</Item>
+            <Item color="calm"><Icon icon="fa-snowflake-o" @click.native="_on_icon_click"></Icon>云横秦岭家何在</Item>
+            <Item color="calm"><Icon icon="fa-bold" @click.native="_on_icon_click"></Icon>雪拥蓝关马不前</Item>
         </List>
 
         <List type="list-card" header-content="Ionic" header-bg-color="positive" header-color="light">
@@ -92,7 +92,9 @@
             }
         },
         methods: {
-
+            _on_icon_click: function () {
+                console.log('_on_icon_click');
+            },
         },
     }
 </script>

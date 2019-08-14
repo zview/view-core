@@ -10,9 +10,10 @@
           </div>
           <button class="button action-sheet-option"
             v-for="(b, index) in buttons" @click="hide(index)">
-            <div class="liner-top" v-if="index == 0"></div>
+            <div class="liner-top"></div>
+            <!--<div class="liner-top" v-if="index == 0"></div>-->
             <span v-text="b.text"></span>
-            <div class="liner-bottom"></div>
+            <!--<div class="liner-bottom"></div>-->
           </button>
         </div>
 

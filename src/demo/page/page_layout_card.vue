@@ -12,9 +12,9 @@
 
 
         <Card>
-            <div slot="header" class="text-right">头部装饰</div>
+            <div slot="header" class="text-right" style="padding: 2px 5px;">头部装饰</div>
             {{message}}
-            <div slot="footer">底部装饰</div>
+            <div slot="footer" style="padding: 2px 5px;">底部装饰</div>
         </Card>
 
 

@@ -312,124 +312,61 @@ $_view-zindexs: (
     position: absolute;
     //background-color: $gray-color;//#dddddd;
     //display: block;
+    box-sizing: border-box;
     @if $position == left
     {
-        /*left: 0;
-        top: 0;
-        bottom: auto;
-        right: auto;
-        height: 100%;
-        width: 1px;
-        color: $dimgray-color;
-        border-left: 1px solid $dimgray-color;
-        transform-origin: 0 50%;
-        -webkit-transform-origin: 0 50%;
-        transform: scaleX(0.5);
-        -webkit-transform: scaleX(0.5);*/
-
-
         left: 0;
         top: 0;
         bottom: 0;
-        //width: 1px;
-        border-left: 1px solid $dimgray-color;    //设置边框
-        width: 200%;    //设置为插入元素的两倍宽高
-        height: 200%;
-        transform-origin: 0 0;    //设置元素的基点为0 0
+        border-left: 1px solid $darkgray-color;
+        width: 1px;
+        height: 100%;
+        transform-origin: 0 0;
         -webkit-transform-origin: 0 0;
-        transform: scaleX(0.5);    //宽高缩小一半
+        transform: scaleX(0.5);
         -webkit-transform: scaleX(0.5);
-        box-sizing: border-box;    //设置盒模型 这一步必须要有,否则边框不会随着一起缩放
     }
     @else if $position == right
     {
-        /*left: auto;
-        top: 0;
-        bottom: auto;
-        right: 0;
-        height: 100%;
-        width: 1px;
-        color: $dimgray-color;
-        border-right: 1px solid $dimgray-color;
-        transform-origin: 100% 50%;
-        -webkit-transform-origin: 100% 50%;
-        transform: scaleX(0.5);
-        -webkit-transform: scaleX(0.5);*/
-
-
         bottom: 0;
-        top: 0;  //如果不设置可能会出现偏移
+        top: 0;
         right: 0;
-        //width: 1px;
-        border-right: 1px solid $dimgray-color;    //设置边框
-        width: 200%;    //设置为插入元素的两倍宽高
-        height: 200%;
-        transform-origin: 0 0;    //设置元素的基点为0 0
+        border-right: 1px solid $darkgray-color;
+        width: 1px;
+        height: 100%;
+        transform-origin: 0 0;
         -webkit-transform-origin: 0 0;
-        transform: scaleX(0.5);    //宽高缩小一半
+        transform: scaleX(0.5);
         -webkit-transform: scaleX(0.5);
-        box-sizing: border-box;    //设置盒模型 这一步必须要有,否则边框不会随着一起缩放
 
         //transform-origin: 100% 0;
         //-webkit-transform-origin: 100% 0;
     }
     @else if $position == top
     {
-        /*left: 0;
+        left: 0;
         top: 0;
-        bottom: auto;
-        right: auto;
-        height: 1px;
+        right: 0;
+        border-top: 1px solid $darkgray-color;
         width: 100%;
-        color: $dimgray-color;
-        border-top: 1px solid $dimgray-color;
+        height: 1px;
         transform-origin: 0 0;
         -webkit-transform-origin: 0 0;
         transform: scaleY(0.5);
-        -webkit-transform: scaleY(0.5);*/
-
-
-        left: 0;
-        top: 0;
-        right: 0;
-        //height: 1px;
-        border-top: 1px solid $dimgray-color;    //设置边框
-        width: 200%;    //设置为插入元素的两倍宽高
-        height: 200%;
-        transform-origin: 0 0;    //设置元素的基点为0 0
-        -webkit-transform-origin: 0 0;
-        transform: scaleY(0.5);    //宽高缩小一半
         -webkit-transform: scaleY(0.5);
-        box-sizing: border-box;    //设置盒模型 这一步必须要有,否则边框不会随着一起缩放
     }
     @else // $position == bottom
     {
-        /*left: 0;
-        top: auto;
-        bottom: 0;
-        right: auto;
-        height: 1px;
-        width: 100%;
-        color: $dimgray-color;
-        border-bottom: 1px solid $dimgray-color;
-        transform-origin: 0 100%;
-        -webkit-transform-origin: 0 100%;
-        transform: scaleY(0.5);
-        -webkit-transform: scaleY(0.5);*/
-
-
         left: 0;
         bottom: 0;
         right: 0;
-        //height: 1px;
-        border-bottom: 1px solid $dimgray-color;    //设置边框
-        width: 200%;    //设置为插入元素的两倍宽高
-        height: 200%;
-        transform-origin: 0 0;    //设置元素的基点为0 0
+        border-bottom: 1px solid $darkgray-color;
+        width: 100%;
+        height: 1px;
+        transform-origin: 0 0;
         -webkit-transform-origin: 0 0;
-        transform: scaleY(0.5);    //宽高缩小一半
+        transform: scaleY(0.5);
         -webkit-transform: scaleY(0.5);
-        box-sizing: border-box;    //设置盒模型 这一步必须要有,否则边框不会随着一起缩放
         //transform-origin: 0 100%;
         //-webkit-transform-origin: 0 100%;
     }
