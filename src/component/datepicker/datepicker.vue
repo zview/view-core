@@ -2,7 +2,7 @@
     <div class="view-input-wrapper">
         <div view-datepicker class="view-input-item view-item item item-input" @click="showPicker()">
             <span v-if="label != ''" class="view-input-label input-label" v-text="label"></span>
-            <input ref="datetime" type="datetime" :value="v">
+            <input ref="datetime" type="datetime" :value="v" :readonly="readonly" :disabled="disabled">
             <span class="view-input-text" v-text="formatedDate"></span>
         </div>
     </div>
@@ -43,7 +43,9 @@
                 validator: function (value) {
                     return ['yyyy-MM-dd', 'yyyy/MM/dd'].indexOf(value) > -1;
                 }
-            }
+            },
+            disabled: [Boolean, String],
+            readonly: [Boolean, String]
         },
 
         computed: {
@@ -60,8 +62,8 @@
 
         watch: {
             value: function (newValue) {
-                this.$emit('input', newValue);
-                this.$refs.datetime.value = newValue;
+                console.log('watch', newValue);
+                this.formatedDate = formatDate(newValue, this.dateFormat);
             }
         },
 
@@ -78,6 +80,8 @@
 
         methods: {
             showPicker() {
+                if(this.readonly || this.disabled) return;
+
                 let el = document.createElement('div');
                 el.setAttribute('view-picker', '');
                 document.body.appendChild(el);

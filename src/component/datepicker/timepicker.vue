@@ -26,7 +26,9 @@
             value: {
                 type: String,
                 default: ''
-            }
+            },
+            disabled: [Boolean, String],
+            readonly: [Boolean, String]
         },
 
         computed: {
@@ -43,8 +45,8 @@
 
         watch: {
             value: function (newValue) {
-                this.$emit('input', newValue);
-                this.$refs.datetime.value = newValue;
+                console.log('watch', newValue);
+                this.formatedDate = newValue;
             }
         },
 
@@ -61,6 +63,8 @@
 
         methods: {
             showPicker() {
+                if(this.readonly || this.disabled) return;
+
                 let el = document.createElement('div');
                 el.setAttribute('view-picker', '');
                 document.body.appendChild(el);

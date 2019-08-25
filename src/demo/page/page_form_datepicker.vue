@@ -5,6 +5,7 @@
 
         <Panel type="paddingless">
             <DatePicker v-model="curdate" label="日期" date-format="yyyy-MM-dd"></DatePicker>
+            <!--<DatePicker v-model="curdate" label="日期" date-format="yyyy-MM-dd" readonly="true"></DatePicker>-->
         </Panel>
 
         <Panel>
