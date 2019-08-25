@@ -43,6 +43,14 @@
         methods: {
 
         },
+        mounted: function() {
+            console.log('mounted');
+            let vm = this;
+
+            vm.curdate = '2018-12-01';
+            vm.curtime = '12:24:24';
+            vm.curdatetime = '2018-12-01 12:24:24';
+        },
     }
 </script>
 

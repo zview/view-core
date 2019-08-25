@@ -41,6 +41,13 @@
             },
         },
 
+        watch: {
+            value: function (newValue) {
+                this.$emit('input', newValue);
+                this.$refs.datetime.value = newValue;
+            }
+        },
+
         data() {
             return {
                 picker: undefined, // picker vm
