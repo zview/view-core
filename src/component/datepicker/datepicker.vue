@@ -62,8 +62,8 @@
 
         watch: {
             value: function (newValue) {
-                console.log('watch', newValue);
                 this.formatedDate = formatDate(newValue, this.dateFormat);
+                console.log('watch', newValue, this.formatedDate);
             }
         },
 
@@ -94,11 +94,8 @@
                 }).$mount('[view-picker]');
 
                 channel.$on('PickerOkEvent', (value) => {
-                    this.v = value;
-//          console.log('datetime input =>', this.$refs.datetime);
-//          this.$refs.datetime.value = value;
-//          this.$emit('input', value);
-
+//                    this.v = value;
+                    this.v = formatDate(value, this.dateFormat);
                     this.formatedDate = formatDate(value, this.dateFormat);
                     if (this.picker)
                         this.picker.hide();
