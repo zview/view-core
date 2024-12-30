@@ -110,6 +110,31 @@
             </Item>
         </List>
 
+
+        <List type="list-card">
+            <Item :is-image="true">
+                <img src="../static/images/nature-sea-800.jpg" />
+            </Item>
+            <Item>
+                <h2>标题标题标题标题标题标题标题标题</h2>
+                <p>内容</p>
+            </Item>
+            <Item :is-tabs="true">
+                <div class="tab-item">
+                    <b>文字</b>
+                    <u>文字</u>
+                </div>
+                <div class="tab-item">
+                    <sub>文字2</sub>
+                </div>
+                <div class="tab-item">
+                    <span class="item-middle">默认按钮</span>
+                    <!--<Button size="small" material="true" bg-color="energized" icon="ion-home">默认按钮</Button>-->
+                    <!--<Button size="small" material="true" bg-color="energized" color="light">默认按钮</Button>-->
+                </div>
+            </Item>
+        </List>
+
     </div>
 </template>
 
@@ -129,5 +154,21 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
+
+    .item-middle
+    {
+        padding: 0.3rem 0.6rem;
+        border-radius: 0.2rem;
+        background-color: #ffc900;
+        font-size: 14px;
+        color: white;
+        box-shadow: 5px 10px 15px 5px rgba(0,0,0,0.1);
+    }
+
+    .item-middle:active
+    {
+        background-color: #ffee00;
+        color: black;
+    }
 
 </style>

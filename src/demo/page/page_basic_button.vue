@@ -53,6 +53,11 @@
                 <Button bg-color="calm" size="small" icon="fa-snowflake-o" color="dark">默认按钮</Button>
                 <Button bg-color="stable" size="small" icon="fa-snowflake-o" icon-align="right">默认按钮</Button>
             </Item>
+            <Item>
+                <Button type="block" material="true" bg-color="energized" icon="ion-home">默认按钮</Button>
+                <Button type="block" material="true" bg-color="assertive" color="dark">默认按钮<Icon icon="ion-xbox"></Icon></Button>
+                <Button material="true" bg-color="assertive" icon="ion-heart" icon-align="right">默认按钮</Button>
+            </Item>
         </List>
 
         <List type="list-card" header-content="FAB按钮" header-bg-color="positive" header-color="light">

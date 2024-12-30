@@ -4,5 +4,4 @@ src/config/env.js
 /yarn-error.log
 /node_modules/
 /demo/
-/docs/demo/
-/docs/demo-src.zip
+/docs
